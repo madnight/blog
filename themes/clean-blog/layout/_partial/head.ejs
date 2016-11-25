@@ -64,8 +64,8 @@
     if (page.category) title.push(page.category);
     if (page.tag) title.push(page.tag);
     if (page.archive) {
-        if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
-        else title.push(__('archive_a'));
+        if (page.year) title.push('Archives: ' + (page.year + (page.month ? '/' + page.month : '')));
+        else title.push('Archives');
     }
     title.push(config.title);
     %>
