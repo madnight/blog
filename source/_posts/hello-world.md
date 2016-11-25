@@ -43,7 +43,7 @@ update "svn" valgrind
 
 # repeat every 2 hours
 sleep 2h
-done 
+done
 ```
 Step 4. Make the script executable `chmod x+u` and run it.
 
