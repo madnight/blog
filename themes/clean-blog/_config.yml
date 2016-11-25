@@ -29,6 +29,9 @@ comments:
 # Google Analytics Tracking ID
 google_analytics:
 
+# Syntax Highlight Theme
+highlight: tomorrow-night
+
 # Addthis ID
 addthis:
 
