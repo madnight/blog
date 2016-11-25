@@ -11,7 +11,8 @@ menu:
 menu_title: beuke.org
 
 # URL of the Home page image
-index_cover: http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg
+# index_cover: http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg
+index_cover: https://i.imgur.com/7uqeKPs.jpg
 
 # Default post title
 default_post_title: Untitled
