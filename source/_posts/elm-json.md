@@ -2,11 +2,18 @@
 title: JSON parsing in ELM
 date: 2017-01-14
 tags: ["ELM", "JSON", "Functional Programming"]
-cover: https://i.imgur.com/w21f4XF.png
+cover: https://i.imgur.com/wOEd1Wy.jpg
 ---
 
-There is a ongoing hype of [JavaScript](https://madnight.github.io/githut) in the programmer community. Virtually everything is now compiled to JavaScript and delivered to client executing it with e.g. Googles V8 engine.
+# Intro
+There is a ongoing hype of JavaScript[^1] in the programmer community. Virtually everything is now compiled to JavaScript and delivered to the client. JavaScript is also becoming very popular for server side development[^2], replacing Ruby and PHP as primary programming language. There is also an ongoing serverless trend, moving most of the code into the front-end part of the application.[^3] This paradigm shift resulting in highly complex front-end applications. Making it very complicated to write these application with plain old vanilla JavaScript. Therefore the community started to put much effort in improving the JS front-end development. They added a new JavaScript Standard ES6 (ECMAScript 2015), created the Babel compiler to compile that new standard to vanilla JS making it executable by older browsers and invented frameworks and tools like react, webpack, karma, mocha, enzyme, gulp, eslint plus a million more.[^5] It take weeks to get familiar with the tools, but it's worth the effort. Following all the current best practices leads to a setup with many different tools and a highly improved JavaScript syntax, that basically follows the approach of reactive functional programming.[^6] So why not experimenting with a reactive functional programming language explicitly designed for front-end programming and compiling into vanilla JS.
 
+# ELM
+ELM can be described as a reactive functional programming language. It has a simplified Haskell syntax, making it much easier to use than Haskell. It is focused on front-end web development and therefore compiles to JavaScript. It has the builtin features of react and redux.[^7]
+
+### WORK IN PROGRESS ... MORE SOON
+
+<!-- ### WIP
 ```elm
 import Html exposing (..)
 import Http
@@ -86,4 +93,13 @@ langDecoder = map4 ProgrammingLanguage
 
 langListDecoder : Decoder (List ProgrammingLanguage)
 langListDecoder = Json.Decode.list langDecoder
-```
+``` -->
+
+[^1]: Programming Languages Github Ranking https://madnight.github.io/githut
+[^2]: https://en.wikipedia.org/wiki/Node.js
+[^3]: What is Serverless Architecture? https://medium.com/@PaulDJohnston/what-is-serverless-architecture-43b9ea4babca#.5adec3yz0
+[^4]: Destructuring: What, Why and How - Part 1 of ES6 JavaScript Features https://www.youtube.com/watch?v=PB_d3uBkQPs
+[^5]: Boilerplate Example react-webpack-babel-karma-boilerplate
+https://github.com/madnight/react-webpack-babel-karma-boilerplate
+[^6]: So You Want to be a Functional Programmer https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.wu667z5wl
+[^7]: Redux is influenced by ELM https://github.com/reactjs/redux#Influences

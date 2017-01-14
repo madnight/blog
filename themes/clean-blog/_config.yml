@@ -1,7 +1,7 @@
 # Header
 menu:
   Home: /
-  Archives: /archives/
+  # Archives: /archives/
   About: /about/
 
 # Title on top left of menu. Leave empty to use main blog title
