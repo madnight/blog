@@ -1,17 +1,23 @@
 # Personal Blog
 based on https://hexo.io
 ### Theme
-Clean Blog Hexo
-
-
+Clean Blog Hexo  
 https://github.com/klugjo/hexo-theme-clean-blog
-### Deploy
 
+### Install
 ```bash
-# if not installed
-npm install hexo-deployer-git --save
+npm install hexo-cli -g
+npm install
+```
 
-# rebuild and deploy to madnight/blog gh-pages branch
+### Develop
+```bash
+hexo server
+```
+
+### Deploy
+```bash
+# build and deploy to gh-pages branch
 hexo generate --deploy
 ```
 
