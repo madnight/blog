@@ -5,9 +5,13 @@ tags: ["Github", "Bash", "Programming"]
 cover: https://i.imgur.com/jhIkc55.jpg
 ---
 
-## Clone
-Step 1. Clone the repository you want to mirror
-Step 2. Add your empty remote Github repository as origin
+# Motivation
+Many big repositories are not hosted on Github, but do have a official mirror like linux[^1], git[^2] or ghc[^3]. The purpose of these mirrors is to provide an easy access (lower the barrier) to these repositories. However there are repositories that do not offer a official mirror. Therefore follow this short article to offer an easy access to these repositories as well.
+
+
+# Clone
+Step 0: Clone the repository you want to mirror
+Step 1: Add your empty remote Github repository as origin
 
 ``` bash
 # example for valgrind
@@ -15,13 +19,12 @@ git svn clone svn://svn.valgrind.org/valgrind/trunk valgrind
 cd valgrind
 git remote add origin https://github.com/USERNAME/valgrind.git
 ```
-## Mirror
-Step 3. Create a `mirror.bash` file with all repositories you want to mirror and copy the contents below. Update the `GIT_PATH` and choose your mirrors.
+# Mirror
+Step 2: Create a `mirror.bash` file with all repositories you want to mirror and copy the contents below. Update the `GIT_PATH` and choose your mirrors.
 ```bash
 while :
 do
 function update {
-
 cd $GIT_PATH/$2
 
 if [ $1 = "svn" ]; then
@@ -31,7 +34,6 @@ else
 fi
 
 git push -f origin master
-
 }
 
 update "svn" valgrind
@@ -45,6 +47,11 @@ update "svn" valgrind
 sleep 2h
 done
 ```
-Step 4. Make the script executable `chmod x+u` and run it.
+Step 3: Make the script executable `chmod x+u` and run it.
 
 Example: [Valgrind mirror](https://github.com/madnight/valgrind)
+
+## References
+[^1]: [Mirror of the Linux Kernel](https://github.com/torvalds/linux)
+[^2]: [Mirror of git](https://github.com/git/git)
+[^3]: [Mirror of the Glasgow Haskell Compiler](https://github.com/ghc/ghc)
