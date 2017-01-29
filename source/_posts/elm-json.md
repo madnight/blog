@@ -55,7 +55,7 @@ stringAsInt = string |> andThen (String.toInt >> fromResult)
 ```
 Lets take a look at the type definition to see how this works.
 `andThen : (a -> Decoder b) -> Decoder a -> Decoder b`
-The function `andThen` takes two arguments a decoder a, in this case the standard string decoder and a type cast function from a to decoder b that converts the result of our string decoder to an new decoder of type b. This procedure is a simple chain, first decode as string and then decode as int by type conversion. If you are not familiar with the pipe `|>` and function composition `>>` notation you can also write the function with as a lambda expression `andThen (\n -> fromResult(String.toInt(n))) string`. Now we are able to use that decoder to decode a single JSON object.
+The function `andThen` takes two arguments a decoder a, in this case the standard string decoder and a type cast function from a to decoder b that converts the result of our string decoder to an new decoder of type b. This procedure is a simple chain, first decode as string and then decode as int by type conversion. If you know Haskell `andThen` is the equivalent of `(=<<) :: Monad m => (a -> m b) -> m a -> m b` the monadic bind that sequentially compose two actions by passing any value produced by the first as an argument to the second. If you are not familiar with the pipe `|>` and function composition `>>` notation you can also write the function with as a lambda expression `andThen (\n -> fromResult(String.toInt(n))) string`. Now we are able to use that decoder to decode a single JSON object.
 ```elm
 langDecoder : Decoder ProgrammingLanguage
 langDecoder =
