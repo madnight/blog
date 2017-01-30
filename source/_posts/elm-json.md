@@ -77,7 +77,7 @@ getProgrammingLanguages =
   let url = "gh-star-event.json"
   in Http.send NewLang (Http.get url langListDecoder)
 ```
-To see  https://github.com/madnight/elm-webpack-starter for a full working API parsing example.
+See https://github.com/madnight/elm-webpack-starter for a full working API parsing example.
 
 ## References
 [^1]: [Programming Languages Github Ranking](https://madnight.github.io/githut)
