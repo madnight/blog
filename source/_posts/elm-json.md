@@ -79,6 +79,17 @@ getProgrammingLanguages =
 ```
 See https://github.com/madnight/elm-webpack-starter for a full working API parsing example.
 
+## Update 
+
+There's a new command line tool and website https://github.com/eeue56/json-to-elm that allows for automatic conversion of JSON to elm code.
+
+> This project allows you to automate the creation of:
+>
+> * type aliases from JSON data
+> * decoders from type aliases and some union types
+> * encoders from type aliases and some union types
+
+
 ## References
 [^1]: [Programming Languages Github Ranking](https://madnight.github.io/githut)
 [^2]: [Event-driven I/O server-side JavaScript environment based on V8](https://en.wikipedia.org/wiki/Node.js)
