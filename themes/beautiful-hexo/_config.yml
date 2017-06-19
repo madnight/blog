@@ -1,0 +1,50 @@
+navbar-links:
+    Archive: /archives
+    Github: https://github.com/madnight
+    Dotfiles: https://github.com/madnight/dotfiles
+    About: /about/
+
+favicon: /transparent.png
+
+header:
+    title: "beuke.org"
+    motto: Beuke's personal blog, about technical things.
+
+rss: /atom.xml
+googlefonts:
+  - "Lora:400,700,400italic,700italic"
+  - "Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+
+highlight:
+  enable: true
+# or use any highlight.js style
+  style_path: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css"
+  # style_path: "/css/highlight.css"
+
+footer:
+  github:
+    link: 'https://github.com/madnight'
+    title: GitHub
+    icon: fa-github
+    enable: true
+  rss:
+    link: '/atom.xml'
+    title: RSS
+    icon: fa-rss
+    enable: true
+  mail:
+    link: 'mailto:mail@beuke.org'
+    title: Email me
+    icon: fa-envelope
+    enable: true
+  stackoverflow:
+    link: https://stackoverflow.com/users/6593641/madnight
+    title: StackOverflow
+    icon: fa-stack-overflow
+    enable: true
+
+comment:
+  enable: true
+  disqus: beuke
+  disqus_shortname: beuke
+
