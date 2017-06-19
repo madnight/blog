@@ -1,7 +1,5 @@
 {
   "name": "hexo-theme-beautiful-hexo",
-  "version": "1.0.0",
-  "description": "A hexo theme migarte from beautiful-jekyll",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

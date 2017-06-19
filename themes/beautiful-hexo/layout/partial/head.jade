@@ -17,18 +17,14 @@ link(rel="stylesheet", href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-aweso
 link(rel="stylesheet", href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css")
 link(rel="stylesheet", href=url_for("/css/main.css"))
 
+//- script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js")
+//- script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js")
+
 if theme.highlight.enable
     link(rel="stylesheet", href=url_for(theme.highlight.style_path))
 
 if theme.googlefonts
     each font in theme.googlefonts
         link(rel="stylesheet", href="//fonts.googleapis.com/css?family="+font)
-
-//- TODO: support facebook
-//- Facebook OpenGraph tags
-//- meta(property="og:title" content=page.title ? page.title : config.title)
-//- meta(property="og:type", content="website")
-//- meta(property="og:url", content="/")
-//- meta(property="og:image", content="avatar")
 
 

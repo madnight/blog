@@ -1,94 +1,70 @@
-/**
- * Tomorrow
- * https://raw.githubusercontent.com/isagalaev/highlight.js/master/src/styles/tomorrow.css
- */
-
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-    color: #8e908c;
+.highlight {
+	color: #fff;
+	background: #000000;
 }
 
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-    color: #c82829;
+.highlight .code .comment,
+.highlight .code .quote {
+	color: #7285b7;
 }
 
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-    color: #f5871f;
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .regexp,
+.highlight .code .deletion {
+	color: #ff9da4;
 }
 
-/* Tomorrow Yellow */
-.hljs-attribute {
-    color: #eab700;
+.highlight .code .number,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .meta,
+.highlight .code .link {
+	color: #ffc58f;
 }
 
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-    color: #718c00;
+.highlight .code .attribute {
+	color: #ffeead;
 }
 
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-    color: #4271ae;
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .addition {
+	color: #d1f1a9;
 }
 
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-    color: #8959a8;
+.highlight .code .title,
+.highlight .code .section {
+	color: #bbdaff;
 }
 
-.hljs {
-    display: block;
-    overflow-x: auto;
-    /*background: white;*/
-    color: #4d4d4c;
-    padding: 0.5em;
+.highlight .code .keyword,
+.highlight .code .selector-tag {
+	color: #ebbbff;
 }
 
-.hljs-emphasis {
-    font-style: italic;
+.highlight .code .emphasis {
+	font-style: italic;
 }
 
-.hljs-strong {
-    font-weight: bold;
+.highlight .code .strong {
+	font-weight: bold;
 }
 
-/* --- Custom --- */
-
-pre {
-    background: url("./blueprint-dark.png") top center #fafbfc;
-    border-left: 5px solid #558abb;
-    color: #4d4e53;
-    font-family: Consolas,Monaco,'Andale Mono',monospace;
-    font-weight: 400;
-    -moz-tab-size: 4;
-    tab-size: 4;
-    -moz-hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
+pre code {
+  display: block;
+  background: #1d1f21;
+  color: #c5c8c6;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  line-height: 1.5;
+  border-radius: 0.4em;
+  padding: 10px;
 }
-
