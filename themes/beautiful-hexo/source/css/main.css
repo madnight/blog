@@ -491,22 +491,21 @@ table {
 }
 table tr {
   border-top: 1px solid #cccccc;
-  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
 table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  background-color: #222222;
 }
 table tr th {
   font-weight: bold;
-  border: 1px solid #cccccc;
+  border: 1px solid #222222;
   text-align: left;
   margin: 0;
   padding: 6px 13px;
 }
 table tr td {
-  border: 1px solid #cccccc;
+  border: 1px solid #222222;
   text-align: left;
   margin: 0;
   padding: 6px 13px;
@@ -514,10 +513,12 @@ table tr td {
 table tr th :first-child,
 table tr td :first-child {
   margin-top: 0;
+  background-color: #222222;
 }
 table tr th :last-child,
 table tr td :last-child {
   margin-bottom: 0;
+  background-color: #222222;
 }
 
 .archive-list li {
@@ -538,4 +539,9 @@ table tr td :last-child {
   color: #0085a1
 }
 
-
+pre {
+  color: #ccc;
+  border-radius: 0.4em;
+  border-color: #222222;
+  font-family: Monaco;
+}
