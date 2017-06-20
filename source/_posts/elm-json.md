@@ -9,7 +9,6 @@ cover: https://i.imgur.com/wOEd1Wy.jpg
 # Immutable state of the art
 There is a ongoing hype of JavaScript[^1] in the developer community. Virtually everything is now compiled to JavaScript and delivered to the client. JavaScript is also becoming very popular for server side development[^2], replacing Ruby and PHP as primary programming language.[^9] Not only that, there's also an ongoing serverless trend, moving most of the back-end code into the front-end part of the application.[^3] This paradigm shift results in highly complex front-end applications, making it very complicated to write these application with plain old vanilla JavaScript. Therefore the community started to put much effort in improving the JavaScript front-end development. They published a new JavaScript Standard ES6 (ECMAScript 2015). They created the Babel compiler to compile that new standard to vanilla JavaScript allowing it's execution in older browsers. They invented frameworks and tools like react, webpack, karma, mocha, enzyme, gulp, eslint and many more to make the life as JavaScript developer as comfortable as possible.[^5]
 
-
 It takes many weeks to get familiar with these tools, but the benefits will pay off in the long run. Following all the current best practices leads to a setup with many different tools and a highly improved JavaScript syntax, that basically follows the approach of reactive functional programming. It would take a very long time to explain why that is the case - long story short, the main problem is mutable state.[^8] Mutable state is not only a potential source of bugs, it is also a one of the top reasons for unpredictable application behavior and is in principle not compatible with parallelization.[^6] For that reason, why not experimenting with a reactive functional programming language explicitly designed for front-end programming and compiling to vanilla JavaScript.
 
 # Parse JSON in Elm 0.18
@@ -78,12 +77,7 @@ getProgrammingLanguages =
   let url = "gh-star-event.json"
   in Http.send NewLang (Http.get url langListDecoder)
 ```
-```javascript
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-```
+
 See https://github.com/madnight/elm-webpack-starter for a full working API parsing example.
 
 ## Update 
