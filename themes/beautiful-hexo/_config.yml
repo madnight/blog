@@ -1,5 +1,5 @@
 navbar-links:
-    Archive: /archives
+    Home: /
     Github: https://github.com/madnight
     Dotfiles: https://github.com/madnight/dotfiles
     About: /about/

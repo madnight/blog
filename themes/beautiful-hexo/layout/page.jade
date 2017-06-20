@@ -11,9 +11,45 @@ block header
 
 block content
     .container
-        .row
-            .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-                article(role="main", class="blog-post")
-                    != page.content
-
-                include partial/comment
+      .page-header
+        h1
+          | Fabian Beuke
+          br
+          small Computer Scientist, Programmer, GNU/Linux enthusiast
+      .row
+        .col-sm-3
+          h3
+          a(href='https://beuke.org/')
+            img.img-rounded(src='https://i.imgur.com/EAMLHvk.jpg', width='210', height='300')
+        .col-sm-4
+          h3 Contact
+          dl
+            dt E-Mail
+            dd
+              i.fa.fa-envelope
+              a(href='mailto:mail@beuke.org')&nbsp;mail@beuke.org
+              dt PGP/GPG (E-Mail encryption)
+              dd
+                span.glyphicon.glyphicon-lock(aria-hidden='true')
+                a(href='//pgp.mit.edu/pks/lookup?op=get&search=0xF5B3AFA2E0914083') &nbsp;0xE0914083
+              dt Facebook
+              dd
+                i.fa.fa-facebook-square
+                a(href='https://www.facebook.com/fabian.beuke')&nbsp;@FabianBeuke
+              dt Networks
+              dd
+                i.fa.fa-github(aria-hidden='true')
+                a(href='https://github.com/madnight') &nbsp;GitHub
+                dt Languages spoken
+                dd
+                  span.glyphicon.glyphicon-flag(aria-hidden='true')
+                  |  German, English
+        .col-sm-5
+          h3 About Fabian Beuke
+          p
+            | Fabian Beuke is writing his Masterthesis in Computer Science. He develops
+            | and administers Linux-based infrastructures.
+          p In the past years Fabian studied Computer Science at the University of Bremen.
+          p
+            | This website is created with the static blog generator hexo and is hosted as 
+            a(href='https://github.com/madnight/madnight.github.io') Github page.
