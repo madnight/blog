@@ -2,6 +2,7 @@
 title: JSON parsing in ELM
 date: 2017-01-14
 tags: ["ELM", "JSON", "Functional Programming"]
+subtitle: JSON parsing in a purely functional web language
 cover: https://i.imgur.com/wOEd1Wy.jpg
 ---
 

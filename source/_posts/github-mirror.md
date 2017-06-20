@@ -2,6 +2,7 @@
 title: Create Github Mirror
 date: 2016-12-25
 tags: ["Github", "Bash", "Programming"]
+subtitle: Provide easy access to external repos via Github
 cover: https://i.imgur.com/jhIkc55.jpg
 ---
 
