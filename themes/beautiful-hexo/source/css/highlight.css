@@ -1,11 +1,12 @@
 .highlight {
 	color: #fff;
-	background: #000000;
+	background: #222222;
 }
 
 .highlight .code .comment,
 .highlight .code .quote {
 	color: #7285b7;
+	background: #222222;
 }
 
 .highlight .code .variable,
@@ -59,12 +60,7 @@
 	font-weight: bold;
 }
 
-pre code {
-  display: block;
-  background: #1d1f21;
-  color: #c5c8c6;
-  font-family: Menlo, Monaco, Consolas, monospace;
-  line-height: 1.5;
-  border-radius: 0.4em;
-  padding: 10px;
+.figure .highlight {
+  background: #222222;
 }
+
