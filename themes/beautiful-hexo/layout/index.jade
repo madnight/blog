@@ -17,7 +17,7 @@ block content
                         include partial/post-meta
                         +post_meta(post.date, post.tags)
                         .post-entry!= post.excerpt
-                        a(href=url_for(post.path), class="post-read-more")!= __('more')
+                        //- a(href=url_for(post.path), class="post-read-more")!= __('more')
                     - })
                 ul.pager.main-pager
                     if page.prev
