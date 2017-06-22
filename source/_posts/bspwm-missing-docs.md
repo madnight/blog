@@ -5,7 +5,7 @@ tags: ["bspwm", "WM", "Linux", "ricing"]
 subtitle: bspwm as undocumented i3-gaps alternative
 ---
 
-# This is a post is WIP
+# This post is WIP
 
 # Introduction
 bspwm is a great alternative to i3-gaps. i3 is a nice window manager, started at as fork of wmii, written by Micheal Stapelberg.[^1] The main problem of i3 is it's lacking gaps feature. Why is this is a thing, well just compare the i3 repo[^2] (2.1 k stars) and then look at the fork i3-gaps[^3] (1.3 k) stars. This fork only contains the missing gaps, nothing more than a small and simple feature. Its hard to find a comparable fork on Github, that have such a major impact on the community, just by adding a tiny feature.
