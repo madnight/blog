@@ -54,11 +54,6 @@ hr.small {
 .main-content {
   padding-top: 80px;
 }
-@media only screen and (min-width: 768px) {
-  .main-content {
-    padding-top: 130px;
-  }
-}
 
 .main-explain-area {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -320,7 +315,7 @@ footer .theme-by {
 /* --- Post and page headers --- */
 
 .intro-header {
-  margin: 80px 0 20px;
+  margin: 50px 0 20px;
   position: relative;
 }
 .intro-header.big-img {
@@ -400,10 +395,10 @@ footer .theme-by {
 }
 @media only screen and (min-width: 768px) {
   .intro-header {
-    margin-top: 130px;
+    /* margin-top: 130px; */
   }
   .intro-header.big-img {
-    margin-top: 91px;  /* Full navbar is small navbar + 20px padding on each side when expanded */
+    /* margin-top: 91px;  [> Full navbar is small navbar + 20px padding on each side when expanded <] */
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading  {

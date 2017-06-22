@@ -5,7 +5,7 @@ tags: ["Docker", "Patch", "PDF", "musl"]
 subtitle: Generate PDF's from HTML with minimal Docker container, without X11
 ---
 
-# This is a post is WIP
+# This post is WIP
 
 # Introduction
 
