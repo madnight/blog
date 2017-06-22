@@ -7,7 +7,7 @@ cover: https://i.imgur.com/jhIkc55.jpg
 ---
 
 # Motivation
-Many big repositories are not hosted on Github, but do have a official mirror like linux[^1], git[^2] or ghc[^3]. The purpose of these mirrors is to provide an easy access (lower the barrier) to these repositories. However there are repositories that do not offer a official mirror. Therefore follow this short article to offer an easy access to these repositories as well.
+Many big repositories are not hosted on Github, but do have a official mirror like linux[^1], git[^2] or ghc[^3]. The purpose of these mirrors is to provide an easy access (lower the barrier) to repositories that are not hosted on Github. There are many repositories that do not offer a official mirror.  Follow this short article, if you want to know how to create a mirror, to provide an easy access to external repositories as well.
 
 
 # Clone
