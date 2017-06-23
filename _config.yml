@@ -75,6 +75,13 @@ archive_generator:
 stylus:
   compress: true
 
+github:
+  debug: true
+  cache_dir: gh_cache
+  user: madnight
+  repos:
+    - blog
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

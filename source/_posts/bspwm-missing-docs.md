@@ -30,3 +30,4 @@ bspwm could be much more popular if it would provide a good documentation, be it
 [^4]: [/r/unixporn](https://www.reddit.com/r/unixporn/)
 [^5]: [bspwm](https://github.com/baskerville/bspwm)
 
+
