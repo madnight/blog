@@ -28,7 +28,12 @@ block content
                     if page.next
                         li.next
                             a(href=url_for(page.next.path), data-toggle="tooltip", data-placement="top", title=page.next.title)= __('next_post')
-
+                br
+                font(size='2')
+                    | This article contains wrong information, typos or should be improved?
+                    br
+                    a(href=gh_edit({repo: 'blog', path: 'source/_posts/' + page.path.replace('/','') + '.md'})) Edit&nbsp;
+                    | this article on Github and make a Pull Request or post a comment below.
                 include partial/comment
 
 
