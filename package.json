@@ -19,6 +19,7 @@
     "hexo-generator-sitemap": "^1.2.0",
     "hexo-generator-tag": "^0.2.0",
     "hexo-html-minifier": "0.0.1",
+    "hexo-reading-time": "^1.0.3",
     "hexo-reference": "^1.0.3",
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-jade": "^0.4.1",
