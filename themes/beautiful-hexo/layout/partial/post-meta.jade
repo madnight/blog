@@ -5,6 +5,7 @@ mixin post_meta(date, tags)
             = ' · '
             a.tag.post-meta(href=url_for(tag.path))= tag.name
         - })
-
+      |&nbsp;·&nbsp;
+      span= readingTime(page.content, 'min read')
 
 
