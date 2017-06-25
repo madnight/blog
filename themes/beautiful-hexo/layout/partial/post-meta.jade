@@ -1,4 +1,4 @@
-mixin post_meta(date, tags)
+mixin post_meta(date, tags, content)
     p.post-meta Posted on #{full_date(date, "MMM D YYYY")}
       if tags
         - tags.each(function(tag) {
@@ -6,6 +6,6 @@ mixin post_meta(date, tags)
             a.tag.post-meta(href=url_for(tag.path))= tag.name
         - })
       |&nbsp;·&nbsp;
-      span= readingTime(page.content, 'min read')
+      span= readingTime(content, 'min read')
 
 
