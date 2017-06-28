@@ -1,24 +1,31 @@
 # Personal Blog
+[![](https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf.svg)](https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf)
+
 based on https://hexo.io
+
+
 ### Theme
-Clean Blog Hexo  
-https://github.com/klugjo/hexo-theme-clean-blog
+Customized Beautiful Hexo
+https://github.com/twoyao/beautiful-hexo
 
 ### Install
 ```bash
-npm install hexo-cli -g
-npm install
+yarn global add hexo-cli
+yarn install
 ```
 
 ### Develop
 ```bash
-hexo server
+hexo clean && hexo generate && hexo server
 ```
 
 ### Deploy
+The blog is auto deployed via travis-ci on push to master.
+
+Manual deploy goes as follows.
 ```bash
 # build and deploy to gh-pages branch
-hexo generate --deploy
+hexo clean && hexo deploy --generate
 ```
 
 https://hexo.io/docs/deployment.html
