@@ -7,7 +7,7 @@ subtitle: Generate PDF's from HTML with minimal Docker container, without X11 us
 
 # Introduction
 
-All major browsers, such as Chrome, Firefox and Safari are capable of exporting the current website that you're on from HTML to PDF. This is simply done via the "print" or "save as" function. However, there is no standard way of doing so on the command line. Lets build a command line tool by composing existing technology with the following goals in mind, a small footprint, minimal dependencies, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained commandline utility wkhtmltopdf and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.
+All major browsers, such as Chrome, Firefox and Safari are capable of exporting the current website from HTML to PDF. This can be done via the "print" or "save as" function. However, there is no standard way of doing so on the command line. Lets build a command line tool by composing existing technology and the following goals in mind, a small footprint, minimal dependencies, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained commandline utility wkhtmltopdf and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.
 
 # Alpine Linux
 
@@ -15,11 +15,11 @@ Building Docker images based on Debian or Ubuntu often results in image sizes of
 
 # Qt patches
 
-Since wkhtmltopdf uses the webkit engine to render its PDFs, there will be no way around the qt5-qtwebkit. However, it is possible to get around a started instance of Xorg. I found a repository[^2] that provided a solution for that problem, by compiling a qt-webkit version without the need for Xorg.
+Since wkhtmltopdf uses the webkit engine to render its PDFs, there will be no way around the qt5-qtwebkit. However, it is possible to get around a started instance of Xorg. I found a repository[^2] that provided a solution for this, by compiling a qt-webkit version without the need for Xorg.
 {% raw %}
 <script src="https://gist-it.appspot.com/github/madnight/docker-alpine-wkhtmltopdf/blob/master/Dockerfile"></script>
 {% endraw %}
-The problem was, compiling the whole qt library including the necessary patches takes about 4 hours (on EC2 m1.large in 2016). It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first, I thought that I could work around that problem by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a build timeout after 2 hours[^3], so it wasn't able to finish the build.
+Now the problem was, compiling the whole Qt library including the necessary patches takes about 4 hours (on EC2 m1.large in 2016). It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first, I thought that I could work around that problem by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a build timeout after 2 hours[^3], so it wasn't able to finish the build.
 
 ![](/images/docker-wkhtmltopdf-alpine.png)
 
