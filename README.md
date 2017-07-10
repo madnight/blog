@@ -16,7 +16,7 @@ yarn install
 
 ### Develop
 ```bash
-hexo clean && hexo generate && hexo server
+npm run dev
 ```
 
 ### Deploy
@@ -25,7 +25,7 @@ The blog is auto deployed via travis-ci on push to master.
 Manual deploy goes as follows.
 ```bash
 # build and deploy to gh-pages branch
-hexo clean && hexo deploy --generate
+npm run deploy
 ```
 
 https://hexo.io/docs/deployment.html

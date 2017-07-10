@@ -12,4 +12,4 @@ before_script:
 - git config --global user.email "mail@beuke.org"
 - sed -i "s/github.com/${GITHUB_TOKEN}@github.com/" _config.yml
 
-script: npm run build
+script: npm run deploy
