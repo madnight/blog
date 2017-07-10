@@ -7,7 +7,7 @@ subtitle: Generate PDF's from HTML with minimal Docker container, without X11 us
 
 # Introduction
 
-All major browsers, such as Chrome, Firefox and Safari are capable of exporting the current website from HTML to PDF. This can be done via the "print" or "save as" function. However, there is no standard way of doing so on the command line. Lets build a command line tool by composing existing technology and the following goals in mind, a small footprint, minimal dependencies, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained commandline utility wkhtmltopdf and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.
+All major browsers, such as Chrome, Firefox and Safari are capable of exporting the current website from HTML to PDF. This can be done via the "print" or "save as" function. However, there is no standard way of doing so on the command-line. Lets build a command-line tool by composing existing technology and the following goals in mind, a small footprint, minimal dependencies, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained command-line utility wkhtmltopdf and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.
 
 # Alpine Linux
 
