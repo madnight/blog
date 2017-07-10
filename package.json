@@ -6,6 +6,7 @@
     "version": "3.3.7"
   },
   "scripts": {
+    "dev": "hexo clean && hexo generate && hexo server",
     "build": "hexo clean && hexo generate && hexo deploy"
   },
   "dependencies": {
