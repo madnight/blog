@@ -16,11 +16,8 @@ Building Docker images based on Debian or Ubuntu often results in image sizes of
 # Qt patches
 
 Since wkhtmltopdf uses the webkit engine to render its PDFs, there will be no way around the qt5-qtwebkit. However, it is possible to get around a started instance of Xorg. I found a repository[^2] that provided a solution for this, by compiling a qt-webkit version without the need for Xorg.
-{% raw %}
-<script src="https://gist-it.appspot.com/github/madnight/docker-alpine-wkhtmltopdf/blob/master/Dockerfile" footer="0"></script>
-{% endraw %}
 
-```Docker
+```Dockerfile
 FROM alpine:3.5
 MAINTAINER Fabian Beuke <mail@beuke.org>
 
