@@ -17,8 +17,25 @@ Building Docker images based on Debian or Ubuntu often results in image sizes of
 
 Since wkhtmltopdf uses the webkit engine to render its PDFs, there will be no way around the qt5-qtwebkit. However, it is possible to get around a started instance of Xorg. I found a repository[^2] that provided a solution for this, by compiling a qt-webkit version without the need for Xorg.
 {% raw %}
-<script src="https://gist-it.appspot.com/github/madnight/docker-alpine-wkhtmltopdf/blob/master/Dockerfile"></script>
+<script src="https://gist-it.appspot.com/github/madnight/docker-alpine-wkhtmltopdf/blob/master/Dockerfile" footer="0"></script>
 {% endraw %}
+
+```Docker
+FROM alpine:3.5
+MAINTAINER Fabian Beuke <mail@beuke.org>
+
+RUN apk add --update --no-cache \
+    libgcc libstdc++ libx11 glib libxrender libxext libintl \
+    libcrypto1.0 libssl1.0 \
+    ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
+
+# on alpine static compiled patched qt headless wkhtmltopdf (47.2 MB)
+# compilation takes 4 hours on EC2 m1.large in 2016 thats why binary
+COPY wkhtmltopdf /bin
+
+ENTRYPOINT ["wkhtmltopdf"]
+```
+
 Now the problem was, compiling the whole Qt library including the necessary patches takes about 4 hours (on EC2 m1.large in 2016). It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first, I thought that I could work around that problem by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a build timeout after 2 hours[^3], so it wasn't able to finish the build.
 
 ![](/images/docker-wkhtmltopdf-alpine.png)

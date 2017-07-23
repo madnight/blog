@@ -560,4 +560,5 @@ pre {
   border-radius: 0.4em;
   border-color: #222222;
   font-family: Monaco;
+  white-space: pre-wrap;
 }

@@ -37,10 +37,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
-  line_number: false
-  auto_detect: true
-  tab_replace: true
+  enable: false
 
 # Category & Tag
 default_category: uncategorized
