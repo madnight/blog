@@ -556,6 +556,7 @@ table tr td :last-child {
 }
 
 pre {
+  background: #333;
   color: #ccc;
   border-radius: 0.4em;
   border-color: #222222;
