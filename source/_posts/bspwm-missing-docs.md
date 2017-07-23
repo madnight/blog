@@ -25,9 +25,9 @@ bspwm could be much more popular, if it would provide a good documentation, be i
 
 ## References
 [^1]: [Michael Stapelberg Github](https://github.com/stapelberg)
-[^2]: [i3](https://github.com/stapelberg/i3)
-[^3]: [i3-gaps](https://github.com/Airblader/i3)
-[^4]: [/r/unixporn](https://www.reddit.com/r/unixporn/)
-[^5]: [bspwm](https://github.com/baskerville/bspwm)
+[^2]: [i3 - A better tiling and dynamic window manager](https://github.com/stapelberg/i3)
+[^3]: [i3-gaps – i3 with more features (fork)](https://github.com/Airblader/i3)
+[^4]: [/r/unixporn - the home for *NIX customization! - Reddit](https://www.reddit.com/r/unixporn/)
+[^5]: [bspwm - A tiling window manager based on binary space partitioning](https://github.com/baskerville/bspwm)
 
 
