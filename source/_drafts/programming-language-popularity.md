@@ -15,12 +15,20 @@ Three of the more popluar ones, that show up on the first google search pages ar
 
 Its not easy to choose an objective indicator for programming popularity ranking.
 
-| Tables        | TOIBE         | RedMonk  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Features           | TOIBE           | RedMonk                  | PYPL              |
+| -------------      | :-------------: | :-------------:          | :-----:           |
+| Data source        | search engines  | GitHub                   | Google Trends     |
+| Available data set | 5,000$          | GitHub Archive           | Google Trends     |
+| Metric             | intransparent   | Pull Request             | tutorial searches |
+| Years covered      | since 2001 | since 2004               | since 2004        |
+| Top 3 (2017)       | Java, C , C++   | JavaScript, Java, Python | Java, Python, PHP |
+
+
+The PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google. The more a language tutorial is searched, the more popular the language is assumed to be. It is a leading indicator. The raw data comes from Google Trends.
+
+TOIBE data set
+> Q: I would like to have the complete data set of the TIOBE index. Is this possible?
+> A: We spent a lot of effort to obtain all the data and keep the TIOBE index up to date. In order to compensate a bit for this, we ask a fee of 5,000 US$ for the complete data set. The data set runs from June 2001 till today.
 
 
 , but mixing things together with different percentage weights it seems arbitrary metric
@@ -47,6 +55,14 @@ unfortunaltey the dataset havve not been updated since 2015. Issues have been ra
 The ranking is intented to not make the impression that any of the listed language is better than any other language as a result of an complicated calculation, it is better to be understood as a sorted list based on a critera. The criteras are given by the dataset itself, they are simply the type of events that got tracked.
 
 it simply provides a metric on how many issues
+
+
+## References
+[^1]: The PYPL PopularitY of Programming Language is an indicator based on Google Trends, reflecting the developers searches for programming language tutorial, instead of what pages are available.
+[^2]: [TOIBE Frequently Asked Questions (FAQ)](https://www.tiobe.com/tiobe-index/)
+*Q: I would like to have the complete data set of the TIOBE index. Is this possible?*
+*A: We spent a lot of effort to obtain all the data and keep the TIOBE index up to date. In order to compensate a bit for this, we ask a fee of 5,000 US$ for the complete data set. The data set runs from June 2001 till today*
+
 
 
 
