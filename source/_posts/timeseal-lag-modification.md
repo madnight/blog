@@ -5,13 +5,13 @@ tags: ["timeseal", "chess", "Reverse Engineering"]
 subtitle: Modify client side lag calculation for infinite time
 ---
 
-This exploit works for any online chess server that uses timeseal. This bug has been reported to several chess sites and is known for years. However there might still be a server out there that is still using timeseal. Please contact the Administrator and ask him for a fix. As for example this hack is not possible on lichess.[^1]
+The following exploit works for any online chess server that use timeseal. This bug has been reported to all major chess sites and is known since many years. As for example this hack is not possible on lichess.[^1] However there might still be a server out there that is using timeseal. Please contact the Administrator and ask him for a fix.
 
 > Timeseal is a program that has been developed to improve chess on internet.  Netlag often causes players to lose valuable seconds or even minutes on their chess clocks.  Transmission time is counted against you, unless the chess server can tell exactly when information is transmitted.  The timeseal program acts as a relay station and keeps track of transmission times.  What timeseal does is record your thinking time, so that transmission time is not counted against you.  Timeseal will not prevent netlag but it makes the games fairer when lag occurs. [^2]
 
 ![](https://i.imgur.com/M2oOKFx.png)
 
-Timeseal calculates the lag as a difference between two timestamps. Modifying the timestamps can be done by adding an random offset to this timestamps calculation. The code can be hex edited (hardcoded) into the timeseal binary that is used by many online chess server.
+Timeseal calculates the lag as a difference between two timestamps. Modifying the lag value can be done by adding an random offset to the timestamp calculation. The code can be hex edited (hardcoded) into the timeseal binary.
 
 ```asm
 00401421   E8 CA0D0000      CALL timeseal.004021F0
@@ -23,13 +23,13 @@ Timeseal calculates the lag as a difference between two timestamps. Modifying th
 0040143E   8BC2             MOV EAX,EDX
 ```
 
-The address for the radom hook is `timeseal.004021F0 := rand()` while `AND EAX, 3FF` is the asm modulo function rand()%1024 + fixed offset hex 101. The modification offers the follwoing advantages:
+The address for the random hook is `timeseal.004021F0 := rand()` while `AND EAX, 3FF` is the asm modulo function `rand()%1024` + fixed offset hex 101. The modification offers the following unfair advantages:
 
 * Impossible to loose on time
 * Always move faster than your opponent
 * Seems legit, opponents may think that you are simply lagging, cause of random offset
 
-Full feldged example with a small window that for different lag settings.
+Full fledged example that hooks into the `ADVAPI32.dll` with a small window for different lag settings.
 
 ```c++
 #include "stdafx.h"

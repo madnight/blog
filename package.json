@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "rm -rf public && hexo clean && hexo generate --draft && hexo server --draft",
-    "deploy": "hexo clean && hexo generate && hexo deploy"
+    "deploy": "rm -rf public && hexo clean && hexo generate && hexo deploy"
   },
   "dependencies": {
     "hexo": "^3.2.0",
