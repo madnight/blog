@@ -510,9 +510,6 @@ table tr {
   margin: 0;
   padding: 0;
 }
-table tr:nth-child(2n) {
-  background-color: #222222;
-}
 table tr th {
   font-weight: bold;
   border: 1px solid #222222;
@@ -556,10 +553,10 @@ table tr td :last-child {
 }
 
 pre {
+  white-space: pre-wrap;
   background: #1D1F21;
   color: #ccc;
   border-radius: 0.4em;
   border-color: #222222;
   font-family: Monaco;
-  white-space: pre-wrap;
 }

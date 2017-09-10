@@ -1,26 +1,44 @@
 ---
 title: Programming language popularity
-date: 2017-06-25
+date: 2017-09-10
 tags: ["Github", "JavaScript", "Programming"]
 subtitle: Github programming language popularity based on BigQuery datasets
 cover: https://i.imgur.com/jhIkc55.jpg
 ---
 
-There are many programming language popularity rankings out the in the internet. 
+There are many programming language popularity rankings out there in the Internet.
+Three of the more popluar ones, that show up on the first google search pages are:
+
+* [TIOBE Programming Community Index](//tiobe.com/tiobe-index/)
+* [The RedMonk Programming Language Rankings](//redmonk.com/sogrady/2016/07/20/language-rankings-6-16/)
+* [The PYPL PopularitY of Programming Language Index](//pypl.github.io/PYPL.html)
+
+Its not easy to choose an objective indicator for programming popularity ranking.
+
+| Tables        | TOIBE         | RedMonk  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
+, but mixing things together with different percentage weights it seems arbitrary metric
+
+Lets examine the pros and cons of each of theses rankings.
 
 One of the popular ones is the TOIBE index, that is based TODO describe on what its based
 
-Its not easy to choose a objective indicator for such rankings, but by mixing things together with different percentage weights it seems arbitrary metric
 
 For this very reason i decided to create a page that is not based on multiple indactors and weights, instead it is based on raw data from one source, with one metric.
 
-It might be hard or even impossible to find a data source that a approximates the entire programming community, becuase many projects are closed source and the type of language that is used is unkown. And even in the case the the programmming language is known
+It's impossible to find a data source that a approximates the entire programming community, because many projects are closed source.
 
+Another consideration that comes to mind is that it is not said that the developers are happy with that language, for instance the Microsoft Kernel is written in C++. So
+should a popularity index somehow respect that the developers are freee to choose the language and are not forced to do so? On the other hand there are developer surveys where prpgramming language that are not largley used such as haskell, seems to have many developer fans and thats whats they write in on their weekends, according to this [stackoverflow blog post](https://stackoverflow.blog/2017/02/07/what-programming-languages-weekends/).
 
-Another consideration that might come into mind is that, for instance the Microsoft Kernel is written in C++,
-it is not said that the developers are happy with that language, should a popularity index somehow respect that the developers are freee to choose the language and are not forced to do so? On the other hand there are devsloper surveys on published on the stackoverlflw blog where prpgramming language that are not largley used such as haskell, seems to have many developer fans and thats whats they write in on their weekends...
-
-So you have to chose publicty  avaikable 
+Some other questions that should be considered is :
+So you have to chose publicty  avaikable
 so that anyone is able to check the results
 
 The idea to create a analysis of popularity from programming languages that are used on github is not new. The github projecr githut provided ... such a thing
