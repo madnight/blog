@@ -8,16 +8,12 @@ favicon: /transparent.png
 
 header:
     title: "beuke.org"
-    motto: "Beuke's personal blog, about technical things."
+    motto: "Personal blog, about technical things."
 
 rss: /atom.xml
 googlefonts:
   - "Lora:400,700,400italic,700italic"
   - "Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-
-# highlight:
-  # enable: true
-  # style_path: "/css/highlight.css"
 
 footer:
   github:
