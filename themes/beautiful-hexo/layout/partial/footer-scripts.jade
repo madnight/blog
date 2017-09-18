@@ -2,20 +2,22 @@ script(src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js")
 script(src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js")
 script(src=url_for("/js/main.js"))
 script(src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js")
+//- script(src="//cdn.bootcss.com/highlightjs-line-numbers.js/2.0.0/highlightjs-line-numbers.min.js")
+
 //- You can find all languages you need here:
 //- https://cdnjs.com/libraries/highlight.js/
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/typescript.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/x86asm.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js")
-script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/coq.min.js")
+- var cdn = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/"
+script(src=cdn + "elm.min.js")
+script(src=cdn + "dockerfile.min.js")
+script(src=cdn + "typescript.min.js")
+script(src=cdn + "yaml.min.js")
+script(src=cdn + "vim.min.js")
+script(src=cdn + "x86asm.min.js")
+script(src=cdn + "rust.min.js")
+script(src=cdn + "haskell.min.js")
+script(src=cdn + "ocaml.min.js")
+script(src=cdn + "coq.min.js")
 script hljs.initHighlightingOnLoad();
-
-//- if theme.highlight.enable
+//- script hljs.initLineNumbersOnLoad();
 
 include google_analytics

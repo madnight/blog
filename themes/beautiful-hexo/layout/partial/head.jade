@@ -16,8 +16,10 @@ link(rel="alternate", type="application/rss+xml", title=config.title, href=url_f
 link(rel="stylesheet", href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css")
 link(rel="stylesheet", href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css")
 link(rel="stylesheet", href="//cdn.bootcss.com/KaTeX/0.7.1/katex.min.css")
+link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/hybrid.min.css")
+link(rel="stylesheet", href="//cdn.bootcss.com/highlightjs-line-numbers.js/2.0.0/highlightjs-line-numbers.min.js")
+
 link(rel="stylesheet", href=url_for("/css/main.css"))
-link(rel="stylesheet", href=url_for("/css/highlight.css"))
 
 if theme.googlefonts
     each font in theme.googlefonts

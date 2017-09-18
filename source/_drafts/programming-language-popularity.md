@@ -3,7 +3,6 @@ title: Programming language popularity
 date: 2017-09-10
 tags: ["Github", "JavaScript", "Programming"]
 subtitle: Github programming language popularity based on BigQuery data sets
-cover: https://i.imgur.com/jhIkc55.jpg
 ---
 
 There are many programming language popularity rankings out there in the Internet.
@@ -16,6 +15,7 @@ Three of the more popular ones showing up on the first google search pages are:
 Its not easy to choose an objective indicator for a programming popularity ranking.
 
 #### <center>Comparison of programming popularity rankings</center>
+
 | Features           | TOIBE           | RedMonk                  | PYPL              |
 | -------------      | :-------------: | :-------------:          | :-----:           |
 | Data source        | Search engines  | GitHub                   | Google Trends     |
