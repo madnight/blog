@@ -11,13 +11,13 @@ Many big repositories are not hosted on Github, but do have a official mirror li
 
 # Clone
 Step 0: Clone the repository you want to mirror
-Step 1: Add your empty remote Github repository as origin
+Step 1: Add your empty remote Github repository as mirror
 
 ```sh
 # example for valgrind
 git svn clone svn://svn.valgrind.org/valgrind/trunk valgrind
 cd valgrind
-git remote add origin https://github.com/USERNAME/valgrind.git
+git remote add mirror https://github.com/USERNAME/valgrind.git
 ```
 
 # Mirror
@@ -29,12 +29,12 @@ function update {
 cd $GIT_PATH/$2
 
 if [ $1 = "svn" ]; then
-    git svn rebase upstream/master
+    git svn rebase origin/master
 else
-    git rebase -s recursive -X theirs upstream/master
+    git rebase -s recursive -X theirs origin/master
 fi
 
-git push -f origin master
+git push -f mirror master
 }
 
 update "svn" valgrind
