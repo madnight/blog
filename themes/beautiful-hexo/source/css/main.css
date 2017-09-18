@@ -1,10 +1,5 @@
-/*@import url("pygment_highlights.css");*/
-
-/* --- General --- */
 
 html, body {
-    width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
@@ -27,20 +22,25 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
+
 a {
   color: #008AFF;
 }
+
 a:hover,
 a:focus {
   color: #0085a1;
 }
+
 blockquote {
   color: #808080;
   font-style: italic;
 }
+
 blockquote p:first-child {
   margin-top: 0;
 }
+
 hr.small {
   max-width: 100px;
   margin: 15px auto;
@@ -49,17 +49,9 @@ hr.small {
   border-radius: 3px;
 }
 
-.main-content {
-  padding-top: 80px;
-}
-
 .main-explain-area {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 15px inherit;
-}
-
-.hideme {
-  display: none;
 }
 
 ::-moz-selection {
@@ -67,15 +59,18 @@ hr.small {
   text-shadow: none;
   background: #0085a1;
 }
+
 ::selection {
   color: white;
   text-shadow: none;
   background: #0085a1;
 }
+
 img::selection {
   color: white;
   background: transparent;
 }
+
 img::-moz-selection {
   color: white;
   background: transparent;
@@ -158,7 +153,7 @@ img {
  .navbar-custom .avatar-container  .avatar-img-border {
     width: 100%;
   }
-  
+
   .navbar-custom .avatar-container  .avatar-img {
     width: 100%;
   }
@@ -213,8 +208,6 @@ img {
   }
 }
 
-/* --- Footer --- */
-
 .posts-list {
   padding: 40px 0;
 }
@@ -256,8 +249,6 @@ footer .theme-by {
     font-size: 16px;
   }
 }
-
-/* --- Post preview --- */
 
 .post-preview {
   padding: 22px 0 5px;
@@ -313,8 +304,6 @@ footer .theme-by {
     font-size: 36px;
   }
 }
-
-/* --- Post and page headers --- */
 
 .intro-header {
   margin: 50px 0 10px;
@@ -500,8 +489,6 @@ footer .theme-by {
   }
 }
 
-/* --- Tables --- */
-
 table {
   padding: 0;
 }
@@ -551,10 +538,19 @@ table tr td :last-child {
 }
 
 pre {
-  white-space: pre-wrap;
+  height: auto;
+  max-width: 720px;
   background: #1D1F21;
   color: #ccc;
   border-radius: 0.4em;
   border-color: #222222;
   font-family: Monaco;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
+
+pre code {
+    overflow-wrap: normal;
+    white-space: pre;
+}
+

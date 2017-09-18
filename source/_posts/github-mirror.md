@@ -3,7 +3,6 @@ title: Create Github Mirror
 date: 2016-12-25
 tags: ["Github", "Bash", "Programming"]
 subtitle: Provide easy access to external repos via Github
-cover: https://i.imgur.com/jhIkc55.jpg
 ---
 
 # Motivation
@@ -14,12 +13,13 @@ Many big repositories are not hosted on Github, but do have a official mirror li
 Step 0: Clone the repository you want to mirror
 Step 1: Add your empty remote Github repository as origin
 
-``` bash
+```sh
 # example for valgrind
 git svn clone svn://svn.valgrind.org/valgrind/trunk valgrind
 cd valgrind
 git remote add origin https://github.com/USERNAME/valgrind.git
 ```
+
 # Mirror
 Step 2: Create a `mirror.bash` file with all repositories you want to mirror and copy the contents below. Update the `GIT_PATH` and choose your mirrors.
 ```bash
@@ -48,6 +48,7 @@ update "svn" valgrind
 sleep 2h
 done
 ```
+
 Step 3: Make the script executable `chmod x+u` and run it.
 
 Example: [Valgrind mirror](https://github.com/madnight/valgrind)
