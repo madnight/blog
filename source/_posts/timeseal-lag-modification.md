@@ -1,5 +1,5 @@
 ---
-title: Online chess clock exploit
+title: Online Chess Clock Exploit
 date: 2014-06-10
 tags: ["timeseal", "chess", "Reverse Engineering"]
 subtitle: Modify client side lag calculation for infinite time
@@ -106,8 +106,11 @@ DWORD WINAPI ThreadProc( LPVOID lpParam ) {
     wchar_t *pString = reinterpret_cast<wchar_t * > (lpParam);
     HMENU hMenu = CreateDLLWindowMenu();
     RegisterDLLWindowClass(L"InjectedDLLWindowClass");
-    prnt_hWnd = FindWindow(L"Window Injected Into ClassName", L"Window Injected Into Caption");
-    HWND hwnd = CreateWindowEx (0, L"InjectedDLLWindowClass", pString, WS_EX_PALETTEWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 400, 300, prnt_hWnd, hMenu,inj_hModule, NULL );
+    prnt_hWnd = FindWindow(L"Window Injected Into ClassName",
+    L"Window Injected Into Caption");
+    HWND hwnd = CreateWindowEx (0, L"InjectedDLLWindowClass", pString,
+    WS_EX_PALETTEWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 400, 300,
+    prnt_hWnd, hMenu, inj_hModule, NULL );
     ShowWindow (hwnd, SW_SHOWNORMAL);
     while (GetMessage (&messages, NULL, 0, 0)) {
         TranslateMessage(&messages);
@@ -116,7 +119,10 @@ DWORD WINAPI ThreadProc( LPVOID lpParam ) {
     return 1;
 }
 
-LRESULT CALLBACK DLLWindowProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK DLLWindowProc (HWND hwnd,
+                                UINT message,
+                                WPARAM wParam,
+                                LPARAM lParam) {
     switch (message) {
     case WM_COMMAND:
         switch(wParam) {
@@ -174,7 +180,8 @@ int __cdecl Hooked_GetTimeForLag() {
 HMODULE libraryHandle;
 _declspec(dllexport) BOOL WINAPI GetUserNameA(LPSTR input, LPDWORD buffer) {
     typedef BOOL (WINAPI* CFunction) (LPSTR input, LPDWORD buffer);
-    CFunction getUserName = (CFunction)GetProcAddress(libraryHandle, "GetUserNameA");
+    CFunction getUserName = (CFunction) GetProcAddress(libraryHandle,
+                                                       "GetUserNameA");
     return getUserName(input, buffer);
 }
 

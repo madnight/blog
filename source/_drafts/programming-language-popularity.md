@@ -1,11 +1,11 @@
 ---
-title: Programming language popularity
+title: Programming Language Popularity
 date: 2017-09-10
-tags: ["Github", "JavaScript", "Programming"]
-subtitle: Github programming language popularity based on BigQuery data sets
+tags: ["GitHub", "JavaScript", "Programming"]
+subtitle: GitHub Programming Language Popularity based on BigQuery data
 ---
 
-There are many programming language popularity rankings out there in the Internet.
+Many different programming language popularity rankings can be found in the Internet.
 Three of the more popular ones showing up on the first google search pages are:
 
 * [TIOBE Programming Community Index](//tiobe.com/tiobe-index/)
