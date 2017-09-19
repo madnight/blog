@@ -1,8 +1,8 @@
 ---
-title: Minimal wkthmltopdf Alpine Docker container without X
+title: Minimal Wkthmltopdf Docker Container
 date: 2017-06-22
 tags: ["Docker", "Patch", "PDF", "musl"]
-subtitle: Generate PDF's from HTML with minimal Docker container, without X11 using qt patches
+subtitle: HTML to PDF minimal Docker container, without X11
 ---
 
 # Introduction
@@ -13,7 +13,7 @@ All major browsers, such as Chrome, Firefox and Safari are capable of exporting 
 
 Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes and more. This is a known problem, therefore many Docker image distributors are also offering a Alpine Linux based image. The Alpine Linux distribution is a very common Docker base distro, because of its very small size of about 5 MB. After a small Google search, one will find the wkhtmltopdf package in the official Alpine repositories[^1]. Interestingly though, the given binary size is just about 202 KB. That would be perfectly fine, if there wouldn't be a problem with the dependency list. It contains 7 items, including qt5-qtwebkit. Unfortunately this one requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.
 
-# Qt patches
+# Qt Patches
 
 Since wkhtmltopdf uses the webkit engine to render its PDFs, there will be no way around the qt5-qtwebkit. However, it is possible to get around a started instance of Xorg. I found a repository[^2] that provided a solution for this, by compiling a qt-webkit version without the need for Xorg.
 

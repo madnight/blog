@@ -1,7 +1,5 @@
 
 html, body {
-    margin: 0px;
-    padding: 0px;
     overflow-x: hidden;
     background: #FFF;
     color: #404040;
@@ -17,6 +15,7 @@ h1 {
 p {
   line-height: 1.5;
   margin: 20px 0;
+  max-width: 720px;
 }
 p a {
   /* text-decoration: underline */

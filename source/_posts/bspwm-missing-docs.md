@@ -1,8 +1,8 @@
 ---
-title: The missing docs of bspwm
+title: The Missing Docs of Bspwm
 date: 2017-06-23
 tags: ["bspwm", "WM", "Linux", "ricing"]
-subtitle: bspwm as undocumented i3-gaps alternative
+subtitle: Bspwm as undocumented i3-gaps alternative
 ---
 
 # Introduction
@@ -14,7 +14,7 @@ The answer to that question is equally simple. The creator and maintainer of i3 
 
 Now the story could end here, use i3-gaps and be happy with a fork of the most popular and well documented tiling wm. But i3-gaps has it's own problems. First of all it is not official supported, so there might be bugs, there might be a problem with the gaps, there might be a missing gaps feature. Lets talk about the latter. The bspwm allows for a very fine granulated control over the gaps. They can be set dynamically and each gap (north, east, south, west) can be controlled individually. This can be useful, for instance if you want to have a permanent visual conky on one side of your screen. Not so with i3-gaps, its not supported and Airblader currently has no time to implement it, fair enough ... lets switch to the second most popular tiling wm bspwm with native gaps support.
 
-# The missing docs
+# The Missing Docs
 bspwm[^5] is a great alternative to i3-gaps, unfortunately it lacks documentation. Not only that, the commands change over time, so that every guide and documentation will become outdatet sooner or later. This leads to confusion about outdated bspwm configuration syntax, floating arround all over the Internet and forcing to constantly update the own set of config, to handle breaking changes. There is a relatively small bspwm arch linux wiki page, that describes some basic features, the projects README.md and a manpage. Having a manpage is a big plus, but is insufficient without further documentaion. The man page is there to describe the command line parameters, but there's no introduction, no guide, no tutorial and no workflow. Airblader provides some basic config examples, but without description or context.
 
 

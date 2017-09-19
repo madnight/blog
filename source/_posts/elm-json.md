@@ -1,11 +1,11 @@
 ---
-title: JSON parsing in ELM
+title: JSON Parsing in ELM
 date: 2017-01-14
 tags: ["ELM", "JSON", "Functional Programming"]
 subtitle: JSON parsing in a purely functional web language
 ---
 
-# Immutable state of the art
+# Immutable State of the Art
 There is a ongoing hype of JavaScript[^1] in the developer community. Virtually everything is now compiled to JavaScript and delivered to the client. JavaScript is also becoming very popular for server side development[^2], replacing Ruby and PHP as primary programming language.[^9] Not only that, there's also an ongoing serverless trend, moving most of the back-end code into the front-end part of the application.[^3] This paradigm shift results in highly complex front-end applications, making it very complicated to write applications with plain old vanilla JavaScript. For this reason, the community started to put much effort in improving the JavaScript front-end development. A new JavaScript Standard ES6 (ECMAScript 2015) have been published. The Babel compiler, compiles that new standard to vanilla JavaScript, allowing it's execution in older browsers. Frameworks and tools like react, webpack, karma, mocha, enzyme, gulp, eslint and many more to make the life as JavaScript developer as comfortable as possible.[^5]
 
 It takes many weeks to get familiar with the new toolchain, but it will pay off in the long run. Following all current best practices leads to a setup with many different tools and a highly improved JavaScript syntax, that basically follows the approach of reactive functional programming. It would take a very long time to describe why that is the case - TLDR; the major problem is mutable state.[^8] Mutable state is not only a potential source of bugs, it is also a one of the top reasons for unpredictable application behaviour and is in principle not compatible with parallelization.[^6] So, why not experimenting with a new reactive functional programming language explicitly designed for front-end programming, that compiles to vanilla JavaScript.
