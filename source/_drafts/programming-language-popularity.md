@@ -5,8 +5,7 @@ tags: ["GitHub", "JavaScript", "Programming"]
 subtitle: GitHub Programming Language Popularity based on BigQuery data
 ---
 
-Many different programming language popularity rankings can be found in the Internet.
-Three of the more popular ones showing up on the first google search pages are:
+Many different programming language popularity rankings can be found in the Internet. Three of the more popular ones showing up on the first google search pages are:
 
 * [TIOBE Programming Community Index](//tiobe.com/tiobe-index/)
 * [The RedMonk Programming Language Rankings](//redmonk.com/sogrady/2016/07/20/language-rankings-6-16/)
@@ -24,11 +23,21 @@ Its not easy to choose an objective indicator for a programming popularity ranki
 | Years covered      | Since 2001      | Since 2004               | Since 2004        |
 | TOP 3 in 2017      | Java, C , C++   | JavaScript, Java, Python | Java, Python, PHP |
 
-The oldest, widley known and controverse TOIBE index, is way behind of what is actually going on. The authors of PYPL describe it as lagging indicator.[^pypldiff]
+On the the major critism about the TOIBE index is that it is actually way behind of whats i actually going on the programming community. The authors of PYPL describe the TOIBE index as lagging indicator.[^pypldiff] Another problem is its data set. Its fairly safe to say that almost no one is willing to pay 5k bucks to be able to see how the ranking is actually build. This makes the ranking intransparent and hard to reproduce. Not only that, even if one would buy the data set its still a open mystey why TOIBE choose differen percentage weights for different data sources (serach engines), resulting in a arbitrary metric, where the ranking can be adjusted just by playing around with the choosen parameters (choose different physical constants and you get a different universe).
 
-The PYPL PopularitY of Programming Language[^pypl] Index is created by analyzing how often language tutorials are searched on Google. The more a language tutorial is searched, the more popular the language is assumed to be. It is a leading indicator. The raw data comes from Google Trends.
+The PYPL PopularitY of Programming Language[^pypl] Index is created by analyzing how often language tutorials are searched on Google. The more a language tutorial is searched, the more popular the language is assumed to be. It's raw data comes from Google Trends, that makes it quite transparent.
 
-mixing things together with different percentage weights it seems arbitrary metric
+The RedMonk Programming Language Ranking is pubished in irregualar intervals. The lates release was in June 2017 according to RedMonk they use the following criterais to build their ranking:
+
+* Query languages by pull request
+* Language is based on the base repository language
+* Exclude forked repos
+* Aggregated history to determine ranking
+
+There also other rankings that are worth noting but havent been listed for comparsing.
+The https://octoverse.github.com/ which is a offical github source and shows some additonal intresting statistics about github. However their ranking only shows the top 15 programming languages and does not offer a history, not does it reveal any informations on how the underlying data have been aggreagated. Programming Language Popularity chart on https://langpop.corger.nl shows a bubble chart with StackOverflow (tags) / GithHub (lines changes) ratio for every language on Github in Februrary 2013. Its seems as though the chart didnt received any update since then.
+
+
 
 For this reason I decided to create a page that is not based on multiple indicators and weights, instead it is based on raw data from one source, with one metric.
 
