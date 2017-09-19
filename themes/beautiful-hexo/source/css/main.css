@@ -10,9 +10,13 @@ html, body {
     font-size: 18px;
 }
 
+h1 {
+  padding-top: 20px;
+}
+
 p {
   line-height: 1.5;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 p a {
   /* text-decoration: underline */
@@ -542,7 +546,7 @@ pre {
   max-width: 720px;
   background: #1D1F21;
   color: #ccc;
-  border-radius: 0.4em;
+  border-radius: 0.3em;
   border-color: #222222;
   font-family: Monaco;
   white-space: nowrap;
@@ -552,5 +556,9 @@ pre {
 pre code {
     overflow-wrap: normal;
     white-space: pre;
+}
+
+pre > code {
+    font-size: 14px;
 }
 
