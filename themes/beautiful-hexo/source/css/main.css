@@ -561,3 +561,7 @@ pre > code {
     font-size: 14px;
 }
 
+.text-muted a {
+  color: #777;
+}
+
