@@ -78,6 +78,9 @@ github:
   repos:
     - blog
 
+hfc_html:
+  enable: false
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
