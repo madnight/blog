@@ -1,17 +1,17 @@
 ---
-title: Create Github Mirror
+title: Create GitHub Mirror
 date: 2016-12-25
-tags: ["Github", "Bash", "Programming"]
-subtitle: Provide easy access to external repos via Github
+tags: ["GitHub", "Bash", "Programming"]
+subtitle: Provide easy access to external repos via GitHub
 ---
 
 # Motivation
-Many big repositories are not hosted on Github, but do have a official mirror like linux[^1], git[^2] or ghc[^3]. The purpose of these mirrors is to provide an easy access (lower the barrier) to repositories that are not hosted on Github. There are many repositories that do not offer a official mirror.  Follow this short article, if you want to know how to create a mirror, to provide an easy access to external repositories as well.
+Many big repositories are not hosted on GitHub, but do have a official mirror like linux[^1], git[^2] or ghc[^3]. The purpose of these mirrors is to provide an easy access (lower the barrier) to repositories that are not hosted on GitHub. There are many repositories that do not offer a official mirror.  Follow this short article, if you want to know how to create a mirror, to provide an easy access to external repositories as well.
 
 
 # Clone
 Step 0: Clone the repository you want to mirror
-Step 1: Add your empty remote Github repository as mirror
+Step 1: Add your empty remote GitHub repository as mirror
 
 ```sh
 # example for valgrind
