@@ -91,7 +91,7 @@ There's a new command line tool and website https://github.com/eeue56/json-to-el
 
 
 ## References
-[^1]: [Programming Languages Github Ranking](https://madnight.github.io/githut)
+[^1]: [Programming Languages GitHub Ranking](https://madnight.github.io/githut)
 [^2]: [Event-driven I/O server-side JavaScript environment based on V8](https://en.wikipedia.org/wiki/Node.js)
 [^3]: [What is Serverless Architecture?](https://medium.com/@PaulDJohnston/what-is-serverless-architecture-43b9ea4babca#.5adec3yz0)
 [^4]: [Destructuring: What, Why and How - Part 1 of ES6 JavaScript Features]( https://www.youtube.com/watch?v=PB_d3uBkQPs)

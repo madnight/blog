@@ -35,7 +35,7 @@ The RedMonk Programming Language Ranking is pubished in irregualar intervals. Th
 * Aggregated history to determine ranking
 
 There also other rankings that are worth noting but havent been listed for comparsing.
-The https://octoverse.github.com/ which is a offical github source and shows some additonal intresting statistics about github. However their ranking only shows the top 15 programming languages and does not offer a history, not does it reveal any informations on how the underlying data have been aggreagated. Programming Language Popularity chart on https://langpop.corger.nl shows a bubble chart with StackOverflow (tags) / GithHub (lines changes) ratio for every language on Github in Februrary 2013. Its seems as though the chart didnt received any update since then.
+The https://octoverse.github.com/ which is a offical github source and shows some additonal intresting statistics about github. However their ranking only shows the top 15 programming languages and does not offer a history, not does it reveal any informations on how the underlying data have been aggreagated. Programming Language Popularity chart on https://langpop.corger.nl shows a bubble chart with StackOverflow (tags) / GithHub (lines changes) ratio for every language on GitHub in Februrary 2013. Its seems as though the chart didnt received any update since then.
 
 
 
