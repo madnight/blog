@@ -1,7 +1,7 @@
 ---
 title: Programming Language Popularity
 date: 2017-09-10
-tags: ["GitHub", "JavaScript", "Programming"]
+tags: ["github", "javascript", "programming"]
 subtitle: GitHub Programming Language Popularity based on BigQuery data
 ---
 

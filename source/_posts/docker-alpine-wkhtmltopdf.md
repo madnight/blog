@@ -1,7 +1,7 @@
 ---
 title: Minimal Wkthmltopdf Docker Container
 date: 2017-06-22
-tags: ["Docker", "Patch", "PDF", "musl"]
+tags: ["docker", "patch", "pdf", "musl"]
 subtitle: HTML to PDF minimal Docker container, without X11
 ---
 
