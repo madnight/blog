@@ -1,7 +1,7 @@
 ---
 title: Online Chess Clock Exploit
 date: 2014-06-10
-tags: ["timeseal", "chess", "Reverse Engineering"]
+tags: ["timeseal", "chess", "reverse engineering"]
 subtitle: Modify client side lag calculation for infinite time
 ---
 
