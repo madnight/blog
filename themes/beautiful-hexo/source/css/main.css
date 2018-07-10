@@ -124,7 +124,7 @@ img {
 
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    padding: 20px 0;
+    padding: 10px 0;
     -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
     -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -307,7 +307,7 @@ footer .theme-by {
 }
 
 .intro-header {
-  margin: 50px 0 10px;
+  margin: 50px 0 0px;
   position: relative;
 }
 .intro-header.big-img {

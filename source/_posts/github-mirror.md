@@ -6,12 +6,11 @@ subtitle: Provide easy access to external repos via GitHub
 ---
 
 # Motivation
-Many big repositories are not hosted on GitHub, but do have a official mirror like linux[^1], git[^2] or ghc[^3]. The purpose of these mirrors is to provide an easy access (lower the barrier) to repositories that are not hosted on GitHub. There are many repositories that do not offer a official mirror.  Follow this short article, if you want to know how to create a mirror, to provide an easy access to external repositories as well.
-
+Many big repositories are not hosted on GitHub, but do have a official mirror like [linux](https://github.com/torvalds/linux), [git](https://github.com/git/git) or [ghc](https://github.com/ghc/ghc). The purpose of these mirrors is to provide an easy access (lower the barrier) to repositories that are not hosted on GitHub. There are many repositories that do not offer a official mirror.  Follow this short article, if you want to know how to create a mirror, to provide an easy access to external repositories as well.
 
 # Clone
-Step 0: Clone the repository you want to mirror
-Step 1: Add your empty remote GitHub repository as mirror
+**Step 0:** Clone the repository you want to mirror.
+**Step 1:** Add your empty remote GitHub repository as mirror.
 
 ```sh
 # example for valgrind
@@ -21,7 +20,7 @@ git remote add mirror https://github.com/USERNAME/valgrind.git
 ```
 
 # Mirror
-Step 2: Create a `mirror.bash` file with all repositories you want to mirror and copy the contents below. Update the `GIT_PATH` and choose your mirrors.
+**Step 2:** Create a `mirror.bash` file with all repositories you want to mirror and copy the contents below. Update the `GIT_PATH` and choose your mirrors.
 ```bash
 while :
 do
@@ -49,11 +48,6 @@ sleep 2h
 done
 ```
 
-Step 3: Make the script executable `chmod x+u` and run it.
+**Step 3:** Make the script executable `chmod x+u` and run it. Example: [Valgrind mirror](https://github.com/madnight/valgrind)
 
-Example: [Valgrind mirror](https://github.com/madnight/valgrind)
 
-## References
-[^1]: [Mirror of the Linux Kernel](https://github.com/torvalds/linux)
-[^2]: [Mirror of git](https://github.com/git/git)
-[^3]: [Mirror of the Glasgow Haskell Compiler](https://github.com/ghc/ghc)
