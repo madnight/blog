@@ -215,7 +215,7 @@ img {
 }
 
 footer {
-  padding: 30px 0;
+  padding: 50px 0 20px;
   background: #F5F5F5;
   border-top: 1px #EAEAEA solid;
   margin-top: 50px;
@@ -242,7 +242,7 @@ footer .theme-by {
 
 @media only screen and (min-width: 768px) {
   footer {
-    padding: 50px 0;
+    padding: 50px 0 10px;
   }
   footer .footer-links {
     font-size: 18px;
@@ -556,6 +556,11 @@ pre code {
 }
 
 .text-muted a {
+  color: #777;
+}
+
+.text-copy {
+  margin: 10px 0;
   color: #777;
 }
 
