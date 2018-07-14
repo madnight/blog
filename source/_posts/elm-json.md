@@ -79,7 +79,7 @@ getProgrammingLanguages =
 
 See https://github.com/madnight/elm-webpack-starter for a full working API parsing example.
 
-## Update 
+## Update
 
 There's a new command line tool and website https://github.com/eeue56/json-to-elm that allows for automatic conversion of JSON to elm code.
 
