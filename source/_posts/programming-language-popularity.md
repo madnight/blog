@@ -17,6 +17,8 @@ It's not easy to choose an objective indicator for a programming popularity rank
 
 #### Comparison of programming popularity rankings
 
+{% raw %}<div style="overflow-x:auto;">{% endraw %}
+
 | Features           | TOIBE           | RedMonk                  | PYPL              |
 | -------------      | :-------------: | :-------------:          | :-----:           |
 | Data source        | Search engines  | GitHub                   | Google Trends     |
@@ -25,12 +27,12 @@ It's not easy to choose an objective indicator for a programming popularity rank
 | Years covered      | Since 2001      | Since 2004               | Since 2004        |
 | TOP 3 in 2018      | Java, C , C++   | JavaScript, Java, Python | Java, Python, PHP |
 
+{% raw %}</div>{% endraw %}
 
-{% raw %}<br>{% endraw %}
 ### TOIBE
 The major criticism of the TOIBE index is that it is actually way behind of what's actually going on in the programming community. For example, the authors of the PYPL Index describe the TOIBE index as a lagging indicator.[^pypldiff] Another problem is the availability of the TOIBE dataset. Its fairly safe to say that almost no one is willing to pay 5.000$ to be able to see how the ranking is actually build. This makes the index intransparent and hard to reproduce. Even if one were to buy the dataset it's still a mystery why and how TOIBE choose different percentage weights for different data sources resulting in a arbitrary metric, where the ranking can be adjusted just by playing around with the parameters. Because of this we can conclude that the TOIBE Index is a slow and subjective indicator, which is in many cases the opposite of what you want. Lets see if RedMonk can do any better.
 
-![](/images/toibe.png)
+<img src="/images/toibe.png" onclick="window.open(this.src)">
 
 ### RedMonk
 The RedMonk Programming Language Ranking is published in irregular intervals. The latest release was in January 2018. According to RedMonk they use the following criteria to build their ranking:
@@ -42,12 +44,12 @@ The RedMonk Programming Language Ranking is published in irregular intervals. Th
 
 The RedMonk ranking makes some sensible decision on how to improve the quality of the raw dataset by applying some filters (e.g. no forks) while trying to stay as neutral as possible. However they are missing features, such as historical data and a historical chart.
 
-![](/images/redmonk.png)
+<img src="/images/redmonk.png" onclick="window.open(this.src)">
 
 ### PYPL
 The PYPL PopularitY of Programming Language Index[^pypl] is created by analyzing how often language tutorials are searched on Google. The more a language tutorial for a certain programming language is searched on Google, the more popular the language is assumed to be. Its dataset is based on Google Trends, which makes it quite transparent. The main drawback of PYPL is that it only compares the TOP 22 languages (as of July 2018) and there are no historical rankings, they only provide a historical chart.
 
-![](/images/pypl.png)
+<img src="/images/pypl.png" onclick="window.open(this.src)">
 
 ### Other
 

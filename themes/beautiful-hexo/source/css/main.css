@@ -12,7 +12,7 @@ h1 {
 }
 
 p {
-  margin: 20px 0;
+  margin: 20px 0px;
   max-width: 720px;
   text-align: justify;
 }
@@ -79,7 +79,7 @@ img::-moz-selection {
 }
 
 img {
-  max-width: 100%;
+  max-width: 720px;
 }
 
 .disqus-comments {
@@ -188,6 +188,15 @@ img {
   }
   .navbar-custom .nav .navlinks-container.show-children .navlinks-children {
     display: block;
+  }
+  .post-heading {
+    margin: 0px 10px;
+  }
+  article {
+    margin: 0px 10px;
+  }
+  img {
+    max-width: 100%;
   }
 }
 @media only screen and (min-width: 768px) {
