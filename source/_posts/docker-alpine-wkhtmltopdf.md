@@ -35,6 +35,6 @@ ENTRYPOINT ["wkhtmltopdf"]
 
 Now the problem was, compiling the whole Qt library including the necessary patches takes about 4 hours (on *EC2 m1.large* in 2016). It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first I thought that I could work around that problem by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a [build timeout](https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build) after 2 hours, so it wasn't able to finish the build.
 
-![](/images/docker-wkhtmltopdf-alpine.png)
+<img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)">
 
 Therefore I compiled the Dockerfile locally, pushed the binary into the GitHub repository, copied it into the Dockerfile and pushed everything to [Docker Hub](https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/).
