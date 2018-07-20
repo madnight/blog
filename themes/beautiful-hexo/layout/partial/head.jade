@@ -27,7 +27,9 @@ noscript
 
 if theme.googlefonts
     each font in theme.googlefonts
-        link(rel="stylesheet", href="//fonts.googleapis.com/css?family="+font)
+        link(rel='stylesheet', href="//fonts.googleapis.com/css?family="+font, media='none', onload="if(media!='all')media='all'")
+        noscript
+         link(rel="stylesheet", href="//fonts.googleapis.com/css?family="+font)
 
 script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 script(defer src=url_for("/js/main.js"))
@@ -35,9 +37,9 @@ script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.j
 script(async src='//googletagmanager.com/gtag/js?id=UA-122689197-1')
 
 - var cdn_hl = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/"
-script(defer src=cdn_hl + "elm.min.js")
-script(defer src=cdn_hl + "dockerfile.min.js")
-script(defer src=cdn_hl + "haskell.min.js")
+script(defer src=cdn_hl + "elm.min.js?__inline=true")
+script(defer src=cdn_hl + "dockerfile.min.js?__inline=true")
+script(defer src=cdn_hl + "haskell.min.js?__inline=true")
 
 script(type='text/javascript').
   document.addEventListener("DOMContentLoaded", function(event) {
