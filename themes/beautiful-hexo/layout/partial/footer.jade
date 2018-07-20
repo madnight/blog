@@ -2,14 +2,16 @@ footer
     .container.beautiful-jekyll-footer
         .row
             .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+                        //- a(href=item.link, title=item.title)
                 ul.list-inline.text-center.footer-links
-                    each item in theme.footer
-                        if item.enable
-                            li
-                                a(href=item.link, title=item.title)
-                                    span.fa-stack.fa-lg
-                                        i.fa.fa-circle.fa-stack-2x
-                                        i.fa.fa-stack-1x.fa-inverse(class=item.icon)
+                      - var gh = inline_svg("github.svg", true)
+                      img(src="#{gh}", style="max-width:40px")
+                      - var mail = inline_svg("email.svg", true)
+                      img(src="#{mail}", style="max-width:40px;filter:grayscale(100%);")
+                      - var so = inline_svg("stack-overflow-brands.svg", true)
+                      img(src="#{so}", style="max-width:40px;filter:grayscale(100%);")
+                      - var rss = inline_svg("rss-square-solid.svg", true)
+                      img(src="#{rss}", style="max-width:40px;filter:grayscale(100%);")
                 - var year = new Date().getFullYear();
                 p.copyright.text-muted © #{config.author} • #{year}
                     br
