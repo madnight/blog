@@ -17,6 +17,10 @@ link(rel="alternate", type="application/rss+xml", title=config.title, href=url_f
 link(rel='stylesheet', href=cf + "twitter-bootstrap/3.3.7/css/bootstrap.min.css")
 link(rel='stylesheet', href=url_for("/css/main.css"))
 
+link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Open+Sans:300,800", media='none', onload="if(media!='all')media='all'")
+noscript
+  link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Open+Sans:300,800")
+
 link(rel='stylesheet', href=cf + "font-awesome/4.7.0/css/font-awesome.min.css", media='none', onload="if(media!='all')media='all'")
 noscript
   link(rel='stylesheet', href=cf + "font-awesome/4.7.0/css/font-awesome.min.css")
@@ -25,14 +29,8 @@ link(rel='stylesheet', href=cf + "highlight.js/9.12.0/styles/hybrid.min.css", me
 noscript
   link(rel='stylesheet', href=cf + "highlight.js/9.12.0/styles/hybrid.min.css")
 
-if theme.googlefonts
-    each font in theme.googlefonts
-        link(rel='stylesheet', href="//fonts.googleapis.com/css?family="+font, media='none', onload="if(media!='all')media='all'")
-        noscript
-         link(rel="stylesheet", href="//fonts.googleapis.com/css?family="+font)
-
 script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
-script(defer src=url_for("/js/main.js"))
+script(src=url_for("/js/main.js"))
 script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js")
 script(async src='//googletagmanager.com/gtag/js?id=UA-122689197-1')
 
