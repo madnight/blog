@@ -1,5 +1,5 @@
 # Personal Blog
-[![](https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf.svg)](https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf)
+[![](https://travis-ci.org/madnight/blog.svg)](https://travis-ci.org/madnight/blog)
 
 based on https://hexo.io
 
