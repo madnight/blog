@@ -11,17 +11,42 @@ title
 block description
     meta(name="description", content=config.description)
 
+- var cf = "//cdnjs.cloudflare.com/ajax/libs/"
+
 link(rel="alternate", type="application/rss+xml", title=config.title, href=url_for("/atom.xml"))
-link(rel="stylesheet", href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css")
-link(rel="stylesheet", href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css")
-link(rel="stylesheet", href="//cdn.bootcss.com/KaTeX/0.7.1/katex.min.css")
-link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/hybrid.min.css")
+
+link(rel="stylesheet", href=cf + "font-awesome/4.7.0/css/font-awesome.min.css")
+link(rel="stylesheet", href=cf + "twitter-bootstrap/3.3.7/css/bootstrap.min.css")
+link(rel="stylesheet", href=cf + "highlight.js/9.12.0/styles/hybrid.min.css")
 link(rel="stylesheet", href=url_for("/css/main.css"))
-
-script(href="//cdn.bootcss.com/highlightjs-line-numbers.js/2.0.0/highlightjs-line-numbers.min.js")
-
 if theme.googlefonts
     each font in theme.googlefonts
         link(rel="stylesheet", href="//fonts.googleapis.com/css?family="+font)
 
 
+script(src=url_for("/js/main.js"))
+script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js")
+script(defer src='//googletagmanager.com/gtag/js?id=UA-122689197-1')
+
+- var cdn_hl = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/"
+script(defer src=cdn_hl + "elm.min.js")
+script(defer src=cdn_hl + "dockerfile.min.js")
+script(defer src=cdn_hl + "typescript.min.js")
+script(defer src=cdn_hl + "yaml.min.js")
+script(defer src=cdn_hl + "vim.min.js")
+script(defer src=cdn_hl + "x86asm.min.js")
+script(defer src=cdn_hl + "rust.min.js")
+script(defer src=cdn_hl + "haskell.min.js")
+script(defer src=cdn_hl + "ocaml.min.js")
+script(defer src=cdn_hl + "coq.min.js")
+
+script(type='text/javascript').
+  $(document).ready(function(){
+      hljs.initHighlightingOnLoad();
+  });
+script.
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-122689197-1');
