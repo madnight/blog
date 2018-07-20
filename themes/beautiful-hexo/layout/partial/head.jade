@@ -15,7 +15,7 @@ block description
 
 link(rel="alternate", type="application/rss+xml", title=config.title, href=url_for("/atom.xml"))
 link(rel='stylesheet', href=cf + "twitter-bootstrap/3.3.7/css/bootstrap.min.css")
-link(rel='stylesheet', href=url_for("/css/main.css") + "?__inline=true")
+link(rel='stylesheet', href="/css/main.css?__inline=true")
 
 link(rel="preload" as="style", href="https://fonts.googleapis.com/css?family=Open+Sans:300,800", media='none', onload="if(media!='all')media='all'")
 noscript
@@ -31,8 +31,8 @@ noscript
 
 script(src=cf + "jquery/3.3.1/jquery.min.js")
 script(defer src=cf + "twitter-bootstrap/3.3.7/js/bootstrap.min.js")
-script(defer src=url_for("/js/main.js") + "?__inline=true")
-script(defer src='//googletagmanager.com/gtag/js?id=UA-122689197-1')
+script(defer src="/js/main.js?__inline=true")
+//- script(defer src='//googletagmanager.com/gtag/js?id=UA-122689197-1')
 script(src=cf + "highlight.js/9.12.0/highlight.min.js")
 
 - var cdn_hl = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/"
