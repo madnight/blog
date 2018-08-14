@@ -5,6 +5,8 @@ tags: ["haskell", "functional programming", "operators"]
 subtitle: Pronounceable Names for Common Haskell Operators
 ---
 
+This article offers a small collection of haskell operators with some funny names for them. Haskell tutorials and tech speak can sometimes be very dry. True to the motto "Put the fun back into computing" (distrowatch).
+
 <br>
 
 ## TIE fighter <*>
@@ -19,7 +21,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Desc</th>
+    <th>Describtion</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -50,17 +52,42 @@ subtitle: Pronounceable Names for Common Haskell Operators
 <br><br>
 
 ## Wedge-shaped Imperial Star Destroyer <|>
+<br>
+<img style="width: 300px; float: right;" src="/images/imperial.jpg">
 
-<img style="width: 400px; float: right;" src="/images/imperial.jpg">
+<table width="430px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Describtion</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
+    <td>An associative binary operation.</td>
+  </tr>
+</table>
 
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br> <br> <br> <br> <br>
+**Default implementation:**
+`(<|>) :: f a -> f a -> f a`
+`(<|>) = (++)`
 
+**Example Usage:**
+```haskell
+> [1,2,3] <|> [4,5]
+[1,2,3,4,5]
+```
 
-## The TIE bomber <**>
+**Other names: or, alternative**
 
-<img style="width: 350px; float: right;" src="/images/tie-bomber.jpg">
-<table width="10px">
+<br> <br>
+
+## TIE bomber <**>
+
+<br>
+
+<img style="width: 300px; float: right;" src="/images/tie-bomber.jpg">
+<table width="430px">
   <tr>
     <th>Package</th>
     <th>Module</th>
@@ -83,19 +110,107 @@ subtitle: Pronounceable Names for Common Haskell Operators
 [2,4,6]
 ```
 
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br> <br> <br> <br> <br>
+<br> <br>
 
-
-
-## The left fish <=<
-
+## Right fish >=>
+<img style="width: 300px; float: right;" src="/images/right-fish.gif">
 
 <table width="10px">
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Desc</th>
+    <th>Describtion</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-62--61--62-">Control.Monad</a></td>
+    <td>Left-to-right Kleisli composition of monads.
+    </td>
+  </tr>
+</table>
+
+**Default Implementation:**
+`(>=>)       :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)`
+`f >=> g     = \x -> f x >>= g`
+
+**Example Usage:**
+```haskell
+> (pure . (2 +)) >=> (pure . (3 *)) $ 2
+12
+```
+
+
+<br> <br>
+
+## Left fish <=<
+
+<img style="width: 300px; float: right;" src="/images/left-fish.gif">
+
+<table width="10px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Describtion</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-60--61--60-">Control.Monad</a></td>
+    <td>(>=>), with the arguments flipped.</td>
+  </tr>
+</table>
+
+`(<=<)       :: Monad m => (b -> m c) -> (a -> m b) -> (a -> m c)`
+`(<=<)       = flip (>=>)`
+
+**Example Usage:**
+```haskell
+> (pure . (2 +)) >=> (pure . (3 *)) $ 2
+12
+`
+
+
+<br> <br> <br> <br> <br> <br> <br> <br>
+
+
+
+
+`(>=>) :: (a -> m b) -> (b -> m c) -> (a -> m c)`
+`f >=> g = \x -> f x >>= g`
+
+
+
+<br> <br> <br> <br> <br> <br> <br> <br>
+# Others
+
+```haskell
+>>=     bind
+>>      then
+*>      then
+->      to                a -> b: a to b
+<-      bind              (as it desugars to >>=)
+<$>     (f)map
+<$      map-replace by    0 <$ f: "f map-replace by 0"
+<*>     ap(ply)           (as it is the same as Control.Monad.ap)
+$                         (none, just as " " [whitespace])
+.       pipe to           a . b: "b pipe-to a"
+!!      index
+!       index / strict    a ! b: "a index b", foo !x: foo strict x
+<|>     or / alternative  expr <|> term: "expr or term"
+++      concat / plus / append
+[]      empty list
+:       cons
+::      of type / as      f x :: Int: f x of type Int
+\       lambda
+@       as                go ll@(l:ls): go ll as l cons ls
+~       lazy              go ~(a,b): go lazy pair a, b
+```
+
+
+<table width="10px">
+  <tr>
+    <th>Operator</th>
+    <th>Module</th>
+    <th>Describtion</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -105,14 +220,6 @@ subtitle: Pronounceable Names for Common Haskell Operators
 </table>
 
 
-
-
-<img style="width: 400px; float: right;" src="http://dnr.maryland.gov/fisheries/fishfacts/american_shad.gif">
-
-<br> <br> <br> <br> <br> <br> <br> <br>
-
-## The right fish >=>
-<img style="width: 400px; float: right;" src="http://dnr.maryland.gov/fisheries/fishfacts/american_shad.gif">
 
 
 <br> <br> <br> <br> <br> <br> <br> <br>

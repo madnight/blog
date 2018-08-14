@@ -569,7 +569,6 @@ pre {
   color: #ccc;
   border-radius: 0.3em;
   border-color: #222222;
-  font-family: Monaco;
   white-space: nowrap;
   overflow-x: hidden;
 }
@@ -577,6 +576,10 @@ pre {
 pre code {
     overflow-wrap: normal;
     white-space: pre;
+}
+
+code {
+  font-size: 14px !important;
 }
 
 .text-muted a {
@@ -587,4 +590,3 @@ pre code {
   margin: 10px 0;
   color: #777;
 }
-
