@@ -204,6 +204,21 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 <img style="width: 300px; float: right;" src="/images/l-pipe.jpg">
 
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Describtion</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Prelude.html#v:-46-">Prelude</a></td>
+    <td>Right-to-left composition.</td>
+  </tr>
+</table>
+
+
+
 **Definition:**
 `(.) :: (b -> c) -> (a -> b) -> a -> c`
 `(.) f g = \x -> f (g x)`
@@ -214,50 +229,24 @@ subtitle: Pronounceable Names for Common Haskell Operators
 10
 ```
 
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br> <br> <br> <br> <br>
+<br> <br>
 
-# Others
+# Operators and shenanigans without funny names, yet
+|Notation|Signature|Describtion|
+|--- |--- |--- |
+|>>=|(>>=) :: Monad m => m a -> (a -> m b) -> m b|bind|
+|>>|(>>) :: Monad m => m a -> m b -> m b|then|
+|->||to|
+|<-||bind|
+|<$>|(<$>) :: Functor f => (a -> b) -> f a -> f b|fmap|
+|<$|(<$) :: Functor f => a -> f b -> f a|map-replace by|
+|!!|(!!) :: [a] -> Int -> a|index|
+|!||strict|
+|++|(++) :: [a] -> [a] -> [a]|concat|
+|[]|([]) :: [a]|empty list|
+|:|(:) :: a -> [a] -> [a]|cons|
+|::||of type|
+|\\||lambda|
+|@||as|
+|~||lazy|
 
-```haskell
->>=     bind
->>      then
-*>      then
-->      to                a -> b: a to b
-<-      bind              (as it desugars to >>=)
-<$>     (f)map
-<$      map-replace by    0 <$ f: "f map-replace by 0"
-<*>     ap(ply)           (as it is the same as Control.Monad.ap)
-$                         (none, just as " " [whitespace])
-.       pipe to           a . b: "b pipe-to a"
-!!      index
-!       index / strict    a ! b: "a index b", foo !x: foo strict x
-<|>     or / alternative  expr <|> term: "expr or term"
-++      concat / plus / append
-[]      empty list
-:       cons
-::      of type / as      f x :: Int: f x of type Int
-\       lambda
-@       as                go ll@(l:ls): go ll as l cons ls
-~       lazy              go ~(a,b): go lazy pair a, b
-```
-
-
-<table width="430px">
-  <tr>
-    <th>Operator</th>
-    <th>Module</th>
-    <th>Describtion</th>
-  </tr>
-  <tr>
-    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
-    <td>Sequential application.</td>
-  </tr>
-</table>
-
-
-
-
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br> <br> <br> <br> <br>
