@@ -5,19 +5,16 @@ tags: ["haskell", "functional programming", "operators"]
 subtitle: Pronounceable Names for Common Haskell Operators
 ---
 
-This article offers a small collection of haskell operators with some funny names for them. Haskell tutorials and tech speak can sometimes be very dry. True to the motto "Put the fun back into computing" (distrowatch).
+(Just a) small collection of haskell operators with some funny names for them. Haskell tutorials and tech speak can sometimes be very dry, thus lets "Put the fun back into computing" (distrowatch).
 
 <br>
 
 ## TIE fighter <*>
 
-<!-- | Package        | Module           | Short Desc  | -->
-<!-- | :-------------: |:-------------:| :-----:| -->
-<!-- | [base](https://hackage.haskell.org/package/base-4.11.1.0) | [Control.Applicative](https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-) | Sequential application. | -->
 <br>
 
-<img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d9/TIEfighter.jpg">
-<table width="10px">
+<img style="width: 300px; float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d9/TIEfighter.jpg">
+<table width="400px">
   <tr>
     <th>Package</th>
     <th>Module</th>
@@ -33,11 +30,11 @@ This article offers a small collection of haskell operators with some funny name
 
 {% raw %}</div>{% endraw %}
 
-**Default implementation:**
+**Definition:**
 `(<*>) :: f (a -> b) -> f a -> f b`
 `(<*>) = liftA2 id`
 
-**Example Usage:**
+**Example:**
 
 {% raw %}<div style="width: 400px;">{% endraw %}
 
@@ -55,7 +52,7 @@ This article offers a small collection of haskell operators with some funny name
 <br>
 <img style="width: 300px; float: right;" src="/images/imperial.jpg">
 
-<table width="430px">
+<table width="400px">
   <tr>
     <th>Package</th>
     <th>Module</th>
@@ -64,19 +61,22 @@ This article offers a small collection of haskell operators with some funny name
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
-    <td>An associative binary operation.</td>
+    <td>Associative binary operation.</td>
   </tr>
 </table>
 
-**Default implementation:**
+**Definition:**
 `(<|>) :: f a -> f a -> f a`
 `(<|>) = (++)`
 
-**Example Usage:**
+**Example:**
+
+{% raw %}<div style="width: 100%;">{% endraw %}
 ```haskell
 > [1,2,3] <|> [4,5]
 [1,2,3,4,5]
 ```
+{% raw %}</div>{% endraw %}
 
 **Other names: or, alternative**
 
@@ -87,7 +87,7 @@ This article offers a small collection of haskell operators with some funny name
 <br>
 
 <img style="width: 300px; float: right;" src="/images/tie-bomber.jpg">
-<table width="430px">
+<table width="400px">
   <tr>
     <th>Package</th>
     <th>Module</th>
@@ -96,11 +96,11 @@ This article offers a small collection of haskell operators with some funny name
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
-    <td>A variant of <*> with the arguments reversed.</td>
+    <td>A variant of <*> with arguments reversed.</td>
   </tr>
 </table>
 
-**Default Implementation:**
+**Definition:**
 `(<**>) :: f a -> f (a -> b) -> f b`
 `(<**>) = liftA2 (\a f -> f a)`
 
@@ -115,7 +115,7 @@ This article offers a small collection of haskell operators with some funny name
 ## Right fish >=>
 <img style="width: 300px; float: right;" src="/images/right-fish.gif">
 
-<table width="10px">
+<table width="400px">
   <tr>
     <th>Package</th>
     <th>Module</th>
@@ -129,11 +129,11 @@ This article offers a small collection of haskell operators with some funny name
   </tr>
 </table>
 
-**Default Implementation:**
+**Definition:**
 `(>=>)       :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)`
 `f >=> g     = \x -> f x >>= g`
 
-**Example Usage:**
+**Example:**
 ```haskell
 > (pure . (2 +)) >=> (pure . (3 *)) $ 2
 12
@@ -146,7 +146,7 @@ This article offers a small collection of haskell operators with some funny name
 
 <img style="width: 300px; float: right;" src="/images/left-fish.gif">
 
-<table width="10px">
+<table width="400px">
   <tr>
     <th>Package</th>
     <th>Module</th>
@@ -155,31 +155,68 @@ This article offers a small collection of haskell operators with some funny name
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
     <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-60--61--60-">Control.Monad</a></td>
-    <td>(>=>), with the arguments flipped.</td>
+    <td>(>=>), with arguments flipped.</td>
   </tr>
 </table>
 
 `(<=<)       :: Monad m => (b -> m c) -> (a -> m b) -> (a -> m c)`
 `(<=<)       = flip (>=>)`
 
-**Example Usage:**
+**Example:**
 ```haskell
-> (pure . (2 +)) >=> (pure . (3 *)) $ 2
-12
-`
+> (pure . (2 +)) <=< (pure . (3 *)) $ 2
+8
+```
 
+
+<br> <br>
+
+## Right pipe >>>
+
+<img style="width: 300px; float: right;" src="/images/r-pipe.jpg">
+
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Describtion</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Category.html#v:-62--62--62-">Control.Category</a></td>
+    <td>Left-to-right composition.</td>
+  </tr>
+</table>
+
+
+`(>>>) :: cat a b -> cat b c -> cat a c`
+`f >>> g = g . f`
+
+**Example:**
+```haskell
+> ((*2) >>> (+3)) $ 2
+7
+```
+
+<br> <br>
+
+## Left pipe .
+
+<img style="width: 300px; float: right;" src="/images/l-pipe.jpg">
+
+**Definition:**
+`(.) :: (b -> c) -> (a -> b) -> a -> c`
+`(.) f g = \x -> f (g x)`
+
+**Example:**
+```haskell
+> ((*2) . (+3)) $ 2
+10
+```
 
 <br> <br> <br> <br> <br> <br> <br> <br>
-
-
-
-
-`(>=>) :: (a -> m b) -> (b -> m c) -> (a -> m c)`
-`f >=> g = \x -> f x >>= g`
-
-
-
 <br> <br> <br> <br> <br> <br> <br> <br>
+
 # Others
 
 ```haskell
@@ -206,7 +243,7 @@ $                         (none, just as " " [whitespace])
 ```
 
 
-<table width="10px">
+<table width="430px">
   <tr>
     <th>Operator</th>
     <th>Module</th>

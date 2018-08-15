@@ -15,9 +15,9 @@ The topic of this post is a comparison of different programming language popular
 
 It's not easy to choose an objective indicator for a programming popularity ranking. The following table provides a small overview of the existing solutions.
 
-#### Comparison of programming popularity rankings
 
-{% raw %}<div style="overflow-x:auto;">{% endraw %}
+{% raw %}<div style="overflow-x:auto;"><center>{% endraw %}
+#### Comparison of programming popularity rankings
 
 | Features           | TOIBE           | RedMonk                  | PYPL              |
 | -------------      | :-------------: | :-------------:          | :-----:           |
@@ -26,7 +26,7 @@ It's not easy to choose an objective indicator for a programming popularity rank
 | Metric             | Intransparent   | Pull Request             | Tutorial searches |
 | Years covered      | Since 2001      | Since 2004               | Since 2004        |
 | TOP 3 in 2018      | Java, C , C++   | JavaScript, Java, Python | Java, Python, PHP |
-
+<br>
 {% raw %}</div>{% endraw %}
 
 ### TOIBE
