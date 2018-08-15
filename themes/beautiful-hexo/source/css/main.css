@@ -11,6 +11,10 @@ h1 {
   padding-top: 20px;
 }
 
+article {
+  max-width: 720px;
+}
+
 p {
   margin: 20px 0px;
   max-width: 720px;
