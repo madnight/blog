@@ -5,7 +5,7 @@ tags: ["haskell", "functional programming", "operators"]
 subtitle: Pronounceable Names for Common Haskell Operators
 ---
 
-(Just a) small collection of haskell operators with some funny names for them. Haskell tutorials and tech speak can sometimes be very dry, thus lets "Put the fun back into computing" (distrowatch).
+(Just a) small collection of Haskell operators with some funny names for them. Haskell tutorials and discussions can sometimes be very dry, so lets "Put the fun back into computing" (distrowatch).
 
 <br>
 
@@ -18,7 +18,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Describtion</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -56,7 +56,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Describtion</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -91,7 +91,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Desc</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -119,7 +119,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Describtion</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -150,7 +150,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Describtion</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -179,7 +179,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Describtion</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -208,7 +208,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
   <tr>
     <th>Package</th>
     <th>Module</th>
-    <th>Describtion</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
@@ -232,7 +232,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 <br> <br>
 
 # Operators and shenanigans without funny names, yet
-|Notation|Signature|Describtion|
+|Notation|Signature|Description|
 |--- |--- |--- |
 |>>=|(>>=) :: Monad m => m a -> (a -> m b) -> m b|bind|
 |>>|(>>) :: Monad m => m a -> m b -> m b|then|
