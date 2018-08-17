@@ -4,7 +4,7 @@ navbar-links:
     Dotfiles: https://github.com/madnight/dotfiles
     About: /about/
 
-favicon: /transparent.png
+favicon: /fav.png
 
 header:
     title: "beuke.org"
