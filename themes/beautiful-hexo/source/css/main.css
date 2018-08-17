@@ -1,12 +1,11 @@
 html, body {
     overflow-x: hidden;
     background: #FFF;
-    color: #404040;
     position: relative;
     font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
     line-height: 1.70em;
-    color: #3A4145;
+    color: #000000;
     font-size: 16px;
 }
 
