@@ -15,7 +15,7 @@ Elm is a static typed, reactive, pure functional programming language. It has a 
 
 Lets consider an JSON API in the following format:
 
-```Json
+```json
 [
   {
     "name": "JavaScript",
