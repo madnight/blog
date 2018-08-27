@@ -1,6 +1,6 @@
 ---
 title: Pure Imperative Haskell
-date: 2018-08-22
+date: 2018-08-27
 tags: ["haskell", "imperative", "functional programming"]
 subtitle: Pure Imperative Code Examples in Haskell
 ---
@@ -84,7 +84,8 @@ $ cat /tmp/timestamps.txt
 ...
 ```
 
-Please note that in order to use the `await` keyword in JavaScript it is necessary to wrap it inside an `async` function. I omitted this extra noise to make the visible syntax comparisons of the `while` loop more clear. I also removed the import statements for Python and Haskell and Haskells `main` function. We can there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep that is) is somewhat surprisingly syntactically the shortest one.
+Please note that in order to use the `await` keyword in JavaScript it is necessary to wrap it inside an `async` function. I omitted this extra noise to make the visible syntax comparisons of the `while` loop more clear. I also removed the import statements for Python and Haskell and Haskells `main` function. We can there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep) is syntactically the shortest one. Of course, high expressives and thus generally fewer lines of code, does not imply simplicity. A language that is very terse tend to be more complex to understand. This is because it requires the Programmer to know the meaning of different short names, standard functions and operators.
+
 
 # Nested Loop over 2D List
 
@@ -133,7 +134,11 @@ Result:
 [[42,42,42,42],[42,42,42,42],[42,42,42,42]]
 ```
 
+
+
 As we can see modifying the state of a list is a bit more complex (requires more syntax) in Haskell than in Python or JavaScript. The benefits of this additional syntax in Haskell is that the State is fully encapsulated in the State Monad which makes this computation absolutely pure.[^1] This is similar to frameworks like react + redux where you modify the state in a pure manner, but natively available in Haskell without any extra dependencies and considered as the default way for state manipulation.
+
+The code snippets shows the similarities between the languages. Given the fact that it is not necessary to develop an deep understanding for mathematical concepts from category theory like Functor or Monoid, then Haskell can be seen as a nice strongly typed and purely functional programming language with many similarities to scripting languages like JavaScript or Python. So one approach is to learn Haskell in an imperative, pure, functional style and simply ignore the higher concepts of the language until you are either really interested in them or you think you need need them.
 
 
 ## References
