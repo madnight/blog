@@ -95,7 +95,7 @@ In Python:
 list2D = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 for x in range(len(list2D)):                       # outer loop
-    for y in range(len(list2D[0])):                # inner loop
+    for y in range(len(list2D[x])):                # inner loop
       list2D[x][y] = 42                            # mutate list at x,y
 
 print(list2D)                                      # print list
@@ -107,7 +107,7 @@ In JavaScript:
 let list2D = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 for (x=0; x < list2D.length; x++)                  // outer loop
-   for (y=0; y < list2D[0].length; y++)            // inner loop
+   for (y=0; y < list2D[x].length; y++)            // inner loop
         list2D[x][y] = 42                          // mutate list at x,y
 
 console.log(list2D)                                // print list
@@ -123,7 +123,7 @@ print $ runST $ do                                 -- print and run state
   listState <- (mapM . mapM) newSTRef list2D
 
   forM_ [0..length list2D-1] $ \x ->               -- outer loop
-      forM_ [0..length (list2D !! 0)-1] $ \y ->    -- inner loop
+      forM_ [0..length (list2D !! x)-1] $ \y ->    -- inner loop
           writeSTRef (listState !! x !! y) 42      -- mutate list at x,y
 
   (mapM . mapM) readSTRef listState                -- read (return) state
