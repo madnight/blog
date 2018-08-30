@@ -120,11 +120,11 @@ let list2D = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 print $ runST $ do                                 -- print and run state
 
-  listState <- (mapM . mapM) newSTRef list2D
+  listState <- (mapM . mapM) newSTRef list2D       -- create list state
 
   forM_ [0..length list2D-1] $ \x ->               -- outer loop
       forM_ [0..length (list2D !! x)-1] $ \y ->    -- inner loop
-          writeSTRef (listState !! x !! y) 42      -- mutate list at x,y
+          writeSTRef (listState !! x !! y) 42      -- mutate list state at x,y
 
   (mapM . mapM) readSTRef listState                -- read (return) state
 ```
