@@ -138,7 +138,7 @@ Result:
 
 As we can see modifying the state of a list is a bit more complex (requires more syntax) in Haskell than in Python or JavaScript. The benefits of this additional syntax in Haskell is that the State is fully encapsulated in the State Monad which makes this computation absolutely pure.[^1] This is similar to frameworks like react + redux where you modify the state in a pure manner, but natively available in Haskell without any extra dependencies and considered as the default way for state manipulation.
 
-The code snippets shows the similarities between the languages. Given the fact that it is not necessary to develop an deep understanding for mathematical concepts from category theory like Functor or Monoid, then Haskell can be seen as a nice strongly typed and purely functional programming language with many similarities to scripting languages like JavaScript or Python. So one approach is to learn Haskell in an imperative, pure, functional style and simply ignore the higher concepts of the language until you are either really interested in them or you think you need need them.
+The code snippets shows the similarities between the languages. Given the fact that it is not necessary to develop an deep understanding for mathematical concepts from category theory for e.g. Functor or Monoid, then Haskell can be seen as a nice strongly typed and purely functional programming language with many similarities to scripting languages like JavaScript or Python. So one approach is to learn Haskell in an imperative, pure, functional style and simply ignore the higher concepts of the language until you are either really interested in them or you think you need it.
 
 
 ## References
