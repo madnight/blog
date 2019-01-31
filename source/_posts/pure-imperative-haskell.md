@@ -84,7 +84,7 @@ $ cat /tmp/timestamps.txt
 ...
 ```
 
-Please note that in order to use the `await` keyword in JavaScript it is necessary to wrap it inside an `async` function. I omitted this extra noise to make the visible syntax comparisons of the `while` loop more clear. I also removed the import statements for Python and Haskell and Haskells `main` function. As we can see there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep) is syntactically the shortest one. Of course, high expressives and thus generally fewer lines of code, does not imply simplicity. A language that is very terse tend to be more complex to understand. This is because it requires the Programmer to know the meaning of different short names, standard functions and operators.
+Please note that in order to use the `await` keyword in JavaScript it is necessary to wrap it inside an `async` function. I omitted this extra noise to make the visible syntax comparisons of the `while` loop more clear. I also removed the import statements for Python and Haskell and Haskells `main` function. As we can see there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep) is syntactically the shortest one. Of course high expressivenesses, and thus fewer lines of code, does not imply simplicity. A language that is very terse tend to be more complex to understand. That is because it requires the Programmer to know the meaning of different short names, standard functions and operators.
 
 
 # Nested Loop over 2D List
