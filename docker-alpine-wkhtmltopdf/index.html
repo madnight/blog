@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+                                                                                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="Fabian Beuke">
+  <link rel="icon" href="/fav.png">
+  <title>beuke.org</title>
+  <meta name="description">
+  <link rel="alternate" type="application/rss+xml" title="beuke.org"
+                                                                                  href="/atom.xml">
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css?__inline=true">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    </noscript>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script defer src="/js/main.js?__inline=true"></script>
+  <script
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js?__inline=true">
+  </script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      hljs.initHighlightingOnLoad();
+    });
+
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-122689197-1');
+
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+      <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#main-navbar"
+                                                                                        class="navbar-toggle"><span
+                                                                                          class="sr-only">Toggle
+            navigation</span><span class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span></button><a
+                                                                                        href="/"
+                                                                                        class="navbar-brand">beuke.org</a>
+      </div>
+      <div id="main-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="https://github.com/madnight">Github</a></li>
+          <li><a href="https://github.com/madnight/dotfiles">Dotfiles</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="header-section">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Minimal Wkthmltopdf Docker Container</h1>
+              <h2 class="post-subheading">HTML to PDF minimal Docker container,
+                without X11</h2>
+              <p class="post-meta">Posted on Jun 22 2017 · <a href="/tags/docker/"
+                                                                                                class="tag post-meta">docker</a>
+                · <a href="/tags/patch/" class="tag post-meta">patch</a> · <a href="/tags/pdf/"
+                                                                                                class="tag post-meta">pdf</a>
+                · <a href="/tags/musl/"
+                                                                                                class="tag post-meta">musl</a>&nbsp;·&nbsp;<span>3
+                  min read</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <article role="main" class="blog-post">
+          <link rel="stylesheet" type="text/css"
+                                                                                          href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+          <h1 id="introduction"><a class="markdownIt-Anchor"
+                                                                                            href="#introduction"></a>
+            Introduction</h1>
+          <p>All major browsers, such as Chrome, Firefox and Safari are capable
+            of
+            exporting the current website from HTML to PDF. This can be done via
+            the
+            <em>print</em> or <em>save as</em> function. However, there is no
+            standard way
+            of doing so on the command-line. Lets build a command-line tool by
+            composing
+            existing technology and the following goals in mind, a small
+            footprint,
+            minimal dependencies, many options for full control of the PDF
+            generation
+            process and a simple usage on Linux, Mac and Windows. To achieve
+            this, I
+            decided to use the well documented and maintained command-line
+            utility
+            <em>wkhtmltopdf</em> and a Alpine Linux based Docker image, to make
+            it
+            available on all platforms with Docker support.</p>
+          <h1 id="alpine-linux"><a class="markdownIt-Anchor"
+                                                                                            href="#alpine-linux"></a>
+            Alpine Linux</h1>
+          <p>Building Docker images based on Debian or Ubuntu often results in
+            image sizes
+            of a few hundred megabytes and more. This is a known problem,
+            therefore many
+            Docker image distributors are also offering a Alpine Linux based
+            image. The
+            Alpine Linux distribution is a very common Docker base distribution,
+            because
+            of its very small size of about 5 MB. After a small Google search,
+            one will
+            find the <em>wkhtmltopdf</em> package in the <a href="https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">official
+              Alpine repositories</a>. Interestingly though, the given binary
+            size is just
+            about 202 KB. That would be perfectly fine, if there wouldn’t be a
+            problem
+            with the dependency list. It contains 7 items, including
+            <em>qt5-qtwebkit</em>. Unfortunately this one requires 28 MB
+            (installed size)
+            and Xorg. Not only that, the Xorg server needs to be started in
+            order to use
+            the binary.</p>
+          <h1 id="qt-patches"><a class="markdownIt-Anchor"
+                                                                                            href="#qt-patches"></a>
+            Qt
+            Patches</h1>
+          <p>Since <em>wkhtmltopdf</em> uses the webkit engine to render its
+            PDFs, there
+            will be no way around the <em>qt5-qtwebkit</em>. However, it is
+            possible to
+            get around a started instance of Xorg. I was able to find a <a href="https://github.com/alloylab/Docker-Alpine-wkhtmltopdf"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">GitHub
+              repository</a> that provided a solution, by compiling a
+            <em>qt-webkit</em>
+            version without the need for Xorg.</p>
+          <pre class="highlight"><code class="Dockerfile"><span class="hljs-keyword">FROM</span> alpine:<span class="hljs-number">3.5</span>
+<span class="hljs-keyword">MAINTAINER</span> Fabian Beuke &lt;mail@beuke.org&gt;
+
+<span class="hljs-keyword">RUN</span><span class="bash"> apk add --update --no-cache \
+    libgcc libstdc++ libx11 glib libxrender libxext libintl \
+    libcrypto1.0 libssl1.0 \
+    ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family</span>
+
+<span class="hljs-comment"># on alpine static compiled patched qt headless wkhtmltopdf (47.2 MB)</span>
+<span class="hljs-comment"># compilation takes 4 hours on EC2 m1.large in 2016 thats why binary</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> wkhtmltopdf /bin</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"wkhtmltopdf"</span>]</span>
+</code></pre>
+          <p>Now the problem was, compiling the whole Qt library including the
+            necessary
+            patches takes about 4 hours (on <em>EC2 m1.large</em> in 2016). It
+            would be ok
+            to do so once, but Docker requires you to do so every time you want
+            to build
+            the container, in case that you don’t already have that Docker
+            layer. At first
+            I thought that I could work around that problem by pushing the build
+            to Docker
+            Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker
+            image that
+            can be pulled from their servers. But Docker Hub has a <a href="https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">build
+              timeout</a> after 2 hours, so it wasn’t able to finish the build.
+          </p>
+          <img src="/images/docker-wkhtmltopdf-alpine.png"
+                                                                                          onclick="window.open(this.src)">
+          <p>Therefore I compiled the Dockerfile locally, pushed the binary into
+            the
+            GitHub repository, copied it into the Dockerfile and pushed
+            everything to <a href="https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">Docker
+              Hub</a>.</p>
+        </article><br>
+        <ul class="pager blog-pager">
+          <li class="previous"><a href="/bspwm-missing-docs/" data-toggle="tooltip" data-placement="top"
+                                                                                            title="The Missing Docs of Bspwm">←
+              Previous Post</a></li>
+          <li class="next"><a href="/elm-json/" data-toggle="tooltip" data-placement="top"
+                                                                                            title="JSON Parsing in ELM">Next
+              Post →</a></li>
+        </ul><br>
+        <font size="2">This article contains wrong information, typos or should
+          be improved?<br><a
+                                                                                          href="https://github.com/madnight/blog/edit/master/source/_posts/docker-alpine-wkhtmltopdf.md">Edit&nbsp;</a>this
+          article on GitHub and make a Pull Request or post a comment below.
+        </font>
+        <div class="disqus-comments">
+          <div class="comments">
+            <div id="disqus_thread"></div>
+          </div>
+        </div>
+        <script>
+          var url_parts = window.location.href.split("?");
+          var disqus_url = url_parts[0];
+          (function() {
+            console.log("enter disqus");
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = "//beuke.disqus.com/embed.js";
+            (document.head || d.body).appendChild(dsq);
+          })();
+
+        </script>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container beautiful-jekyll-footer">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            <li><a href="https://github.com/madnight" title="GitHub"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-github"></i></span></a>
+            </li>
+            <li><a href="/atom.xml" title="RSS"><span class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-rss"></i></span></a>
+            </li>
+            <li><a href="mailto:mail@beuke.org" title="Email me"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a>
+            </li>
+            <li><a href="https://stackoverflow.com/users/6593641/madnight"
+                                                                                              title="StackOverflow"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">© Fabian Beuke • 2019<br></p>
+          <p class="copyright text-copy">Content is available under&nbsp;<a
+                                                                                            href="https://creativecommons.org/licenses/by-sa/4.0/">CC
+              BY-SA 4.0 </a>unless noted otherwise.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="//instant.page/1.0.0" type="module"
+                                                                                  integrity="sha384-6w2SekMzCkuMQ9sEbq0cLviD/yR2HfA/+ekmKiBnFlsoSvb/VmQFSi/umVShadQI">
+  </script>
+</body>
+
+</html>

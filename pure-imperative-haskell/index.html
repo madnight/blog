@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+                                                                                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="Fabian Beuke">
+  <link rel="icon" href="/fav.png">
+  <title>beuke.org</title>
+  <meta name="description">
+  <link rel="alternate" type="application/rss+xml" title="beuke.org"
+                                                                                  href="/atom.xml">
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css?__inline=true">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    </noscript>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script defer src="/js/main.js?__inline=true"></script>
+  <script
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js?__inline=true">
+  </script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      hljs.initHighlightingOnLoad();
+    });
+
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-122689197-1');
+
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+      <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#main-navbar"
+                                                                                        class="navbar-toggle"><span
+                                                                                          class="sr-only">Toggle
+            navigation</span><span class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span></button><a
+                                                                                        href="/"
+                                                                                        class="navbar-brand">beuke.org</a>
+      </div>
+      <div id="main-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="https://github.com/madnight">Github</a></li>
+          <li><a href="https://github.com/madnight/dotfiles">Dotfiles</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="header-section">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Pure Imperative Haskell</h1>
+              <h2 class="post-subheading">Pure Imperative Code Examples in
+                Haskell</h2>
+              <p class="post-meta">Posted on Aug 27 2018 · <a href="/tags/functional-programming/"
+                                                                                                class="tag post-meta">functional
+                  programming</a> · <a href="/tags/haskell/"
+                                                                                                class="tag post-meta">haskell</a>
+                · <a href="/tags/imperative/"
+                                                                                                class="tag post-meta">imperative</a>&nbsp;·&nbsp;<span>5
+                  min read</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <article role="main" class="blog-post">
+          <link rel="stylesheet" type="text/css"
+                                                                                          href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+          <p>It is often said that simple things that matter in the real world
+            are hard to
+            write in Haskell. And indeed it requires a litte bit more syntax to
+            write in
+            an imperative mutating style in Haskell compared to Python or
+            JavaScript.</p>
+          <center>
+            <img src="/images/hask-hello.jpg" style="width:500px;">
+          </center>
+          <p>In this post we will compare these three languages with very simple
+            examples
+            and see how much more syntax we need to write in Haskell to do
+            imperative
+            style programming.</p>
+          <h1 id="iterative-for-loops"><a class="markdownIt-Anchor"
+                                                                                            href="#iterative-for-loops"></a>
+            Iterative FOR Loops</h1>
+          <p>Simple for loop with print to <code>stdout</code>.</p>
+          <p>In Python:</p>
+          <pre class="highlight"><code class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
+    print(i)
+</code></pre>
+          <p>In JavaScript:</p>
+          <pre class="highlight"><code class="js"><span class="hljs-keyword">for</span> (i=<span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)
+    <span class="hljs-built_in">console</span>.log(i)
+</code></pre>
+          <p>In Haskell:</p>
+          <pre class="highlight"><code class="haskell"><span class="hljs-title">forM_</span> [<span class="hljs-number">0.</span><span class="hljs-number">.3</span>] $ \i -&gt;
+    print i
+</code></pre>
+          <p>Result:</p>
+          <pre class="highlight"><code class>0
+1
+2
+3
+</code></pre>
+          <p>The similarities are quiet obvious and none of these snippets is
+            more or less
+            complex than the others. One should note that the <code>for</code>
+            in Python
+            and JavaScript are native language keywords, whereas the Haskell
+            version
+            <code>forM_</code> is a function.</p>
+          <h1 id="while-true-with-sleep"><a class="markdownIt-Anchor"
+                                                                                            href="#while-true-with-sleep"></a>
+            While True with Sleep</h1>
+          <p>One common task in programming is to create endless loops that does
+            something
+            and then sleeps for a while and repeat. The following example
+            implements a
+            <code>while</code> true loop and logs the current date to a
+            temporary file.
+          </p>
+          <p>In Python:</p>
+          <pre class="highlight"><code class="python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:                                           <span class="hljs-comment"># endless loop</span>
+    now = datetime.datetime.utcnow().isoformat()      <span class="hljs-comment"># timestamp</span>
+    <span class="hljs-keyword">with</span> open(<span class="hljs-string">'/tmp/times.txt'</span>, <span class="hljs-string">'a'</span>) <span class="hljs-keyword">as</span> file:         <span class="hljs-comment"># open file</span>
+        file.write(now + <span class="hljs-string">"\n"</span>)                        <span class="hljs-comment"># write file</span>
+    time.sleep(<span class="hljs-number">2</span>)                                     <span class="hljs-comment"># sleep 2 seconds</span>
+</code></pre>
+          <p>In JavaScript:</p>
+          <pre class="highlight"><code class="javascript"><span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {                                         <span class="hljs-comment">// endless loop</span>
+    <span class="hljs-keyword">let</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString()                <span class="hljs-comment">// timestamp</span>
+    fs.appendFileSync(<span class="hljs-string">"/tmp/times.txt"</span>, now + <span class="hljs-string">"\n"</span>);  <span class="hljs-comment">// write file</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">done</span> =&gt;</span> setTimeout(done, <span class="hljs-number">2000</span>)) <span class="hljs-comment">// sleep 2 seconds</span>
+}
+</code></pre>
+          <p>In Haskell:</p>
+          <pre class="highlight"><code class="haskell"><span class="hljs-title">forever</span> $ <span class="hljs-keyword">do</span>                                           <span class="hljs-comment">-- endless loop</span>
+    now &lt;- getCurrentTime                              <span class="hljs-comment">-- timestamp</span>
+    appendFile <span class="hljs-string">"/tmp/times.txt"</span> $ show now ++ <span class="hljs-string">"\n"</span>     <span class="hljs-comment">-- write file</span>
+    threadDelay $ <span class="hljs-number">2</span> * <span class="hljs-number">1000</span> * <span class="hljs-number">1000</span>                      <span class="hljs-comment">-- sleep 2 seconds</span>
+</code></pre>
+          <p>Result:</p>
+          <pre class="highlight"><code class="sh">$ cat /tmp/timestamps.txt
+2018-08-23T20:09:22.553Z
+2018-08-23T20:09:24.556Z
+2018-08-23T20:09:26.558Z
+...
+</code></pre>
+          <p>Please note that in order to use the <code>await</code> keyword in
+            JavaScript
+            it is necessary to wrap it inside an <code>async</code> function. I
+            omitted
+            this extra noise to make the visible syntax comparisons of the
+            <code>while</code> loop more clear. I also removed the import
+            statements for
+            Python and Haskell and Haskells <code>main</code> function. As we
+            can see
+            there is not much difference between the code examples. The Haskell
+            versions
+            of doing I/O (reading time, writing to file and sleep) is
+            syntactically the
+            shortest one. Of course high expressivenesses, and thus fewer lines
+            of code,
+            does not imply simplicity. A language that is very terse tend to be
+            more
+            complex to understand. That is because it requires the Programmer to
+            know the
+            meaning of different short names, standard functions and operators.
+          </p>
+          <h1 id="nested-loop-over-2d-list"><a class="markdownIt-Anchor"
+                                                                                            href="#nested-loop-over-2d-list"></a>
+            Nested Loop over 2D List</h1>
+          <p>In Python:</p>
+          <pre class="highlight"><code class="python"><span class="hljs-comment"># list declaration</span>
+list2D = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]
+
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(len(list2D)):                       <span class="hljs-comment"># outer loop</span>
+    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(len(list2D[x])):                <span class="hljs-comment"># inner loop</span>
+      list2D[x][y] = <span class="hljs-number">42</span>                            <span class="hljs-comment"># mutate list at x,y</span>
+
+print(list2D)                                      <span class="hljs-comment"># print list</span>
+</code></pre>
+          <p>In JavaScript:</p>
+          <pre class="highlight"><code class="javascript"><span class="hljs-comment">// list declaration</span>
+<span class="hljs-keyword">let</span> list2D = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]
+
+<span class="hljs-keyword">for</span> (x=<span class="hljs-number">0</span>; x &lt; list2D.length; x++)                  <span class="hljs-comment">// outer loop</span>
+   <span class="hljs-keyword">for</span> (y=<span class="hljs-number">0</span>; y &lt; list2D[x].length; y++)            <span class="hljs-comment">// inner loop</span>
+        list2D[x][y] = <span class="hljs-number">42</span>                          <span class="hljs-comment">// mutate list at x,y</span>
+
+<span class="hljs-built_in">console</span>.log(list2D)                                <span class="hljs-comment">// print list</span>
+</code></pre>
+          <p>In Haskell:</p>
+          <pre class="highlight"><code class="haskell"> <span class="hljs-comment">-- list delcaration</span>
+<span class="hljs-title">let</span> list2D = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]
+
+<span class="hljs-title">print</span> $ runST $ <span class="hljs-keyword">do</span>                                 <span class="hljs-comment">-- print and run state</span>
+
+  listState &lt;- (mapM . mapM) newSTRef list2D       <span class="hljs-comment">-- create list state</span>
+
+  forM_ [<span class="hljs-number">0.</span>.length list2D<span class="hljs-number">-1</span>] $ \x -&gt;               <span class="hljs-comment">-- outer loop</span>
+      forM_ [<span class="hljs-number">0.</span>.length (list2D !! x)<span class="hljs-number">-1</span>] $ \y -&gt;    <span class="hljs-comment">-- inner loop</span>
+          writeSTRef (listState !! x !! y) <span class="hljs-number">42</span>      <span class="hljs-comment">-- mutate list state at x,y</span>
+
+  (mapM . mapM) readSTRef listState                <span class="hljs-comment">-- read (return) state</span>
+</code></pre>
+          <p>Result:</p>
+          <pre class="highlight"><code class>[[42,42,42,42],[42,42,42,42],[42,42,42,42]]
+</code></pre>
+          <p>As we can see modifying the state of a list is a bit more complex
+            (requires
+            more syntax) in Haskell than in Python or JavaScript. The benefits
+            of this
+            additional syntax in Haskell is that the State is fully encapsulated
+            in the
+            State Monad which makes this computation absolutely pure.<sup
+                                                                                            id="fnref:1"><a
+                                                                                              href="#fn:1"
+                                                                                              rel="footnote"><span
+                                                                                                class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[Purity of runST is finally proven](https://www.reddit.com/r/haskell/comments/679jd3/purity_of_runst_is_finally_proven)
+">[1]</span></a></sup> This is similar to frameworks like react + redux where
+            you modify the state in a pure manner, but natively available in
+            Haskell
+            without any extra dependencies and considered as the default way for
+            state
+            manipulation.</p>
+          <p>The code snippets shows the similarities between the languages.
+            Given the
+            fact that it is not necessary to develop an deep understanding for
+            mathematical concepts from category theory for e.g. Functor or
+            Monoid, then
+            Haskell can be seen as a nice strongly typed and purely functional
+            programming
+            language with many similarities to scripting languages like
+            JavaScript or
+            Python. So one approach is to learn Haskell in an imperative, pure,
+            functional
+            style and simply ignore the higher concepts of the language until
+            you are
+            either really interested in them or you think you need it.</p>
+          <h2 id="references"><a class="markdownIt-Anchor"
+                                                                                            href="#references"></a>
+            References</h2>
+          <div id="footnotes">
+            <hr>
+            <div id="footnotelist">
+              <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                <li id="fn:1"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://www.reddit.com/r/haskell/comments/679jd3/purity_of_runst_is_finally_proven"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">Purity
+                      of runST is finally proven</a><a href="#fnref:1"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+              </ol>
+            </div>
+          </div>
+        </article><br>
+        <ul class="pager blog-pager">
+          <li class="next"><a href="/haskell-pronounceable-names/" data-toggle="tooltip" data-placement="top"
+                                                                                            title="Pronounceable Haskell Operators">Next
+              Post →</a></li>
+        </ul><br>
+        <font size="2">This article contains wrong information, typos or should
+          be improved?<br><a
+                                                                                          href="https://github.com/madnight/blog/edit/master/source/_posts/pure-imperative-haskell.md">Edit&nbsp;</a>this
+          article on GitHub and make a Pull Request or post a comment below.
+        </font>
+        <div class="disqus-comments">
+          <div class="comments">
+            <div id="disqus_thread"></div>
+          </div>
+        </div>
+        <script>
+          var url_parts = window.location.href.split("?");
+          var disqus_url = url_parts[0];
+          (function() {
+            console.log("enter disqus");
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = "//beuke.disqus.com/embed.js";
+            (document.head || d.body).appendChild(dsq);
+          })();
+
+        </script>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container beautiful-jekyll-footer">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            <li><a href="https://github.com/madnight" title="GitHub"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-github"></i></span></a>
+            </li>
+            <li><a href="/atom.xml" title="RSS"><span class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-rss"></i></span></a>
+            </li>
+            <li><a href="mailto:mail@beuke.org" title="Email me"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a>
+            </li>
+            <li><a href="https://stackoverflow.com/users/6593641/madnight"
+                                                                                              title="StackOverflow"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">© Fabian Beuke • 2019<br></p>
+          <p class="copyright text-copy">Content is available under&nbsp;<a
+                                                                                            href="https://creativecommons.org/licenses/by-sa/4.0/">CC
+              BY-SA 4.0 </a>unless noted otherwise.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="//instant.page/1.0.0" type="module"
+                                                                                  integrity="sha384-6w2SekMzCkuMQ9sEbq0cLviD/yR2HfA/+ekmKiBnFlsoSvb/VmQFSi/umVShadQI">
+  </script>
+</body>
+
+</html>

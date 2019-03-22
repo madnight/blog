@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+                                                                                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="Fabian Beuke">
+  <link rel="icon" href="/fav.png">
+  <title>beuke.org</title>
+  <meta name="description">
+  <link rel="alternate" type="application/rss+xml" title="beuke.org"
+                                                                                  href="/atom.xml">
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css?__inline=true">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    </noscript>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script defer src="/js/main.js?__inline=true"></script>
+  <script
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js?__inline=true">
+  </script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      hljs.initHighlightingOnLoad();
+    });
+
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-122689197-1');
+
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+      <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#main-navbar"
+                                                                                        class="navbar-toggle"><span
+                                                                                          class="sr-only">Toggle
+            navigation</span><span class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span></button><a
+                                                                                        href="/"
+                                                                                        class="navbar-brand">beuke.org</a>
+      </div>
+      <div id="main-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="https://github.com/madnight">Github</a></li>
+          <li><a href="https://github.com/madnight/dotfiles">Dotfiles</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="header-section">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>JSON Parsing in ELM</h1>
+              <h2 class="post-subheading">JSON parsing in a purely functional
+                web language</h2>
+              <p class="post-meta">Posted on Jan 14 2017 · <a href="/tags/elm/"
+                                                                                                class="tag post-meta">elm</a>
+                · <a href="/tags/json/" class="tag post-meta">json</a> · <a href="/tags/functional-programming/"
+                                                                                                class="tag post-meta">functional
+                  programming</a>&nbsp;·&nbsp;<span>6 min read</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <article role="main" class="blog-post">
+          <link rel="stylesheet" type="text/css"
+                                                                                          href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+          <h1 id="immutable-state-of-the-art"><a class="markdownIt-Anchor"
+                                                                                            href="#immutable-state-of-the-art"></a>
+            Immutable State of the Art</h1>
+          <p>There is a ongoing hype of JavaScript<sup id="fnref:1"><a href="#fn:1"
+                                                                                              rel="footnote"><span
+                                                                                                class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[Programming Languages GitHub Ranking](https://madnight.github.io/githut)
+">[1]</span></a></sup> in the developer community. Virtually everything is now
+            compiled to JavaScript and delivered to the client. JavaScript is
+            also
+            becoming very popular for server side development<sup
+                                                                                            id="fnref:2"><a
+                                                                                              href="#fn:2"
+                                                                                              rel="footnote"><span
+                                                                                                class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[Event-driven I/O server-side JavaScript environment based on V8](https://en.wikipedia.org/wiki/Node.js)
+">[2]</span></a></sup>, replacing Ruby and PHP as primary programming
+            language.<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[JavaScript more widely used in industry than PHP or Ruby](http://www.tiobe.com/tiobe-index/)
+">[9]</span></a></sup> Not only that, there’s also an ongoing serverless trend,
+            moving most of the back-end code into the front-end part of the
+            application.<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[What is Serverless Architecture?](https://medium.com/@PaulDJohnston/what-is-serverless-architecture-43b9ea4babca#.5adec3yz0)
+">[3]</span></a></sup> This paradigm shift results in highly complex front-end
+            applications, making it very complicated to write applications with
+            plain old
+            vanilla JavaScript. For this reason, the community started to put
+            much effort
+            in improving the JavaScript front-end development. A new JavaScript
+            Standard
+            ES6 (ECMAScript 2015) have been published. The Babel compiler,
+            compiles that
+            new standard to vanilla JavaScript, allowing it’s execution in older
+            browsers.
+            Frameworks and tools like react, webpack, karma, mocha, enzyme,
+            gulp, eslint
+            and many more to make the life as JavaScript developer as
+            comfortable as
+            possible.<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[Boilerplate Example react-webpack-babel-karma-boilerplate](https://github.com/madnight/react-webpack-babel-karma-boilerplate)
+">[5]</span></a></sup></p>
+          <p>It takes many weeks to get familiar with the new toolchain, but it
+            will pay
+            off in the long run. Following all current best practices leads to a
+            setup
+            with many different tools and a highly improved JavaScript syntax,
+            that
+            basically follows the approach of reactive functional programming.
+            It would
+            take a very long time to describe why that is the case - TLDR; the
+            major
+            problem is mutable state.<sup id="fnref:8"><a href="#fn:8"
+                                                                                              rel="footnote"><span
+                                                                                                class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[How can you do anything useful without mutable state?]( http://stackoverflow.com/questions/1020653/how-can-you-do-anything-useful-without-mutable-state)
+">[8]</span></a></sup> Mutable state is not only a potential source of bugs, it
+            is also a one of the top reasons for unpredictable application
+            behaviour and
+            is in principle not compatible with parallelization.<sup
+                                                                                            id="fnref:6"><a
+                                                                                              href="#fn:6"
+                                                                                              rel="footnote"><span
+                                                                                                class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[So You Want to be a Functional Programmer]( https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.wu667z5wl)
+">[6]</span></a></sup> So, why not experimenting with a new reactive functional
+            programming language explicitly designed for front-end programming,
+            that
+            compiles to vanilla JavaScript.</p>
+          <h1 id="parse-json-in-elm-018"><a class="markdownIt-Anchor"
+                                                                                            href="#parse-json-in-elm-018"></a>
+            Parse JSON in Elm 0.18</h1>
+          <p>Elm is a static typed, reactive, pure functional programming
+            language. It has
+            a simplified Haskell syntax, making it much easier to use than
+            Haskell. It is
+            focused on front-end web development and therefore compiles to
+            JavaScript. It
+            has the builtin features of react and redux.<sup id="fnref:7"><a href="#fn:7"
+                                                                                              rel="footnote"><span
+                                                                                                class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+                                                                                                aria-label="[Redux is influenced by ELM](https://github.com/reactjs/redux#Influences)
+">[7]</span></a></sup></p>
+          <p>Lets consider an JSON API in the following format:</p>
+          <pre class="highlight"><code class="json">[
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"JavaScript"</span>,
+    <span class="hljs-attr">"year"</span>: <span class="hljs-string">"2012"</span>,
+    <span class="hljs-attr">"quarter"</span>: <span class="hljs-string">"2"</span>,
+    <span class="hljs-attr">"count"</span>: <span class="hljs-string">"118009"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Ruby"</span>,
+    <span class="hljs-attr">"year"</span>: <span class="hljs-string">"2012"</span>,
+    <span class="hljs-attr">"quarter"</span>: <span class="hljs-string">"2"</span>,
+    <span class="hljs-attr">"count"</span>: <span class="hljs-string">"67773"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Python"</span>,
+    <span class="hljs-attr">"year"</span>: <span class="hljs-string">"2012"</span>,
+    <span class="hljs-attr">"quarter"</span>: <span class="hljs-string">"2"</span>,
+    <span class="hljs-attr">"count"</span>: <span class="hljs-string">"42212"</span>
+  }
+]
+</code></pre>
+          <p>Since Elm is strongly typed we have to create a type that matches
+            the given
+            JSON objects.</p>
+          <pre class="highlight"><code class="elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">ProgrammingLanguage</span> = {
+  name : <span class="hljs-type">String</span>,
+  year : <span class="hljs-type">Int</span>,
+  quarter: <span class="hljs-type">Int</span>,
+  count : <span class="hljs-type">Int</span>
+}
+</code></pre>
+          <p>As you can see the attribute name is a string and year, quarter,
+            count are
+            integers. The JSON API provides integers encoded as strings, so it
+            is
+            necessary to do a type cast. Therefore we need to write a simple
+            custom
+            decoder, that converts a string to integer.</p>
+          <pre class="highlight"><code class="elm"><span class="hljs-title">stringAsInt</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">stringAsInt</span> = string |&gt; andThen (<span class="hljs-type">String</span>.toInt &gt;&gt; fromResult)
+</code></pre>
+          <p>Lets take a look at the type definition to see how this works.<br>
+            <code>andThen : (a -&gt; Decoder b) -&gt; Decoder a -&gt; Decoder
+              b</code><br>
+            The function <code>andThen</code> takes two arguments a decoder a,
+            in this
+            case the standard string decoder and a type cast function from a to
+            decoder b
+            that converts the result of our string decoder to an new decoder of
+            type b.
+            This procedure is a simple chain, first decode as string and then
+            decode as
+            int by type conversion. If you know Haskell <code>andThen</code> is
+            the
+            equivalent of <code>(=&lt;&lt;) :: Monad m =&gt; (a -&gt; m b) -&gt;
+              m a -&gt;
+              m b</code> the monadic bind that sequentially compose two actions
+            by passing
+            any value produced by the first as an argument to the second. If you
+            are not
+            familiar with the pipe <code>|&gt;</code> and function composition
+            <code>&gt;&gt;</code> notation you can also write the function with
+            as a
+            lambda expression <code>andThen (\n -&gt;
+              fromResult(String.toInt(n)))
+              string</code>. Now we are able to use that decoder to decode a
+            single JSON
+            object.</p>
+          <pre class="highlight"><code class="elm"><span class="hljs-title">langDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">ProgrammingLanguage</span>
+<span class="hljs-title">langDecoder</span> =
+  map4 <span class="hljs-type">ProgrammingLanguage</span>
+    (field <span class="hljs-string">"name"</span> string)
+    (field <span class="hljs-string">"year"</span> stringAsInt)
+    (field <span class="hljs-string">"quarter"</span> stringAsInt)
+    (field <span class="hljs-string">"count"</span> stringAsInt)
+</code></pre>
+          <p>Since our API is a list of programming language objects we need to
+            parse the
+            whole list. <code>Json.Decode.list : Decoder a -&gt; Decoder (List
+              a)</code>
+          </p>
+          <pre class="highlight"><code class="elm"><span class="hljs-title">langListDecoder</span> : <span class="hljs-type">Decoder</span> (<span class="hljs-type">List</span> <span class="hljs-type">ProgrammingLanguage</span>)
+<span class="hljs-title">langListDecoder</span> = <span class="hljs-type">Json</span>.<span class="hljs-type">Decode</span>.list langDecoder
+</code></pre>
+          <p>Finally you are able to use the decoder to parse JSON from a given
+            URL
+            <code>Http.get url langListDecoder</code></p>
+          <pre class="highlight"><code class="elm"><span class="hljs-title">getProgrammingLanguages</span> : <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">getProgrammingLanguages</span> =
+  <span class="hljs-keyword">let</span> url = <span class="hljs-string">"gh-star-event.json"</span>
+  <span class="hljs-keyword">in</span> <span class="hljs-type">Http</span>.send <span class="hljs-type">NewLang</span> (<span class="hljs-type">Http</span>.get url langListDecoder)
+</code></pre>
+          <p>See <a href="https://github.com/madnight/elm-webpack-starter" target="_blank"
+                                                                                            rel="noopener">https://github.com/madnight/elm-webpack-starter</a>
+            for a full working API parsing example.</p>
+          <h2 id="update"><a class="markdownIt-Anchor" href="#update"></a>
+            Update</h2>
+          <p>There’s a new command line tool and website <a href="https://github.com/eeue56/json-to-elm"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">https://github.com/eeue56/json-to-elm</a>
+            that allows for automatic conversion of JSON to elm code.</p>
+          <blockquote>
+            <p>This project allows you to automate the creation of:</p>
+            <ul>
+              <li>type aliases from JSON data</li>
+              <li>decoders from type aliases and some union types</li>
+              <li>encoders from type aliases and some union types</li>
+            </ul>
+          </blockquote>
+          <h2 id="references"><a class="markdownIt-Anchor"
+                                                                                            href="#references"></a>
+            References</h2>
+          <div id="footnotes">
+            <hr>
+            <div id="footnotelist">
+              <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                <li id="fn:1"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://madnight.github.io/githut"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">Programming
+                      Languages GitHub Ranking</a><a href="#fnref:1"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:2"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://en.wikipedia.org/wiki/Node.js"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">Event-driven
+                      I/O server-side JavaScript environment based on V8</a><a href="#fnref:2"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:3"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://medium.com/@PaulDJohnston/what-is-serverless-architecture-43b9ea4babca#.5adec3yz0"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">What
+                      is Serverless Architecture?</a><a href="#fnref:3"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:4"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://www.youtube.com/watch?v=PB_d3uBkQPs"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">Destructuring:
+                      What, Why and How - Part 1 of ES6 JavaScript
+                      Features</a><a href="#fnref:4" rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:5"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://github.com/madnight/react-webpack-babel-karma-boilerplate"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">Boilerplate
+                      Example react-webpack-babel-karma-boilerplate</a><a href="#fnref:5"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:6"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.wu667z5wl"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">So
+                      You Want to be a Functional Programmer</a><a href="#fnref:6"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:7"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="https://github.com/reactjs/redux#Influences"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">Redux
+                      is influenced by ELM</a><a href="#fnref:7" rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:8"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="http://stackoverflow.com/questions/1020653/how-can-you-do-anything-useful-without-mutable-state"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">How
+                      can you do anything useful without mutable state?</a><a href="#fnref:8"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+                <li id="fn:9"><span
+                                                                                                  style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span
+                                                                                                  style="display: inline-block; vertical-align: top; margin-left: 10px;"><a
+                                                                                                    href="http://www.tiobe.com/tiobe-index/"
+                                                                                                    target="_blank"
+                                                                                                    rel="noopener">JavaScript
+                      more widely used in industry than PHP or Ruby</a><a href="#fnref:9"
+                                                                                                    rev="footnote">
+                      ↩</a></span></li>
+              </ol>
+            </div>
+          </div>
+        </article><br>
+        <ul class="pager blog-pager">
+          <li class="previous"><a href="/docker-alpine-wkhtmltopdf/" data-toggle="tooltip" data-placement="top"
+                                                                                            title="Minimal Wkthmltopdf Docker Container">←
+              Previous Post</a></li>
+          <li class="next"><a href="/github-mirror/" data-toggle="tooltip" data-placement="top"
+                                                                                            title="Create a GitHub Mirror">Next
+              Post →</a></li>
+        </ul><br>
+        <font size="2">This article contains wrong information, typos or should
+          be improved?<br><a
+                                                                                          href="https://github.com/madnight/blog/edit/master/source/_posts/elm-json.md">Edit&nbsp;</a>this
+          article on GitHub and make a Pull Request or post a comment below.
+        </font>
+        <div class="disqus-comments">
+          <div class="comments">
+            <div id="disqus_thread"></div>
+          </div>
+        </div>
+        <script>
+          var url_parts = window.location.href.split("?");
+          var disqus_url = url_parts[0];
+          (function() {
+            console.log("enter disqus");
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = "//beuke.disqus.com/embed.js";
+            (document.head || d.body).appendChild(dsq);
+          })();
+
+        </script>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container beautiful-jekyll-footer">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            <li><a href="https://github.com/madnight" title="GitHub"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-github"></i></span></a>
+            </li>
+            <li><a href="/atom.xml" title="RSS"><span class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-rss"></i></span></a>
+            </li>
+            <li><a href="mailto:mail@beuke.org" title="Email me"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a>
+            </li>
+            <li><a href="https://stackoverflow.com/users/6593641/madnight"
+                                                                                              title="StackOverflow"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">© Fabian Beuke • 2019<br></p>
+          <p class="copyright text-copy">Content is available under&nbsp;<a
+                                                                                            href="https://creativecommons.org/licenses/by-sa/4.0/">CC
+              BY-SA 4.0 </a>unless noted otherwise.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="//instant.page/1.0.0" type="module"
+                                                                                  integrity="sha384-6w2SekMzCkuMQ9sEbq0cLviD/yR2HfA/+ekmKiBnFlsoSvb/VmQFSi/umVShadQI">
+  </script>
+</body>
+
+</html>
