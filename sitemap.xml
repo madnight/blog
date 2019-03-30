@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    
+    <lastmod>2019-03-22T11:03:11.290Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2019-03-22T11:03:11.290Z</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>https://beuke.org/github-mirror/</loc>
-    
-    <lastmod>2019-03-22T11:03:11.290Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2019-03-22T11:03:11.290Z</lastmod>
     
@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
     <lastmod>2019-03-22T11:03:11.290Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/timeseal-lag-modification/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2019-03-22T11:03:11.290Z</lastmod>
     
