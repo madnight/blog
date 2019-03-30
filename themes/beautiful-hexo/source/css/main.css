@@ -5,7 +5,7 @@ html, body {
     position: relative;
     font-family: Open Sans;
     font-size: 17px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 h1 {
@@ -19,7 +19,6 @@ article {
 p {
   margin: 20px 0px;
   max-width: 720px;
-  text-align: justify;
 }
 p a {
   /* text-decoration: underline */
@@ -195,10 +194,10 @@ img {
     display: block;
   }
   .post-heading {
-    margin: 0px 10px;
+    margin: 0px 15px;
   }
   article {
-    margin: 0px 10px;
+    margin: 0px 15px;
   }
   img {
     max-width: 100%;
