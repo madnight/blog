@@ -38,3 +38,32 @@ Now the problem was, compiling the whole Qt library including the necessary patc
 <img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)">
 
 Therefore I compiled the Dockerfile locally, pushed the binary into the GitHub repository, copied it into the Dockerfile and pushed everything to [Docker Hub](https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/).
+
+### Update September 2019
+
+I found that it is now possible to build the patched wkhtmltopdf Alpine binary in Travis CI, although documentation says otherwise:
+
+> It is very common for test suites or build scripts to hang. Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
+
+> * When a job produces no log output for 10 minutes.
+
+> * When a job on a public repository takes longer than 50 minutes.
+
+> * When a job on a private repository takes longer than 120 minutes.
+
+https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
+
+As you can see in the [build log](https://api.travis-ci.org/v3/job/585241708/log.txt) the Travis CI build takes more than an hour, despite being a job on a public repository. Therefore I removed the binary from the git repository and put it into the Docker Image with a copy from the builder image.
+
+```Dockerfile
+COPY --from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10 \
+    /bin/wkhtmltopdf /bin/wkhtmltopdf
+```
+
+In addition to that, I also added an checksum check against the sha256sum from the build log, just so the user can be sure about its origin.
+
+```Dockerfile
+ENV BUILD_LOG=https://api.travis-ci.org/v3/job/585241708/log.txt
+RUN [ "$(sha256sum /bin/wkhtmltopdf | awk '{ print $1 }')" == \
+      "$(wget -q -O - $BUILD_LOG | sed -n '14121p' | awk '{ print $1 }')" ]
+```
