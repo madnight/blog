@@ -5,17 +5,17 @@ tags: ["haskell", "imperative", "functional programming"]
 subtitle: Pure Imperative Code Examples in Haskell
 ---
 
-It is often said that simple things that matter in the real world are hard to write in Haskell. And indeed it requires a litte bit more syntax to write in an imperative mutating style in Haskell compared to Python or JavaScript.
+It's often said that simple things which matter in the real world are quite hard to write in Haskell. And indeed it requires more syntax to program in an imperative mutating style in Haskell when compared to Python or JavaScript.
 
 <center>
 <img src="/images/hask-hello.jpg" style="width:500px;">
 </center>
 
- In this post we will compare these three languages with very simple examples and see how much more syntax we need to write in Haskell to do imperative style programming.
+In this post we will compare these three languages with simple examples and see how much more syntax we need to write in Haskell to do imperative style programming.
 
-# Iterative FOR Loops
+# FOR Loops
 
-Simple for loop with print to `stdout`.
+A simple for loop with print to `stdout`.
 
 In Python:
 ```python
@@ -84,8 +84,7 @@ $ cat /tmp/timestamps.txt
 ...
 ```
 
-Please note that in order to use the `await` keyword in JavaScript it is necessary to wrap it inside an `async` function. I omitted this extra noise to make the visible syntax comparisons of the `while` loop more clear. I also removed the import statements for Python and Haskell and Haskells `main` function. As we can see there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep) is syntactically the shortest one. Of course high expressivenesses, and thus fewer lines of code, does not imply simplicity. A language that is very terse tend to be more complex to understand. That is because it requires the Programmer to know the meaning of different short names, standard functions and operators.
-
+Please note that in order to use the `await` keyword in JavaScript it is necessary to put it in an `async` function. I omitted this kind of extra "noise" to make the syntax comparisons of the `while` loop more clear. I also removed the import statements for Python and Haskell. Haskells `main` function is also ommited. As we can see there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep) is syntactically the shortest one. Of course high expressivenesses, and thus fewer lines of code, does not imply simplicity. A language that is very terse tend to be more complex to understand. That is because it requires the programmer to know the meaning of different short names, standard functions and operators.
 
 # Nested Loop over 2D List
 
@@ -134,12 +133,9 @@ Result:
 [[42,42,42,42],[42,42,42,42],[42,42,42,42]]
 ```
 
+As we can see modifying the state of a list is a bit more complex (requires more syntax) in Haskell than in Python or JavaScript. The benefits of this additional syntax in Haskell is that the State is fully encapsulated in the State Monad which makes this computation absolutely pure.[^1] This is similar to frameworks like react + redux where you modify the state in a pure manner, but natively available in Haskell and considered default for state manipulation.
 
-
-As we can see modifying the state of a list is a bit more complex (requires more syntax) in Haskell than in Python or JavaScript. The benefits of this additional syntax in Haskell is that the State is fully encapsulated in the State Monad which makes this computation absolutely pure.[^1] This is similar to frameworks like react + redux where you modify the state in a pure manner, but natively available in Haskell without any extra dependencies and considered as the default way for state manipulation.
-
-The code snippets shows the similarities between the languages. Given the fact that it is not necessary to develop an deep understanding for mathematical concepts from category theory for e.g. Functor or Monoid, then Haskell can be seen as a nice strongly typed and purely functional programming language with many similarities to scripting languages like JavaScript or Python. So one approach is to learn Haskell in an imperative, pure, functional style and simply ignore the higher concepts of the language until you are either really interested in them or you think you need it.
-
+The code snippets shows the similarities between the languages. Given the fact that it's not necessary to develop an deep understanding for mathematical concepts from category theory for e.g. Functor or Monoid, then Haskell can be seen as a nice strongly typed and purely functional programming language with many similarities to scripting languages like JavaScript or Python. So one approach is to learn Haskell in an imperative, pure, functional style and simply ignore the higher concepts of the language until you are either really interested in them or you think you need it.
 
 ## References
 [^1]: [Purity of runST is finally proven](https://www.reddit.com/r/haskell/comments/679jd3/purity_of_runst_is_finally_proven)
