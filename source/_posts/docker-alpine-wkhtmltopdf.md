@@ -11,11 +11,11 @@ All major browsers, such as Chrome, Firefox and Safari are capable of exporting 
 
 # Alpine Linux
 
-Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes and more. This is a known problem, therefore many Docker image distributors are also offering a Alpine Linux based image. The Alpine Linux distribution is a very common Docker base distribution, because of its very small size of about 5 MB. After a small Google search, one will find the *wkhtmltopdf* package in the [official Alpine repositories](https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf). Interestingly though, the given binary size is just about 202 KB. That would be perfectly fine, if there wouldn't be a problem with the dependency list. It contains 7 items, including *qt5-qtwebkit*. Unfortunately this one requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.
+Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes and more. This is a well known problem and therefore many Docker image distributors are also offering a Alpine Linux based Docker image. The Alpine Linux distribution is a very common Docker base distribution, because of its very small size of about 5 MB. After a fast Google search, the *wkhtmltopdf* package of the [official Alpine repositories](https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf) shows up in the search results. Interestingly though, the given binary size is just about 202 KB. Which would be perfectly fine, if there wouldn't be a problem with the dependency list. It contains 7 items, including *qt5-qtwebkit*. Unfortunately this one requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.
 
 # Qt Patches
 
-Since *wkhtmltopdf* uses the webkit engine to render its PDFs, there will be no way around the *qt5-qtwebkit*. However, it is possible to get around a started instance of Xorg. I was able to find a [GitHub repository](https://github.com/alloylab/Docker-Alpine-wkhtmltopdf) that provided a solution, by compiling a *qt-webkit* version without the need for Xorg.
+Since *wkhtmltopdf* uses the webkit engine to render PDFs, there is no way around the *qt5-qtwebkit* dependency. However, it is possible to avoid Xorg. I was able to find a [GitHub repository](https://github.com/alloylab/Docker-Alpine-wkhtmltopdf) that provides a solution, by compiling a *qt-webkit* version without the need for Xorg.
 
 ```Dockerfile
 FROM alpine:3.5
@@ -37,7 +37,7 @@ Now the problem was, compiling the whole Qt library including the necessary patc
 
 <img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)">
 
-Therefore I compiled the Dockerfile locally, pushed the binary into the GitHub repository, copied it into the Dockerfile and pushed everything to [Docker Hub](https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/).
+Therefore I compiled the Dockerfile on my computer, pushed the binary to the GitHub repository, copied it into the Dockerfile and pushed everything to [Docker Hub](https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/).
 
 ### Update September 2019
 
@@ -53,7 +53,7 @@ I found that it is now possible to build the patched wkhtmltopdf Alpine binary i
 
 https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
 
-As you can see in the [build log](https://api.travis-ci.org/v3/job/585241708/log.txt) the Travis CI build takes more than an hour, despite being a job on a public repository. Therefore I removed the binary from the git repository and put it into the Docker Image with a copy from the builder image.
+As you can see in the [build log](https://api.travis-ci.org/v3/job/585241708/log.txt) the Travis CI build takes more than one hour, despite being a job on a public repository. Now being able to build in CI, I removed the binary from the git repository and put it into the Docker image with a copy from the builder image.
 
 ```Dockerfile
 COPY --from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10 \
