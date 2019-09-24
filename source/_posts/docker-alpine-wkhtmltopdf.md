@@ -7,11 +7,11 @@ subtitle: HTML to PDF minimal Docker container, without X11
 
 # Introduction
 
-All major browsers, such as Chrome, Firefox and Safari are capable of exporting the current website from HTML to PDF. This can be done via the _print_ or _save as_ function. However, there is no standard way of doing so on the command-line. Lets build a command-line tool by composing existing technology and the following goals in mind, a small footprint, minimal dependencies, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained command-line utility *wkhtmltopdf* and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.
+All major browsers, such as Chrome, Firefox and Safari are capable of exporting the currently visited website from HTML to PDF. This can be done via the _print_ or _save as_ function. However, there is no standard way of doing so on the command-line. Lets build a command-line tool by composing existing technology and with the following goals in mind: a small footprint, minimal dependencies, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained command-line utility *wkhtmltopdf* and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.
 
 # Alpine Linux
 
-Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes and more. This is a well known problem and therefore many Docker image distributors are also offering a Alpine Linux based Docker image. The Alpine Linux distribution is a very common Docker base distribution, because of its very small size of about 5 MB. After a fast Google search, the *wkhtmltopdf* package of the [official Alpine repositories](https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf) shows up in the search results. Interestingly though, the given binary size is just about 202 KB. Which would be perfectly fine, if there wouldn't be a problem with the dependency list. It contains 7 items, including *qt5-qtwebkit*. Unfortunately this one requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.
+Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes and more. This is a well known problem and therefore many Docker image distributors are also offering a Alpine Linux based Docker image. The Alpine Linux distribution is a very common Docker base distribution, because of its very small size of about 5 MB. After a fast Google search, the *wkhtmltopdf* package of the [official Alpine repositories](https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf) shows up in the search results. Interestingly though, the given binary size is just about 202 KB. Which would be perfectly fine, if it wasn't for the dependency list. It contains 7 items, including *qt5-qtwebkit*. Unfortunately this one requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.
 
 # Qt Patches
 
@@ -33,7 +33,8 @@ COPY wkhtmltopdf /bin
 ENTRYPOINT ["wkhtmltopdf"]
 ```
 
-Now the problem was, compiling the whole Qt library including the necessary patches takes about 4 hours (on *EC2 m1.large* in 2016). It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first I thought that I could work around that problem by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a [build timeout](https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build) after 2 hours, so it wasn't able to finish the build.
+Unfortunately, this led to a new problem.
+The compilation of the whole Qt library including the necessary patches takes about 4 hours on *EC2 m1.large* in 2016. It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first I thought that I could work around that issue by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a [build timeout](https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build) after 2 hours, so it wasn't able to finish the build.
 
 <img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)">
 
@@ -53,17 +54,16 @@ I found that it is now possible to build the patched wkhtmltopdf Alpine binary i
 
 https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
 
-As you can see in the [build log](https://api.travis-ci.org/v3/job/585241708/log.txt) the Travis CI build takes more than one hour, despite being a job on a public repository. Now being able to build in CI, I removed the binary from the git repository and put it into the Docker image with a copy from the builder image.
+As you can see in [Travis CI](https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf/builds/585241704) the build takes more than one hour, despite being a job on a public repository. Now, being able to build in CI, I removed the binary from the git repository and copied it from the builder image into the Docker image.
 
 ```Dockerfile
 COPY --from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10 \
     /bin/wkhtmltopdf /bin/wkhtmltopdf
 ```
-
 In addition to that, I also added an checksum check against the sha256sum from the build log, just so the user can be sure about its origin.
 
 ```Dockerfile
 ENV BUILD_LOG=https://api.travis-ci.org/v3/job/585241708/log.txt
 RUN [ "$(sha256sum /bin/wkhtmltopdf | awk '{ print $1 }')" == \
       "$(wget -q -O - $BUILD_LOG | sed -n '14121p' | awk '{ print $1 }')" ]
-```
+``` 
