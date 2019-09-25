@@ -7,13 +7,13 @@ subtitle: GitHub Programming Language Popularity based on BigQuery
 
 ### Introduction
 
-The topic of this post is a comparison of different programming language popularity rankings and why I decided to add yet another programming language popularity index. Many different programming language popularity rankings can be found in the Internet. Three popular ones that show up on the first google search page are:
+The topic of this post is a comparison of different programming language popularity rankings and why I decided to add yet another programming language popularity index. Many different programming language popularity rankings can be found in the Internet. Three popular ones that show up on the first Google search page are:
 
 * [TIOBE Programming Community Index](//tiobe.com/tiobe-index/)
 * [The RedMonk Programming Language Rankings](//redmonk.com/sogrady/2016/07/20/language-rankings-6-16/)
 * [The PYPL PopularitY of Programming Language Index](//pypl.github.io/PYPL.html)
 
-It's not easy to choose an objective indicator for a programming popularity ranking. The following table provides a small overview of the existing solutions.
+It's not easy to choose an objective indicator for a programming popularity ranking. The following table provides a small overview of existing solutions.
 
 
 {% raw %}<div style="overflow-x:auto;"><center>{% endraw %}
@@ -30,7 +30,7 @@ It's not easy to choose an objective indicator for a programming popularity rank
 {% raw %}</div>{% endraw %}
 
 ### TOIBE
-The major criticism of the TOIBE index is that it is actually way behind of what's actually going on in the programming community. For example, the authors of the PYPL Index describe the TOIBE index as a lagging indicator.[^pypldiff] Another problem is the availability of the TOIBE dataset. Its fairly safe to say that almost no one is willing to pay 5.000$ to be able to see how the ranking is actually build. This makes the index intransparent and hard to reproduce. Even if one were to buy the dataset it's still a mystery why and how TOIBE choose different percentage weights for different data sources resulting in a arbitrary metric, where the ranking can be adjusted just by playing around with the parameters. Because of this we can conclude that the TOIBE Index is a slow and subjective indicator, which is in many cases the opposite of what you want. Lets see if RedMonk can do any better.
+The major criticism of the TOIBE index is that it is actually way behind of what's actually going on in the programming community. For example, the authors of PYPL describe the TOIBE index as lagging indicator.[^pypldiff] Another problem is the availability of the TOIBE dataset. It's fairly safe to assume that almost no one is willing to pay 5.000$ to be able to see how the ranking is actually build. This makes the index intransparent and hard to reproduce. Even if one were to buy the dataset it's still a mystery why and how TOIBE choose different percentage weights for different data sources resulting in a arbitrary metric, where the ranking can be adjusted just by playing around with the parameters. Because of this we can conclude that the TOIBE Index is a slow and subjective indicator, which is in many cases the opposite of what you want. Let's see if RedMonk can do any better.
 
 <img src="/images/toibe.png" onclick="window.open(this.src)">
 
@@ -47,13 +47,13 @@ The RedMonk ranking makes some sensible decision on how to improve the quality o
 <img src="/images/redmonk.png" onclick="window.open(this.src)">
 
 ### PYPL
-The PYPL PopularitY of Programming Language Index[^pypl] is created by analyzing how often language tutorials are searched on Google. The more a language tutorial for a certain programming language is searched on Google, the more popular the language is assumed to be. Its dataset is based on Google Trends, which makes it quite transparent. The main drawback of PYPL is that it only compares the TOP 22 languages (as of July 2018) and there are no historical rankings, they only provide a historical chart.
+The PYPL PopularitY of Programming Language Index[^pypl] is created by analyzing how often language tutorials are searched on Google. The more a language tutorial for a certain programming language is searched on Google, the more popular the language is assumed to be. Its dataset is based on Google Trends, which makes it quite transparent. The main drawback of PYPL is that it only compares the TOP 22 languages (as of July 2018) and there are no historical rankings. They only provide a historical chart.
 
 <img src="/images/pypl.png" onclick="window.open(this.src)">
 
 ### Other
 
-There are also other rankings that are worth noting. The [octoverse](https://octoverse.github.com/) which is a official GitHub source and shows some additional interesting statistics about GitHub. However, their ranking only shows the top 15 programming languages and it does not offer a history, nor does it reveal any informations on how the underlying data has been aggregated. Another one is the Programming Language Popularity chart on https://archive.is/f1ZBZ, which shows a bubble chart with StackOverflow (tags) / GithHub (lines changes) ratio for every language on GitHub in February 2013. Its seems as though the chart didn't received any update since then and can therefore be considered outdated.
+There are other rankings worth noting. The [octoverse](https://octoverse.github.com/) which is a official GitHub source and shows some additional interesting statistics about GitHub. However, their ranking only shows the top 15 programming languages and it does not offer a history, nor does it reveal any informations on how the underlying data has been aggregated. Another one is the Programming Language Popularity chart on https://archive.is/f1ZBZ, which shows a bubble chart with StackOverflow (tags) / GithHub (lines changes) ratio for every language on GitHub in February 2013. It seems as though the chart didn't received any update since then and can therefore be considered outdated.
 
 ### Conclusion
 
