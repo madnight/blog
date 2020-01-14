@@ -17,6 +17,11 @@ link(rel="alternate", type="application/rss+xml", title=config.title, href=url_f
 link(rel='stylesheet', href=cf + "twitter-bootstrap/3.3.7/css/bootstrap.min.css")
 link(rel='stylesheet', href="/css/main.css?__inline=true")
 
+script(src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js")
+
+link(rel='stylesheet', href=cf + "KaTeX/0.11.1/katex.min.css")
+
+
 link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif", media='none', onload="if(media!='all')media='all'")
 noscript
   link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif")
@@ -30,7 +35,7 @@ link(rel='stylesheet', href=cf + "highlight.js/9.12.0/styles/github.min.css", me
 noscript
   link(rel='stylesheet', href=cf + "highlight.js/9.12.0/styles/github.min.css")
 
-script(src=cf + "jquery/3.3.1/jquery.min.js")
+
 script(defer src=cf + "twitter-bootstrap/3.3.7/js/bootstrap.min.js")
 script(defer src="/js/main.js?__inline=true")
 //- script(defer src='//googletagmanager.com/gtag/js?id=UA-122689197-1')
@@ -50,3 +55,15 @@ script.
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-122689197-1');
+
+
+script(type='text/javascript').
+  window.MathJax = {
+      extensions: ["tex2jax.js", "asciimath2jax.js", "toMathML.js"],
+      "HTML-CSS": { imageFont: null },
+      showMathMenu: false,
+      showMathMenuMSIE: false,
+      TeX: { extensions: ["AMSmath.js", "AMSsymbols.js", "noUndefined.js"] },
+      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"]
+  };
+script(src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js")
