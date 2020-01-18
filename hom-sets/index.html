@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+                                                                                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="Fabian Beuke">
+  <link rel="icon" href="/fav.png">
+  <title>beuke.org</title>
+  <meta name="description">
+  <link rel="alternate" type="application/rss+xml" title="beuke.org"
+                                                                                  href="/atom.xml">
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css?__inline=true">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+  </script>
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </noscript>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"
+                                                                                  media="none"
+                                                                                  onload="if(media!='all')media='all'">
+  <noscript>
+    <link rel="stylesheet"
+                                                                                    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    </noscript>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script defer src="/js/main.js?__inline=true"></script>
+  <script
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js?__inline=true">
+  </script>
+  <script defer
+                                                                                  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js?__inline=true">
+  </script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      hljs.initHighlightingOnLoad();
+    });
+
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-122689197-1');
+
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      extensions: ["tex2jax.js", "asciimath2jax.js", "toMathML.js"],
+      "HTML-CSS": {
+        imageFont: null
+      },
+      showMathMenu: false,
+      showMathMenuMSIE: false,
+      TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noUndefined.js",
+          "http://sonoisa.github.io/xyjax_ext/xypic.js"
+        ]
+      },
+      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [
+          ['$', '$'],
+          ["\\(", "\\)"]
+        ],
+        processEscapes: true
+      }
+    };
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+      <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#main-navbar"
+                                                                                        class="navbar-toggle"><span
+                                                                                          class="sr-only">Toggle
+            navigation</span><span class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span><span
+                                                                                          class="icon-bar"></span></button><a
+                                                                                        href="/"
+                                                                                        class="navbar-brand">beuke.org</a>
+      </div>
+      <div id="main-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="https://github.com/madnight">Github</a></li>
+          <li><a href="https://github.com/madnight/dotfiles">Dotfiles</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="header-section">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Hom-Sets</h1>
+              <h2 class="post-subheading">Sets of Morphisms</h2>
+              <p class="post-meta">Posted on Jan 18 2020 · <a href="/tags/category-theory/"
+                                                                                                class="tag post-meta">category
+                  theory</a>&nbsp;·&nbsp;<span>5 min read</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <article role="main" class="blog-post">
+          <link rel="stylesheet" type="text/css"
+                                                                                          href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+          <p>In <a href="https://en.wikipedia.org/wiki/Category_theory" target="_blank"
+                                                                                            rel="noopener">category
+              theory</a>, hom-sets, are sets of <a href="https://en.wikipedia.org/wiki/Morphism"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">morphisms</a>
+            between objects. Given objects <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>A</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">A</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">A</span></span></span></span>
+            and <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>B</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">B</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span></span></span></span>
+            in a <a href="https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">locally
+              small category</a>, the hom-set <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(A,B)
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span></span></span></span>
+            is the <a href="https://en.wikipedia.org/wiki/Set_(mathematics)" target="_blank"
+                                                                                            rel="noopener">set</a>
+            of
+            all morphisms <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mo stretchy="false">{</mo>
+                      <msub>
+                        <mo>→</mo>
+                        <mn>0</mn>
+                      </msub>
+                      <mo separator="true">,</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\{\rightarrow_0,
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mopen">{</span><span
+                                                                                                  class="mrel"><span
+                                                                                                    class="mrel">→</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t vlist-t2"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.30110799999999993em;"><span
+                                                                                                            style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight">0</span></span></span></span><span
+                                                                                                          class="vlist-s">​</span></span><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.15em;"><span></span></span></span></span></span></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.3em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mpunct">,</span></span></span></span><span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <msub>
+                        <mo>→</mo>
+                        <mn>1</mn>
+                      </msub>
+                      <mo separator="true">,</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\rightarrow_1,
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.5168699999999999em;vertical-align:-0.15em;"></span><span
+                                                                                                  class="mrel"><span
+                                                                                                    class="mrel">→</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t vlist-t2"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.30110799999999993em;"><span
+                                                                                                            style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight">1</span></span></span></span><span
+                                                                                                          class="vlist-s">​</span></span><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.15em;"><span></span></span></span></span></span></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.3em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mpunct">,</span></span></span></span><span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <msub>
+                        <mo>→</mo>
+                        <mn>2</mn>
+                      </msub>
+                      <mo separator="true">,</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\rightarrow_2,
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.5168699999999999em;vertical-align:-0.15em;"></span><span
+                                                                                                  class="mrel"><span
+                                                                                                    class="mrel">→</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t vlist-t2"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.30110799999999993em;"><span
+                                                                                                            style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight">2</span></span></span></span><span
+                                                                                                          class="vlist-s">​</span></span><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.15em;"><span></span></span></span></span></span></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.3em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mpunct">,</span></span></span></span><span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mo>…</mo>
+                      <mo separator="true">,</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\dots,</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.31444em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="minner">…</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mpunct">,</span></span></span></span><span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <msub>
+                        <mo>→</mo>
+                        <mi>n</mi>
+                      </msub>
+                      <mo stretchy="false">}</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\rightarrow_n\}
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.5168699999999999em;vertical-align:-0.15em;"></span><span
+                                                                                                  class="mrel"><span
+                                                                                                    class="mrel">→</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t vlist-t2"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.151392em;"><span
+                                                                                                            style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mathdefault mtight">n</span></span></span></span><span
+                                                                                                          class="vlist-s">​</span></span><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.15em;"><span></span></span></span></span></span></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mclose">}</span></span></span></span>
+            from A to B.</p>
+
+          \begin{xy}
+          \xymatrix{
+          A \ar@/^/[r]
+          \ar@/^1pc/[r]
+          \ar[r]
+          \ar@/_/[r]
+          \ar@/_1pc/[r]
+          &
+          B
+          }
+          \end{xy}
+
+          <p>Hom-sets itself give rise to another category where hom-sets are
+            objects and
+            arrows between hom-sets are hom-set morphisms. A hom-set morphism is
+            defined
+            as:<br>
+            <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>f</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>:</mo>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>→</mo>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>D</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(A,f) :
+                      \text{Hom}(A,B) \rightarrow \text{Hom}(A,D)</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">:</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.02778em;">D</span><span
+                                                                                                  class="mclose">)</span></span></span></span>,
+            $ f’ \rightarrow $ <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>f</mi>
+                      <mo>∘</mo>
+                      <msup>
+                        <mi>f</mi>
+                        <mo mathvariant="normal">′</mo>
+                      </msup>
+                    </mrow>
+                    <annotation encoding="application/x-tex">f \circ {f&#x27;}
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                                                                                  class="mbin">∘</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.946332em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord"><span
+                                                                                                      class="mord mathdefault"
+                                                                                                      style="margin-right:0.10764em;">f</span><span
+                                                                                                      class="msupsub"><span
+                                                                                                        class="vlist-t"><span
+                                                                                                          class="vlist-r"><span
+                                                                                                            class="vlist"
+                                                                                                            style="height:0.751892em;"><span
+                                                                                                              style="top:-3.063em;margin-right:0.05em;"><span
+                                                                                                                class="pstrut"
+                                                                                                                style="height:2.7em;"></span><span
+                                                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                                                  class="mord mtight"><span
+                                                                                                                    class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span>
+            for <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>f</mi>
+                      <mo>:</mo>
+                      <mi>B</mi>
+                      <mo>→</mo>
+                      <mi>D</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">f : B \rightarrow D
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">:</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.02778em;">D</span></span></span></span>
+            and<br>
+            <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>h</mi>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>:</mo>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>→</mo>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>C</mi>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(h,B) :
+                      \text{Hom}(A,B) \rightarrow \text{Hom}(C,B)</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">h</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">:</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.07153em;">C</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span></span></span></span>,
+            $ h’ \rightarrow $ <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <msup>
+                        <mi>h</mi>
+                        <mo mathvariant="normal">′</mo>
+                      </msup>
+                      <mo>∘</mo>
+                      <mi>h</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">h&#x27; \circ {h}
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.751892em;vertical-align:0em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord mathdefault">h</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.751892em;"><span
+                                                                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                  class="mord mtight">′</span></span></span></span></span></span></span></span></span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                                                                                  class="mbin">∘</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord mathdefault">h</span></span></span></span></span>
+            for <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>h</mi>
+                      <mo>:</mo>
+                      <mi>C</mi>
+                      <mo>→</mo>
+                      <mi>A</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">h : C \rightarrow A
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">h</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">:</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.07153em;">C</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">A</span></span></span></span><br>
+            such that the following <a href="https://en.wikipedia.org/wiki/Commutative_diagram"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">diagram
+              commutes</a>:</p>
+
+          \begin{xy}
+          \xymatrix@!C=4.0cm@!R=1.0cm{
+          \text{Hom}(A,B) \ar[dr]|-{\text{Hom}(h,f)} \ar[d]_{\text{Hom}(A,f)}
+          \ar[r]^{\text{Hom}(h,B)} &
+          \text{Hom}(C,B) \ar[d]^{Hom(C,f)} \\
+          \text{Hom}(A,D) \ar[r]_{\text{Hom}(h,D)} & \text{Hom}(C,D)
+          }
+          \end{xy}
+
+          <p>This can be translated to <a href="https://wiki.haskell.org/Hask" target="_blank"
+                                                                                            rel="noopener">Hask</a>,
+            the category with Haskell types as objects and functions as
+            morphisms, in a
+            straight forward manner. The previous morphisms <span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>f</mi>
+                      <mo separator="true">,</mo>
+                      <mi>h</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">f,h</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault">h</span></span></span></span>
+            are now functions <code>f :: b -&gt; d</code>, <code>h :: c -&gt;
+              a</code> and
+            <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>=</mo>
+                      <mi>a</mi>
+                      <mo>→</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(A,B) = a
+                      \rightarrow</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">=</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">a</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span></span></span></span>
+            b, such that:</p>
+
+          \begin{xy}
+          \xymatrix@!C=4.0cm@!R=1.0cm{
+          a \rightarrow b \ar[dr]|-{c\ \rightarrow\ a\ \rightarrow\ b\
+          \rightarrow\ d}
+          \ar[d]_{a\ \rightarrow\ b\ \rightarrow\ d} \ar[r]^{c\ \rightarrow\ a\
+          \rightarrow\ b} &
+          c \rightarrow b \ar[d]^{c\ \rightarrow\ b\ \rightarrow\ d} \\
+          a \rightarrow d \ar[r]_{c\ \rightarrow\ a\ \rightarrow\ d} & c
+          \rightarrow d
+          }
+          \end{xy}
+
+          <p>Let’s have a closer look at the morphism from <span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo>→</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">a \rightarrow b
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">a</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">b</span></span></span></span>
+            and <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>c</mi>
+                      <mo>→</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">c \rightarrow b
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">c</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">b</span></span></span></span>.
+            So we have a <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo>→</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">a \rightarrow b
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">a</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">b</span></span></span></span>
+            and a morphisms that tells us we can go from <span
+                                                                                            class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>c</mi>
+                      <mo>→</mo>
+                      <mi>a</mi>
+                      <mo>→</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">c \rightarrow a
+                      \rightarrow b
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">c</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">a</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">b</span></span></span></span>
+            resulting in <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>c</mi>
+                      <mo>→</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">c \rightarrow b
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">c</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">b</span></span></span></span>.
+            Now, this makes sense if we remember how function composition works:
+          </p>
+
+          \begin{xy}
+          \xymatrix {
+          c \ar[r]^{f'} \ar[dr]_{g' \circ {f'}} &
+          a \ar[d]^{g'} & \\ & b &&&&&
+          }
+          \end{xy}
+
+          <p>We can see that <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>c</mi>
+                      <mo>→</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">c \rightarrow b
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">c</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.69444em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">b</span></span></span></span>
+            is the function composition <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <msup>
+                        <mi>g</mi>
+                        <mo mathvariant="normal">′</mo>
+                      </msup>
+                      <mo>∘</mo>
+                      <msup>
+                        <mi>f</mi>
+                        <mo mathvariant="normal">′</mo>
+                      </msup>
+                    </mrow>
+                    <annotation encoding="application/x-tex">g&#x27; \circ
+                      {f&#x27;}
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.946332em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord mathdefault"
+                                                                                                    style="margin-right:0.03588em;">g</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.751892em;"><span
+                                                                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                  class="mord mtight">′</span></span></span></span></span></span></span></span></span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                                                                                  class="mbin">∘</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.946332em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord"><span
+                                                                                                      class="mord mathdefault"
+                                                                                                      style="margin-right:0.10764em;">f</span><span
+                                                                                                      class="msupsub"><span
+                                                                                                        class="vlist-t"><span
+                                                                                                          class="vlist-r"><span
+                                                                                                            class="vlist"
+                                                                                                            style="height:0.751892em;"><span
+                                                                                                              style="top:-3.063em;margin-right:0.05em;"><span
+                                                                                                                class="pstrut"
+                                                                                                                style="height:2.7em;"></span><span
+                                                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                                                  class="mord mtight"><span
+                                                                                                                    class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span>.
+            Thus, a hom-set morphism <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>f</mi>
+                      <mo separator="true">,</mo>
+                      <mo>−</mo>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(f,-)
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mclose">)</span></span></span></span>
+            is simply morphism pre-composition <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>f</mi>
+                      <mo>∘</mo>
+                      <mo>−</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">f \circ -
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                                                                                  class="mbin">∘</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.66666em;vertical-align:-0.08333em;"></span><span
+                                                                                                  class="mord">−</span></span></span></span>
+            and <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mo>−</mo>
+                      <mo separator="true">,</mo>
+                      <mi>f</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(-,f)
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mclose">)</span></span></span></span>
+            is just morphism post-composition <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mo>−</mo>
+                      <mo>∘</mo>
+                      <mi>f</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">- \circ f
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.66666em;vertical-align:-0.08333em;"></span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                                                                                  class="mbin">∘</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span></span></span></span>.
+            Furthermore, <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mo>−</mo>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(A,-)
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mclose">)</span></span></span></span>,
+            which you can think of as <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>A</mi>
+                      <mo>→</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">A \rightarrow
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span></span></span></span>,
+            is called a <a href="https://en.wikipedia.org/wiki/Functor#Covariance_and_contravariance"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">covariant
+              hom-functor</a> or <a href="https://en.wikipedia.org/wiki/Representable_functor"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">representable
+              functor</a> from the category <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>C</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">C</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.07153em;">C</span></span></span></span>
+            to the category <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>S</mi>
+                      <mi>e</mi>
+                      <mi>t</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">Set</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05764em;">S</span><span
+                                                                                                  class="mord mathdefault">e</span><span
+                                                                                                  class="mord mathdefault">t</span></span></span></span>,
+            <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>x</mi>
+                      <mo>→</mo>
+                      <msub>
+                        <mtext>Hom</mtext>
+                        <mi>C</mi>
+                      </msub>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>x</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">x \rightarrow
+                      \text{Hom}_C(A,x)</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.43056em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault">x</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord text"><span
+                                                                                                      class="mord">Hom</span></span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t vlist-t2"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.32833099999999993em;"><span
+                                                                                                            style="top:-2.5500000000000003em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mathdefault mtight"
+                                                                                                                style="margin-right:0.07153em;">C</span></span></span></span><span
+                                                                                                          class="vlist-s">​</span></span><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault">x</span><span
+                                                                                                  class="mclose">)</span></span></span></span>
+            with <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>x</mi>
+                      <mo>∈</mo>
+                      <mi>C</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">x \in C
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                                                                                  class="mord mathdefault">x</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">∈</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.07153em;">C</span></span></span></span>
+            and <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <msub>
+                        <mtext>Hom</mtext>
+                        <mi>C</mi>
+                      </msub>
+                      <mo stretchy="false">(</mo>
+                      <mi>A</mi>
+                      <mo separator="true">,</mo>
+                      <mi>x</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>∈</mo>
+                      <mi>S</mi>
+                      <mi>e</mi>
+                      <mi>t</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}_C(A,x)
+                      \in Set
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord text"><span
+                                                                                                      class="mord">Hom</span></span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t vlist-t2"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.32833099999999993em;"><span
+                                                                                                            style="top:-2.5500000000000003em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mathdefault mtight"
+                                                                                                                style="margin-right:0.07153em;">C</span></span></span></span><span
+                                                                                                          class="vlist-s">​</span></span><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">A</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault">x</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">∈</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05764em;">S</span><span
+                                                                                                  class="mord mathdefault">e</span><span
+                                                                                                  class="mord mathdefault">t</span></span></span></span>.
+            When the second position is fixed <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mo>−</mo>
+                      <mo separator="true">,</mo>
+                      <mi>B</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>:</mo>
+                      <msup>
+                        <mi>C</mi>
+                        <mrow>
+                          <mi>o</mi>
+                          <mi>p</mi>
+                        </mrow>
+                      </msup>
+                      <mo>→</mo>
+                      <mi>S</mi>
+                      <mi>e</mi>
+                      <mi>t</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(-,B):
+                      C^{op}
+                      \rightarrow Set</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">:</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord mathdefault"
+                                                                                                    style="margin-right:0.07153em;">C</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.664392em;"><span
+                                                                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                  class="mord mathdefault mtight">o</span><span
+                                                                                                                  class="mord mathdefault mtight">p</span></span></span></span></span></span></span></span></span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05764em;">S</span><span
+                                                                                                  class="mord mathdefault">e</span><span
+                                                                                                  class="mord mathdefault">t</span></span></span></span>
+            (or <span class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mo>→</mo>
+                      <mi>B</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\rightarrow B
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.36687em;vertical-align:0em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05017em;">B</span></span></span></span>)
+            then it’s called a contravariant functor. Consequently, if non of
+            the
+            arguments of the hom-functor is fixed <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi mathvariant="normal">−</mi>
+                      <mo separator="true">,</mo>
+                      <mi mathvariant="normal">−</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>:</mo>
+                      <msup>
+                        <mi>C</mi>
+                        <mrow>
+                          <mi>o</mi>
+                          <mi>p</mi>
+                        </mrow>
+                      </msup>
+                      <mo>×</mo>
+                      <mi>C</mi>
+                      <mo>→</mo>
+                      <mi>S</mi>
+                      <mi>e</mi>
+                      <mi>t</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(−,−):
+                      C^{op}
+                      \times C \rightarrow Set</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord">−</span><span
+                                                                                                  class="mclose">)</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">:</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.76666em;vertical-align:-0.08333em;"></span><span
+                                                                                                  class="mord"><span
+                                                                                                    class="mord mathdefault"
+                                                                                                    style="margin-right:0.07153em;">C</span><span
+                                                                                                    class="msupsub"><span
+                                                                                                      class="vlist-t"><span
+                                                                                                        class="vlist-r"><span
+                                                                                                          class="vlist"
+                                                                                                          style="height:0.664392em;"><span
+                                                                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                                                              class="pstrut"
+                                                                                                              style="height:2.7em;"></span><span
+                                                                                                              class="sizing reset-size6 size3 mtight"><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                  class="mord mathdefault mtight">o</span><span
+                                                                                                                  class="mord mathdefault mtight">p</span></span></span></span></span></span></span></span></span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                                                                                  class="mbin">×</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.07153em;">C</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span><span
+                                                                                                  class="mrel">→</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.2777777777777778em;"></span></span><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:0.68333em;vertical-align:0em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.05764em;">S</span><span
+                                                                                                  class="mord mathdefault">e</span><span
+                                                                                                  class="mord mathdefault">t</span></span></span></span>
+            then we have a hom <a href="https://en.wikipedia.org/wiki/Functor#Bifunctors_and_multifunctors"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">bifunctor</a>
+            also called <a href="https://en.wikipedia.org/wiki/Profunctor" target="_blank"
+                                                                                            rel="noopener">profunctor</a>,
+            see for instance the diagonal arrow <span class="katex"><span
+                                                                                              class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mtext>Hom</mtext>
+                      <mo stretchy="false">(</mo>
+                      <mi>h</mi>
+                      <mo separator="true">,</mo>
+                      <mi>f</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\text{Hom}(h,f)
+                    </annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span
+                                                                                                class="base"><span
+                                                                                                  class="strut"
+                                                                                                  style="height:1em;vertical-align:-0.25em;"></span><span
+                                                                                                  class="mord text"><span
+                                                                                                    class="mord">Hom</span></span><span
+                                                                                                  class="mopen">(</span><span
+                                                                                                  class="mord mathdefault">h</span><span
+                                                                                                  class="mpunct">,</span><span
+                                                                                                  class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                                                                                  class="mord mathdefault"
+                                                                                                  style="margin-right:0.10764em;">f</span><span
+                                                                                                  class="mclose">)</span></span></span></span>
+            with pre- <strong>and</strong> post-composition.</p>
+        </article><br>
+        <ul class="pager blog-pager">
+          <li class="next"><a href="/pure-imperative-haskell/" data-toggle="tooltip" data-placement="top"
+                                                                                            title="Pure Imperative Haskell">Next
+              Post →</a></li>
+        </ul><br>
+        <font size="2">This article contains wrong information, typos or should
+          be improved?<br><a
+                                                                                          href="https://github.com/madnight/blog/edit/master/source/_posts/hom-sets.md">Edit&nbsp;</a>this
+          article on GitHub and make a Pull Request or post a comment below.
+        </font>
+        <div class="disqus-comments">
+          <div class="comments">
+            <div id="disqus_thread"></div>
+          </div>
+        </div>
+        <script>
+          var url_parts = window.location.href.split("?");
+          var disqus_url = url_parts[0];
+          (function() {
+            console.log("enter disqus");
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = "//beuke.disqus.com/embed.js";
+            (document.head || d.body).appendChild(dsq);
+          })();
+
+        </script>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container beautiful-jekyll-footer">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            <li><a href="https://github.com/madnight" title="GitHub"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-github"></i></span></a>
+            </li>
+            <li><a href="/atom.xml" title="RSS"><span class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-rss"></i></span></a>
+            </li>
+            <li><a href="mailto:mail@beuke.org" title="Email me"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a>
+            </li>
+            <li><a href="https://stackoverflow.com/users/6593641/madnight"
+                                                                                              title="StackOverflow"><span
+                                                                                                class="fa-stack fa-lg"><i
+                                                                                                  class="fa fa-circle fa-stack-2x"></i><i
+                                                                                                  class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">© Fabian Beuke • 2020<br></p>
+          <p class="copyright text-copy">Content is available under&nbsp;<a
+                                                                                            href="https://creativecommons.org/licenses/by-sa/4.0/">CC
+              BY-SA 4.0 </a>unless noted otherwise.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="//instant.page/1.0.0" type="module"
+                                                                                  integrity="sha384-6w2SekMzCkuMQ9sEbq0cLviD/yR2HfA/+ekmKiBnFlsoSvb/VmQFSi/umVShadQI">
+  </script>
+</body>
+
+</html>

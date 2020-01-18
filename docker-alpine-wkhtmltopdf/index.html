@@ -16,12 +16,16 @@
   <link rel="stylesheet"
                                                                                   href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css?__inline=true">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800"
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+  </script>
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif"
                                                                                   media="none"
                                                                                   onload="if(media!='all')media='all'">
   <noscript>
     <link rel="stylesheet"
-                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800">
+                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif">
     </noscript>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                                                                                   media="none"
@@ -37,8 +41,6 @@
     <link rel="stylesheet"
                                                                                     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     </noscript>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-  </script>
   <script defer
                                                                                   src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
   </script>
@@ -70,6 +72,32 @@
     gtag('js', new Date());
     gtag('config', 'UA-122689197-1');
 
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      extensions: ["tex2jax.js", "asciimath2jax.js", "toMathML.js"],
+      "HTML-CSS": {
+        imageFont: null
+      },
+      showMathMenu: false,
+      showMathMenuMSIE: false,
+      TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noUndefined.js",
+          "http://sonoisa.github.io/xyjax_ext/xypic.js"
+        ]
+      },
+      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [
+          ['$', '$'],
+          ["\\(", "\\)"]
+        ],
+        processEscapes: true
+      }
+    };
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">
   </script>
 </head>
 
@@ -109,7 +137,7 @@
                 · <a href="/tags/patch/" class="tag post-meta">patch</a> · <a href="/tags/pdf/"
                                                                                                 class="tag post-meta">pdf</a>
                 · <a href="/tags/musl/"
-                                                                                                class="tag post-meta">musl</a>&nbsp;·&nbsp;<span>3
+                                                                                                class="tag post-meta">musl</a>&nbsp;·&nbsp;<span>5
                   min read</span></p>
             </div>
           </div>
@@ -128,15 +156,15 @@
             Introduction</h1>
           <p>All major browsers, such as Chrome, Firefox and Safari are capable
             of
-            exporting the current website from HTML to PDF. This can be done via
+            exporting the currently visited website from HTML to PDF. This can
+            be done via
+            the <em>print</em> or <em>save as</em> function. However, there is
+            no standard
+            way of doing so on the command-line. Lets build a command-line with
             the
-            <em>print</em> or <em>save as</em> function. However, there is no
-            standard way
-            of doing so on the command-line. Lets build a command-line tool by
+            following goals in mind: a small footprint, minimal dependencies,
             composing
-            existing technology and the following goals in mind, a small
-            footprint,
-            minimal dependencies, many options for full control of the PDF
+            existing technology, many options for full control of the PDF
             generation
             process and a simple usage on Linux, Mac and Windows. To achieve
             this, I
@@ -150,39 +178,39 @@
             Alpine Linux</h1>
           <p>Building Docker images based on Debian or Ubuntu often results in
             image sizes
-            of a few hundred megabytes and more. This is a known problem,
-            therefore many
-            Docker image distributors are also offering a Alpine Linux based
-            image. The
-            Alpine Linux distribution is a very common Docker base distribution,
-            because
-            of its very small size of about 5 MB. After a small Google search,
-            one will
-            find the <em>wkhtmltopdf</em> package in the <a href="https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf"
+            of a few hundred megabytes or more. This is a well known problem and
+            therefore
+            many Docker image distributors are also offering an Alpine Linux
+            based Docker
+            image. The Alpine Linux distribution is a very common Docker base
+            distribution, because of its very small size of about 5 MB. After a
+            fast
+            Google search, the <em>wkhtmltopdf</em> package of the <a href="https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf"
                                                                                             target="_blank"
                                                                                             rel="noopener">official
-              Alpine repositories</a>. Interestingly though, the given binary
-            size is just
-            about 202 KB. That would be perfectly fine, if there wouldn’t be a
-            problem
-            with the dependency list. It contains 7 items, including
-            <em>qt5-qtwebkit</em>. Unfortunately this one requires 28 MB
-            (installed size)
-            and Xorg. Not only that, the Xorg server needs to be started in
-            order to use
-            the binary.</p>
+              Alpine repositories</a> shows up in the search results.
+            Interestingly
+            though, the given binary size is just about 202 KB. Which would be
+            perfectly
+            fine, if it wasn’t for the dependency list. It contains 7 items,
+            including
+            <em>qt5-qtwebkit</em>. Unfortunately, this alone requires 28 MB
+            (installed
+            size) and Xorg. Not only that, the Xorg server needs to be started
+            in order to
+            use the binary.</p>
           <h1 id="qt-patches"><a class="markdownIt-Anchor"
                                                                                             href="#qt-patches"></a>
             Qt
             Patches</h1>
-          <p>Since <em>wkhtmltopdf</em> uses the webkit engine to render its
-            PDFs, there
-            will be no way around the <em>qt5-qtwebkit</em>. However, it is
+          <p>Since <em>wkhtmltopdf</em> uses the webkit engine to render PDFs,
+            there is no
+            way around the <em>qt5-qtwebkit</em> dependency. However, it is
             possible to
-            get around a started instance of Xorg. I was able to find a <a href="https://github.com/alloylab/Docker-Alpine-wkhtmltopdf"
+            avoid Xorg. I was able to find a <a href="https://github.com/alloylab/Docker-Alpine-wkhtmltopdf"
                                                                                             target="_blank"
                                                                                             rel="noopener">GitHub
-              repository</a> that provided a solution, by compiling a
+              repository</a> that provides a solution, by compiling a
             <em>qt-webkit</em>
             version without the need for Xorg.</p>
           <pre class="highlight"><code class="Dockerfile"><span class="hljs-keyword">FROM</span> alpine:<span class="hljs-number">3.5</span>
@@ -199,32 +227,87 @@
 
 <span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"wkhtmltopdf"</span>]</span>
 </code></pre>
-          <p>Now the problem was, compiling the whole Qt library including the
-            necessary
-            patches takes about 4 hours (on <em>EC2 m1.large</em> in 2016). It
-            would be ok
-            to do so once, but Docker requires you to do so every time you want
-            to build
-            the container, in case that you don’t already have that Docker
-            layer. At first
-            I thought that I could work around that problem by pushing the build
-            to Docker
-            Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker
-            image that
-            can be pulled from their servers. But Docker Hub has a <a href="https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build"
+          <p>Unfortunately, this led to a new problem.<br>
+            The compilation of the whole Qt library including the necessary
+            patches takes
+            about 4 hours on <em>EC2 m1.large</em> in 2016. It would be ok to do
+            so once,
+            but Docker requires you to do so every time you want to build the
+            container,
+            in case that you don’t already have that Docker layer. At first, I
+            thought
+            that I could address that issue by pushing the build to Docker Hub.
+            Docker Hub
+            compiles Dockerfiles and provides a compiled Docker image that can
+            be pulled
+            from their servers. But Docker Hub has a <a href="https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build"
                                                                                             target="_blank"
                                                                                             rel="noopener">build
               timeout</a> after 2 hours, so it wasn’t able to finish the build.
           </p>
           <img src="/images/docker-wkhtmltopdf-alpine.png"
                                                                                           onclick="window.open(this.src)">
-          <p>Therefore I compiled the Dockerfile locally, pushed the binary into
-            the
+          <p>Therefore I compiled the Dockerfile on my computer, pushed the
+            binary to the
             GitHub repository, copied it into the Dockerfile and pushed
             everything to <a href="https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/"
                                                                                             target="_blank"
                                                                                             rel="noopener">Docker
               Hub</a>.</p>
+          <h3 id="update-september-2019"><a class="markdownIt-Anchor"
+                                                                                            href="#update-september-2019"></a>
+            Update September 2019</h3>
+          <p>I found that it is now possible to build the patched wkhtmltopdf
+            Alpine
+            binary in Travis CI, although documentation says otherwise:</p>
+          <blockquote>
+            <p>It is very common for test suites or build scripts to hang.
+              Travis CI has
+              specific time limits for each job, and will stop the build and add
+              an error
+              message to the build log in the following situations:</p>
+          </blockquote>
+          <blockquote>
+            <ul>
+              <li>When a job produces no log output for 10 minutes.</li>
+            </ul>
+          </blockquote>
+          <blockquote>
+            <ul>
+              <li>When a job on a public repository takes longer than 50
+                minutes.</li>
+            </ul>
+          </blockquote>
+          <blockquote>
+            <ul>
+              <li>When a job on a private repository takes longer than 120
+                minutes.</li>
+            </ul>
+          </blockquote>
+          <p>Source: <a href="https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts</a>
+          </p>
+          <p>As you can see in <a href="https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf/builds/585241704"
+                                                                                            target="_blank"
+                                                                                            rel="noopener">Travis
+              CI</a> the build takes more than one hour, despite being a job on
+            a public
+            repository. Now, being able to build in CI, I removed the binary
+            from the git
+            repository and copied it from the builder image into the Docker
+            image.</p>
+          <pre class="highlight"><code class="Dockerfile"><span class="hljs-keyword">COPY</span><span class="bash"> --from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10 \
+    /bin/wkhtmltopdf /bin/wkhtmltopdf</span>
+</code></pre>
+          <p>In addition to that, I also added an checksum check against the
+            sha256sum
+            from the build log, just so the user can be sure about its origin.
+          </p>
+          <pre class="highlight"><code class="Dockerfile"><span class="hljs-keyword">ENV</span> BUILD_LOG=https://api.travis-ci.org/v3/job/<span class="hljs-number">585241708</span>/log.txt
+<span class="hljs-keyword">RUN</span><span class="bash"> [ <span class="hljs-string">"<span class="hljs-variable">$(sha256sum /bin/wkhtmltopdf | awk '{ print $1 }')</span>"</span> == \
+      <span class="hljs-string">"<span class="hljs-variable">$(wget -q -O - $BUILD_LOG | sed -n '14121p' | awk '{ print $1 }')</span>"</span> ]</span>
+</code></pre>
         </article><br>
         <ul class="pager blog-pager">
           <li class="previous"><a href="/bspwm-missing-docs/" data-toggle="tooltip" data-placement="top"
@@ -286,7 +369,7 @@
                                                                                                   class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a>
             </li>
           </ul>
-          <p class="copyright text-muted">© Fabian Beuke • 2019<br></p>
+          <p class="copyright text-muted">© Fabian Beuke • 2020<br></p>
           <p class="copyright text-copy">Content is available under&nbsp;<a
                                                                                             href="https://creativecommons.org/licenses/by-sa/4.0/">CC
               BY-SA 4.0 </a>unless noted otherwise.</p>

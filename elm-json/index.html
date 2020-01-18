@@ -16,12 +16,16 @@
   <link rel="stylesheet"
                                                                                   href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css?__inline=true">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800"
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+  </script>
+  <link rel="stylesheet"
+                                                                                  href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif"
                                                                                   media="none"
                                                                                   onload="if(media!='all')media='all'">
   <noscript>
     <link rel="stylesheet"
-                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800">
+                                                                                    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif">
     </noscript>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                                                                                   media="none"
@@ -37,8 +41,6 @@
     <link rel="stylesheet"
                                                                                     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     </noscript>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-  </script>
   <script defer
                                                                                   src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
   </script>
@@ -70,6 +72,32 @@
     gtag('js', new Date());
     gtag('config', 'UA-122689197-1');
 
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      extensions: ["tex2jax.js", "asciimath2jax.js", "toMathML.js"],
+      "HTML-CSS": {
+        imageFont: null
+      },
+      showMathMenu: false,
+      showMathMenuMSIE: false,
+      TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noUndefined.js",
+          "http://sonoisa.github.io/xyjax_ext/xypic.js"
+        ]
+      },
+      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [
+          ['$', '$'],
+          ["\\(", "\\)"]
+        ],
+        processEscapes: true
+      }
+    };
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">
   </script>
 </head>
 
@@ -151,7 +179,7 @@
             much effort
             in improving the JavaScript front-end development. A new JavaScript
             Standard
-            ES6 (ECMAScript 2015) have been published. The Babel compiler,
+            ES6 (ECMAScript 2015) has been published. The Babel compiler,
             compiles that
             new standard to vanilla JavaScript, allowing it’s execution in older
             browsers.
@@ -163,23 +191,21 @@
                                                                                                 aria-label="[Boilerplate Example react-webpack-babel-karma-boilerplate](https://github.com/madnight/react-webpack-babel-karma-boilerplate)
 ">[5]</span></a></sup></p>
           <p>It takes many weeks to get familiar with the new toolchain, but it
-            will pay
-            off in the long run. Following all current best practices leads to a
-            setup
-            with many different tools and a highly improved JavaScript syntax,
-            that
-            basically follows the approach of reactive functional programming.
-            It would
-            take a very long time to describe why that is the case - TLDR; the
-            major
-            problem is mutable state.<sup id="fnref:8"><a href="#fn:8"
+            pays off
+            in the long run. Following all current best practices leads to a
+            setup with
+            many different tools and a highly improved JavaScript syntax, that
+            basically
+            follows the approach of reactive functional programming. Why is
+            that? Well,
+            the major problem is mutable state.<sup id="fnref:8"><a href="#fn:8"
                                                                                               rel="footnote"><span
                                                                                                 class="hint--top hint--error hint--medium hint--rounded hint--bounce"
                                                                                                 aria-label="[How can you do anything useful without mutable state?]( http://stackoverflow.com/questions/1020653/how-can-you-do-anything-useful-without-mutable-state)
 ">[8]</span></a></sup> Mutable state is not only a potential source of bugs, it
-            is also a one of the top reasons for unpredictable application
-            behaviour and
-            is in principle not compatible with parallelization.<sup
+            is also one of the top reasons for unpredictable application
+            behaviour and is
+            in principle not compatible with parallelization.<sup
                                                                                             id="fnref:6"><a
                                                                                               href="#fn:6"
                                                                                               rel="footnote"><span
@@ -464,7 +490,7 @@
                                                                                                   class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a>
             </li>
           </ul>
-          <p class="copyright text-muted">© Fabian Beuke • 2019<br></p>
+          <p class="copyright text-muted">© Fabian Beuke • 2020<br></p>
           <p class="copyright text-copy">Content is available under&nbsp;<a
                                                                                             href="https://creativecommons.org/licenses/by-sa/4.0/">CC
               BY-SA 4.0 </a>unless noted otherwise.</p>
