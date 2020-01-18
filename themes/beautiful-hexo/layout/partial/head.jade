@@ -63,7 +63,11 @@ script(type='text/javascript').
       "HTML-CSS": { imageFont: null },
       showMathMenu: false,
       showMathMenuMSIE: false,
-      TeX: { extensions: ["AMSmath.js", "AMSsymbols.js", "noUndefined.js"] },
-      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"]
+      TeX: { extensions: ["AMSmath.js", "AMSsymbols.js", "noUndefined.js", "http://sonoisa.github.io/xyjax_ext/xypic.js"] },
+      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
   };
 script(src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js")
