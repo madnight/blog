@@ -37,7 +37,7 @@ such that the following [diagram commutes](https://en.wikipedia.org/wiki/Commuta
 \end{xy}
 {% endraw %}
 
-This can be translated to [Hask](https://wiki.haskell.org/Hask), the category with Haskell types as objects and functions as morphisms, in a straight forward manner. The previous morphisms $f,h$ are now functions:
+This can be translated to [Hask](https://wiki.haskell.org/Hask), the category with Haskell types as objects and functions as morphisms. The previous morphisms $f,h$ are now functions:
 `f :: b -> d`, `h :: c -> a` and $\text{Hom}(A,B) = a \rightarrow$ b, such that:
 
 {% raw %}
@@ -50,7 +50,7 @@ a \rightarrow d \ar[r]_{c\ \rightarrow\ a\ \rightarrow\ d} & c \rightarrow d
 \end{xy}
 {% endraw %}
 
-Let's have a closer look at the morphism from $a \rightarrow b$ and $c \rightarrow b$. So we have a $a \rightarrow b$ and a morphisms that tells us we can go from $c \rightarrow a \rightarrow b$ resulting in $c \rightarrow b$. Now, this makes sense if we remember how function composition works:
+Let's have a closer look at the morphism from $a \rightarrow b$ to $c \rightarrow b$. So we have a $a \rightarrow b$ and a morphisms that tells us we can go $c \rightarrow a \rightarrow b$ resulting in $c \rightarrow b$. Now, this makes sense if we remember how function composition works:
 
 {% raw %}
 \begin{xy}
