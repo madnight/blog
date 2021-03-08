@@ -6,6 +6,7 @@ html, body {
     font-family: 'PT Serif';
     font-size: 17px;
     line-height: 1.5;
+    word-spacing: 1.0px;
 }
 
 h1 {
