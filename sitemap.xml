@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/arch-linux-archive/</loc>
+    
+    <lastmod>2021-06-10T19:22:35.157Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2021-06-10T19:15:14.145Z</lastmod>
@@ -30,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
-    
-    <lastmod>2021-06-10T19:15:14.145Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2021-06-10T19:15:14.145Z</lastmod>
@@ -44,9 +44,9 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/arch-linux-archive/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
-    <lastmod>2021-06-10T19:15:14.142Z</lastmod>
+    <lastmod>2021-06-10T19:15:14.145Z</lastmod>
     
   </url>
   
