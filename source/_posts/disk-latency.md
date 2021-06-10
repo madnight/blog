@@ -57,6 +57,7 @@ As we can see the average response time for my SSD is about 800 us (0.8 ms), whi
 It's also possible to ping RAM in case it's mounted on `/tmp`, which is the default case under many linux distributions. If you want to ping the memory 10 times run `ioping -c 10 /tmp`. I did that for RAM and some other devices and collected the results in the following table:
 
 
+{% raw %}<div style="overflow-x:auto;"><center>{% endraw %}
 | Device        | Latency | IOPS          | Note  |
 | ------------- |:-------------:|:---:| :-----:|
 | RAM   | 22 us | 48000 | DDR3 1600MHz (PC3L 12800S) |
@@ -64,6 +65,7 @@ It's also possible to ping RAM in case it's mounted on `/tmp`, which is the defa
 | iSCSI | 1.5 ms | 649 | Hetzner Cloud Storage (Ceph block device) |
 | HDD   | 14 ms | 73 | HGST HTS725050A7 |
 | SSHFS     | 26 ms | 40 | Hetzner VPS (20 ms network ping) |
+{% raw %}</div>{% endraw %}
 
 As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/$t$, whereas $t$ is latency in seconds.
 
