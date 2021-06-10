@@ -9,7 +9,7 @@ Have you ever been in the situation that you just wanted to install a single new
 
 # Arch Linux Archive
 
-The Arch Linux Archive (ALA), stores official repositories snapshots, iso images and bootstrap tarballs across time. It keeps packages for a few years on a daily bases. The most common use case for ALA is a full system downgrade in case something went wrong. With the Arch Linux Archive you are **able to pin down all your packages to specific point in time** by defining the ALA as your only mirror in the pacman mirrorlist. This allows you to install any package from core, extra or community even if you are let's say 2 month behind the current Arch Linux upstream.
+The Arch Linux Archive (ALA), stores official repositories snapshots, iso images and bootstrap tarballs across time. It keeps packages for a few years on a daily bases. The most common use case for ALA is a full system downgrade in case something went wrong. With the Arch Linux Archive you are **able to pin down all your packages to a specific point in time** by defining the ALA as your only mirror in the pacman mirrorlist. This allows you to install any package from core, extra or community even if you are let's say 2 month behind the current Arch Linux upstream.
 
 # Setup
 
