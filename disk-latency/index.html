@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="author" content="Fabian Beuke">
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'"><noscript>
+        <link rel="icon" href="/fav.png"></noscript>
+    <title>beuke.org</title>
+    <meta name="description">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'"><noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml"></noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"></noscript>
+    <link rel="stylesheet" href="/css/main.css?__inline=true" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="/css/main.css?__inline=true"></noscript>
+    <script defer src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif" media="none" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif"></noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"></noscript>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script defer src="/js/main.js?__inline=true"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js?__inline=true"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js?__inline=true"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js?__inline=true"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            hljs.initHighlightingOnLoad();
+        });
+
+    </script>
+    <script defer type="text/x-mathjax-config">MathJax.Ajax.config.path["Contrib"] = "//cdn.mathjax.org/mathjax/contrib";
+MathJax.Hub.Config({
+    TeX: {  extensions: ["AMSmath.js","AMSsymbols.js","[Contrib]/xyjax/xypic.js"] },
+    tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] }
+});
+</script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML.js"></script>
+    <meta name="generator" content="Hexo 5.4.0">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+            <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#main-navbar" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">beuke.org</a></div>
+            <div id="main-navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://github.com/madnight">Github</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles">Dotfiles</a></li>
+                    <li><a href="/about/">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="header-section">
+        <div class="intro-header no-img">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-heading">
+                            <h1>Disk Latency</h1>
+                            <h2 class="post-subheading">Measuring Disk Latency with ioping</h2>
+                            <p class="post-meta">Posted on Mar 8 2021 · <a href="/tags/storage/" class="tag post-meta">storage</a> · <a href="/tags/performance/" class="tag post-meta">performance</a> · <a href="/tags/benchmark/" class="tag post-meta">benchmark</a>&nbsp;·&nbsp;<span>5 min read</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <article role="main" class="blog-post">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                    <p>There are different kind of performance indicators for disks. The most commonly known is probably throughput. When you use a USB stick you will immediately notice if it’s USB 2.0 or 3.x in case of a GiB sized data transfer. Another important performance indicator for storage is IOPS. IOPS is the number of I/O operations that the disk can handle per second. For example, a typical 7200U SATA HDD has about 75 IOPS, while a Samsung SSD 850 PRO has about 100k IOPS<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Samsung SSD 850 PRO Specifications](https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/850pro/)
+">[1]</span></a></sup>. You’ve probably noticed a significant performance boost after replacing your HDD with a SSD for your operating system.</p>
+                    <p>To reach the maximum IOPS and throughput limits, the applications have to issue I/O requests with enough parallelism. If they don’t, well then disk latency becomes the bottleneck. Disk latency is the amount of time it takes to process a I/O transaction. It can be measured with a tool called ioping, which works very much like the ping tool for hosts.</p>
+                    <h1 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h1>
+                    <p>ioping is available for common Linux distributions and BSD.</p>
+                    <pre class="highlight"><code class="bash"><span class="hljs-comment"># Ubuntu/Debian</span>
+apt-get install ioping
+
+<span class="hljs-comment"># Arch</span>
+pacman -S ioping
+
+<span class="hljs-comment"># Fedora</span>
+dnf install ioping
+
+<span class="hljs-comment"># MacOS</span>
+brew install ioping
+
+<span class="hljs-comment"># FreeBSD</span>
+pkg install ioping
+</code></pre>
+                    <p>If you are running on Windows you can download <a target="_blank" rel="noopener" href="https://github.com/koct9i/ioping/releases/download/v1.2/ioping-1.2-win32.zip">ioping-1.2-win32.zip</a> then unzip and run the ioping executable. In case your OS is not listed you can try to build ioping from source see: <a target="_blank" rel="noopener" href="https://github.com/koct9i/ioping">https://github.com/koct9i/ioping</a></p>
+                    <h1 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h1>
+                    <p>If you know how ping works, then you already know how to use ioping, just write the command and give it a directory path as argument. Here you can see an example run for the current directory:</p>
+                    <pre class="highlight"><code class="perl">ioping .
+<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">1</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">282.6</span> us (warmup)
+<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">2</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">855.6</span> us
+<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">3</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">871.1</span> us
+<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">4</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">748.5</span> us
+<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">5</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">755.4</span> us
+<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">6</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">747.8</span> us
+^C
+--- . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB) ioping statistics ---
+<span class="hljs-number">5</span> requests completed in <span class="hljs-number">3.98</span> ms, <span class="hljs-number">20</span> KiB <span class="hljs-keyword">read</span>, <span class="hljs-number">1.26</span> k iops, <span class="hljs-number">4.91</span> MiB/<span class="hljs-keyword">s</span>
+generated <span class="hljs-number">6</span> requests in <span class="hljs-number">5.20</span> <span class="hljs-keyword">s</span>, <span class="hljs-number">24</span> KiB, <span class="hljs-number">1</span> iops, <span class="hljs-number">4.62</span> KiB/<span class="hljs-keyword">s</span>
+min/avg/max/mdev = <span class="hljs-number">747.8</span> us / <span class="hljs-number">795.7</span> us / <span class="hljs-number">871.1</span> us / <span class="hljs-number">55.5</span> us
+</code></pre>
+                    <p>As we can see the average response time for my SSD is about 800 us (0.8 ms), which results in 1260 sequential IOPS. Even though the SSD could achieve something like 100k IOPS in parallel, it can do only a little more than 1k IOPS on sequential request.</p>
+                    <h1 id="results"><a class="markdownIt-Anchor" href="#results"></a> Results</h1>
+                    <p>It’s also possible to ping RAM in case it’s mounted on <code>/tmp</code>, which is the default case under many linux distributions. If you want to ping the memory 10 times run <code>ioping -c 10 /tmp</code>. I did that for RAM and some other devices and collected the results in the following table:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Device</th>
+                                <th style="text-align:center">Latency</th>
+                                <th style="text-align:center">IOPS</th>
+                                <th style="text-align:center">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RAM</td>
+                                <td style="text-align:center">22 us</td>
+                                <td style="text-align:center">48000</td>
+                                <td style="text-align:center">DDR3 1600MHz (PC3L 12800S)</td>
+                            </tr>
+                            <tr>
+                                <td>SSD</td>
+                                <td style="text-align:center">796 us</td>
+                                <td style="text-align:center">1240</td>
+                                <td style="text-align:center">TOSHIBA THNSNJ12</td>
+                            </tr>
+                            <tr>
+                                <td>iSCSI</td>
+                                <td style="text-align:center">1.5 ms</td>
+                                <td style="text-align:center">649</td>
+                                <td style="text-align:center">Hetzner Cloud Storage (Ceph block device)</td>
+                            </tr>
+                            <tr>
+                                <td>HDD</td>
+                                <td style="text-align:center">14 ms</td>
+                                <td style="text-align:center">73</td>
+                                <td style="text-align:center">HGST HTS725050A7</td>
+                            </tr>
+                            <tr>
+                                <td>SSHFS</td>
+                                <td style="text-align:center">26 ms</td>
+                                <td style="text-align:center">40</td>
+                                <td style="text-align:center">Hetzner VPS (20 ms network ping)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>t</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">t</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>, whereas <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>t</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">t</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> is latency in seconds.</p>
+                    <p>We can conclude that I/O latency plays an important role for many applications, because I/O operations often happen to be sequential. This is similar to the importance of single-thread performance in a multi-core CPU architecture. While it is good to have many cores available, the single-thread performance of each core is still very relevant for the overall CPU speed in practice. The reason for that is that many applications runs single-threaded, like all coreutils except for sort<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Decoded: GNU coreutils](http://maizure.org/projects/decoded-gnu-coreutils/)">[2]</span></a></sup>, and can only utilize one core at a time.</p>
+                    <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+                    <div id="footnotes">
+                        <hr>
+                        <div id="footnotelist">
+                            <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                                <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/850pro/">Samsung SSD 850 PRO Specifications</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                                <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="http://maizure.org/projects/decoded-gnu-coreutils/">Decoded: GNU coreutils</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
+                            </ol>
+                        </div>
+                    </div>
+                </article><br>
+                <ul class="pager blog-pager">
+                    <li class="previous"><a href="/arch-linux-archive/" data-toggle="tooltip" data-placement="top" title="Arch Linux Versioned">← Previous Post</a></li>
+                    <li class="next"><a href="/hom-sets/" data-toggle="tooltip" data-placement="top" title="Hom-Sets">Next Post →</a></li>
+                </ul><br>
+                <font size="2">This article contains wrong information, typos or should be improved?<br><a target="_blank" rel="noopener" href="https://github.com/madnight/blog/edit/master/source/_posts/disk-latency.md">Edit&nbsp;</a>this article on GitHub and make a Pull Request or post a comment below.</font>
+                <div class="disqus-comments">
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+                <script>
+                    var url_parts = window.location.href.split("?");
+                    var disqus_url = url_parts[0];
+                    (function ()
+                    {
+                        console.log("enter disqus");
+                        var dsq = document.createElement('script');
+                        dsq.type = 'text/javascript';
+                        dsq.async = true;
+                        dsq.src = "//beuke.disqus.com/embed.js";
+                        (document.head || d.body).appendChild(dsq);
+                    })();
+
+                </script>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container beautiful-jekyll-footer">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center footer-links">
+                        <li><a target="_blank" rel="noopener" href="https://github.com/madnight" title="GitHub"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-github"></i></span></a></li>
+                        <li><a href="/atom.xml" title="RSS"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-rss"></i></span></a></li>
+                        <li><a href="mailto:mail@beuke.org" title="Email me"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a></li>
+                        <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/users/6593641/madnight" title="StackOverflow"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a></li>
+                    </ul>
+                    <p class="copyright text-muted">© Fabian Beuke • 2021<br>
+                    <p class="copyright text-copy">Content is available under&nbsp;<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a>unless noted otherwise.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="//instant.page/1.0.0" type="module" integrity="sha384-6w2SekMzCkuMQ9sEbq0cLviD/yR2HfA/+ekmKiBnFlsoSvb/VmQFSi/umVShadQI"></script>
+</body>
+
+</html>
