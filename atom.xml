@@ -112,9 +112,9 @@
     </summary>
     
     
-      <category term="haskell" scheme="https://beuke.org/tags/haskell/"/>
-    
       <category term="functional programming" scheme="https://beuke.org/tags/functional-programming/"/>
+    
+      <category term="haskell" scheme="https://beuke.org/tags/haskell/"/>
     
       <category term="imperative" scheme="https://beuke.org/tags/imperative/"/>
     
@@ -139,9 +139,9 @@
     </summary>
     
     
-      <category term="haskell" scheme="https://beuke.org/tags/haskell/"/>
-    
       <category term="functional programming" scheme="https://beuke.org/tags/functional-programming/"/>
+    
+      <category term="haskell" scheme="https://beuke.org/tags/haskell/"/>
     
       <category term="operators" scheme="https://beuke.org/tags/operators/"/>
     
@@ -249,11 +249,11 @@
     </summary>
     
     
-      <category term="functional programming" scheme="https://beuke.org/tags/functional-programming/"/>
-    
       <category term="elm" scheme="https://beuke.org/tags/elm/"/>
     
       <category term="json" scheme="https://beuke.org/tags/json/"/>
+    
+      <category term="functional programming" scheme="https://beuke.org/tags/functional-programming/"/>
     
   </entry>
   
