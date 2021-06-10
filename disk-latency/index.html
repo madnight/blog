@@ -121,48 +121,51 @@ min/avg/max/mdev = <span class="hljs-number">747.8</span> us / <span class="hljs
                     <p>As we can see the average response time for my SSD is about 800 us (0.8 ms), which results in 1260 sequential IOPS. Even though the SSD could achieve something like 100k IOPS in parallel, it can do only a little more than 1k IOPS on sequential request.</p>
                     <h1 id="results"><a class="markdownIt-Anchor" href="#results"></a> Results</h1>
                     <p>It’s also possible to ping RAM in case it’s mounted on <code>/tmp</code>, which is the default case under many linux distributions. If you want to ping the memory 10 times run <code>ioping -c 10 /tmp</code>. I did that for RAM and some other devices and collected the results in the following table:</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Device</th>
-                                <th style="text-align:center">Latency</th>
-                                <th style="text-align:center">IOPS</th>
-                                <th style="text-align:center">Note</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>RAM</td>
-                                <td style="text-align:center">22 us</td>
-                                <td style="text-align:center">48000</td>
-                                <td style="text-align:center">DDR3 1600MHz (PC3L 12800S)</td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td style="text-align:center">796 us</td>
-                                <td style="text-align:center">1240</td>
-                                <td style="text-align:center">TOSHIBA THNSNJ12</td>
-                            </tr>
-                            <tr>
-                                <td>iSCSI</td>
-                                <td style="text-align:center">1.5 ms</td>
-                                <td style="text-align:center">649</td>
-                                <td style="text-align:center">Hetzner Cloud Storage (Ceph block device)</td>
-                            </tr>
-                            <tr>
-                                <td>HDD</td>
-                                <td style="text-align:center">14 ms</td>
-                                <td style="text-align:center">73</td>
-                                <td style="text-align:center">HGST HTS725050A7</td>
-                            </tr>
-                            <tr>
-                                <td>SSHFS</td>
-                                <td style="text-align:center">26 ms</td>
-                                <td style="text-align:center">40</td>
-                                <td style="text-align:center">Hetzner VPS (20 ms network ping)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div style="overflow-x:auto;">
+                        <center>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Device</th>
+                                        <th style="text-align:center">Latency</th>
+                                        <th style="text-align:center">IOPS</th>
+                                        <th style="text-align:center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>RAM</td>
+                                        <td style="text-align:center">22 us</td>
+                                        <td style="text-align:center">48000</td>
+                                        <td style="text-align:center">DDR3 1600MHz (PC3L 12800S)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SSD</td>
+                                        <td style="text-align:center">796 us</td>
+                                        <td style="text-align:center">1240</td>
+                                        <td style="text-align:center">TOSHIBA THNSNJ12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>iSCSI</td>
+                                        <td style="text-align:center">1.5 ms</td>
+                                        <td style="text-align:center">649</td>
+                                        <td style="text-align:center">Hetzner Cloud Storage (Ceph block device)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>HDD</td>
+                                        <td style="text-align:center">14 ms</td>
+                                        <td style="text-align:center">73</td>
+                                        <td style="text-align:center">HGST HTS725050A7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SSHFS</td>
+                                        <td style="text-align:center">26 ms</td>
+                                        <td style="text-align:center">40</td>
+                                        <td style="text-align:center">Hetzner VPS (20 ms network ping)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
                     <p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math>
                                     <semantics>
                                         <mrow>
