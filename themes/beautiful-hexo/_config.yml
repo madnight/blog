@@ -8,7 +8,7 @@ favicon: /fav.png
 
 header:
     title: "beuke.org"
-    motto: "Personal blog, about technical things."
+    motto: "A personal blog about technical topics."
 
 rss: /atom.xml
 
