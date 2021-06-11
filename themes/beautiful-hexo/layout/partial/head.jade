@@ -49,21 +49,8 @@ script(defer src=cf + "twitter-bootstrap/3.3.7/js/bootstrap.min.js")
 script(defer src="/js/main.js?__inline=true")
 script(defer src=cf + "highlight.js/9.12.0/highlight.min.js")
 
-- var cdn_hl = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/"
-script(defer src=cdn_hl + "elm.min.js?__inline=true")
-script(defer src=cdn_hl + "dockerfile.min.js?__inline=true")
-script(defer src=cdn_hl + "haskell.min.js?__inline=true")
-
 script(defer type='text/javascript').
   document.addEventListener("DOMContentLoaded", function(event) {
         hljs.initHighlightingOnLoad();
   });
 
-script(defer type='text/x-mathjax-config').
-    MathJax.Ajax.config.path["Contrib"] = "//cdn.mathjax.org/mathjax/contrib";
-    MathJax.Hub.Config({
-        TeX: {  extensions: ["AMSmath.js","AMSsymbols.js","[Contrib]/xyjax/xypic.js"] },
-        tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] }
-    });
-
-script(defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML.js")
