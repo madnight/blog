@@ -5,6 +5,18 @@ tags: ["category theory"]
 subtitle: Sets of Morphisms
 ---
 
+{% raw %}
+<script defer="defer" type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["Contrib"] = "//cdn.mathjax.org/mathjax/contrib";
+  MathJax.Hub.Config({
+      TeX: {  extensions: ["AMSmath.js","AMSsymbols.js","[Contrib]/xyjax/xypic.js"] },
+      tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] }
+  });
+</script>
+<script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML.js"></script>
+{% endraw %}
+
+
 In [category theory](https://en.wikipedia.org/wiki/Category_theory), hom-sets, are sets of [morphisms](https://en.wikipedia.org/wiki/Morphism) between objects. Given objects $A$ and $B$ in a [locally small category](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories), the hom-set $\text{Hom}(A,B)$ is the [*set*](https://en.wikipedia.org/wiki/Set_(mathematics)) of all morphisms $\{\rightarrow_0,$$\rightarrow_1,$$\rightarrow_2,$$\dots,$$\rightarrow_n\}$ from A to B.
 {% raw %}
 \begin{xy}
