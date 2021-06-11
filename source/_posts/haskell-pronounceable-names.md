@@ -28,8 +28,6 @@ subtitle: Pronounceable Names for Common Haskell Operators
 </table>
 
 
-{% raw %}</div>{% endraw %}
-
 **Definition:**
 `(<*>) :: f (a -> b) -> f a -> f b`
 `(<*>) = liftA2 id`
@@ -139,10 +137,9 @@ subtitle: Pronounceable Names for Common Haskell Operators
 12
 ```
 
-
 <br> <br>
 
-## Left fish <=<
+## Left fish
 
 <img style="width: 300px; float: right;" src="/images/left-fish.gif">
 
