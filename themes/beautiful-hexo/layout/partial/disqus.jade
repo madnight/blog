@@ -1,15 +1,20 @@
 .disqus-comments
   .comments
+      ul.pager.blog-pager
+        li.next
+            a(href="button", id="disqus_button", onclick="disqus();return false;")="Show Comments"
+                br
       #disqus_thread
+
 
 script.
     var url_parts = window.location.href.split("?");
     var disqus_url = url_parts[0];
-    (function () {
-        console.log("enter disqus");
+    function disqus() {
+        document.getElementById('disqus_button').style.visibility = 'hidden';
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
         dsq.src = "//#{theme.comment.disqus}.disqus.com/embed.js";
         (document.head || d.body ).appendChild(dsq);
-    })();
+    };

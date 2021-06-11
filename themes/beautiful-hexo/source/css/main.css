@@ -512,6 +512,10 @@ footer .theme-by {
   margin-top: 0;
 }
 
+#disqus_button {
+ float: left;
+}
+
 @media only screen and (min-width: 768px) {
   .pager.blog-pager  {
     margin-top: 10px;
