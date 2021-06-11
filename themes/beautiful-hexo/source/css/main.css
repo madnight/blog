@@ -1,7 +1,7 @@
 html, body {
     overflow-x: hidden;
     background: #FFF;
-    color: #404040;
+    color: #1B1B1B;
     position: relative;
     font-family: 'PT Serif';
     font-size: 17px;
@@ -39,7 +39,7 @@ a:focus {
 }
 
 blockquote {
-  color: #808080;
+  color: #464646;
   font-style: italic;
 }
 
@@ -116,7 +116,7 @@ img {
 .navbar-custom .navbar-brand,
 .navbar-custom .nav li a {
   font-weight: 800;
-  color: #404040;
+  color: #1B1B1B;
 }
 
 .navbar-custom .navbar-brand:hover,
@@ -239,7 +239,7 @@ footer {
 }
 
 footer a {
-  color: #404040;
+  color: #1B1B1B;
 }
 
 footer .list-inline {
@@ -250,10 +250,13 @@ footer .copyright {
   font-family: Open Sans;
   text-align: center;
   margin-bottom: 0;
+  color: #1B1B1B;
 }
+
 footer .theme-by {
   text-align: center;
   margin: 10px 0 0;
+  color: #1B1B1B;
 }
 
 @media only screen and (min-width: 768px) {
@@ -285,7 +288,7 @@ footer .theme-by {
 
 .post-preview a {
   text-decoration: none;
-  color: #404040;
+  color: #1B1B1B
 }
 
 .post-preview a:focus,
@@ -305,7 +308,7 @@ footer .theme-by {
 }
 .post-preview .post-meta,
 .post-heading .post-meta {
-  color: #808080;
+  color: #464646;
   font-style: italic;
   margin: 0 0 10px;
 }
@@ -487,7 +490,7 @@ footer .theme-by {
   padding: 10px 5px;
   background: #FFF;
   border-radius: 0;
-  color: #404040;
+  color: #1B1B1B
 }
 @media only screen and (min-width: 768px) {
   .pager li a {
@@ -553,7 +556,7 @@ table tr td :last-child {
 }
 
 .archive-list li span {
-  color: #808080;
+  color: #464646;
   margin-right: 25px;
   font-style: italic;
 }
