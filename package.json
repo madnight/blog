@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "rm -rf public && hexo clean && hexo generate --draft && hexo server --draft",
-    "deploy": "rm -rf public && hexo clean && hexo generate && hexo deploy",
-    "build": "rm -rf public && hexo clean && hexo generate"
+    "build": "rm -rf public && hexo clean && hexo generate && hexo generate",
+    "deploy": "yarn build && hexo deploy"
   },
   "dependencies": {
     "hexo": "^5.4.0",
