@@ -12,11 +12,358 @@
     <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
     <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'"><noscript>
         <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml"></noscript>
-    <link rel="stylesheet" href="/css/styles.pure.css?__inline=true" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="/css/styles.pure.css?__inline=true"></noscript>
+    <link rel="stylesheet" href="/css/styles.pure.css" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="/css/styles.pure.css"></noscript>
     <script defer src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css"></noscript>
+    <style type="text/css">
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            color: #333;
+            background: #f8f8f8
+        }
+
+        .hljs-comment,
+        .hljs-quote {
+            color: #998;
+            font-style: italic
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-subst {
+            color: #333;
+            font-weight: bold
+        }
+
+        .hljs-number,
+        .hljs-literal,
+        .hljs-variable,
+        .hljs-template-variable,
+        .hljs-tag .hljs-attr {
+            color: #008080
+        }
+
+        .hljs-string,
+        .hljs-doctag {
+            color: #d14
+        }
+
+        .hljs-title,
+        .hljs-section,
+        .hljs-selector-id {
+            color: #900;
+            font-weight: bold
+        }
+
+        .hljs-subst {
+            font-weight: normal
+        }
+
+        .hljs-type,
+        .hljs-class .hljs-title {
+            color: #458;
+            font-weight: bold
+        }
+
+        .hljs-tag,
+        .hljs-name,
+        .hljs-attribute {
+            color: #000080;
+            font-weight: normal
+        }
+
+        .hljs-regexp,
+        .hljs-link {
+            color: #009926
+        }
+
+        .hljs-symbol,
+        .hljs-bullet {
+            color: #990073
+        }
+
+        .hljs-built_in,
+        .hljs-builtin-name {
+            color: #0086b3
+        }
+
+        .hljs-meta {
+            color: #999;
+            font-weight: bold
+        }
+
+        .hljs-deletion {
+            background: #fdd
+        }
+
+        .hljs-addition {
+            background: #dfd
+        }
+
+        .hljs-emphasis {
+            font-style: italic
+        }
+
+        .hljs-strong {
+            font-weight: bold
+        }
+
+    </style><noscript>
+        <style type="text/css">
+            .hljs {
+                display: block;
+                overflow-x: auto;
+                padding: 0.5em;
+                color: #333;
+                background: #f8f8f8
+            }
+
+            .hljs-comment,
+            .hljs-quote {
+                color: #998;
+                font-style: italic
+            }
+
+            .hljs-keyword,
+            .hljs-selector-tag,
+            .hljs-subst {
+                color: #333;
+                font-weight: bold
+            }
+
+            .hljs-number,
+            .hljs-literal,
+            .hljs-variable,
+            .hljs-template-variable,
+            .hljs-tag .hljs-attr {
+                color: #008080
+            }
+
+            .hljs-string,
+            .hljs-doctag {
+                color: #d14
+            }
+
+            .hljs-title,
+            .hljs-section,
+            .hljs-selector-id {
+                color: #900;
+                font-weight: bold
+            }
+
+            .hljs-subst {
+                font-weight: normal
+            }
+
+            .hljs-type,
+            .hljs-class .hljs-title {
+                color: #458;
+                font-weight: bold
+            }
+
+            .hljs-tag,
+            .hljs-name,
+            .hljs-attribute {
+                color: #000080;
+                font-weight: normal
+            }
+
+            .hljs-regexp,
+            .hljs-link {
+                color: #009926
+            }
+
+            .hljs-symbol,
+            .hljs-bullet {
+                color: #990073
+            }
+
+            .hljs-built_in,
+            .hljs-builtin-name {
+                color: #0086b3
+            }
+
+            .hljs-meta {
+                color: #999;
+                font-weight: bold
+            }
+
+            .hljs-deletion {
+                background: #fdd
+            }
+
+            .hljs-addition {
+                background: #dfd
+            }
+
+            .hljs-emphasis {
+                font-style: italic
+            }
+
+            .hljs-strong {
+                font-weight: bold
+            }
+
+        </style>
+    </noscript>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script defer src="/js/main.js?__inline=true"></script>
+    <script type="text/javascript">
+        // Dean Attali / Beautiful Jekyll 2016
+        var main = {
+            bigImgEl: null,
+            numImgs: null,
+            init: function ()
+            {
+                // Shorten the navbar after scrolling a little bit down
+                $(window).scroll(function ()
+                {
+                    if ($(".navbar").offset().top > 50)
+                    {
+                        $(".navbar").addClass("top-nav-short");
+                    }
+                    else
+                    {
+                        $(".navbar").removeClass("top-nav-short");
+                    }
+                });
+                // On mobile, hide the avatar when expanding the navbar menu
+                $('#main-navbar').on('show.bs.collapse', function ()
+                {
+                    $(".navbar").addClass("top-nav-expanded");
+                });
+                $('#main-navbar').on('hidden.bs.collapse', function ()
+                {
+                    $(".navbar").removeClass("top-nav-expanded");
+                });
+                // On mobile, when clicking on a multi-level navbar menu, show the child links
+                $('#main-navbar').on("click", ".navlinks-parent", function (e)
+                {
+                    var target = e.target;
+                    $.each($(".navlinks-parent"), function (key, value)
+                    {
+                        if (value == target)
+                        {
+                            $(value).parent().toggleClass("show-children");
+                        }
+                        else
+                        {
+                            $(value).parent().removeClass("show-children");
+                        }
+                    });
+                });
+                // Ensure nested navbar menus are not longer than the menu header
+                var menus = $(".navlinks-container");
+                if (menus.length > 0)
+                {
+                    var navbar = $("#main-navbar ul");
+                    var fakeMenuHtml = "<li class='fake-menu' style='display:none;'><a></a></li>";
+                    navbar.append(fakeMenuHtml);
+                    var fakeMenu = $(".fake-menu");
+                    $.each(menus, function (i)
+                    {
+                        var parent = $(menus[i]).find(".navlinks-parent");
+                        var children = $(menus[i]).find(".navlinks-children a");
+                        var words = [];
+                        $.each(children, function (idx, el)
+                        {
+                            words = words.concat($(el).text().trim().split(/\s+/));
+                        });
+                        var maxwidth = 0;
+                        $.each(words, function (id, word)
+                        {
+                            fakeMenu.html("<a>" + word + "</a>");
+                            var width = fakeMenu.width();
+                            if (width > maxwidth)
+                            {
+                                maxwidth = width;
+                            }
+                        });
+                        $(menus[i]).css('min-width', maxwidth + 'px')
+                    });
+                    fakeMenu.remove();
+                }
+                // show the big header image
+                main.initImgs();
+            },
+            initImgs: function ()
+            {
+                // If the page was large images to randomly select from, choose an image
+                if ($("#header-big-imgs").length > 0)
+                {
+                    main.bigImgEl = $("#header-big-imgs");
+                    main.numImgs = main.bigImgEl.attr("data-num-img");
+                    // 2fc73a3a967e97599c9763d05e564189
+                    // set an initial image
+                    var imgInfo = main.getImgInfo();
+                    var src = imgInfo.src;
+                    var desc = imgInfo.desc;
+                    main.setImg(src, desc);
+                    // For better UX, prefetch the next image so that it will already be loaded when we want to show it
+                    var getNextImg = function ()
+                    {
+                        var imgInfo = main.getImgInfo();
+                        var src = imgInfo.src;
+                        var desc = imgInfo.desc;
+                        var prefetchImg = new Image();
+                        prefetchImg.src = src;
+                        // if I want to do something once the image is ready: `prefetchImg.onload = function(){}`
+                        setTimeout(function ()
+                        {
+                            var img = $("<div></div>").addClass("big-img-transition").css("background-image", 'url(' + src + ')');
+                            $(".intro-header.big-img").prepend(img);
+                            setTimeout(function ()
+                            {
+                                img.css("opacity", "1");
+                            }, 50);
+                            // after the animation of fading in the new image is done, prefetch the next one
+                            //img.one("transitioned webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+                            setTimeout(function ()
+                            {
+                                main.setImg(src, desc);
+                                img.remove();
+                                getNextImg();
+                            }, 1000);
+                            //});
+                        }, 6000);
+                    };
+                    // If there are multiple images, cycle through them
+                    if (main.numImgs > 1)
+                    {
+                        getNextImg();
+                    }
+                }
+            },
+            getImgInfo: function ()
+            {
+                var randNum = Math.floor((Math.random() * main.numImgs) + 1);
+                var src = main.bigImgEl.attr("data-img-src-" + randNum);
+                var desc = main.bigImgEl.attr("data-img-desc-" + randNum);
+                return {
+                    src: src,
+                    desc: desc
+                }
+            },
+            setImg: function (src, desc)
+            {
+                $(".intro-header.big-img").css("background-image", 'url(' + src + ')');
+                if (typeof desc !== typeof undefined && desc !== false)
+                {
+                    $(".img-desc").text(desc).show();
+                }
+                else
+                {
+                    $(".img-desc").hide();
+                }
+            }
+        };
+        // 2fc73a3a967e97599c9763d05e564189
+        document.addEventListener('DOMContentLoaded', main.init);
+
+    </script>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script defer type="text/javascript">
         document.addEventListener("DOMContentLoaded", function (event)
@@ -50,7 +397,7 @@
                         <div class="post-heading">
                             <h1>Disk Latency</h1>
                             <h2 class="post-subheading">Measuring Disk Latency with ioping</h2>
-                            <p class="post-meta">Posted on Mar 8 2021 · <a href="/tags/storage/" class="tag post-meta">storage</a> · <a href="/tags/performance/" class="tag post-meta">performance</a> · <a href="/tags/benchmark/" class="tag post-meta">benchmark</a>&nbsp;·&nbsp;<span>5 min read</span></p>
+                            <p class="post-meta">Posted on Mar 8 2021 · <a href="/tags/storage/" class="tag post-meta">storage</a> · <a href="/tags/performance/" class="tag post-meta">performance</a> · <a href="/tags/benchmark/" class="tag post-meta">benchmark</a> · <span>5 min read</span></p>
                         </div>
                     </div>
                 </div>
@@ -86,12 +433,12 @@ pkg install ioping
                     <h1 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h1>
                     <p>If you know how ping works, then you already know how to use ioping, just write the command and give it a directory path as argument. Here you can see an example run for the current directory:</p>
                     <pre class="highlight"><code class="perl">ioping .
-<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">1</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">282.6</span> us (warmup)
-<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">2</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">855.6</span> us
-<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">3</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">871.1</span> us
-<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">4</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">748.5</span> us
-<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">5</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">755.4</span> us
-<span class="hljs-number">4</span> KiB &lt;&lt;&lt; . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">6</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">747.8</span> us
+<span class="hljs-number">4</span> KiB <<< . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">1</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">282.6</span> us (warmup)
+<span class="hljs-number">4</span> KiB <<< . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">2</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">855.6</span> us
+<span class="hljs-number">4</span> KiB <<< . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">3</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">871.1</span> us
+<span class="hljs-number">4</span> KiB <<< . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">4</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">748.5</span> us
+<span class="hljs-number">4</span> KiB <<< . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">5</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">755.4</span> us
+<span class="hljs-number">4</span> KiB <<< . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB): request=<span class="hljs-number">6</span> <span class="hljs-keyword">time</span>=<span class="hljs-number">747.8</span> us
 ^C
 --- . (ext4 /dev/dm-<span class="hljs-number">0</span> <span class="hljs-number">107.8</span> GiB) ioping statistics ---
 <span class="hljs-number">5</span> requests completed in <span class="hljs-number">3.98</span> ms, <span class="hljs-number">20</span> KiB <span class="hljs-keyword">read</span>, <span class="hljs-number">1.26</span> k iops, <span class="hljs-number">4.91</span> MiB/<span class="hljs-keyword">s</span>
@@ -145,6 +492,7 @@ min/avg/max/mdev = <span class="hljs-number">747.8</span> us / <span class="hljs
                                     </tr>
                                 </tbody>
                             </table>
+                        </center>
                     </div>
                     <p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math>
                                     <semantics>
@@ -177,7 +525,7 @@ min/avg/max/mdev = <span class="hljs-number">747.8</span> us / <span class="hljs
                     <li class="previous"><a href="/arch-linux-archive/" data-toggle="tooltip" data-placement="top" title="Arch Linux Versioned">← Previous Post</a></li>
                     <li class="next"><a href="/hom-sets/" data-toggle="tooltip" data-placement="top" title="Hom-Sets">Next Post →</a></li>
                 </ul><br>
-                <font size="2">This article contains wrong information, typos or should be improved?<br><a target="_blank" rel="noopener" href="https://github.com/madnight/blog/edit/master/source/_posts/disk-latency.md">Edit&nbsp;</a>this article on GitHub and make a Pull Request or post a comment below.</font>
+                <font size="2">This article contains wrong information, typos or should be improved?<br><a target="_blank" rel="noopener" href="https://github.com/madnight/blog/edit/master/source/_posts/disk-latency.md">Edit </a>this article on GitHub and make a Pull Request or post a comment below.</font>
                 <div class="disqus-comments">
                     <div class="comments">
                         <ul class="pager blog-pager">
@@ -214,9 +562,9 @@ min/avg/max/mdev = <span class="hljs-number">747.8</span> us / <span class="hljs
                         <li><a href="mailto:mail@beuke.org" title="Email me"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a></li>
                         <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/users/6593641/madnight" title="StackOverflow"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a></li>
                     </ul>
-                    <p class="copyright text-muted">© Fabian Beuke • 2021<br>
-                    <p class="copyright text-copy">Content is available under&nbsp;<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a>unless noted otherwise.</p>
-                    </p>
+                    <p class="copyright text-muted">© Fabian Beuke • 2021<br></p>
+                    <p class="copyright text-copy">Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a>unless noted otherwise.</p>
+                    <p></p>
                 </div>
             </div>
         </div>

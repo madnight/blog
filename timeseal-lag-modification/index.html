@@ -12,11 +12,358 @@
     <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
     <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'"><noscript>
         <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml"></noscript>
-    <link rel="stylesheet" href="/css/styles.pure.css?__inline=true" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="/css/styles.pure.css?__inline=true"></noscript>
+    <link rel="stylesheet" href="/css/styles.pure.css" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="/css/styles.pure.css"></noscript>
     <script defer src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css"></noscript>
+    <style type="text/css">
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            color: #333;
+            background: #f8f8f8
+        }
+
+        .hljs-comment,
+        .hljs-quote {
+            color: #998;
+            font-style: italic
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-subst {
+            color: #333;
+            font-weight: bold
+        }
+
+        .hljs-number,
+        .hljs-literal,
+        .hljs-variable,
+        .hljs-template-variable,
+        .hljs-tag .hljs-attr {
+            color: #008080
+        }
+
+        .hljs-string,
+        .hljs-doctag {
+            color: #d14
+        }
+
+        .hljs-title,
+        .hljs-section,
+        .hljs-selector-id {
+            color: #900;
+            font-weight: bold
+        }
+
+        .hljs-subst {
+            font-weight: normal
+        }
+
+        .hljs-type,
+        .hljs-class .hljs-title {
+            color: #458;
+            font-weight: bold
+        }
+
+        .hljs-tag,
+        .hljs-name,
+        .hljs-attribute {
+            color: #000080;
+            font-weight: normal
+        }
+
+        .hljs-regexp,
+        .hljs-link {
+            color: #009926
+        }
+
+        .hljs-symbol,
+        .hljs-bullet {
+            color: #990073
+        }
+
+        .hljs-built_in,
+        .hljs-builtin-name {
+            color: #0086b3
+        }
+
+        .hljs-meta {
+            color: #999;
+            font-weight: bold
+        }
+
+        .hljs-deletion {
+            background: #fdd
+        }
+
+        .hljs-addition {
+            background: #dfd
+        }
+
+        .hljs-emphasis {
+            font-style: italic
+        }
+
+        .hljs-strong {
+            font-weight: bold
+        }
+
+    </style><noscript>
+        <style type="text/css">
+            .hljs {
+                display: block;
+                overflow-x: auto;
+                padding: 0.5em;
+                color: #333;
+                background: #f8f8f8
+            }
+
+            .hljs-comment,
+            .hljs-quote {
+                color: #998;
+                font-style: italic
+            }
+
+            .hljs-keyword,
+            .hljs-selector-tag,
+            .hljs-subst {
+                color: #333;
+                font-weight: bold
+            }
+
+            .hljs-number,
+            .hljs-literal,
+            .hljs-variable,
+            .hljs-template-variable,
+            .hljs-tag .hljs-attr {
+                color: #008080
+            }
+
+            .hljs-string,
+            .hljs-doctag {
+                color: #d14
+            }
+
+            .hljs-title,
+            .hljs-section,
+            .hljs-selector-id {
+                color: #900;
+                font-weight: bold
+            }
+
+            .hljs-subst {
+                font-weight: normal
+            }
+
+            .hljs-type,
+            .hljs-class .hljs-title {
+                color: #458;
+                font-weight: bold
+            }
+
+            .hljs-tag,
+            .hljs-name,
+            .hljs-attribute {
+                color: #000080;
+                font-weight: normal
+            }
+
+            .hljs-regexp,
+            .hljs-link {
+                color: #009926
+            }
+
+            .hljs-symbol,
+            .hljs-bullet {
+                color: #990073
+            }
+
+            .hljs-built_in,
+            .hljs-builtin-name {
+                color: #0086b3
+            }
+
+            .hljs-meta {
+                color: #999;
+                font-weight: bold
+            }
+
+            .hljs-deletion {
+                background: #fdd
+            }
+
+            .hljs-addition {
+                background: #dfd
+            }
+
+            .hljs-emphasis {
+                font-style: italic
+            }
+
+            .hljs-strong {
+                font-weight: bold
+            }
+
+        </style>
+    </noscript>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script defer src="/js/main.js?__inline=true"></script>
+    <script type="text/javascript">
+        // Dean Attali / Beautiful Jekyll 2016
+        var main = {
+            bigImgEl: null,
+            numImgs: null,
+            init: function ()
+            {
+                // Shorten the navbar after scrolling a little bit down
+                $(window).scroll(function ()
+                {
+                    if ($(".navbar").offset().top > 50)
+                    {
+                        $(".navbar").addClass("top-nav-short");
+                    }
+                    else
+                    {
+                        $(".navbar").removeClass("top-nav-short");
+                    }
+                });
+                // On mobile, hide the avatar when expanding the navbar menu
+                $('#main-navbar').on('show.bs.collapse', function ()
+                {
+                    $(".navbar").addClass("top-nav-expanded");
+                });
+                $('#main-navbar').on('hidden.bs.collapse', function ()
+                {
+                    $(".navbar").removeClass("top-nav-expanded");
+                });
+                // On mobile, when clicking on a multi-level navbar menu, show the child links
+                $('#main-navbar').on("click", ".navlinks-parent", function (e)
+                {
+                    var target = e.target;
+                    $.each($(".navlinks-parent"), function (key, value)
+                    {
+                        if (value == target)
+                        {
+                            $(value).parent().toggleClass("show-children");
+                        }
+                        else
+                        {
+                            $(value).parent().removeClass("show-children");
+                        }
+                    });
+                });
+                // Ensure nested navbar menus are not longer than the menu header
+                var menus = $(".navlinks-container");
+                if (menus.length > 0)
+                {
+                    var navbar = $("#main-navbar ul");
+                    var fakeMenuHtml = "<li class='fake-menu' style='display:none;'><a></a></li>";
+                    navbar.append(fakeMenuHtml);
+                    var fakeMenu = $(".fake-menu");
+                    $.each(menus, function (i)
+                    {
+                        var parent = $(menus[i]).find(".navlinks-parent");
+                        var children = $(menus[i]).find(".navlinks-children a");
+                        var words = [];
+                        $.each(children, function (idx, el)
+                        {
+                            words = words.concat($(el).text().trim().split(/\s+/));
+                        });
+                        var maxwidth = 0;
+                        $.each(words, function (id, word)
+                        {
+                            fakeMenu.html("<a>" + word + "</a>");
+                            var width = fakeMenu.width();
+                            if (width > maxwidth)
+                            {
+                                maxwidth = width;
+                            }
+                        });
+                        $(menus[i]).css('min-width', maxwidth + 'px')
+                    });
+                    fakeMenu.remove();
+                }
+                // show the big header image
+                main.initImgs();
+            },
+            initImgs: function ()
+            {
+                // If the page was large images to randomly select from, choose an image
+                if ($("#header-big-imgs").length > 0)
+                {
+                    main.bigImgEl = $("#header-big-imgs");
+                    main.numImgs = main.bigImgEl.attr("data-num-img");
+                    // 2fc73a3a967e97599c9763d05e564189
+                    // set an initial image
+                    var imgInfo = main.getImgInfo();
+                    var src = imgInfo.src;
+                    var desc = imgInfo.desc;
+                    main.setImg(src, desc);
+                    // For better UX, prefetch the next image so that it will already be loaded when we want to show it
+                    var getNextImg = function ()
+                    {
+                        var imgInfo = main.getImgInfo();
+                        var src = imgInfo.src;
+                        var desc = imgInfo.desc;
+                        var prefetchImg = new Image();
+                        prefetchImg.src = src;
+                        // if I want to do something once the image is ready: `prefetchImg.onload = function(){}`
+                        setTimeout(function ()
+                        {
+                            var img = $("<div></div>").addClass("big-img-transition").css("background-image", 'url(' + src + ')');
+                            $(".intro-header.big-img").prepend(img);
+                            setTimeout(function ()
+                            {
+                                img.css("opacity", "1");
+                            }, 50);
+                            // after the animation of fading in the new image is done, prefetch the next one
+                            //img.one("transitioned webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+                            setTimeout(function ()
+                            {
+                                main.setImg(src, desc);
+                                img.remove();
+                                getNextImg();
+                            }, 1000);
+                            //});
+                        }, 6000);
+                    };
+                    // If there are multiple images, cycle through them
+                    if (main.numImgs > 1)
+                    {
+                        getNextImg();
+                    }
+                }
+            },
+            getImgInfo: function ()
+            {
+                var randNum = Math.floor((Math.random() * main.numImgs) + 1);
+                var src = main.bigImgEl.attr("data-img-src-" + randNum);
+                var desc = main.bigImgEl.attr("data-img-desc-" + randNum);
+                return {
+                    src: src,
+                    desc: desc
+                }
+            },
+            setImg: function (src, desc)
+            {
+                $(".intro-header.big-img").css("background-image", 'url(' + src + ')');
+                if (typeof desc !== typeof undefined && desc !== false)
+                {
+                    $(".img-desc").text(desc).show();
+                }
+                else
+                {
+                    $(".img-desc").hide();
+                }
+            }
+        };
+        // 2fc73a3a967e97599c9763d05e564189
+        document.addEventListener('DOMContentLoaded', main.init);
+
+    </script>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script defer type="text/javascript">
         document.addEventListener("DOMContentLoaded", function (event)
@@ -50,7 +397,7 @@
                         <div class="post-heading">
                             <h1>Online Chess Clock Exploit</h1>
                             <h2 class="post-subheading">Modify client side lag calculation for infinite time</h2>
-                            <p class="post-meta">Posted on Jun 10 2014 · <a href="/tags/timeseal/" class="tag post-meta">timeseal</a> · <a href="/tags/chess/" class="tag post-meta">chess</a> · <a href="/tags/reverse-engineering/" class="tag post-meta">reverse engineering</a>&nbsp;·&nbsp;<span>5 min read</span></p>
+                            <p class="post-meta">Posted on Jun 10 2014 · <a href="/tags/timeseal/" class="tag post-meta">timeseal</a> · <a href="/tags/chess/" class="tag post-meta">chess</a> · <a href="/tags/reverse-engineering/" class="tag post-meta">reverse engineering</a> · <span>5 min read</span></p>
                         </div>
                     </div>
                 </div>
@@ -89,12 +436,12 @@
 <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> comment(lib, <span class="hljs-meta-string">"detours.lib"</span>)</span>
 
 <span class="hljs-meta">#<span class="hljs-meta-keyword">undef</span> UNICODE</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;detours.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;process.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string"><cstdio></span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string"><windows.h></span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string"><detours.h></span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string"><process.h></span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string"><iostream></span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string"><string></span></span>
 
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
@@ -112,7 +459,7 @@ HWND       prnt_hWnd;
 
 <span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">DLLWindowProc</span> <span class="hljs-params">(HWND, UINT, WPARAM, LPARAM)</span></span>;
 
-<span class="hljs-function">BOOL <span class="hljs-title">RegisterDLLWindowClass</span><span class="hljs-params">(<span class="hljs-keyword">wchar_t</span> szClassName[])</span> </span>&#123;
+<span class="hljs-function">BOOL <span class="hljs-title">RegisterDLLWindowClass</span><span class="hljs-params">(<span class="hljs-keyword">wchar_t</span> szClassName[])</span> </span>{
     WNDCLASSEX wc;
     wc.hInstance =  inj_hModule;
     wc.lpszClassName = (LPCWSTR)<span class="hljs-string">L"InjectedDLLWindowClass"</span>;
@@ -127,8 +474,8 @@ HWND       prnt_hWnd;
     wc.cbClsExtra = <span class="hljs-number">0</span>;
     wc.cbWndExtra = <span class="hljs-number">0</span>;
     wc.hbrBackground = (HBRUSH) COLOR_BACKGROUND;
-    <span class="hljs-keyword">if</span> (!RegisterClassEx (&amp;wc)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;
+    <span class="hljs-keyword">if</span> (!RegisterClassEx (&wc)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ONE_PLUS_ZERO 600</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ZERO_PLUS_ONE 601</span>
@@ -136,7 +483,7 @@ HWND       prnt_hWnd;
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BIGTIME 603</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIMELOOSE 604</span>
 
-<span class="hljs-function">HMENU <span class="hljs-title">CreateDLLWindowMenu</span><span class="hljs-params">()</span> </span>&#123;
+<span class="hljs-function">HMENU <span class="hljs-title">CreateDLLWindowMenu</span><span class="hljs-params">()</span> </span>{
     HMENU hMenu;
     hMenu = CreateMenu();
     HMENU hMenuPopup;
@@ -152,11 +499,11 @@ HWND       prnt_hWnd;
     AppendMenu (hMenuPopup, MF_STRING, TIMELOOSE, TEXT(<span class="hljs-string">"TIMELOOSE"</span>));
     AppendMenu (hMenu, MF_POPUP, (UINT_PTR) hMenuPopup, TEXT(<span class="hljs-string">"TimeSeal"</span>));
     <span class="hljs-keyword">return</span> hMenu;
-&#125;
+}
 
-<span class="hljs-function">DWORD WINAPI <span class="hljs-title">ThreadProc</span><span class="hljs-params">( LPVOID lpParam )</span> </span>&#123;
+<span class="hljs-function">DWORD WINAPI <span class="hljs-title">ThreadProc</span><span class="hljs-params">( LPVOID lpParam )</span> </span>{
     MSG messages;
-    <span class="hljs-keyword">wchar_t</span> *pString = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-keyword">wchar_t</span> * &gt; (lpParam);
+    <span class="hljs-keyword">wchar_t</span> *pString = <span class="hljs-keyword">reinterpret_cast</span><<span class="hljs-keyword">wchar_t</span> * > (lpParam);
     HMENU hMenu = CreateDLLWindowMenu();
     RegisterDLLWindowClass(<span class="hljs-string">L"InjectedDLLWindowClass"</span>);
     prnt_hWnd = FindWindow(<span class="hljs-string">L"Window Injected Into ClassName"</span>,
@@ -165,20 +512,20 @@ HWND       prnt_hWnd;
     WS_EX_PALETTEWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, <span class="hljs-number">400</span>, <span class="hljs-number">300</span>,
     prnt_hWnd, hMenu, inj_hModule, <span class="hljs-literal">NULL</span> );
     ShowWindow (hwnd, SW_SHOWNORMAL);
-    <span class="hljs-keyword">while</span> (GetMessage (&amp;messages, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) &#123;
-        TranslateMessage(&amp;messages);
-        DispatchMessage(&amp;messages);
-    &#125;
+    <span class="hljs-keyword">while</span> (GetMessage (&messages, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) {
+        TranslateMessage(&messages);
+        DispatchMessage(&messages);
+    }
     <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-&#125;
+}
 
 <span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">DLLWindowProc</span> <span class="hljs-params">(HWND hwnd,
                                 UINT message,
                                 WPARAM wParam,
-                                LPARAM lParam)</span> </span>&#123;
-    <span class="hljs-keyword">switch</span> (message) &#123;
+                                LPARAM lParam)</span> </span>{
+    <span class="hljs-keyword">switch</span> (message) {
     <span class="hljs-keyword">case</span> WM_COMMAND:
-        <span class="hljs-keyword">switch</span>(wParam) &#123;
+        <span class="hljs-keyword">switch</span>(wParam) {
         <span class="hljs-keyword">case</span> MYMENU_EXIT:
             SendMessage(hwnd, WM_CLOSE, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
             <span class="hljs-keyword">break</span>;
@@ -202,25 +549,25 @@ HWND       prnt_hWnd;
             offset = <span class="hljs-number">100000</span>;
             randmod = <span class="hljs-number">30000</span>;
             <span class="hljs-keyword">break</span>;
-        &#125;
+        }
         <span class="hljs-keyword">break</span>;
     <span class="hljs-keyword">case</span> WM_DESTROY:
         PostQuitMessage (<span class="hljs-number">0</span>);
         <span class="hljs-keyword">break</span>;
     <span class="hljs-keyword">default</span>:
         <span class="hljs-keyword">return</span> DefWindowProc (hwnd, message, wParam, lParam);
-    &#125;
+    }
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;
+}
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">startup</span><span class="hljs-params">()</span> </span>&#123;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">startup</span><span class="hljs-params">()</span> </span>{
     CreateThread(<span class="hljs-number">0</span>, <span class="hljs-literal">NULL</span>, ThreadProc, (LPVOID)<span class="hljs-string">L""</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
     __asm mov eax, <span class="hljs-number">0x00401400</span>
     __asm call eax
     __asm mov Time, eax
-&#125;
+}
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> __cdecl <span class="hljs-title">Hooked_GetTimeForLag</span><span class="hljs-params">()</span> </span>&#123;
+<span class="hljs-function"><span class="hljs-keyword">int</span> __cdecl <span class="hljs-title">Hooked_GetTimeForLag</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">int</span> <span class="hljs-built_in">random</span> = <span class="hljs-number">0</span>;
     __asm mov eax, <span class="hljs-number">0x004021F0</span>
     __asm call eax
@@ -228,33 +575,33 @@ HWND       prnt_hWnd;
     Time = Time + (<span class="hljs-built_in">random</span>%randmod);
     Time = Time + offset;
     <span class="hljs-keyword">return</span> Time;
-&#125;
+}
 
 HMODULE libraryHandle;
-_declspec(dllexport) <span class="hljs-function">BOOL WINAPI <span class="hljs-title">GetUserNameA</span><span class="hljs-params">(LPSTR input, LPDWORD <span class="hljs-built_in">buffer</span>)</span> </span>&#123;
+_declspec(dllexport) <span class="hljs-function">BOOL WINAPI <span class="hljs-title">GetUserNameA</span><span class="hljs-params">(LPSTR input, LPDWORD <span class="hljs-built_in">buffer</span>)</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">BOOL</span> <span class="hljs-params">(WINAPI* CFunction)</span> <span class="hljs-params">(LPSTR input, LPDWORD <span class="hljs-built_in">buffer</span>)</span></span>;
     CFunction getUserName = (CFunction) GetProcAddress(libraryHandle,
                                                        <span class="hljs-string">"GetUserNameA"</span>);
     <span class="hljs-keyword">return</span> getUserName(input, <span class="hljs-built_in">buffer</span>);
-&#125;
+}
 
-<span class="hljs-function">BOOL WINAPI <span class="hljs-title">DllMain</span><span class="hljs-params">(HMODULE <span class="hljs-keyword">module</span>,DWORD action,LPVOID reserved)</span> </span>&#123;
+<span class="hljs-function">BOOL WINAPI <span class="hljs-title">DllMain</span><span class="hljs-params">(HMODULE <span class="hljs-keyword">module</span>,DWORD action,LPVOID reserved)</span> </span>{
     libraryHandle = LoadLibraryA(<span class="hljs-string">"ADVAPI32.dll"</span>);
-    <span class="hljs-keyword">switch</span>(action) &#123;
-    <span class="hljs-keyword">case</span> DLL_PROCESS_ATTACH: &#123;
+    <span class="hljs-keyword">switch</span>(action) {
+    <span class="hljs-keyword">case</span> DLL_PROCESS_ATTACH: {
             DetourTransactionBegin();
             DetourUpdateThread(GetCurrentThread());
             startup();
-            DetourAttach(&amp;(PVOID&amp;)GetTimeForLag, Hooked_GetTimeForLag);
+            DetourAttach(&(PVOID&)GetTimeForLag, Hooked_GetTimeForLag);
             DetourTransactionCommit();
             <span class="hljs-keyword">break</span>;
-        &#125;
+        }
         <span class="hljs-keyword">break</span>;
     <span class="hljs-keyword">case</span> DLL_THREAD_ATTACH:
         <span class="hljs-keyword">break</span>;
-    &#125;
+    }
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-&#125;
+}
 </code></pre>
                     <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
                     <div id="footnotes">
@@ -270,7 +617,7 @@ _declspec(dllexport) <span class="hljs-function">BOOL WINAPI <span class="hljs-t
                 <ul class="pager blog-pager">
                     <li class="previous"><a href="/github-mirror/" data-toggle="tooltip" data-placement="top" title="Create a GitHub Mirror">← Previous Post</a></li>
                 </ul><br>
-                <font size="2">This article contains wrong information, typos or should be improved?<br><a target="_blank" rel="noopener" href="https://github.com/madnight/blog/edit/master/source/_posts/timeseal-lag-modification.md">Edit&nbsp;</a>this article on GitHub and make a Pull Request or post a comment below.</font>
+                <font size="2">This article contains wrong information, typos or should be improved?<br><a target="_blank" rel="noopener" href="https://github.com/madnight/blog/edit/master/source/_posts/timeseal-lag-modification.md">Edit </a>this article on GitHub and make a Pull Request or post a comment below.</font>
                 <div class="disqus-comments">
                     <div class="comments">
                         <ul class="pager blog-pager">
@@ -307,9 +654,9 @@ _declspec(dllexport) <span class="hljs-function">BOOL WINAPI <span class="hljs-t
                         <li><a href="mailto:mail@beuke.org" title="Email me"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a></li>
                         <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/users/6593641/madnight" title="StackOverflow"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i></span></a></li>
                     </ul>
-                    <p class="copyright text-muted">© Fabian Beuke • 2021<br>
-                    <p class="copyright text-copy">Content is available under&nbsp;<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a>unless noted otherwise.</p>
-                    </p>
+                    <p class="copyright text-muted">© Fabian Beuke • 2021<br></p>
+                    <p class="copyright text-copy">Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a>unless noted otherwise.</p>
+                    <p></p>
                 </div>
             </div>
         </div>
