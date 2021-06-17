@@ -1,36 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
     <meta name="author" content="Fabian Beuke">
     <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'"><noscript>
         <link rel="icon" href="/fav.png"></noscript>
     <title>beuke.org</title>
-    <meta name="description">
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
     <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'"><noscript>
         <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml"></noscript>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"></noscript>
-    <link rel="stylesheet" href="/css/main.css?__inline=true" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="/css/main.css?__inline=true"></noscript>
+    <link rel="stylesheet" href="/css/styles.pure.css?__inline=true" onload="if(media!='all')media='all'"><noscript>
+        <link rel="stylesheet" href="/css/styles.pure.css?__inline=true"></noscript>
     <script defer src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css"></noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif" media="none" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|PT+Serif"></noscript>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" media="none" onload="if(media!='all')media='all'"><noscript>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"></noscript>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script defer src="/js/main.js?__inline=true"></script>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/elm.min.js?__inline=true"></script>
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js?__inline=true"></script>
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js?__inline=true"></script>
     <script defer type="text/javascript">
         document.addEventListener("DOMContentLoaded", function (event)
         {
@@ -38,13 +25,6 @@
         });
 
     </script>
-    <script defer type="text/x-mathjax-config">MathJax.Ajax.config.path["Contrib"] = "//cdn.mathjax.org/mathjax/contrib";
-MathJax.Hub.Config({
-    TeX: {  extensions: ["AMSmath.js","AMSsymbols.js","[Contrib]/xyjax/xypic.js"] },
-    tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] }
-});
-</script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML.js"></script>
     <meta name="generator" content="Hexo 5.4.0">
 </head>
 
@@ -185,21 +165,25 @@ MathJax.Hub.Config({
                 <font size="2">This article contains wrong information, typos or should be improved?<br><a target="_blank" rel="noopener" href="https://github.com/madnight/blog/edit/master/source/_posts/programming-language-popularity.md">Edit&nbsp;</a>this article on GitHub and make a Pull Request or post a comment below.</font>
                 <div class="disqus-comments">
                     <div class="comments">
+                        <ul class="pager blog-pager">
+                            <li class="next"><a href="button" id="disqus_button" onclick="disqus();return false;">Show Comments<br></a></li>
+                        </ul>
                         <div id="disqus_thread"></div>
                     </div>
                 </div>
                 <script>
                     var url_parts = window.location.href.split("?");
                     var disqus_url = url_parts[0];
-                    (function ()
+
+                    function disqus()
                     {
-                        console.log("enter disqus");
+                        document.getElementById('disqus_button').style.visibility = 'hidden';
                         var dsq = document.createElement('script');
                         dsq.type = 'text/javascript';
                         dsq.async = true;
                         dsq.src = "//beuke.disqus.com/embed.js";
                         (document.head || d.body).appendChild(dsq);
-                    })();
+                    };
 
                 </script>
             </div>
