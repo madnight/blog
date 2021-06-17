@@ -35,9 +35,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://beuke.org/tags/linux/"/>
-    
       <category term="arch" scheme="https://beuke.org/tags/arch/"/>
+    
+      <category term="linux" scheme="https://beuke.org/tags/linux/"/>
     
       <category term="upgrades" scheme="https://beuke.org/tags/upgrades/"/>
     
@@ -192,11 +192,11 @@
     </summary>
     
     
+      <category term="linux" scheme="https://beuke.org/tags/linux/"/>
+    
       <category term="bspwm" scheme="https://beuke.org/tags/bspwm/"/>
     
       <category term="wm" scheme="https://beuke.org/tags/wm/"/>
-    
-      <category term="linux" scheme="https://beuke.org/tags/linux/"/>
     
       <category term="ricing" scheme="https://beuke.org/tags/ricing/"/>
     
