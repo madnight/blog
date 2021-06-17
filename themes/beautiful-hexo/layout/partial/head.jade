@@ -19,10 +19,14 @@ link(rel="alternate", type="application/rss+xml", title=config.title, href=url_f
 noscript
   link(rel="alternate", type="application/rss+xml", title=config.title, href=url_for("/atom.xml"))
 
+link(rel='preload', href="/css/styles.pure.css", as="style")
+link(rel='preload', href=cf + "KaTeX/0.11.1/katex.min.css", as="style")
+link(rel='preload', href=cf + "highlight.js/9.12.0/highlight.min.js", as="script")
+link(rel='preload', href=cf + "twitter-bootstrap/3.3.7/js/bootstrap.min.js", as="script")
+
 link(rel='stylesheet', href="/css/styles.pure.css", onload="if(media!='all')media='all'")
 noscript
   link(rel='stylesheet', href="/css/styles.pure.css")
-
 
 script(defer src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js")
 
