@@ -3,6 +3,7 @@ meta(http-equiv="X-UA-Compatible", content="IE=edge")
 meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=10.0")
 meta(name="author", content=config.author)
 
+- var cf = "//cdnjs.cloudflare.com/ajax/libs/"
 
 link(rel='preload' href=url_for(theme.favicon) as='image' onload="this.rel='shortcut icon'" sizes='45x48')
 noscript
@@ -15,6 +16,8 @@ link(rel='preload' href='https://fonts.gstatic.com/s/opensans/v20/mem8YaGs126MiZ
 link(rel='preload' href='https://fonts.gstatic.com/s/ptserif/v12/EJRVQgYoZZY2vCFuvAFWzro.ttf' as='font' crossorigin='anonymous')
 link(rel='preload' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0' as='font' crossorigin='anonymous')
 
+link(rel='preload' href=cf+ "jquery/3.6.0/jquery.min.js" as='script' crossorigin='anonymous')
+
 link(rel="icon", href=url_for(theme.favicon), onload="if(media!='all')media='all'")
 noscript
   link(rel="icon", href=url_for(theme.favicon))
@@ -25,7 +28,6 @@ title
 block description
     meta(name="description", content=config.description)
 
-- var cf = "//cdnjs.cloudflare.com/ajax/libs/"
 
 link(rel="alternate", type="application/rss+xml", title=config.title, href=url_for("/atom.xml"), onload="if(media!='all')media='all'")
 noscript
@@ -40,7 +42,7 @@ link(rel='stylesheet', href="/css/styles.pure.css", onload="if(media!='all')medi
 noscript
   link(rel='stylesheet', href="/css/styles.pure.css")
 
-script(defer src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js")
+script(defer src=cf+ "jquery/3.6.0/jquery.min.js")
 
 link(rel='stylesheet', href=cf + "KaTeX/0.11.1/katex.min.css", media='none', onload="if(media!='all')media='all'")
 noscript
