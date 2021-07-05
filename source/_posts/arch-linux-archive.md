@@ -31,7 +31,7 @@ upgrade() {
     MIRROR="https://archive.archlinux.org/repos"
 
     echo "Server = $MIRROR/$YESTERDAY/\$repo/os/\$arch" \
-       | sudo tee -a  /etc/pacman.d/mirrorlist
+       | sudo tee /etc/pacman.d/mirrorlist
     sudo pacman -Syu
 }
 ```
