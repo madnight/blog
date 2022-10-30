@@ -12,7 +12,7 @@ To reach the maximum IOPS and throughput limits, the applications have to issue 
 # Install
 
 ioping is available for common Linux distributions and BSD.
-```bash
+{% vimhl py %}
 # Ubuntu/Debian
 apt-get install ioping
 
@@ -27,7 +27,7 @@ brew install ioping
 
 # FreeBSD
 pkg install ioping
-```
+{% endvimhl %}
 
 If you are running on Windows you can download [ioping-1.2-win32.zip](https://github.com/koct9i/ioping/releases/download/v1.2/ioping-1.2-win32.zip) then unzip and run the ioping executable. In case your OS is not listed you can try to build ioping from source see: https://github.com/koct9i/ioping
 
@@ -35,7 +35,7 @@ If you are running on Windows you can download [ioping-1.2-win32.zip](https://gi
 
 If you know how ping works, then you already know how to use ioping, just write the command and give it a directory path as argument. Here you can see an example run for the current directory:
 
-```perl
+{% vimhl txt %}
 ioping .
 4 KiB <<< . (ext4 /dev/dm-0 107.8 GiB): request=1 time=282.6 us (warmup)
 4 KiB <<< . (ext4 /dev/dm-0 107.8 GiB): request=2 time=855.6 us
@@ -48,7 +48,7 @@ ioping .
 5 requests completed in 3.98 ms, 20 KiB read, 1.26 k iops, 4.91 MiB/s
 generated 6 requests in 5.20 s, 24 KiB, 1 iops, 4.62 KiB/s
 min/avg/max/mdev = 747.8 us / 795.7 us / 871.1 us / 55.5 us
-```
+{% endvimhl %}
 
 As we can see the average response time for my SSD is about 800 us (0.8 ms), which results in 1260 sequential IOPS. Even though the SSD could achieve something like 100k IOPS in parallel, it can do only a little more than 1k IOPS on sequential request.
 

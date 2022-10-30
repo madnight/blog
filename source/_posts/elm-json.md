@@ -15,7 +15,7 @@ Elm is a static typed, reactive, pure functional programming language. It has a 
 
 Lets consider an JSON API in the following format:
 
-```json
+{% vimhl json %}
 [
   {
     "name": "JavaScript",
@@ -36,26 +36,29 @@ Lets consider an JSON API in the following format:
     "count": "42212"
   }
 ]
-```
+{% endvimhl %}
+
 Since Elm is strongly typed we have to create a type that matches the given JSON objects.
-```elm
+{% vimhl elm %}
 type alias ProgrammingLanguage = {
   name : String,
   year : Int,
-  quarter: Int,
+  quarter : Int,
   count : Int
 }
-```
+{% endvimhl %}
+
 As you can see the attribute name is a string and year, quarter, count are integers. The JSON API provides integers encoded as strings, so it is necessary to do a type cast. Therefore we need to write a simple custom decoder, that converts a string to integer.
 
-```elm
+{% vimhl elm %}
 stringAsInt : Decoder Int
 stringAsInt = string |> andThen (String.toInt >> fromResult)
-```
+{% endvimhl %}
+
 Lets take a look at the type definition to see how this works.
 `andThen : (a -> Decoder b) -> Decoder a -> Decoder b`
 The function `andThen` takes two arguments a decoder a, in this case the standard string decoder and a type cast function from a to decoder b that converts the result of our string decoder to an new decoder of type b. This procedure is a simple chain, first decode as string and then decode as int by type conversion. If you know Haskell `andThen` is the equivalent of `(=<<) :: Monad m => (a -> m b) -> m a -> m b` the monadic bind that sequentially compose two actions by passing any value produced by the first as an argument to the second. If you are not familiar with the pipe `|>` and function composition `>>` notation you can also write the function with as a lambda expression `andThen (\n -> fromResult(String.toInt(n))) string`. Now we are able to use that decoder to decode a single JSON object.
-```elm
+{% vimhl elm %}
 langDecoder : Decoder ProgrammingLanguage
 langDecoder =
   map4 ProgrammingLanguage
@@ -63,19 +66,19 @@ langDecoder =
     (field "year" stringAsInt)
     (field "quarter" stringAsInt)
     (field "count" stringAsInt)
-```
+{% endvimhl %}
 Since our API is a list of programming language objects we need to parse the whole list. `Json.Decode.list : Decoder a -> Decoder (List a)`
-```elm
+{% vimhl elm %}
 langListDecoder : Decoder (List ProgrammingLanguage)
 langListDecoder = Json.Decode.list langDecoder
-```
+{% endvimhl %}
 Finally you are able to use the decoder to parse JSON from a given URL `Http.get url langListDecoder`
-```elm
+{% vimhl elm %}
 getProgrammingLanguages : Cmd Msg
 getProgrammingLanguages =
   let url = "gh-star-event.json"
   in Http.send NewLang (Http.get url langListDecoder)
-```
+{% endvimhl %}
 
 See https://github.com/madnight/elm-webpack-starter for a full working API parsing example.
 

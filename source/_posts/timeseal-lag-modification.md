@@ -13,7 +13,7 @@ The following exploit works for any online chess server that use timeseal. This 
 
 Timeseal calculates the lag as a difference between two timestamps. Modifying the lag value can be done by adding an random offset to the timestamp calculation. The code can be hex edited (hardcoded) into the timeseal binary.
 
-```asm
+{% vimhl cpp %}
 00401421   E8 CA0D0000      CALL timeseal.004021F0
 00401426   25 FF030000      AND EAX,3FF
 0040142B   05 01010000      ADD EAX,101
@@ -21,7 +21,7 @@ Timeseal calculates the lag as a difference between two timestamps. Modifying th
 00401436   03D0             ADD EDX,EAX
 00401438   8915 E0A14000    MOV DWORD PTR DS:[40A1E0],EDX
 0040143E   8BC2             MOV EAX,EDX
-```
+{% endvimhl %}
 
 The address for the random hook is `timeseal.004021F0 := rand()` while `AND EAX, 3FF` is the asm modulo function `rand()%1024` + fixed offset hex 101. The modification offers the following unfair advantages:
 
@@ -30,18 +30,18 @@ The address for the random hook is `timeseal.004021F0 := rand()` while `AND EAX,
 * Seems legit, opponents may think that you are simply lagging, cause of random offset
 
 Full fledged example that hooks into the `ADVAPI32.dll` with a small window for different lag settings.
-
-```c++
+{% vimhl cpp %}
 #include "stdafx.h"
 #pragma comment(lib, "detours.lib")
 
 #undef UNICODE
-#include <cstdio>
-#include <windows.h>
-#include <detours.h>
-#include <process.h>
-#include <iostream>
-#include <string>
+#include &lt;cstdio>
+#include &lt;windows.h>
+#include &lt;detours.h>
+#include &lt;process.h>
+
+#include &lt;iostream>
+#include &lt;string>
 
 using std::cin;
 using std::cout;
@@ -92,7 +92,7 @@ HMENU CreateDLLWindowMenu() {
     AppendMenu (hMenuPopup, MF_STRING, MYMENU_EXIT, TEXT("Exit"));
     AppendMenu (hMenu, MF_POPUP, (UINT_PTR) hMenuPopup, TEXT("Exit"));
     hMenuPopup = CreatePopupMenu();
-    AppendMenu (hMenuPopup, MF_STRING, ONE_PLUS_ZERO, TEXT("Preset '1 0'"));
+    AppendMenu (hMenuPopup, MF_STRING, ONE_PLUS_ZERO, TEXT("Preset &#39;1 0&#39;"));
     AppendMenu (hMenuPopup, MF_STRING, ZERO_PLUS_ONE, TEXT("Preset '0 1'"));
     AppendMenu (hMenuPopup, MF_STRING, MINIMUM, TEXT("MINIMUM"));
     AppendMenu (hMenuPopup, MF_STRING, BIGTIME, TEXT("BIGTIME"));
@@ -202,7 +202,7 @@ BOOL WINAPI DllMain(HMODULE module,DWORD action,LPVOID reserved) {
     }
     return true;
 }
-```
+{% endvimhl %}
 
 ## References
 [^1]: [Lichess](https://lichess.org/qa/602/is-the-timeseal-exploit-on-other-chess-servers-a-concern-on-lichess)

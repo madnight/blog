@@ -15,17 +15,19 @@ The Arch Linux Archive (ALA), stores official repositories snapshots, iso images
 
 Replace your `/etc/pacman.d/mirrorlist` with the following content:[^3]
 
-```bash
+
+
+{% vimhl txt %}
 ##
 ## Arch Linux repository mirrorlist
 ## Generated on 2042-01-01
 ##
 Server=https://archive.archlinux.org/repos/2042/01/01/$repo/os/$arch
-```
+{% endvimhl %}
 
 And replace the date `2042/01/01` with the current date or any date you wish (>=2014). Now you are always able to install any package without upgrading. But, upgrading you should. Since `pacman -Syu` will not offer any new updates you have to update your mirror first. You could either manually edit the mirrorlist bump the date and `pacman -Syu` again or you can put the following bash function in you `.bashrc` or `.zshrc` which will do that for you automatically:
 
-```sh
+{% vimhl sh %}
 upgrade() {
     YESTERDAY=$(date -d "yesterday" +'%Y/%m/%d')
     MIRROR="https://archive.archlinux.org/repos"
@@ -34,7 +36,7 @@ upgrade() {
        | sudo tee /etc/pacman.d/mirrorlist
     sudo pacman -Syu
 }
-```
+{% endvimhl %}
 
 
 ## References

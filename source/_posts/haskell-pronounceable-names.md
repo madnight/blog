@@ -36,10 +36,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 {% raw %}<div style="width: 400px;">{% endraw %}
 
-```haskell
+{% vimhl hs %}
 > [(*2)] <*> [1,2,3]
 [2,4,6]
-```
+{% endvimhl %}
 **Other names: ap, apply**
 
 {% raw %}</div>{% endraw %}
@@ -70,10 +70,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 **Example:**
 
 {% raw %}<div style="width: 100%;">{% endraw %}
-```haskell
+{% vimhl hs %}
 > [1,2,3] <|> [4,5]
 [1,2,3,4,5]
-```
+{% endvimhl %}
 {% raw %}</div>{% endraw %}
 
 **Other names: or, alternative**
@@ -103,10 +103,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 `(<**>) = liftA2 (\a f -> f a)`
 
 **Example:**
-```haskell
+{% vimhl hs %}
 > [1,2,3] <**> [(*2)]
 [2,4,6]
-```
+{% endvimhl %}
 
 <br> <br>
 
@@ -132,10 +132,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 `f >=> g     = \x -> f x >>= g`
 
 **Example:**
-```haskell
+{% vimhl hs %}
 > (pure . (2 +)) >=> (pure . (3 *)) $ 2
 12
-```
+{% endvimhl %}
 
 <br> <br>
 
@@ -160,10 +160,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 `(<=<)       = flip (>=>)`
 
 **Example:**
-```haskell
+{% vimhl hs %}
 > (pure . (2 +)) <=< (pure . (3 *)) $ 2
 8
-```
+{% endvimhl %}
 
 
 <br> <br>
@@ -190,10 +190,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 `f >>> g = g . f`
 
 **Example:**
-```haskell
+{% vimhl hs %}
 > ((*2) >>> (+3)) $ 2
 7
-```
+{% endvimhl %}
 
 <br> <br>
 
@@ -221,10 +221,10 @@ subtitle: Pronounceable Names for Common Haskell Operators
 `(.) f g = \x -> f (g x)`
 
 **Example:**
-```haskell
+{% vimhl hs %}
 > ((*2) . (+3)) $ 2
 10
-```
+{% endvimhl %}
 
 <br> <br>
 
