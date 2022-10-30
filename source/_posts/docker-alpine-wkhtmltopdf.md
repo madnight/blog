@@ -17,7 +17,7 @@ Building Docker images based on Debian or Ubuntu often results in image sizes of
 
 Since *wkhtmltopdf* uses the webkit engine to render PDFs, there is no way around the *qt5-qtwebkit* dependency. However, it is possible to avoid Xorg. I was able to find a [GitHub repository](https://github.com/alloylab/Docker-Alpine-wkhtmltopdf) that provides a solution, by compiling a *qt-webkit* version without the need for Xorg.
 
-```Dockerfile
+{% vimhl Dockerfile %}
 FROM alpine:3.5
 MAINTAINER Fabian Beuke <mail@beuke.org>
 
@@ -31,7 +31,7 @@ RUN apk add --update --no-cache \
 COPY wkhtmltopdf /bin
 
 ENTRYPOINT ["wkhtmltopdf"]
-```
+{% endvimhl %}
 
 Unfortunately, this led to a new problem.
 The compilation of the whole Qt library including the necessary patches takes about 4 hours on *EC2 m1.large* in 2016. It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first, I thought that I could address that issue by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a [build timeout](https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build) after 2 hours, so it wasn't able to finish the build.
@@ -56,14 +56,7 @@ Source: https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
 
 As you can see in [Travis CI](https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf/builds/585241704) the build takes more than one hour, despite being a job on a public repository. Now, being able to build in CI, I removed the binary from the git repository and copied it from the builder image into the Docker image.
 
-```Dockerfile
+{% vimhl Dockerfile %}
 COPY --from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10 \
     /bin/wkhtmltopdf /bin/wkhtmltopdf
-```
-In addition to that, I also added an checksum check against the sha256sum from the build log, just so the user can be sure about its origin.
-
-```Dockerfile
-ENV BUILD_LOG=https://api.travis-ci.org/v3/job/585241708/log.txt
-RUN [ "$(sha256sum /bin/wkhtmltopdf | awk '{ print $1 }')" == \
-      "$(wget -q -O - $BUILD_LOG | sed -n '14121p' | awk '{ print $1 }')" ]
-``` 
+{% endvimhl %}

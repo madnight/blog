@@ -12,16 +12,16 @@ Many big repositories are not hosted on GitHub, but do have a official mirror li
 **Step 0:** Clone the repository you want to mirror.
 **Step 1:** Add your empty remote GitHub repository as mirror.
 
-```sh
+{% vimhl py %}
 # example for valgrind
 git svn clone svn://svn.valgrind.org/valgrind/trunk valgrind
 cd valgrind
 git remote add mirror https://github.com/USERNAME/valgrind.git
-```
+{% endvimhl %}
 
 # Mirror
 **Step 2:** Create a `mirror.bash` file with all repositories you want to mirror and copy the contents below. Update the `GIT_PATH` and choose your mirrors.
-```bash
+{% vimhl bash %}
 while :
 do
 function update {
@@ -46,7 +46,7 @@ update "svn" valgrind
 # repeat every 2 hours
 sleep 2h
 done
-```
+{% endvimhl %}
 
 **Step 3:** Make the script executable `chmod x+u` and run it. Example: [Valgrind mirror](https://github.com/madnight/valgrind)
 
