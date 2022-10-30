@@ -3,17 +3,23 @@ title: Hom-Sets
 date: 2020-01-18
 tags: ["category theory"]
 subtitle: Sets of Morphisms
+mathjax: true
 ---
 
 {% raw %}
-<script defer="defer" type="text/x-mathjax-config">
-  MathJax.Ajax.config.path["Contrib"] = "//cdn.mathjax.org/mathjax/contrib";
-  MathJax.Hub.Config({
-      TeX: {  extensions: ["AMSmath.js","AMSsymbols.js","[Contrib]/xyjax/xypic.js"] },
-      tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] }
-  });
+<script>
+  MathJax = {
+    loader: {
+      load: ['[custom]/xypic.js'],
+      paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+    },
+    tex: {
+      packages: {'[+]': ['xypic']}
+    }
+  };
 </script>
-<script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg-full.js"></script> -->
 {% endraw %}
 
 
@@ -33,9 +39,9 @@ B
 {% endraw %}
 Hom-sets itself give rise to another category where hom-sets are objects and arrows between hom-sets are hom-set morphisms. A hom-set morphism is defined as:
 
-$\text{Hom}(A,f) : \text{Hom}(A,B) \rightarrow \text{Hom}(A,D)$, $ f' \rightarrow $ $f \circ {f'}$ for $f : B \rightarrow D$
+$\text{Hom}(A,f) : \text{Hom}(A,B) \rightarrow \text{Hom}(A,D)$,  $f'$ $\rightarrow$  $f \circ {f'}$ for $f : B \rightarrow D$
 
-$\text{Hom}(h,B) : \text{Hom}(A,B) \rightarrow \text{Hom}(C,B)$, $ h' \rightarrow $ $h' \circ {h}$ for $h : C \rightarrow A$
+$\text{Hom}(h,B) : \text{Hom}(A,B) \rightarrow \text{Hom}(C,B)$,  $h'$ $\rightarrow$ $h' \circ {h}$ for $h : C \rightarrow A$
 
 such that the following [diagram commutes](https://en.wikipedia.org/wiki/Commutative_diagram):
 
@@ -55,9 +61,9 @@ This can be translated to [Hask](https://wiki.haskell.org/Hask), the category wi
 {% raw %}
 \begin{xy}
 \xymatrix@!C=4.0cm@!R=1.0cm{
-a \rightarrow b \ar[dr]|-{c\ \rightarrow\ a\ \rightarrow\ b\ \rightarrow\ d} \ar[d]_{a\ \rightarrow\ b\ \rightarrow\ d} \ar[r]^{c\ \rightarrow\ a\ \rightarrow\ b} &
-c \rightarrow b \ar[d]^{c\ \rightarrow\ b\ \rightarrow\ d} \\
-a \rightarrow d \ar[r]_{c\ \rightarrow\ a\ \rightarrow\ d} & c \rightarrow d
+a\ \rightarrow\ b \ar[dr]|-{c\ \rightarrow\ a\ \rightarrow\ b\ \rightarrow\ d} \ar[d]_{a\ \rightarrow\ b\ \rightarrow\ d} \ar[r]^{c\ \rightarrow\ a\ \rightarrow\ b} &
+c\ \rightarrow\ b\ \ar[d]^{c\ \rightarrow\ b\ \rightarrow\ d} \\
+a\ \rightarrow\ d\ \ar[r]_{c\ \rightarrow\ a\ \rightarrow\ d} & c\ \rightarrow\ d
 }
 \end{xy}
 {% endraw %}
