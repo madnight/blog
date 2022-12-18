@@ -1,0 +1,17 @@
+<article>
+    <section>
+        <div class="post-title"> <%- page.title %> </div>
+        <div class="post-subtitle"> <%- page.subtitle %> </div>
+        <div class="post-subsubtitle"> Posted on
+        <%= full_date(page.date, "MMM D YYYY") %> ~
+        <%- readingTime(page.content, 'min read') %></div>
+        <div class="post-subtitle-tags">
+        <% page.tags.each(function(tag){ %>
+        <a href="<%= config.root + tag.path %>">#<%= tag.name %></a>&nbsp;
+        <% }); %>
+        </div>
+        </div>
+        <hr class="solid">
+    </section>
+    <%- page.content %>
+</article>

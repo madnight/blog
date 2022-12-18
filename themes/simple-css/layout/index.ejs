@@ -1,0 +1,19 @@
+<% page.posts.each(function(post){ %>
+  <div class="blog-item">
+      <a href="<%- config.root %><%= post.path %>"> <div class="list-post-title"><%= post.title %></div></a>
+      <div class="list-post-subtitle"><%= post.subtitle %></div>
+    <div class="list-post-subtitle-date">Posted on <%= full_date(post.date, "MMM D YYYY") %> ~ <%- readingTime(post.content, 'min read') %></div>
+<div class="list-post-subtitle-tags">
+<% post.tags.each(function(tag){ %>
+ <a href="<%= config.root + tag.path %>">#<%= tag.name %></a>&nbsp;
+<% }); %>
+</div>
+  </div>
+<% }); %>
+
+<% if (page.prev){ %>
+    <a href="<%- config.root %><%- page.prev_link %>"><button><%- __('prev')%></button></a>
+<% } %>
+<% if (page.next){ %>
+    <a href="<%- config.root %><%- page.next_link %>"><button><%- __('next')%></button></a>
+<% } %>
