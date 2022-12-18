@@ -61,7 +61,9 @@ Since non of the presented approaches matches my criteria for a sensible, neutra
 
 I have to admit that it's impossible to find a data source that approximates the entire programming community, because many projects are closed source. Another consideration that comes to mind: It is not said that the developers are happy with their bread and butter language at work, for instance the Microsoft Kernel is written in C++. Should a popularity index somehow respect that the developers are free to choose the language and are not forced to do so? On the other hand there are [developer surveys](https://stackoverfilow.blog/2017/02/07/what-programming-languages-weekends/) where programming language that are not largely used in industry, such as Haskell, have many fans and that's what they write their hobby projects on weekends. However, I think that my approach offers a good approximation on what is considered to be a current popular programming language choice in the developer community.
 
+
 ## References
+
 [^pypl]: [PYPL Description](http://pypl.github.io/PYPL.html)
 *The PYPL PopularitY of Programming Language is an indicator based on Google Trends, reflecting the developers searches for programming language tutorial, instead of what pages are available.*
 [^toibe]: [TOIBE Frequently Asked Questions (FAQ)](https://www.tiobe.com/tiobe-index/)
@@ -69,5 +71,3 @@ I have to admit that it's impossible to find a data source that approximates the
 *A: We spent a lot of effort to obtain all the data and keep the TIOBE index up to date. In order to compensate a bit for this, we ask a fee of 5,000 US$ for the complete data set. The data set runs from June 2001 till today*
 [^pypldiff]: [PYPL FAQ](http://pypl.github.io/PYPL.html)
 *The TIOBE Index is a lagging indicator. It counts the number of web pages with the language name. Objective-c programming has over 20 million pages on the web, [s] while C programming has only 11 million. [s] This explains why Objective-C has a high TIOBE ranking. But who is reading those Objective-C web pages ? Hardly anyone, according to Google Trends data. Objective C programming is searched 30 times less than C programming. [s] In fact, the use of programming by the TIOBE index is misleading (see next question).*
-
-

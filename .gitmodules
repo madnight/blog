@@ -1,0 +1,3 @@
+[submodule "themes/beautiful-hexo/source/css/simple.css"]
+	path = themes/simple-css/source/css/simple.css
+	url = https://github.com/kevquirk/simple.css

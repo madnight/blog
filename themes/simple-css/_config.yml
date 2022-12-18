@@ -1,4 +1,4 @@
-navbar-links:
+navbarLinks:
     Home: /
     Github: https://github.com/madnight
     Dotfiles: https://github.com/madnight/dotfiles
@@ -38,4 +38,3 @@ comment:
   enable: true
   disqus: beuke
   disqus_shortname: beuke
-

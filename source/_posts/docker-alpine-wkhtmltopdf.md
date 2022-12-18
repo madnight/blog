@@ -33,8 +33,7 @@ COPY wkhtmltopdf /bin
 ENTRYPOINT ["wkhtmltopdf"]
 {% endvimhl %}
 
-Unfortunately, this led to a new problem.
-The compilation of the whole Qt library including the necessary patches takes about 4 hours on *EC2 m1.large* in 2016. It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first, I thought that I could address that issue by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a [build timeout](https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build) after 2 hours, so it wasn't able to finish the build.
+Unfortunately, this led to a new problem. The compilation of the whole Qt library including the necessary patches takes about 4 hours on *EC2 m1.large* in 2016. It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don't already have that Docker layer. At first, I thought that I could address that issue by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a [build timeout](https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build) after 2 hours, so it wasn't able to finish the build.
 
 <img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)">
 
@@ -45,11 +44,8 @@ Therefore I compiled the Dockerfile on my computer, pushed the binary to the Git
 I found that it is now possible to build the patched wkhtmltopdf Alpine binary in Travis CI, although documentation says otherwise:
 
 > It is very common for test suites or build scripts to hang. Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
-
 > * When a job produces no log output for 10 minutes.
-
 > * When a job on a public repository takes longer than 50 minutes.
-
 > * When a job on a private repository takes longer than 120 minutes.
 
 Source: https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts

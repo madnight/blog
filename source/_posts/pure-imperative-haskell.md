@@ -114,18 +114,19 @@ console.log(list2D)                                // print list
 
 In Haskell:
 {% vimhl hs %}
- -- list delcaration
+-- list delcaration
+
 let list2D = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
-print $ runST $ do                                 -- print and run state
+print $ runST $ do                                -- print and run state
 
-  listState <- (mapM . mapM) newSTRef list2D       -- create list state
+  listState <- (mapM . mapM) newSTRef list2D      -- create list state
 
-  forM_ [0..length list2D-1] $ \x ->               -- outer loop
-      forM_ [0..length (list2D !! x)-1] $ \y ->    -- inner loop
-          writeSTRef (listState !! x !! y) 42      -- mutate list state at x,y
+  forM_ [0..length list2D-1] $ \x ->              -- outer loop
+      forM_ [0..length (list2D !! x)-1] $ \y ->   -- inner loop
+          writeSTRef (listState !! x !! y) 42     -- mutate list state at x,y
 
-  (mapM . mapM) readSTRef listState                -- read (return) state
+  (mapM . mapM) readSTRef listState               -- read (return) state
 {% endvimhl %}
 
 Result:

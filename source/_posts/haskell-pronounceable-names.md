@@ -13,7 +13,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 <br>
 
-<img style="width: 300px; float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d9/TIEfighter.jpg">
+<img style="width: 300px; float: left;" src="https://upload.wikimedia.org/wikipedia/en/d/d9/TIEfighter.jpg">
 <table width="400px">
   <tr>
     <th>Package</th>
@@ -48,7 +48,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 ## Wedge-shaped Imperial Star Destroyer <|>
 <br>
-<img style="width: 300px; float: right;" src="/images/imperial.jpg">
+<img style="width: 300px; float: left;" src="/images/imperial.jpg">
 
 <table width="400px">
   <tr>
@@ -84,7 +84,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 <br>
 
-<img style="width: 300px; float: right;" src="/images/tie-bomber.jpg">
+<img style="width: 300px; float: left;" src="/images/tie-bomber.jpg">
 <table width="400px">
   <tr>
     <th>Package</th>
@@ -111,7 +111,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 <br> <br>
 
 ## Right fish >=>
-<img style="width: 300px; float: right;" src="/images/right-fish.gif">
+<img style="width: 300px; float: left;" src="/images/right-fish.gif">
 
 <table width="400px">
   <tr>
@@ -141,7 +141,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 ## Left fish
 
-<img style="width: 300px; float: right;" src="/images/left-fish.gif">
+<img style="width: 300px; float: left;" src="/images/left-fish.gif">
 
 <table width="400px">
   <tr>
@@ -170,7 +170,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 ## Right pipe >>>
 
-<img style="width: 300px; float: right;" src="/images/r-pipe.jpg">
+<img style="width: 300px; float: left;" src="/images/r-pipe.jpg">
 
 <table width="400px">
   <tr>
@@ -199,7 +199,7 @@ subtitle: Pronounceable Names for Common Haskell Operators
 
 ## Left pipe .
 
-<img style="width: 300px; float: right;" src="/images/l-pipe.jpg">
+<img style="width: 300px; float: left;" src="/images/l-pipe.jpg">
 
 <table width="400px">
   <tr>
