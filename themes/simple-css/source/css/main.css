@@ -58,6 +58,11 @@ article {
   padding: 0px;
 }
 
+article a:visited, a:link, a:active
+{
+  color: #708DA7;
+}
+
 aside {
    background-color: var(--bg);
    border: 0px;
@@ -78,6 +83,7 @@ main img {
 
 nav a:hover,
 nav a.current {
+  text-decoration: none;
   color: var(--accent) !important;
   border-color: var(--accent) !important;
   background: var(--bg);
@@ -154,6 +160,10 @@ nav a.current:hover {
   font-style: italic;
 }
 
+.post-subtitle-tags a {
+  color: var(--text-light) !important;
+}
+
 .about-title h3 {
   line-height: 1.3;
   margin-bottom: 0rem;
@@ -218,6 +228,11 @@ pre {
 .list-post-subtitle-tags {
   font-size: 1.2rem;
   font-style: italic;
+  color: var(--text-light);
+}
+
+.list-post-subtitle-tags a {
+  color: var(--text-light);
 }
 
 .post-subheading {
@@ -240,11 +255,6 @@ hr {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-}
-
-a:visited, a:link, a:active
-{
-    text-decoration: none;
 }
 
 h1 {
@@ -407,6 +417,7 @@ select:-webkit-autofill {
     --darkreader-bg--marked: #665a25;
     --darkreader-bg--disabled: #232422;
 }
+
 @media (prefers-color-scheme: dark) {
     :root {
         --darkreader-bg--bg: #1d1d1c;
@@ -426,18 +437,26 @@ select:-webkit-autofill {
         --darkreader-bg--disabled: #131312;
     }
 }
+
 body {
     color: var(--darkreader-text--text);
     background-color: var(--darkreader-bg--bg);
 }
+
 body > header {
     background-color: var(--darkreader-bg--accent-bg);
     border-bottom: 1px solid var(--darkreader-border--border);
 }
+
 body > footer {
     color: var(--darkreader-text--text-light);
     border-top: 1px solid var(--darkreader-border--border);
 }
+
+body > footer a {
+    color: var(--darkreader-text--text) !important;
+}
+
 a,
 a:visited {
     color: var(--darkreader-text--accent);
