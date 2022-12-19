@@ -457,6 +457,7 @@ blockquote {
       margin: 0 0.25rem 1rem 0.25rem;
       text-decoration: none;
       line-height: 2;
+      border: 1px solid var(--darkreader-border--border);
   }
 
   body > footer {
