@@ -289,39 +289,6 @@ h1 {
   float: left;
 }
 
-/* Make full width on mobile screens */
-@media only screen and (max-width: 700px)  {
-  .team-banner {
-    float: none;
-    margin: .5rem auto;
-    width: 90%;
-    height: auto;
-  }
-  .team-banner span {
-    position: relative;
-  }
-}
-
-.team-banner p {
-  margin-bottom: .5em;
-  font-size: 1rem;
-}
-
-.team-title {
-  font-size: 1.4em !important;
-  font-weight: bold;
-  margin: 0;
-}
-
-.team-avatar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 64px;
-  border-radius: 50%;
-  padding: 1rem;
-}
-
 .sub-heading {
   font-size: 1.5rem;
   font-style: italic;
@@ -410,11 +377,6 @@ select:-webkit-autofill {
     color: #c0baae !important;
 }
 
-/* Invert Style */
-.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
-    filter: invert(100%) hue-rotate(180deg) brightness(79%) contrast(84%) grayscale(25%) sepia(20%) !important;
-}
-
 /* Variables Style */
 :root {
    --darkreader-neutral-background: #181817;
@@ -478,10 +440,10 @@ body > footer {
 }
 a,
 a:visited {
-    color: var(--darkreader-text--accent); 
+    color: var(--darkreader-text--accent);
 }
 a:hover {
-    text-decoration-color: initial; 
+    text-decoration-color: initial
 }
 [role="button"], button, input[type="button"], input[type="reset"], input[type="submit"], label[type="button"] {
     border-color: initial;
@@ -541,16 +503,16 @@ select:not([multiple]) {
     transparent 49%,
     var(--darkreader-bg--text) 51%),
     linear-gradient(135deg,
-    var(--darkreader-bg--text) 51%,transparent 49%); 
+    var(--darkreader-bg--text) 51%,transparent 49%);
 }
 input[type="checkbox"]:checked, input[type="radio"]:checked {
-    background-color: var(--darkreader-bg--accent); 
+    background-color: var(--darkreader-bg--accent);
 }
 input[type="checkbox"]:checked::after {
     background-color: transparent;
 }
 input[type="radio"]:checked::after {
-    background-color: var(--darkreader-bg--bg); 
+    background-color: var(--darkreader-bg--bg);
 }
 input[type="file"] {
     border-color: initial;
@@ -593,7 +555,7 @@ progress::-webkit-progress-bar {
     background-color: var(--darkreader-bg--accent-bg);
 }
 progress::-webkit-progress-value {
-    background-color: var(--darkreader-bg--accent); 
+    background-color: var(--darkreader-bg--accent);
 }
 :root {
     --mono-font: monospace, Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono";
