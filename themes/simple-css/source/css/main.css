@@ -52,6 +52,8 @@ hr {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    border-color: initial;
+    background: var(--darkreader-bg--border);
 }
 
 h1 {
@@ -160,6 +162,10 @@ body > footer a {
     color: var(--darkreader-text--text) !important;
 }
 
+header > nav a {
+    border: 1px solid var(--darkreader-border--border);
+}
+
 header > nav a:visited {
     color: var(--darkreader-text--text);
     text-decoration-color: initial;
@@ -191,6 +197,11 @@ nav a.current {
 button {
     background-color: #2F302E;
     color: var(--darkreader-text--bg);
+}
+
+blockquote {
+    color: var(--darkreader-text--text-light);
+    border-left: 0.35rem solid #393a38;
 }
 
 .post-meta {
@@ -318,7 +329,7 @@ button {
     margin-bottom: -2.5em;
 }
 
-.footnotes > hr {
+#footnotes > hr {
     height: 0px;
     margin: 0rem;
 }
@@ -334,10 +345,12 @@ button {
     color: var(--text-light);
 }
 
-.list-post-title > a:hover {
+.blog-item > a {
     color: var(--text-light);
-    text-decoration: none;
-    border-bottom: 20px solid white;
+}
+
+.list-post-title a {
+    color: var(--text-light);
 }
 
 .list-post-subtitle {
