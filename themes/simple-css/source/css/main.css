@@ -441,3 +441,25 @@ blockquote {
     stroke: currentColor;
     fill: currentColor;
 }
+
+
+@media only screen and (max-width: 720px) {
+  section {
+      padding: 0rem 0rem;
+  }
+}
+
+/* Reduce nav side on mobile */
+@media only screen and (max-width: 720px) {
+  header > nav a {
+      border: 1px solid var(--border);
+      padding: 0rem 0.5rem;
+      margin: 0 0.25rem 1rem 0.25rem;
+      text-decoration: none;
+      line-height: 2;
+  }
+
+  body > footer {
+      padding: 0rem 0rem 0rem 0rem;
+  }
+}
