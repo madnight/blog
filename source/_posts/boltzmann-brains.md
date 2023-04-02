@@ -45,7 +45,7 @@ In conclusion, the Big Crunch, Big Bounce, and Big Rip represent three theoretic
 
 # The Heat Death
 
-Current data indicates that the universe began with the Big Bang around 13.8 billion years ago and has been expanding ever since. Observations show that this expansion is accelerating, driven by dark energy. In a few trillion years, all but the nearest galaxies will be too far away to see. The most likely scenario for the universe's end, based on our present understanding of physics, is the heat death.
+Current data indicates that the universe began with the Big Bang around 13.8 billion years ago and has been expanding ever since. Observations show that this expansion is accelerating[^1], driven by dark energy. In a few trillion years, all but the nearest galaxies will be too far away to see. The most likely scenario for the universe's end, based on our present understanding of physics, is the heat death.
 
 The heat death of the universe, also known as the Big Freeze or Big Chill, is a hypothetical future scenario in which the universe becomes incapable of supporting life or other forms of complexity. This would happen as the universe reaches maximum entropy, with matter and energy evenly distributed, preventing the formation of new celestial structures. Persistent acceleration and increasingly diffuse matter will make it increasingly difficult for matter to interact with other matter, leading to a decline in temperature until all matter ceases to move.
 
