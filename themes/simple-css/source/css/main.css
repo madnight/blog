@@ -464,6 +464,9 @@ blockquote {
       border: 1px solid var(--darkreader-border--border);
   }
 
+  body {
+      font-size: 1rem;
+  }
 
   body > footer {
       padding: 0rem 0rem 0rem 0rem;
