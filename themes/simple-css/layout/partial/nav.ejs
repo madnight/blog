@@ -1,0 +1,9 @@
+<header>
+    <nav>
+        <% Object.keys(theme.navbarLinks).forEach(function(n){ %>
+        <a href="<%= theme.navbarLinks[n] %>"> <%= n %></a>
+        <% }); %>
+    </nav>
+    <h1>beuke.org</h1>
+    <h2>A personal blog about computer science topics.</h2>
+</header>
