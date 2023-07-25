@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/monad/</loc>
     
-    <lastmod>2023-07-25T20:50:40.890Z</lastmod>
+    <lastmod>2023-07-25T20:56:48.071Z</lastmod>
     
   </url>
   
@@ -30,21 +30,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/pure-imperative-haskell/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -58,30 +44,23 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/about/index.html</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
+    <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/disk-latency/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/about/index.html</loc>
     
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
@@ -100,7 +79,21 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -108,6 +101,13 @@
   
   <url>
     <loc>https://beuke.org/github-mirror/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
