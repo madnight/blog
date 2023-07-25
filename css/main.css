@@ -442,6 +442,14 @@ blockquote {
     fill: currentColor;
 }
 
+.splitscreen {
+  display: flex;
+}
+
+.splitscreen .left,
+.splitscreen .right {
+  flex: 1;
+}
 
 @media only screen and (max-width: 720px) {
   section {
