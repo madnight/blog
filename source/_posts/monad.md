@@ -19,6 +19,7 @@ mathjax: true
     }
   };
 </script>
+
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
 <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg-full.js"></script> -->
 
@@ -29,8 +30,11 @@ window.addEventListener('load', function() {
 })
 </script>
 
-
+</style>
 {% endraw %}
+
+<img src="/images/typeclasses.svg" onclick="window.open(this.src)">
+<!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 
 A Monad is a triple $(T, \eta, \mu)$ where $T: \mathcal{C} \rightarrow \mathcal{C}$ is an endofunctor, $\eta: 1_\mathcal{C} \rightarrow T$ is a natural transformation (the unit), and $\mu: TT \rightarrow T$ is another natural transformation (the multiplication). These must satisfy the following coherence conditions, known as the Monad laws:
 
@@ -74,3 +78,4 @@ This means that monads provide a way to express computations (in terms of morphi
 
 
 [^1]: [Monad in ncatlab](https://ncatlab.org/nlab/show/monad#definition)
+[^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
