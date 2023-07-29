@@ -243,11 +243,5 @@
 <path fill="none" stroke="white" d="M529.55,-90C531.87,-90 534.18,-90 536.49,-90"/>
 <polygon fill="white" stroke="white" points="536.31,-93.5 546.31,-90 536.31,-86.5 536.31,-93.5"/>
 </g>
-<!-- ArrowLoop -->
-<g id="node18" class="node">
-<title>ArrowLoop</title>
-<polygon fill="none" stroke="white" points="429.88,-252 350.12,-252 350.12,-216 429.88,-216 429.88,-252"/>
-<text text-anchor="middle" x="390" y="-228.95" font-family="Times,serif" font-size="14.00" fill="white">ArrowLoop</text>
-</g>
 </g>
 </svg>

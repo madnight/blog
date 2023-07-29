@@ -44,7 +44,6 @@ digraph {
   
   ArrowChoice [color="white", fontcolor="white"];
   ArrowApply [color="white", fontcolor="white"];
-  ArrowLoop [color="white", fontcolor="white"];
   ArrowZero [color="white", fontcolor="white"];
   ArrowZero -> ArrowPlus [color="white"];
   
