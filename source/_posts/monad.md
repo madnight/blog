@@ -80,9 +80,7 @@ We can rephrase these conditions using the subsequent commutative diagrams:
 
 {% endraw %}
 
-
-
-This means that monads provide a way to express computations (in terms of morphisms) that include additional structure or side-effects (captured by the endofunctor $T$) in such a way that these computations can be chained together (via the $\mu$ natural transformation) and lifted over the monadic structure (via the $\eta$ natural transformation), and they do so in a way that is consistent (respecting the associativity and unit laws).
+An application of this concept is that monads provide a way to express computations (in terms of morphisms) that include additional structure or side-effects (captured by the endofunctor $T$) in such a way that these computations can be chained together (via the $\mu$ natural transformation) and lifted over the monadic structure (via the $\eta$ natural transformation), and they do so in a way that is consistent (respecting the associativity and unit laws).
 
 # Example
 
