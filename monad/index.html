@@ -319,18 +319,20 @@
                             </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span></span></span></span> natural transformation), and they do so in a way that is consistent (respecting the associativity and unit laws).</p>
                 <h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
                 <p>The Monad, by definition, requires us to implement two functions: the unit, which is called return in Haskell, where we just have to lift a value into the Monad (e.g., put a value into a list), and the multiplication <code>>></code> (sequence) or <code>>>=</code> (bind). The sequence can be used if you are only interested in collapsing the structure (TT -> T). The bind function can be used if you need to operate on the lifted value before collapsing. This will become clearer in the following examples.</p>
+                <p>Haskell Definition of Monad (Interface)</p>
                 <figure class="highlight">
-                    <pre><font face="monospace"><font color="#767676">-- Haskell Definition of Monad (Interface)</font>
-<font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
+                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
   <font color="#767676">-- η : 1c -> T (unit)</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m a
 
   <font color="#767676">-- μ : TT -> T (multiplication)</font>
   <font color="#afaf5f">(</font><font color="#87afaf">>></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> m b <font color="#87afaf">-></font> m b
   <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m b
-
-<font color="#767676">-- An Instance of Monad, the List Monad</font>
-<font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
+</font></pre>
+                </figure>
+                <p>An Instance of Monad, the List Monad</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> <font color="#afaf5f">[</font>a<font color="#afaf5f">]</font>
   return x <font color="#87afaf">=</font> <font color="#afaf5f">[</font>x<font color="#afaf5f">]</font>
 
@@ -339,9 +341,11 @@
 
   <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#afaf5f">[</font>a<font color="#afaf5f">]</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> <font color="#afaf5f">[</font>b<font color="#afaf5f">])</font> <font color="#87afaf">-></font> <font color="#afaf5f">[</font>b<font color="#afaf5f">]</font>
   xs <font color="#87afaf">>>=</font> f <font color="#87afaf">=</font> concat <font color="#afaf5f">(</font>map f xs<font color="#afaf5f">)</font>
-
-<font color="#767676">-- Another Instance, the Maybe Monad</font>
-<font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
+</font></pre>
+                </figure>
+                <p>Another Instance, the Maybe Monad</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> <font color="#d7875f">Maybe</font> a
   return x  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> x
 
@@ -351,10 +355,9 @@
                  <font color="#d7875f">Just</font> x  <font color="#87afaf">-></font> g x
 </font></pre>
                 </figure>
-                <p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following example use cases.</p>
+                <p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>
                 <figure class="highlight">
-                    <pre><font face="monospace"><font color="#767676">-- Example Usage</font>
-ghci<font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> <font color="#afaf5f">[</font>x<font color="#afaf5f">,</font> x<font color="#87afaf">*</font>2<font color="#afaf5f">]</font>
+                    <pre><font face="monospace">ghci<font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> <font color="#afaf5f">[</font>x<font color="#afaf5f">,</font> x<font color="#87afaf">*</font>2<font color="#afaf5f">]</font>
 <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>3<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
 
 ghci<font color="#87afaf">></font> <font color="#d7875f">Just</font> 3 <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>x<font color="#87afaf">*</font>2<font color="#afaf5f">)</font>
