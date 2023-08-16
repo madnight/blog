@@ -86,8 +86,8 @@ An application of this concept is that monads provide a way to express computati
 
 The Monad, by definition, requires us to implement two functions: the unit, which is called return in Haskell, where we just have to lift a value into the Monad (e.g., put a value into a list), and the multiplication `>>` (sequence) or `>>=` (bind). The sequence can be used if you are only interested in collapsing the structure (TT -> T). The bind function can be used if you need to operate on the lifted value before collapsing. This will become clearer in the following examples.
 
+Haskell Definition of Monad (Interface)
 {% vimhl hs %}
--- Haskell Definition of Monad (Interface)
 class Monad m where
   -- η : 1c -> T (unit)
   return :: a -> m a
@@ -95,8 +95,10 @@ class Monad m where
   -- μ : TT -> T (multiplication)
   (>>) :: m a -> m b -> m b
   (>>=) :: m a -> (a -> m b) -> m b
+{% endvimhl %}
 
--- An Instance of Monad, the List Monad
+An Instance of Monad, the List Monad
+{% vimhl hs %}
 instance Monad [] where
   return :: a -> [a]
   return x = [x]
@@ -106,8 +108,10 @@ instance Monad [] where
 
   (>>=) :: [a] -> (a -> [b]) -> [b]
   xs >>= f = concat (map f xs)
+{% endvimhl %}
 
--- Another Instance, the Maybe Monad
+Another Instance, the Maybe Monad
+{% vimhl hs %}
 instance Monad Maybe where
   return :: a -> Maybe a
   return x  = Just x
@@ -117,9 +121,9 @@ instance Monad Maybe where
                  Nothing -> Nothing
                  Just x  -> g x
 {% endvimhl %}
-All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following example use cases.
+
+All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.
 {% vimhl hs %}
--- Example Usage
 ghci> [1,2,3] >>= \x -> [x, x*2]
 [1,2,2,4,3,6]
 
