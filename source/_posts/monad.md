@@ -110,6 +110,18 @@ instance Monad [] where
   xs >>= f = concat (map f xs)
 {% endvimhl %}
 
+<!-- And this is how it looks like as commutative diagram in the case of an empty list: -->
+<!-- {% raw %} -->
+<!-- \begin{xy} -->
+<!-- \xymatrix{ -->
+<!--   \texttt{[]} \ar[d]_{\texttt{return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{[[]]} \ar[d]^{\texttt{concat}} \\ -->
+<!--   \texttt{[[]]} \ar[r]_{\texttt{concat}} & \texttt{[]} -->
+<!-- } -->
+<!-- \end{xy} -->
+<!-- {% endraw %} -->
+
+<!-- You may encounter various names for *concat*, such as *flatten* or *flatMap* and *bind* in case we combine concat with map as in the list implementation of >>=. We can lift values into the structure or increase the nested level of the structure by one with *return* and we can reduce one level of the structure with *concat*. -->
+
 Another Instance, the Maybe Monad
 {% vimhl hs %}
 instance Monad Maybe where
