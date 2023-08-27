@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/hom-sets/</loc>
+    
+    <lastmod>2023-08-27T19:42:51.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monoid/</loc>
+    
+    <lastmod>2023-08-27T19:42:37.450Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2023-08-27T19:36:58.230Z</lastmod>
@@ -9,21 +23,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monoid/</loc>
-    
-    <lastmod>2023-08-27T18:52:51.510Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/haskell-pronounceable-names/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/hom-sets/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/timeseal-lag-modification/</loc>
+    <loc>https://beuke.org/quantization/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/quantization/</loc>
+    <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
