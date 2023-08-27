@@ -12,7 +12,7 @@ mathjax: true
   MathJax = {
     loader: {
       load: ['[custom]/xypic.js'],
-      paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      paths: {custom: 'https://beuke.org/js'}
     },
     tex: {
       packages: {'[+]': ['xypic']}
@@ -141,9 +141,9 @@ Some more examples are:
 
 * The naturals numbers $\left({\mathbb  {N}}_{0},+,0\right)$ under addition. This forms a monoid because addition is associative, and 0 serves as the identity, as any number added by 0 remains the same.
 
-* The natural numbers under $\left({\mathbb  {N}}_{0},\times,0\right)$ multiplication. This forms a monoid because multiplication is associative, and 1 serves as the identity, as any number multiplied by 1 remains the same.
+* The natural numbers $\left({\mathbb  {N}}_{0},\times,0\right)$ under multiplication. This forms a monoid because multiplication is associative, and 1 serves as the identity, as any number multiplied by 1 remains the same.
 
-* Strings under $(\texttt{String},++,\texttt{""})$ concatenation. This forms a monoid because string concatenation is associative, and the empty string $\texttt{""}$ serves as the identity, as any string concatenated with $\texttt{""}$ remains the same.
+* Strings $(\texttt{String},++,\texttt{""})$ under concatenation. This forms a monoid because string concatenation is associative, and the empty string $\texttt{""}$ serves as the identity, as any string concatenated with $\texttt{""}$ remains the same.
 
 
 [^1]: [Monoids in ncatlab](https://ncatlab.org/nlab/show/monoids#definition)

@@ -442,13 +442,21 @@ blockquote {
     fill: currentColor;
 }
 
-.splitscreen {
-  display: flex;
-}
-
 .splitscreen .left,
 .splitscreen .right {
-  flex: 1;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .splitscreen {
+    display: flex;
+  }
+
+  .splitscreen .left,
+  .splitscreen .right {
+    width: auto;
+    flex: 1;
+  }
 }
 
 @media only screen and (max-width: 720px) {
