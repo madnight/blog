@@ -1,0 +1,62 @@
+digraph {
+  node [shape=box, fontcolor="white", color="white"];
+  edge [color="white"]
+
+  bgcolor="transparent"
+  
+  Functor [color="white", fontcolor="white"];
+  Functor -> Applicative [color="white"];
+  Functor -> Traversable [color="white"];
+
+  Apply [color="white", fontcolor="white"];
+  Apply -> Applicative [color="white"];
+  Semigroup -> Apply [constraint=false; style=dotted; arrowhead=none; color="white"];
+
+  Applicative [color="white", fontcolor="white"];
+  Applicative -> Alternative [color="white"];
+  Applicative -> Monad [color="white"];
+  Applicative -> Traversable [style=dotted; arrowhead=none; color="white"];
+
+  Monad [color="white", fontcolor="white"];
+  Monad -> MonadPlus [color="white"];
+  Monad -> MonadFix [color="white"];
+  Monad -> ArrowApply [style=bold, arrowhead=none; color="white"];
+
+  Semigroup [color="white", fontcolor="white"];
+  Semigroup -> Monoid [color="white"];
+
+  Monoid [label=<<b> Monoid</b>>,color="white", fontcolor="white", penwidth=2];
+  Monoid -> Applicative [constraint=false; style=dotted; arrowhead=none; color="white"];
+  Monoid -> Category [constraint=false; style=dotted; arrowhead=none; color="white"];
+  Monoid -> Alternative [style=dotted; arrowhead=none; color="white"];
+  Monoid -> MonadPlus [style=dotted; arrowhead=none; color="white"];
+  Monoid -> ArrowPlus [style=dotted; arrowhead=none; color="white"];
+  Monoid -> Foldable [style=dotted; arrowhead=none; color="white"];
+  Monoid -> Monad [style=dotted; arrowhead=none; color="white"];
+
+  Category [color="white", fontcolor="white"];
+  Category -> Arrow [color="white"];
+
+  Arrow [color="white", fontcolor="white"];
+  Arrow -> ArrowChoice [color="white"];
+  Arrow -> ArrowApply [color="white"];
+  Arrow -> ArrowZero [color="white"];
+  
+  ArrowChoice [color="white", fontcolor="white"];
+  ArrowApply [color="white", fontcolor="white"];
+  ArrowZero [color="white", fontcolor="white"];
+  ArrowZero -> ArrowPlus [color="white"];
+  
+  ArrowPlus [color="white", fontcolor="white"];
+  {rank = same; Arrow; ArrowZero; ArrowPlus}
+
+  Foldable [color="white", fontcolor="white"];
+  Foldable -> Traversable [color="white"];
+  
+  Traversable [color="white", fontcolor="white"];
+  
+  Alternative [color="white", fontcolor="white"];
+  
+  MonadPlus [color="white", fontcolor="white"];
+  MonadFix [color="white", fontcolor="white"];
+}

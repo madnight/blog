@@ -343,6 +343,16 @@
   xs <font color="#87afaf">>>=</font> f <font color="#87afaf">=</font> concat <font color="#afaf5f">(</font>map f xs<font color="#afaf5f">)</font>
 </font></pre>
                 </figure>
+                <!-- And this is how it looks like as commutative diagram in the case of an empty list: -->
+                <!--  -->
+                <!-- \begin{xy} -->
+                <!-- \xymatrix{ -->
+                <!--   \texttt{[]} \ar[d]_{\texttt{return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{[[]]} \ar[d]^{\texttt{concat}} \\ -->
+                <!--   \texttt{[[]]} \ar[r]_{\texttt{concat}} & \texttt{[]} -->
+                <!-- } -->
+                <!-- \end{xy} -->
+                <!--  -->
+                <!-- You may encounter various names for *concat*, such as *flatten* or *flatMap* and *bind* in case we combine concat with map as in the list implementation of >>=. We can lift values into the structure or increase the nested level of the structure by one with *return* and we can reduce one level of the structure with *concat*. -->
                 <p>Another Instance, the Maybe Monad</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
