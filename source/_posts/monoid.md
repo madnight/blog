@@ -2,7 +2,7 @@
 title: Monoid
 date: 2023-08-27
 tags: ["category theory"]
-subtitle: A Semigroup with an Identity Element
+subtitle: A Semigroup with Identity Element
 mathjax: true
 ---
 
@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-In category theory, a Monoid (or Monoid object) is a triple (M, $\eta$, $\mu$) in a monoidal category ($\mathbf{C}$, $\otimes$, $1_{M}$) together with two morphisms:
+In category theory, a Monoid is a triple (M, $\eta$, $\mu$) in a monoidal category ($\mathbf{C}$, $\otimes$, $1_{M}$) together with two morphisms:
 
 * $\eta: 1_{M} \rightarrow M$ is a natural transformation (the unit)
 * $\mu: M \otimes M \rightarrow M$ is another natural transformation (the multiplication)
