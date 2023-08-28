@@ -28,8 +28,6 @@ window.addEventListener('load', function() {
    document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", "var(--darkreader-text--text"))
 })
 </script>
-
-</style>
 {% endraw %}
 
 <br>
@@ -76,25 +74,106 @@ We can rephrase these conditions using the subsequent commutative diagrams:
 \end{xy}
   </div>
 </div>
-
 {% endraw %}
+
+We can also write down the natural transformations in terms of their components. For each object $X$ of $\mathcal{C}$, the unit is a morphism $\eta_{X} : X \rightarrow T X$, and the multiplication is a morphism $\mu_{X} : T(T X) \rightarrow T X$, such that the following diagrams commute:
+
+{% raw %}
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  T(T(TX)) \ar[d]_{\mu TX} \ar[r]^{T\mu{(X)}} & T(TX) \ar[d]^{\mu{X}} \\
+  T(TX) \ar[r]_{\mu{X}} & TX
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  TX \ar[d]_{\eta TX} \ar[r]^{T\eta{(X)}} \ar@{=}[dr] & T(TX) \ar[d]^{\mu{X}} \\
+  T(TX) \ar[r]_{\mu{X}} & TX
+}
+\end{xy}
+  </div>
+</div>
+{% endraw %}
+
 
 An application of this concept is that monads provide a way to express computations (in terms of morphisms) that include additional structure or side-effects (captured by the endofunctor $T$) in such a way that these computations can be chained together (via the $\mu$ natural transformation) and lifted over the monadic structure (via the $\eta$ natural transformation), and they do so in a way that is consistent (respecting the associativity and unit laws).
 
 # Example
 
-The Monad, by definition, requires us to implement two functions: the unit, which is called return in Haskell, where we just have to lift a value into the Monad (e.g., put a value into a list), and the multiplication `>>` (sequence) or `>>=` (bind). The sequence can be used if you are only interested in collapsing the structure (TT -> T). The bind function can be used if you need to operate on the lifted value before collapsing. This will become clearer in the following examples.
+The Monad, by definition, requires us to implement two functions: the unit, which is called return in Haskell, where we just have to lift a value into the Monad (e.g., put a value into a list), and the multiplication `join`.
 
 Haskell Definition of Monad (Interface)
 {% vimhl hs %}
 class Monad m where
-  -- η : 1c -> T (unit)
+  --   ηx : X -> T X (unit)
   return :: a -> m a
 
-  -- μ : TT -> T (multiplication)
-  (>>) :: m a -> m b -> m b
+  --   μx : T (T X) -> T X (multiplication)
+  join   :: m (m a) -> m a
+{% endvimhl %}
+
+These have to obey the Monad laws:
+* $\text{join . join }$== $\text{join . fmap join}$  (associativity)
+* $\text{join . return }$= $\text{id}$ = $\text{join . fmap return}$  (left and right idenity)
+
+<!-- * `join . return  = id = join . fmap return` (left and right identiy) -->
+<!-- * `join . join == join . fmap join`  (associativity) -->
+
+<!-- {% vimhl hs %} -->
+<!-- join . join == join . fmap join          -- associativity -->
+<!-- join . return  = id = join . fmap return -- left and right identiy -->
+<!-- {% endvimhl %} -->
+
+We can now draw the commutative diagram for the Haskell definition of Monad:
+
+{% raw %}
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  \text{m(m(m a))} \ar[d]_{\text{fmap join}} \ar[r]^{\text{join}} & \text{m(m a)} \ar[d]^{\text{join}} \\
+  \text{m(m a)} \ar[r]_{\text{join}} & \text{m a}
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  \text{m a} \ar[d]_{\text{fmap return}} \ar[r]^{\text{return}} \ar@{=}[dr] & \text{m(m a)} \ar[d]^{\text{join}} \\
+  \text{m(m a)} \ar[r]_{\text{join}} & \text{m a}
+}
+\end{xy}
+  </div>
+</div>
+{% endraw %}
+
+The definition of a monad given here is equivalent to the one we typically use in Haskell.
+
+{% vimhl hs %}
+class Monad m where
+  return :: a -> m a
   (>>=) :: m a -> (a -> m b) -> m b
 {% endvimhl %}
+
+We can easily define `>>=` with `join` and `fmap`.
+
+{% vimhl hs %}
+a >>= f = join (fmap f a)
+{% endvimhl %}
+
+This operation is called bind (or is sometimes refered to as flatMap). The bind function can be used if you need to operate on the lifted value before collapsing. We can also translate the other way around and define `join` in terms of `>>=` and `id`:
+
+{% vimhl hs %}
+join a = a >>= id
+{% endvimhl %}
+
+Hence `join` is bind applied to the identity function. These two constructions are reverse to each other and they translate the monad laws correctly. Now we lets have a look at some concrete examples (instances of Monad).
 
 An Instance of Monad, the List Monad
 {% vimhl hs %}
@@ -102,14 +181,23 @@ instance Monad [] where
   return :: a -> [a]
   return x = [x]
 
-  (>>) :: [a] -> [b] -> [b]
-  m >> n = m >>= \_ -> n
-
   (>>=) :: [a] -> (a -> [b]) -> [b]
   xs >>= f = concat (map f xs)
 {% endvimhl %}
 
-<!-- And this is how it looks like as commutative diagram in the case of an empty list: -->
+<!-- {% raw %} -->
+<!-- <div class="splitscreen"> -->
+<!--   <div class="left"> -->
+<!-- \begin{xy} -->
+<!-- \xymatrix{ -->
+<!--   \texttt{m a} \ar[d]_{\texttt{fmap return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{m (m a)} \ar[d]^{\texttt{join}} \\ -->
+<!--   \texttt{m (m a)} \ar[r]_{\texttt{join}} & \texttt{m a} -->
+<!-- } -->
+<!-- \end{xy} -->
+
+<!-- {% endraw %} -->
+<!--   </div> -->
+<!--   <div class="right"> -->
 <!-- {% raw %} -->
 <!-- \begin{xy} -->
 <!-- \xymatrix{ -->
@@ -117,6 +205,8 @@ instance Monad [] where
 <!--   \texttt{[[]]} \ar[r]_{\texttt{concat}} & \texttt{[]} -->
 <!-- } -->
 <!-- \end{xy} -->
+<!--   </div> -->
+<!-- </div> -->
 <!-- {% endraw %} -->
 
 <!-- You may encounter various names for *concat*, such as *flatten* or *flatMap* and *bind* in case we combine concat with map as in the list implementation of >>=. We can lift values into the structure or increase the nested level of the structure by one with *return* and we can reduce one level of the structure with *concat*. -->
@@ -133,7 +223,7 @@ instance Monad Maybe where
                  Just x  -> g x
 {% endvimhl %}
 
-All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.
+All of the above is already implemented in the standard Haskell library, so you can simply open an interactive Haskell interpreter (ghci) and test the following examples.
 {% vimhl hs %}
 ghci> [1,2,3] >>= \x -> [x, x*2]
 [1,2,2,4,3,6]
@@ -142,9 +232,6 @@ ghci> Just 3 >>= \x -> Just (x*2)
 Just 6
 
 -- And here's how to use IO
-ghci> putStr "Hello, " >> putStrLn "world!"
-Hello, world!
-
 ghci> getLine >>= \line -> putStrLn ("You said: " ++ line ++ "!")
 Hi
 You said: Hi!
@@ -153,3 +240,5 @@ You said: Hi!
 
 [^1]: [Monad in ncatlab](https://ncatlab.org/nlab/show/monad#definition)
 [^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
+[^3]: [Notes on Category Theory by Paolo Perrone](https://arxiv.org/pdf/1912.10642.pdf)
+[^4]: [Category theory/Monads](https://wiki.haskell.org/Category_theory/Monads)
