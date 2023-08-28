@@ -98,7 +98,14 @@
                 <img src="/images/monoid.svg" onclick="window.open(this.src)">
                 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
                 <br>
-                <p>In category theory, a Monoid is a triple (M, <span class="katex"><span class="katex-mathml"><math>
+                <p>In category theory, a Monoid is a triple (<span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>M</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">M</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math>
                                 <semantics>
                                     <mrow>
                                         <mi>η</mi>
@@ -115,11 +122,11 @@
                             </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>) in a monoidal category (<span class="katex"><span class="katex-mathml"><math>
                                 <semantics>
                                     <mrow>
-                                        <mi mathvariant="bold">C</mi>
+                                        <mi mathvariant="script">C</mi>
                                     </mrow>
-                                    <annotation encoding="application/x-tex">\mathbf{C}</annotation>
+                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
                                 </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">C</span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math>
                                 <semantics>
                                     <mrow>
                                         <mo>⊗</mo>
@@ -273,7 +280,7 @@
     <font color="#af87af">mappend</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> a <font color="#87afaf">-></font> a
 </font></pre>
                 </figure>
-                <p>These have to obey the Monoid Laws (<> infix notation for <em>mappend</em>):</p>
+                <p>These have to obey the Monoid laws (<> infix notation for <em>mappend</em>):</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#afaf5f">(</font>x <font color="#87afaf"><></font> y<font color="#afaf5f">)</font> <font color="#87afaf"><></font> z <font color="#87afaf">=</font> x <font color="#87afaf"><></font> <font color="#afaf5f">(</font>y <font color="#87afaf"><></font> z<font color="#afaf5f">)</font> <font color="#767676">-- associativity</font>
 mempty <font color="#87afaf"><></font> x <font color="#87afaf"><></font> mempty <font color="#87afaf">=</font> x     <font color="#767676">-- left and right identity</font>
