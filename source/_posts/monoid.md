@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-In category theory, a Monoid is a triple (M, $\eta$, $\mu$) in a monoidal category ($\mathbf{C}$, $\otimes$, $1_{M}$) together with two morphisms:
+In category theory, a Monoid is a triple ($M$, $\eta$, $\mu$) in a monoidal category ($\mathcal{C}$, $\otimes$, $1_{M}$) together with two morphisms:
 
 * $\eta: 1_{M} \rightarrow M$ is a natural transformation (the unit)
 * $\mu: M \otimes M \rightarrow M$ is another natural transformation (the multiplication)
@@ -94,7 +94,7 @@ class Monoid a where
     mappend :: a -> a -> a
 {% endvimhl %}
 
-These have to obey the Monoid Laws (<> infix notation for *mappend*):
+These have to obey the Monoid laws (<> infix notation for *mappend*):
 {% vimhl hs %}
 (x <> y) <> z = x <> (y <> z) -- associativity
 mempty <> x <> mempty = x     -- left and right identity
