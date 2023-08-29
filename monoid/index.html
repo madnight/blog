@@ -56,10 +56,10 @@
         <article>
             <section>
                 <div class="post-title"> Monoid </div>
-                <div class="post-subtitle"> A Semigroup with Identity Element </div>
+                <div class="post-subtitle"> A Semigroup with Identity </div>
                 <div class="post-subsubtitle"> Posted on Aug 27 2023 ~ 5 min read</div>
                 <div class="post-subtitle-tags">
-                    <a href="/tags/category-theory/">#category theory</a>  </div>
+                    <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/abstract-algebra/">#abstract algebra</a>  </div>
                 <hr class="solid">
             </section>
             <div class"content">
@@ -297,7 +297,7 @@ mempty <font color="#87afaf"><></font> x <font color="#87afaf"><></font> mem
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monoid</font> a <font color="#87afaf">=></font> <font color="#d7875f">Monoid</font> <font color="#afaf5f">(</font><font color="#d7875f">Maybe</font> a<font color="#afaf5f">)</font> <font color="#87afaf">where</font>
   mempty <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
-  <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#87afaf">$</font> a <font color="#87afaf"><></font> b
+  <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>a <font color="#87afaf"><></font> b<font color="#afaf5f">)</font>
   <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> a
   <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> b
   <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
