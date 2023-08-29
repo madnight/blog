@@ -1,7 +1,7 @@
 ---
 title: Monad
 date: 2023-07-25
-tags: ["category theory"]
+tags: ["category theory", "abstract algebra", "monads"]
 subtitle: A Monoid in the Category of Endofunctors
 mathjax: true
 ---
