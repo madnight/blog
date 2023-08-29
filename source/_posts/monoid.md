@@ -1,8 +1,8 @@
 ---
 title: Monoid
 date: 2023-08-27
-tags: ["category theory"]
-subtitle: A Semigroup with Identity Element
+tags: ["category theory", "abstract algebra"]
+subtitle: A Semigroup with Identity
 mathjax: true
 ---
 
@@ -112,7 +112,7 @@ Another Instance, the Maybe Monoid
 {% vimhl hs %}
 instance Monoid a => Monoid (Maybe a) where
   mempty = Nothing
-  Just a  <> Just b  = Just $ a <> b
+  Just a  <> Just b  = Just (a <> b)
   Just a  <> Nothing = Just a
   Nothing <> Just b  = Just b
   Nothing <> Nothing = Nothing
