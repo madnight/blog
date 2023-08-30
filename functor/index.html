@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+    </noscript>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <h1>beuke.org</h1>
+    <h2>A personal blog about computer science topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Functor </div>
+                <div class="post-subtitle"> A Homomorphism of Categories </div>
+                <div class="post-subsubtitle"> Posted on Aug 30 2023 ~ 4 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/abstract-algebra/">#abstract algebra</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <script>
+                    MathJax = {
+                        loader:
+                        {
+                            load: ['[custom]/xypic.js'],
+                            paths:
+                            {
+                                custom: 'https://beuke.org/js'
+                            }
+                        },
+                        tex:
+                        {
+                            packages:
+                            {
+                                '[+]': ['xypic']
+                            }
+                        }
+                    };
+
+                </script>
+                <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+                <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg-full.js"></script> -->
+                <script>
+                    window.addEventListener('load', function ()
+                    {
+                        document.querySelectorAll("mjx-xypic-object").forEach((x) => (x.style.color = "var(--darkreader-text--text"));
+                        document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", "var(--darkreader-text--text"))
+                    })
+
+                </script>
+                <br>
+                <img src="/images/functor.svg" onclick="window.open(this.src)">
+                <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
+                <br>
+                <p>A functor, in category theory, is a structural-preserving of mapping between categories. Given two categories, <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">C</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">D</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>, a functor <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>F</mi>
+                                        <mo>:</mo>
+                                        <mi mathvariant="script">C</mi>
+                                        <mo>→</mo>
+                                        <mi mathvariant="script">D</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">F: \mathcal{C} \rightarrow \mathcal{D}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> associates each object in <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">C</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> with an object in <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">D</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> and each morphism <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>f</mi>
+                                        <mo>:</mo>
+                                        <mi>X</mi>
+                                        <mo>→</mo>
+                                        <mi>Y</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">f : X \rightarrow Y</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">C</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> with a morphism <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>F</mi>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>f</mi>
+                                        <mo stretchy="false">)</mo>
+                                        <mo>:</mo>
+                                        <mi>F</mi>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>X</mi>
+                                        <mo stretchy="false">)</mo>
+                                        <mo>→</mo>
+                                        <mi>F</mi>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>Y</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">F(f) : F(X) \rightarrow F(Y)</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">D</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>, such that:</p>
+                <ul>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>F</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>i</mi>
+                                            <msub>
+                                                <mi>d</mi>
+                                                <mi>X</mi>
+                                            </msub>
+                                            <mo stretchy="false">)</mo>
+                                            <mo>=</mo>
+                                            <mi>i</mi>
+                                            <msub>
+                                                <mi>d</mi>
+                                                <mrow>
+                                                    <mi>F</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>X</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                            </msub>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">F(id_{X}) = id_{F(X)}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04964em;vertical-align:-0.3551999999999999em;"></span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span> for every object <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>X</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">X</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="script">C</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathcal{C}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span>,</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>F</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>g</mi>
+                                            <mo>∘</mo>
+                                            <mi>f</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mo>=</mo>
+                                            <mi>F</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>g</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mo>∘</mo>
+                                            <mi>F</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>f</mi>
+                                            <mo stretchy="false">)</mo>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">F(g \circ f) = F(g) \circ F(f)</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span> for all morphisms <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>f</mi>
+                                            <mo>:</mo>
+                                            <mi>X</mi>
+                                            <mo>→</mo>
+                                            <mi>Y</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">f : X \rightarrow Y</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>g</mi>
+                                            <mo>:</mo>
+                                            <mi>Y</mi>
+                                            <mo>→</mo>
+                                            <mi>Z</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">g : Y \rightarrow Z</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="script">C</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathcal{C}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span></li>
+                </ul>
+                <!-- , or in terms of [hom-sets](/hom-sets) $Hom_{C}(X,Y) \rightarrow Hom_{D}(F(X),F(Y))$, -->
+                <p>That is, functors must preserve identity morphisms and composition of morphisms. We can rephrase these conditions using the subsequent commutative diagram:</p> \begin{xy} \xymatrix{ F(X) \ar[r]_{F(f)} \ar@/^1.5pc/[rr]^{F(g\ \circ f)} & F(Y) \ar[r]_{F(g)} & F(Z) \\ X \ar[r]^{f} \ar@/_1.5pc/[rr]_{g\ \circ\ f} \ar[u]_{F} & Y \ar[r]^{g} \ar[u]_{F} & Z \ar[u]_{F} } \end{xy} <h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
+                <p>A Functor in Haskell is a typeclass that represents a type that can be mapped over, meaning that you can apply a function to every element of the type without changing its structure.</p>
+                <p>Haskell Definition of Functor (Interface)</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">where</font>
+    <font color="#767676">--      (X -> Y) -> F(X) -> F(Y)</font>
+    <font color="#af87af">fmap</font> <font color="#87afaf">::</font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> f a  <font color="#87afaf">-></font> f b
+</font></pre>
+                </figure>
+                <p>The following condition must always hold:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">fmap id <font color="#87afaf">==</font> id                   <font color="#767676">-- Identity</font>
+fmap <font color="#afaf5f">(</font>f <font color="#87afaf">.</font> g<font color="#afaf5f">)</font> <font color="#87afaf">==</font> fmap f <font color="#87afaf">.</font> fmap g <font color="#767676">-- Composition</font>
+</font></pre>
+                </figure>
+                <p>An Instance of Functor, the List Functor</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Functor</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
+    fmap <font color="#87afaf">=</font> map
+</font></pre>
+                </figure>
+                <p>Another Instance, the Maybe Functor</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">instance</font>  <font color="#d7875f">Functor</font> <font color="#d7875f">Maybe</font>  <font color="#87afaf">where</font>
+    fmap <font color="#87afaf">_</font> <font color="#d7875f">Nothing</font>       <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
+    fmap f <font color="#afaf5f">(</font><font color="#d7875f">Just</font> a<font color="#afaf5f">)</font>      <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>f a<font color="#afaf5f">)</font>
+</font></pre>
+                </figure>
+                <p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">ghci<font color="#87afaf">></font> fmap <font color="#afaf5f">(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
+<font color="#afaf5f">[</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
+
+ghci<font color="#87afaf">></font> fmap id <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
+<font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
+
+ghci<font color="#87afaf">></font> fmap <font color="#afaf5f">(</font><font color="#87afaf">++</font> <font color="#afaf5f">"B"</font><font color="#afaf5f">)</font> <font color="#afaf5f">(</font><font color="#d7875f">Just</font> <font color="#afaf5f">"A"</font><font color="#afaf5f">)</font>
+<font color="#d7875f">Just</font> <font color="#afaf5f">"AB"</font>
+
+ghci<font color="#87afaf">></font> fmap <font color="#afaf5f">(</font><font color="#87afaf">++</font> <font color="#afaf5f">"B"</font><font color="#afaf5f">)</font> <font color="#d7875f">Nothing</font>
+<font color="#d7875f">Nothing</font>
+</font></pre>
+                </figure>
+                <p>Some more examples contains basically everything that can be mapped over:</p>
+                <ul>
+                    <li>
+                        <p>Either Functor: If the Either contains a right value, it applies the function to the value, else it leaves the left value untouched.</p>
+                    </li>
+                    <li>
+                        <p>IO Functor: Used to construct computations which perform I/O and computes a result.</p>
+                    </li>
+                    <li>
+                        <p>Future Functor: Applies a function to a value in a future / promises (a sort of placeholder object for a value that is initially unknown).</p>
+                    </li>
+                    <li>
+                        <p>Const Functor: Ignores its function argument and always yields the same value.</p>
+                    </li>
+                    <li>
+                        <p>Identity Functor: Simply applies the given function to its argument without any additional behavior.</p>
+                    </li>
+                    <li>
+                        <p>Function Functor (in the sense of (a -> b) -> (c -> d)): Applies a function to the return type of another function.</p>
+                    </li>
+                    <li>
+                        <p>Tree Functor: Applies a function to every node in a tree.</p>
+                    </li>
+                    <li>
+                        <p>Pair Functor: Applies the function to the second element of a pair.</p>
+                    </li>
+                    <li>
+                        <p>Reader Functor: Applies a function to the result of another function (a “reader” of some shared environment)</p>
+                    </li>
+                    <li>
+                        <p>State Functor: Applies a function to the result of a stateful computation.</p>
+                    </li>
+                    <li>
+                        <p>Writer Functor: Applies a function to the result while preserving some additional logging or output.</p>
+                    </li>
+                </ul>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/functor#definition">Functor in ncatlab</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://wiki.haskell.org/Typeclassopedia">Typeclassopedia</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

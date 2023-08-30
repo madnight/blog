@@ -383,52 +383,15 @@
 </font></pre>
                 </figure>
                 <p>These have to obey the Monad laws:</p>
-                <ul>
-                    <li><span class="katex"><span class="katex-mathml"><math>
-                                    <semantics>
-                                        <mrow>
-                                            <mtext>join . join </mtext>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\text{join . join }</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8623000000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">join . join </span></span></span></span></span>== <span class="katex"><span class="katex-mathml"><math>
-                                    <semantics>
-                                        <mrow>
-                                            <mtext>join . fmap join</mtext>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\text{join . fmap join}</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">join . fmap join</span></span></span></span></span> (associativity)</li>
-                    <li><span class="katex"><span class="katex-mathml"><math>
-                                    <semantics>
-                                        <mrow>
-                                            <mtext>join . return </mtext>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\text{join . return }</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8623000000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">join . return </span></span></span></span></span>= <span class="katex"><span class="katex-mathml"><math>
-                                    <semantics>
-                                        <mrow>
-                                            <mtext>id</mtext>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\text{id}</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">id</span></span></span></span></span> = <span class="katex"><span class="katex-mathml"><math>
-                                    <semantics>
-                                        <mrow>
-                                            <mtext>join . fmap return</mtext>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\text{join . fmap return}</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">join . fmap return</span></span></span></span></span> (left and right idenity)</li>
-                </ul>
+                <!-- * $\text{join . join }$== $\text{join . fmap join}$  (associativity) -->
+                <!-- * $\text{join . return }$= $\text{id}$ = $\text{join . fmap return}$  (left and right idenity) -->
                 <!-- * `join . return  = id = join . fmap return` (left and right identiy) -->
                 <!-- * `join . join == join . fmap join`  (associativity) -->
-                <!-- <figure class="highlight"><pre><font face="monospace">&#xA0;<font color="#87afaf">--&gt;</font>
-<font color="#87afaf">&lt;!--</font>&#xA0;join&#xA0;<font color="#87afaf">.</font>&#xA0;join&#xA0;<font color="#87afaf">==</font>&#xA0;join&#xA0;<font color="#87afaf">.</font>&#xA0;fmap join&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<font color="#767676">-- associativity --&gt;</font>
-<font color="#87afaf">&lt;!--</font>&#xA0;join&#xA0;<font color="#87afaf">.</font>&#xA0;return&#xA0;&#xA0;<font color="#87afaf">=</font>&#xA0;id&#xA0;<font color="#87afaf">=</font>&#xA0;join&#xA0;<font color="#87afaf">.</font>&#xA0;fmap return&#xA0;<font color="#767676">-- left and right identiy --&gt;</font>
-<font color="#87afaf">&lt;!--</font>&#xA0;
-</font></pre></figure> -->
+                <figure class="highlight">
+                    <pre><font face="monospace">join <font color="#87afaf">.</font> join <font color="#87afaf">==</font> join <font color="#87afaf">.</font> fmap join           <font color="#767676">-- associativity</font>
+join <font color="#87afaf">.</font> return <font color="#87afaf">==</font> id <font color="#87afaf">==</font> join <font color="#87afaf">.</font> fmap return <font color="#767676">-- left and right identiy</font>
+</font></pre>
+                </figure>
                 <p>We can now draw the commutative diagram for the Haskell definition of Monad:</p>
                 <div class="splitscreen">
                     <div class="left"> \begin{xy} \xymatrix{ \text{m(m(m a))} \ar[d]_{\text{fmap join}} \ar[r]^{\text{join}} & \text{m(m a)} \ar[d]^{\text{join}} \\ \text{m(m a)} \ar[r]_{\text{join}} & \text{m a} } \end{xy} </div>
@@ -438,7 +401,7 @@
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m a
-  <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m b
+   <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m b
 </font></pre>
                 </figure>
                 <p>We can easily define <code>>>=</code> with <code>join</code> and <code>fmap</code>.</p>
