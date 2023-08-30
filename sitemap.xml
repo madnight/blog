@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/functor/</loc>
     
-    <lastmod>2023-08-30T12:15:01.610Z</lastmod>
+    <lastmod>2023-08-30T18:03:59.457Z</lastmod>
     
   </url>
   
@@ -51,21 +51,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/pure-imperative-haskell/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/quantization/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -79,9 +65,30 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/quantization/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/about/index.html</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
@@ -93,7 +100,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
+    <loc>https://beuke.org/bspwm-missing-docs/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -114,7 +121,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/bspwm-missing-docs/</loc>
+    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -122,13 +129,6 @@
   
   <url>
     <loc>https://beuke.org/elm-json/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
