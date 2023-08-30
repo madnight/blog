@@ -118,16 +118,14 @@ class Monad m where
 {% endvimhl %}
 
 These have to obey the Monad laws:
-* $\text{join . join }$== $\text{join . fmap join}$  (associativity)
-* $\text{join . return }$= $\text{id}$ = $\text{join . fmap return}$  (left and right idenity)
-
+<!-- * $\text{join . join }$== $\text{join . fmap join}$  (associativity) -->
+<!-- * $\text{join . return }$= $\text{id}$ = $\text{join . fmap return}$  (left and right idenity) -->
 <!-- * `join . return  = id = join . fmap return` (left and right identiy) -->
 <!-- * `join . join == join . fmap join`  (associativity) -->
-
-<!-- {% vimhl hs %} -->
-<!-- join . join == join . fmap join          -- associativity -->
-<!-- join . return  = id = join . fmap return -- left and right identiy -->
-<!-- {% endvimhl %} -->
+{% vimhl hs %}
+join . join == join . fmap join           -- associativity
+join . return == id == join . fmap return -- left and right identiy
+{% endvimhl %}
 
 We can now draw the commutative diagram for the Haskell definition of Monad:
 
@@ -158,7 +156,7 @@ The definition of a monad given here is equivalent to the one we typically use i
 {% vimhl hs %}
 class Monad m where
   return :: a -> m a
-  (>>=) :: m a -> (a -> m b) -> m b
+   (>>=) :: m a -> (a -> m b) -> m b
 {% endvimhl %}
 
 We can easily define `>>=` with `join` and `fmap`.
