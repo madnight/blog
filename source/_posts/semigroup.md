@@ -64,7 +64,7 @@ A type qualifies as a Semigroup if it offers an associative function (<>), allow
 Haskell Definition of Semigroup (Interface)
 {% vimhl hs %}
 class Semigroup a where
- -- ⊗ :  S x S  -> S (multiplication)
+-- ⊗  :  S x S  -> S (multiplication)
   (<>) :: a -> a -> a
 {% endvimhl %}
 
