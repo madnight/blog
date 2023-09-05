@@ -58,17 +58,18 @@ Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax mono
 * $\phi_{X,Y} : FX \otimes FY \rightarrow F(X \otimes Y)$ (a natural transformation)
 
 
-Tensorial strength means that $\phi_{X,Y}$ is actually an isomorphism $FX \otimes FY \simeq F(X \otimes Y)$
+<!-- Tensorial strength means that $\phi_{X,Y}$ is actually an isomorphism $FX \otimes FY \simeq F(X \otimes Y)$ -->
 
+<!-- Within the framework of category theory, the notion of monoidal structure preservation connects to the concept of tensorial strength, thus a strong lax monoidal functor is another term for an applicative functor. Nonetheless, in Haskell, it is inherent that every functor possesses unambiguous strength in relation to the product. -->
 
 <!-- , or in terms of [hom-sets](/hom-sets) $Hom_{C}(X,Y) \rightarrow Hom_{D}(F(X),F(Y))$, -->
 
 
 such that the following diagrams commute:
 
-https://arxiv.org/pdf/1406.4823.pdf 17 (strength)
+<!-- https://arxiv.org/pdf/1406.4823.pdf 17 (strength}) -->
 
-Every endofunctor applied to the monoidal category $\mathbf{Set}$ inherently possesses a unique strength, resulting in every endofunctor within Set being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of Set endofunctors, this coherent association is automatically provided. [^3]
+Every endofunctor applied to the monoidal category $\mathbf{Set}$ inherently possesses a unique strength, resulting in every endofunctor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of Set endofunctors, this coherent association is automatically provided. [^3]
 
 https://en.wikipedia.org/wiki/Monoidal_functor
 
@@ -87,7 +88,7 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F(f)} & F(Y) \\
 # Example
 
 
-The Applicative Typeclass is Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called monoidal that directly reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monodial. This is similar to the equivalent formulation of bind and >>= that we have shown in the post about [monad](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
+The Applicative Typeclass is Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called monoidal that directly reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This is similar to the equivalent formulation of bind and >>= that we have shown in the post about [monad](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
 
 
 Haskell Definition of Monoidal (Interface)
@@ -98,7 +99,8 @@ class Functor f => Monoidal f where
   (**) :: f a  -> f b  -> f (a, b)
 {% endvimhl %}
 
-Please note that `fa -> fb -> f(a, b)` is actually the curried version of `(f a, f b) -> f (a, b)`:
+Please note that `fa -> fb -> f(a, b)` is actually the curried version of
+`(f a, f b) -> f (a, b)`
 
 {% vimhl hs %}
 curry :: ((a, b) -> c) -> a -> b -> c
@@ -108,7 +110,7 @@ uncurry :: (a -> b -> c) -> (a, b) -> c
 uncurry f p =  f (fst p) (snd p)
 {% endvimhl %}
 
-Haskell comes with curry and uncurry as part of its standard library, which together form an isomorphism. Hence we could also formulate Monodial this way and it perfectly matches our definition of lax monoidal functor.
+Haskell comes with curry and uncurry as part of its standard library, which together form an isomorphism. Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor.
 
 {% vimhl hs %}
 class Functor f => Monoidal f where
