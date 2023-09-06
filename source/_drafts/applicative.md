@@ -1,7 +1,7 @@
 ---
 title: Applicative
 date: 2023-08-31
-tags: ["category theory", "abstract algebra"]
+tags: ["category theory", "haskell"]
 subtitle: A Strong Lax Monoidal Endofunctor
 mathjax: true
 ---
@@ -47,13 +47,11 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-A applicative, in category theory, is a categories.
-
+A applicative, in category theory, can be seen as strong lax monodial endofunctor. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 <!-- Let $(\mathcal{C}, \otimes_{\mathcal{C}}, 1_{\mathcal{C}})$ and $(\mathcal{D}, \otimes_{\mathcal{D}}, 1_{\mathcal{D}})$ be two monoidal categories. A lax monoidal endofunctor between them is a functor $F : \mathcal{C} \rightarrow \mathcal{D}$ together with two coherence maps -->
-Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 
 <!-- * $\eta : 1_{\mathcal{D}} \rightarrow F(1_{\mathcal{C}})$ (called the unit morphism) -->
-* $\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})$ (called the unit morphism)
+* $\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})$ (the unit morphism)
 
 * $\phi_{X,Y} : FX \otimes FY \rightarrow F(X \otimes Y)$ (a natural transformation)
 
@@ -69,8 +67,6 @@ such that the following diagrams commute:
 
 <!-- https://arxiv.org/pdf/1406.4823.pdf 17 (strength}) -->
 
-Every endofunctor applied to the monoidal category $\mathbf{Set}$ inherently possesses a unique strength, resulting in every endofunctor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of Set endofunctors, this coherent association is automatically provided. [^3]
-
 https://en.wikipedia.org/wiki/Monoidal_functor
 
 https://openaccess.city.ac.uk/id/eprint/1141/1/ 7
@@ -78,12 +74,15 @@ https://openaccess.city.ac.uk/id/eprint/1141/1/ 7
 {% raw %}
 \begin{xy}
 \xymatrix{
-(FX\ \otimes\ FY)\ \otimes\ FZ \ar[r]^{f} \ar[d]_{F} & FX\ \otimes\ (FY\ \otimes\ FZ) \ar[d]_{F} \\
-F(X\ \otimes\ Y)\ \otimes\ FZ \ar[r]^{f} \ar[d]_{F} \ar[r]_{F(f)} \ar[d] & F(Y) \ar[d] \\
-F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F(f)} & F(Y) \\
+(FX\ \otimes\ FY)\ \otimes\ FZ \ar[r]^{\alpha} \ar[d]_{\phi_{X,Y}\ \otimes\ FZ} & FX\ \otimes\ (FY\ \otimes\ FZ) \ar[d]^{FX\ \otimes\ \phi_{Y,Z}} \\
+F(X\ \otimes\ Y)\ \otimes\ FZ \ar[d]_{\phi_{X\ \otimes\ Y,Z}} & FX\ \otimes\ F(Y\ \otimes\ Z) \ar[d]^{\phi_{X,Y\ \otimes\ Z}} \\
+F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ Z)) \\
 }
 \end{xy}
 {% endraw %}
+
+Every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided. [^3]
+
 
 # Example
 
