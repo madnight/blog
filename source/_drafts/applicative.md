@@ -43,11 +43,11 @@ window.addEventListener('load', function() {
 {% endraw %}
 
 <br>
-<img src="/images/functor.svg" onclick="window.open(this.src)">
+<img src="/images/applicative.png" onclick="window.open(this.src)">
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-A applicative, in category theory, can be seen as strong lax monodial endofunctor. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
+An applicative, in category theory, can be seen as strong lax monoidal endofunctor. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 <!-- Let $(\mathcal{C}, \otimes_{\mathcal{C}}, 1_{\mathcal{C}})$ and $(\mathcal{D}, \otimes_{\mathcal{D}}, 1_{\mathcal{D}})$ be two monoidal categories. A lax monoidal endofunctor between them is a functor $F : \mathcal{C} \rightarrow \mathcal{D}$ together with two coherence maps -->
 
 <!-- * $\eta : 1_{\mathcal{D}} \rightarrow F(1_{\mathcal{C}})$ (called the unit morphism) -->
@@ -67,9 +67,9 @@ such that the following diagrams commute:
 
 <!-- https://arxiv.org/pdf/1406.4823.pdf 17 (strength}) -->
 
-https://en.wikipedia.org/wiki/Monoidal_functor
+<!-- https://en.wikipedia.org/wiki/Monoidal_functor -->
 
-https://openaccess.city.ac.uk/id/eprint/1141/1/ 7
+<!-- https://openaccess.city.ac.uk/id/eprint/1141/1/ 7 -->
 
 {% raw %}
 \begin{xy}
@@ -80,6 +80,30 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 }
 \end{xy}
 {% endraw %}
+
+{% raw %}
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  FX\ \otimes\ 1_{\mathcal{C}}\ar[d]_{\rho} \ar[r]^{FX\ \otimes\ \eta\ \ \ \ \ } & FX\ \otimes\ F(1_{\mathcal{C}}) \ar[d]^{\phi_{X,1_{\mathcal{C}}}} \\
+  FX & F(X\ \otimes\ 1_{\mathcal{C}}) \ar[l]_{F_{\rho}}
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  1_{\mathcal{C}}\ \otimes\ FY\ar[d]_{\lambda} \ar[r]^{\eta\ \otimes\ FY\ \ \ \ } & F(1_{\mathcal{C}})\ \otimes\ F\ Y \ar[d]^{\phi_{1_{\mathcal{C},Y}}} \\
+  FY & F(1_{\mathcal{C}}\ \otimes\ Y) \ar[l]_{{F_{\lambda}}}
+}
+\end{xy}
+  </div>
+</div>
+{% endraw %}
+
+The different natural transformations, indicated by $\alpha$ (associativity) ,$\rho$ (right identity) ,$\lambda$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
 
 Every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided. [^3]
 
@@ -140,9 +164,9 @@ class Applicative f where
 
 
 
-This is how to get Applicative in terms of Monoidal
+This is how to recover Applicative in terms of Monoidal
 ```
-pure :: Monodial f => a -> f a
+pure :: Monoidal f => a -> f a
 pure x  = fmap (const x) unit
 
 (<*>) :: Monoidal f => f (a -> b) -> f a -> f b
