@@ -1,7 +1,7 @@
 ---
 title: Hom-Sets
 date: 2020-01-18
-tags: ["category theory"]
+tags: ["category theory", "haskell"]
 subtitle: Sets of Morphisms
 mathjax: true
 ---
@@ -65,7 +65,12 @@ such that the following [diagram commutes](https://en.wikipedia.org/wiki/Commuta
 {% endraw %}
 
 This can be translated to [Hask](https://wiki.haskell.org/Hask), the category with Haskell types as objects and functions as morphisms. The previous morphisms $f,h$ are now functions:
-`f :: b -> d`, `h :: c -> a` and $\text{Hom}(A,B) = a \rightarrow$ b, such that:
+```
+f :: b -> d
+h :: c -> a
+```
+
+and $\text{Hom}(A,B) = a \rightarrow b$, such that:
 
 {% raw %}
 \begin{xy}
@@ -88,4 +93,6 @@ Let's have a closer look at the morphism from $a \rightarrow b$ to $c \rightarro
 \end{xy}
 {% endraw %}
 
-We can see that $c \rightarrow b$ is the function composition $g' \circ {f'}$. Thus, a hom-set morphism $\text{Hom}(f,-)$ is simply morphism pre-composition $f \circ -$ and $\text{Hom}(-,f)$ is just morphism post-composition $- \circ f$. Furthermore, $\text{Hom}(A,-)$, which you can think of as $A \rightarrow$, is called a [covariant hom-functor](https://en.wikipedia.org/wiki/Functor#Covariance_and_contravariance) or [representable functor](https://en.wikipedia.org/wiki/Representable_functor)  from the category $C$ to the category $Set$, $x \rightarrow \text{Hom}_C(A,x)$ with $x \in C$ and $\text{Hom}_C(A,x) \in Set$. When the second position is fixed $\text{Hom}(-,B): C^{op} \rightarrow Set$ (which you can think of as: $\rightarrow B$) then it's called a contravariant functor. Consequently, if non of the arguments of the hom-functor are fixed $\text{Hom}(−,−): C^{op} \times C \rightarrow Set$ then we have a hom [bifunctor](https://en.wikipedia.org/wiki/Functor#Bifunctors_and_multifunctors) also called [profunctor](https://en.wikipedia.org/wiki/Profunctor), see for instance the diagonal arrow $\text{Hom}(h,f)$ with pre- and post-composition.
+We can see that $c \rightarrow b$ is the function composition $g' \circ {f'}$. Thus, a hom-set morphism $\text{Hom}(f,-)$ is simply morphism pre-composition $f \circ -$ and $\text{Hom}(-,f)$ is just morphism post-composition $- \circ f$. Furthermore, $\text{Hom}(A,-)$, which you can think of as $A \rightarrow$, is called a [covariant hom-functor](https://en.wikipedia.org/wiki/Functor#Covariance_and_contravariance) or [representable functor](https://en.wikipedia.org/wiki/Representable_functor)  from the category $C$ to the category $Set$, $x \rightarrow \text{Hom}_C(A,x)$ with $x \in C$ and $\text{Hom}_C(A,x) \in Set$.
+
+When the second position is fixed $\text{Hom}(-,B): C^{op} \rightarrow Set$ (which you can think of as: $\rightarrow B$) then it's called a contravariant functor. Consequently, if non of the arguments of the hom-functor are fixed $\text{Hom}(−,−): C^{op} \times C \rightarrow Set$ then we have a hom [bifunctor](https://en.wikipedia.org/wiki/Functor#Bifunctors_and_multifunctors) also called [profunctor](https://en.wikipedia.org/wiki/Profunctor), see for instance the diagonal arrow $\text{Hom}(h,f)$ with pre- and post-composition.
