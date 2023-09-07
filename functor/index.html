@@ -327,17 +327,17 @@ ghci<font color="#87afaf">></font> fmap <font color="#afaf5f">(</font><font co
                 </figure>
                 <p>Some more examples contains basically everything that can be mapped over:</p>
                 <ul>
-                    <li><strong>Either Functor</strong>: If the Either contains a right value, it applies the function to the value, else it leaves the left value untouched.</li>
-                    <li><strong>IO Functor</strong>: Used to construct computations which perform I/O and computes a result.</li>
-                    <li><strong>Future Functor</strong>: Applies a function to a value in a future (a sort of placeholder object for a value that is initially unknown).</li>
-                    <li><strong>Const Functor</strong>: Ignores its function argument and always yields the same value.</li>
-                    <li><strong>Identity Functor</strong>: Simply applies the given function to its argument without any additional behavior.</li>
-                    <li><strong>Function Functor</strong> (in the sense of (a -> b) -> (c -> d)): Applies a function to the return type of another function.</li>
-                    <li><strong>Tree Functor</strong>: Applies a function to every node in a tree.</li>
-                    <li><strong>Pair Functor</strong>: Applies the function to the second element of a pair.</li>
-                    <li><strong>Reader Functor</strong>: Applies a function to the result of another function (a “reader” of some shared environment)</li>
-                    <li><strong>State Functor</strong>: Applies a function to the result of a stateful computation.</li>
-                    <li><strong>Writer Functor</strong>: Applies a function to the result while preserving some additional logging or output.</li>
+                    <li>Either Functor: If the Either contains a right value, it applies the function to the value, else it leaves the left value untouched.</li>
+                    <li>IO Functor: Used to construct computations which perform I/O and computes a result.</li>
+                    <li>Future Functor: Applies a function to a value in a future (a sort of placeholder object for a value that is initially unknown).</li>
+                    <li>Const Functor: Ignores its function argument and always yields the same value.</li>
+                    <li>Identity Functor: Simply applies the given function to its argument without any additional behavior.</li>
+                    <li>Function Functor (in the sense of (a -> b) -> (c -> d)): Applies a function to the return type of another function.</li>
+                    <li>Tree Functor: Applies a function to every node in a tree.</li>
+                    <li>Pair Functor: Applies the function to the second element of a pair.</li>
+                    <li>Reader Functor: Applies a function to the result of another function (a “reader” of some shared environment)</li>
+                    <li>State Functor: Applies a function to the result of a stateful computation.</li>
+                    <li>Writer Functor: Applies a function to the result while preserving some additional logging or output.</li>
                 </ul>
                 <h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
                 <ul>
