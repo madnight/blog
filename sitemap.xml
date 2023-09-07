@@ -51,13 +51,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
@@ -66,6 +59,13 @@
   
   <url>
     <loc>https://beuke.org/quantization/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -93,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
@@ -114,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -122,6 +115,13 @@
   
   <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
