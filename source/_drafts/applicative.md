@@ -47,7 +47,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-An applicative, in category theory, can be seen as strong lax monoidal endofunctor. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
+An applicative, in category theory, is a lax monoidal endofunctor with tensorial strength. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 <!-- Let $(\mathcal{C}, \otimes_{\mathcal{C}}, 1_{\mathcal{C}})$ and $(\mathcal{D}, \otimes_{\mathcal{D}}, 1_{\mathcal{D}})$ be two monoidal categories. A lax monoidal endofunctor between them is a functor $F : \mathcal{C} \rightarrow \mathcal{D}$ together with two coherence maps -->
 
 <!-- * $\eta : 1_{\mathcal{D}} \rightarrow F(1_{\mathcal{C}})$ (called the unit morphism) -->
@@ -105,8 +105,8 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 
 The different natural transformations, indicated by $\alpha$ (associativity) ,$\rho$ (right identity) ,$\lambda$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
 
-Every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided. [^3]
 
+Applicative functors were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided. [^3] 
 
 # Example
 
@@ -461,6 +461,7 @@ Some more examples contains basically everything that can be mapped over:
 * Writer Functor: Applies a function to the result while preserving some additional logging or output.
 
 
-[^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition)
-[^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
+[^1]: McBride, Conor; Paterson, Ross (2008-01-01). *Applicative programming with effects* ([pdf](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf)). Journal of Functional Programming. 18 (1): 1–13. [doi:10.1017/S0956796807006326](https://doi.org/10.1017/S0956796807006326)
+[^2]: The graph displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
 [^3]: [Notions of Computation as Monoids](https://arxiv.org/pdf/1406.4823.pdf)
+[^4]: [Applicative in ncatlab](https://ncatlab.org/nlab/show/applicative+functor)
