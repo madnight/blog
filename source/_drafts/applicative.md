@@ -80,7 +80,7 @@ Applicative functors were first introduced in 2008 by Conor McBride and Ross Pat
 
 # Example
 
-The Applicative Typeclass is Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called monoidal that directly reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This is similar to the equivalent formulation of bind and >>= that we have shown in the post about [monad](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
+The Applicative Typeclass is Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called monoidal that directly reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between bind and >>=, as discussed in my post on [monads](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
 
 
 Haskell Definition of Monoidal (Interface)
@@ -121,7 +121,7 @@ u ** (v ** w) == (u ** v) ** w -- Associativity
 {% endvimhl %}
 
 
-Now that we have established the Definition lets have a look at the equivalent Applicative definition in Haskell:
+Now that we have established the Definition lets have a look at the equivalent Applicative definition in Haskell.
 
 Haskell Definition of Applicative (Interface)
 
@@ -131,28 +131,26 @@ class Applicative f where
   (<*>) :: f (a -> b) -> f a -> f b
 {% endvimhl %}
 
-
-
-This is how to recover Applicative in terms of Monoidal
-```
+This is how to recover Applicative in terms of Monoidal:
+{% vimhl hs %}
 pure :: Monoidal f => a -> f a
 pure x  = fmap (const x) unit
 
 (<*>) :: Monoidal f => f (a -> b) -> f a -> f b
 f <*> g = fmap uncurry ($) (f ** g)
-```
+{% endvimhl %}
 
-And this is how to get Monoidal in terms of Applicative:
+And this is the reverse direction, Monoidal in terms of Applicative:
 
-```
-Applicative f => f ()
+{% vimhl hs %}
+unit :: Applicative f => f ()
 unit   = pure ()
 
-(**) :: Applicative f => f a  -> f b  -> f (a, b)
+(**) :: Applicative f => f a -> f b  -> f (a, b)
 f ** g = fmap (,) f <*> g
-```
+{% endvimhl %}
 
-We have now established and forward and backward translation between Applicative and Monoidal, hence they are isomorphic. This equality between Applicative and Monoidal has actually be shown in a computer checked [proof](https://stackoverflow.com/a/62959880) in Coq.
+We've now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal has actually be shown in a computer checked [proof](https://stackoverflow.com/a/62959880) in Coq. Now, lets have a look at some instances of Applicative.
 
 <!-- Require Import Coq.Program.Basics. -->
 <!-- Require Import Coq.Init.Datatypes. -->
@@ -385,10 +383,12 @@ We have now established and forward and backward translation between Applicative
 <!-- pure (.) <*> u <*> v <*> w = u <*> (v <*> w) -- Composition -->
 <!-- {% endvimhl %} -->
 
-An Instance of Functor, the List Functor
+An Instance of Applicative, the List Applicative
 {% vimhl hs %}
 instance Functor [] where
-    fmap = map
+    pure x    = [x]
+    fs <*> xs = [f x | f <- fs, x <- xs]
+-- is a list comprehension that generates a new list by applying the function f to each element in the list xs for every function f in the list fs.
 {% endvimhl %}
 
 Another Instance, the Maybe Functor
@@ -418,4 +418,4 @@ Nothing
 
 [^0]: The graph displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
 [^1]: McBride, Conor; Paterson, Ross (2008-01-01). *Applicative programming with effects* ([pdf](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf)). Journal of Functional Programming. 18 (1): 1–13. [doi:10.1017/S0956796807006326](https://doi.org/10.1017/S0956796807006326)
-[^2]: [Notions of Computation as Monoids](https://arxiv.org/pdf/1406.4823.pdf)
+[^2]: Rivas, E., & Jaskelioff, M. (2014). Notions of Computation as Monoids. CoRR, abs/1406.4823. [https://arxiv.org/abs/1406.4823](https://arxiv.org/pdf/1406.4823.pdf)
