@@ -107,7 +107,6 @@ Nothing
 Some more examples contains basically everything that can be mapped over:
 
 * Either Functor: If the Either contains a right value, it applies the function to the value, else it leaves the left value untouched.
-
 * IO Functor: Used to construct computations which perform I/O and computes a result.
 * Future Functor: Applies a function to a value in a future (a sort of placeholder object for a value that is initially unknown).
 * Const Functor: Ignores its function argument and always yields the same value.
@@ -119,6 +118,10 @@ Some more examples contains basically everything that can be mapped over:
 * State Functor: Applies a function to the result of a stateful computation.
 * Writer Functor: Applies a function to the result while preserving some additional logging or output.
 
+### References
 
-[^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition)
-[^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
+- The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
+- [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition)
+
+<!-- [^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png) -->
+<!-- [^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition) --> -->
