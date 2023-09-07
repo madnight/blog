@@ -5,17 +5,6 @@ tags: ["category theory", "haskell"]
 subtitle: A Strong Lax Monoidal Endofunctor
 mathjax: true
 ---
-
-
-<!-- subtitle: A Lax Monoidal Endofunctor with Tensorial Strength -->
-
-
-<!-- https://research-information.bris.ac.uk/ws/portalfiles/portal/177884475/algebra.pdf 15 -->
-
-<!-- To minimize confusion, we use ‘lax monoidal functor with strength’ -->
-<!-- to indicate the existence of tensorial strength, a broadcast operation of type A × F B → F (A × B), -->
-<!-- and avoid the ambiguous term ‘strong lax monoidal functor’.) -->
-
 {% raw %}
 <script>
   MathJax = {
@@ -30,8 +19,6 @@ mathjax: true
 </script>
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
-<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg-full.js"></script> -->
-
 <script>
 window.addEventListener('load', function() {
    document.querySelectorAll("mjx-xypic-object").forEach( (x) => (x.style.color = "var(--darkreader-text--text"));
@@ -48,28 +35,11 @@ window.addEventListener('load', function() {
 <br>
 
 An applicative, in category theory, is a lax monoidal endofunctor with tensorial strength. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
-<!-- Let $(\mathcal{C}, \otimes_{\mathcal{C}}, 1_{\mathcal{C}})$ and $(\mathcal{D}, \otimes_{\mathcal{D}}, 1_{\mathcal{D}})$ be two monoidal categories. A lax monoidal endofunctor between them is a functor $F : \mathcal{C} \rightarrow \mathcal{D}$ together with two coherence maps -->
-
-<!-- * $\eta : 1_{\mathcal{D}} \rightarrow F(1_{\mathcal{C}})$ (called the unit morphism) -->
 * $\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})$ (the unit morphism)
 
 * $\phi_{X,Y} : FX \otimes FY \rightarrow F(X \otimes Y)$ (a natural transformation)
 
-
-<!-- Tensorial strength means that $\phi_{X,Y}$ is actually an isomorphism $FX \otimes FY \simeq F(X \otimes Y)$ -->
-
-<!-- Within the framework of category theory, the notion of monoidal structure preservation connects to the concept of tensorial strength, thus a strong lax monoidal functor is another term for an applicative functor. Nonetheless, in Haskell, it is inherent that every functor possesses unambiguous strength in relation to the product. -->
-
-<!-- , or in terms of [hom-sets](/hom-sets) $Hom_{C}(X,Y) \rightarrow Hom_{D}(F(X),F(Y))$, -->
-
-
 such that the following diagrams commute:
-
-<!-- https://arxiv.org/pdf/1406.4823.pdf 17 (strength}) -->
-
-<!-- https://en.wikipedia.org/wiki/Monoidal_functor -->
-
-<!-- https://openaccess.city.ac.uk/id/eprint/1141/1/ 7 -->
 
 {% raw %}
 \begin{xy}
@@ -106,10 +76,9 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 The different natural transformations, indicated by $\alpha$ (associativity) ,$\rho$ (right identity) ,$\lambda$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
 
 
-Applicative functors were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided. [^3] 
+Applicative functors were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided.[^2]
 
 # Example
-
 
 The Applicative Typeclass is Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called monoidal that directly reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This is similar to the equivalent formulation of bind and >>= that we have shown in the post about [monad](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
 
@@ -445,23 +414,8 @@ ghci> fmap (++ "B") Nothing
 Nothing
 {% endvimhl %}
 
-Some more examples contains basically everything that can be mapped over:
+### References
 
-* Either Functor: If the Either contains a right value, it applies the function to the value, else it leaves the left value untouched.
-
-* IO Functor: Used to construct computations which perform I/O and computes a result.
-* Future Functor: Applies a function to a value in a future (a sort of placeholder object for a value that is initially unknown).
-* Const Functor: Ignores its function argument and always yields the same value.
-* Identity Functor: Simply applies the given function to its argument without any additional behavior.
-* Function Functor (in the sense of (a -> b) -> (c -> d)): Applies a function to the return type of another function.
-* Tree Functor: Applies a function to every node in a tree.
-* Pair Functor: Applies the function to the second element of a pair.
-* Reader Functor: Applies a function to the result of another function (a "reader" of some shared environment)
-* State Functor: Applies a function to the result of a stateful computation.
-* Writer Functor: Applies a function to the result while preserving some additional logging or output.
-
-
+[^0]: The graph displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
 [^1]: McBride, Conor; Paterson, Ross (2008-01-01). *Applicative programming with effects* ([pdf](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf)). Journal of Functional Programming. 18 (1): 1–13. [doi:10.1017/S0956796807006326](https://doi.org/10.1017/S0956796807006326)
-[^2]: The graph displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
-[^3]: [Notions of Computation as Monoids](https://arxiv.org/pdf/1406.4823.pdf)
-[^4]: [Applicative in ncatlab](https://ncatlab.org/nlab/show/applicative+functor)
+[^2]: [Notions of Computation as Monoids](https://arxiv.org/pdf/1406.4823.pdf)
