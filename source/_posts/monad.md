@@ -236,7 +236,9 @@ You said: Hi!
 {% endvimhl %}
 
 
+### References
+
+[^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
 [^1]: [Monad in ncatlab](https://ncatlab.org/nlab/show/monad#definition)
-[^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
-[^3]: [Notes on Category Theory by Paolo Perrone](https://arxiv.org/pdf/1912.10642.pdf)
-[^4]: [Category theory/Monads](https://wiki.haskell.org/Category_theory/Monads)
+[^2]: [Notes on Category Theory by Paolo Perrone](https://arxiv.org/pdf/1912.10642.pdf)
+[^3]: [Category theory/Monads](https://wiki.haskell.org/Category_theory/Monads)

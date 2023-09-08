@@ -113,7 +113,8 @@ Some more examples are:
 
 * Non-empty strings $(\texttt{String},++)$ under concatenation. This forms a semigroup because string concatenation is associative.
 
+### References
 
+[^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
 [^1]: [Semigroups in ncatlab](https://ncatlab.org/nlab/show/semigroup#definition)
-[^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
-[^4]: [Semigroups and Monoids](https://boltje.math.ucsc.edu/courses/f15/f15m200notes.pdf)
+[^2]: [Semigroups and Monoids](https://boltje.math.ucsc.edu/courses/f15/f15m200notes.pdf)
