@@ -1,6 +1,6 @@
 ---
 title: Applicative
-date: 2023-08-31
+date: 2023-09-08
 tags: ["category theory", "haskell"]
 subtitle: A Strong Lax Monoidal Endofunctor
 mathjax: true
@@ -76,11 +76,11 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 The different natural transformations, indicated by $\alpha$ (associativity) ,$\rho$ (right identity) ,$\lambda$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
 
 
-Applicative functors were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided.[^2]
+Applicative functors are a relatively new concept. They were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided.[^2]
 
 # Example
 
-The Applicative Typeclass is Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called monoidal that directly reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between bind and >>=, as discussed in my post on [monads](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
+The Applicative typeclass in Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called Monoidal that reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between `bind` and `>>=`, as discussed in my post on [monads](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
 
 
 Haskell Definition of Monoidal (Interface)
@@ -93,7 +93,6 @@ class Functor f => Monoidal f where
 
 Please note that `fa -> fb -> f(a, b)` is actually the curried version of
 `(f a, f b) -> f (a, b)`
-
 {% vimhl hs %}
 curry :: ((a, b) -> c) -> a -> b -> c
 curry f x y = f (x, y)
@@ -102,7 +101,7 @@ uncurry :: (a -> b -> c) -> (a, b) -> c
 uncurry f p =  f (fst p) (snd p)
 {% endvimhl %}
 
-Haskell comes with curry and uncurry as part of its standard library, which together form an isomorphism. Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor.
+Haskell comes with `curry` and `uncurry` as part of its standard library, which together form an isomorphism. Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:
 
 {% vimhl hs %}
 class Functor f => Monoidal f where
@@ -113,8 +112,9 @@ class Functor f => Monoidal f where
 {% endvimhl %}
 
 
-We have the usual monoidal laws:
+We have the usual monoidal laws (pseudocode):
 
+<!-- -- It's not possible to define laws in Haskell (pseudocode) -->
 {% vimhl hs %}
 unit ** v == v == v ** unit    -- Left and Right Identity
 u ** (v ** w) == (u ** v) ** w -- Associativity
@@ -386,31 +386,40 @@ We've now formulated a two-way translation between Applicative and Monoidal, ill
 An Instance of Applicative, the List Applicative
 {% vimhl hs %}
 instance Functor [] where
+ -- pure :: a -> [a]
     pure x    = [x]
+
+ --   (<*>) :: [(a -> b)] -> [a] -> [b]
     fs <*> xs = [f x | f <- fs, x <- xs]
--- is a list comprehension that generates a new list by applying the function f to each element in the list xs for every function f in the list fs.
+ -- Thats a list comprehension that generates a new list
+ -- by applying the function f to each element in the list
+ -- xs for every function f in the list fs.
 {% endvimhl %}
 
 Another Instance, the Maybe Functor
 {% vimhl hs %}
-instance  Functor Maybe  where
-    fmap _ Nothing       = Nothing
-    fmap f (Just a)      = Just (f a)
+instance Applicative Maybe where
+ -- pure :: a -> Maybe a
+    pure x                = Just (x)
+
+ -- (<*>) :: Maybe (a -> b) -> Maybe a -> Maybe b
+    (Just f) <*> (Just x) = Just (f x)
+    _        <*> _        = Nothing
 {% endvimhl %}
 
 All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.
 
 {% vimhl hs %}
-ghci> fmap (*2) [1,2,3]
+ghci> [(*2)] <*> [1,2,3]
 [2,4,6]
 
-ghci> fmap id [1,2,3]
-[1,2,3]
+ghci> [(+1),(*2)] <*> [1,2,3]
+[2,3,4,2,4,6]
 
-ghci> fmap (++ "B") (Just "A")
-Just "AB"
+ghci> Just (*2) <*> Just (3)
+6
 
-ghci> fmap (++ "B") Nothing
+ghci> Just (*2) <*> Nothing
 Nothing
 {% endvimhl %}
 
