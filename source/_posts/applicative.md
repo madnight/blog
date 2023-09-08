@@ -120,7 +120,6 @@ unit ** v == v == v ** unit    -- Left and Right Identity
 u ** (v ** w) == (u ** v) ** w -- Associativity
 {% endvimhl %}
 
-
 Now that we have established the Definition lets have a look at the equivalent Applicative definition in Haskell.
 
 Haskell Definition of Applicative (Interface)
