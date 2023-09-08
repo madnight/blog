@@ -120,8 +120,5 @@ Some more examples contains basically everything that can be mapped over:
 
 ### References
 
-- The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
-- [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition)
-
-<!-- [^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png) -->
-<!-- [^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition) --> -->
+[^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
+[^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition) -->
