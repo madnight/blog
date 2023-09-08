@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/monad/</loc>
+    
+    <lastmod>2023-09-08T19:09:25.690Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monoid/</loc>
+    
+    <lastmod>2023-09-08T19:08:53.720Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/applicative/</loc>
+    
+    <lastmod>2023-09-08T19:08:27.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/semigroup/</loc>
+    
+    <lastmod>2023-09-08T19:08:02.206Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/functor/</loc>
     
     <lastmod>2023-09-08T12:11:53.046Z</lastmod>
@@ -9,37 +37,9 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/applicative/</loc>
-    
-    <lastmod>2023-09-08T12:07:14.643Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/semigroup/</loc>
-    
-    <lastmod>2023-09-07T19:59:28.160Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monad/</loc>
-    
-    <lastmod>2023-09-07T19:08:26.636Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/hom-sets/</loc>
     
     <lastmod>2023-09-06T10:10:44.611Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monoid/</loc>
-    
-    <lastmod>2023-08-29T13:24:39.674Z</lastmod>
     
   </url>
   
@@ -58,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
@@ -73,6 +66,13 @@
   
   <url>
     <loc>https://beuke.org/quantization/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
