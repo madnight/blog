@@ -424,6 +424,6 @@ Nothing
 
 ### References
 
-[^0]: The graph displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
+[^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
 [^1]: McBride, Conor; Paterson, Ross (2008-01-01). *Applicative programming with effects* ([pdf](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf)). Journal of Functional Programming. 18 (1): 1–13. [doi:10.1017/S0956796807006326](https://doi.org/10.1017/S0956796807006326)
 [^2]: Rivas, E., & Jaskelioff, M. (2014). Notions of Computation as Monoids. CoRR, abs/1406.4823. [https://arxiv.org/abs/1406.4823](https://arxiv.org/pdf/1406.4823.pdf)

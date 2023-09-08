@@ -145,7 +145,8 @@ Some more examples are:
 
 * Strings $(\texttt{String},++,\texttt{""})$ under concatenation. This forms a monoid because string concatenation is associative, and the empty string $\texttt{""}$ serves as the identity, as any string concatenated with $\texttt{""}$ remains the same.
 
+### References
 
+[^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
 [^1]: [Monoids in ncatlab](https://ncatlab.org/nlab/show/monoids#definition)
-[^2]: [Typeclassopedia](https://wiki.haskell.org/Typeclassopedia)
-[^3]: [Monoids in Haskell](https://en.wikibooks.org/wiki/Haskell/Monoids)
+[^2]: [Monoids in Haskell](https://en.wikibooks.org/wiki/Haskell/Monoids)
