@@ -101,7 +101,22 @@ uncurry :: (a -> b -> c) -> (a, b) -> c
 uncurry f p =  f (fst p) (snd p)
 {% endvimhl %}
 
-Haskell comes with `curry` and `uncurry` as part of its standard library, which together form an isomorphism. Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:
+Haskell comes with `curry` and `uncurry` as part of its standard library, which together form an isomorphism.
+
+
+{% raw %}
+\begin{xy}
+\xymatrix {
+\texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}}  && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}
+}
+\end{xy}
+{% endraw %}
+
+
+<!-- \mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D} -->
+
+
+Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:
 
 {% vimhl hs %}
 class Functor f => Monoidal f where
