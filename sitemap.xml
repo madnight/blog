@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2023-09-09T19:24:35.480Z</lastmod>
+    <lastmod>2023-09-09T19:28:43.657Z</lastmod>
     
   </url>
   
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -93,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/arch-linux-archive/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
@@ -114,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/arch-linux-archive/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -122,6 +115,13 @@
   
   <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
