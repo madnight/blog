@@ -73,7 +73,7 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 </div>
 {% endraw %}
 
-The different natural transformations, indicated by $\alpha$ (associativity) ,$\rho$ (right identity) ,$\lambda$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
+The different natural transformations, $\alpha : (a \otimes b) \otimes c\ \rightarrow a \otimes (b \otimes c)$ (associativity), $\rho : a \otimes 1_{\mathcal{C}} \rightarrow a$ (right identity), $\lambda : 1_{\mathcal{C}} \otimes a \rightarrow a$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
 
 
 Applicative functors are a relatively new concept. They were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided.[^2]
@@ -107,8 +107,7 @@ Haskell comes with `curry` and `uncurry` as part of its standard library, which 
 {% raw %}
 \begin{xy}
 \xymatrix {
-\texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}}  && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}
-}
+\texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}}  && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}}
 \end{xy}
 {% endraw %}
 
