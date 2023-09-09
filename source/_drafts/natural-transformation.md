@@ -2,7 +2,7 @@
 title: Natural Transformation
 date: 2023-09-10
 tags: ["category theory", "haskell"]
-subtitle: Morphism of Functors
+subtitle: A Morphism of Functors
 mathjax: true
 ---
 {% raw %}
@@ -42,55 +42,34 @@ Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be Functors $\
 
 
 <!-- A natural tansformation $\phi : F \Rightarrow G$ kk -->
-such that the following diagrams commute:
+such that the following diagram commute:
 
 {% raw %}
 \begin{xy}
 \xymatrix{
-X \ar[r]_{F(f)} \ar@/^1.5pc/[rr]^{F(g\ \circ f)} & F(X) \ar[r]_{F(g)} & G(X) \\
-Y \ar[r]^{f} \ar@/_1.5pc/[rr]_{g\ \circ\ f} \ar[u]_{F} & Y \ar[r]^{g} \ar[u]_{F} & Z \ar[u]_{F}
+X \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{X}\ \circ\ F} & F(X) \ar[r]_{\alpha_{X}} \ar[d]_{F(f)} & G(X) \ar[d]_{G(f)} \\
+Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F}  & F(Y) \ar[r]^{\alpha_{Y}}  & G(Y)
 }
 \end{xy}
 {% endraw %}
 
-
-
+We denote natural transformations as double arrows, $\alpha : F \Rightarrow G$, to distinguish them in diagrams from usual morphisms:
 {% raw %}
 \begin{xy}
-\xymatrix{
-(FX\ \otimes\ FY)\ \otimes\ FZ \ar[r]^{\alpha} \ar[d]_{\phi_{X,Y}\ \otimes\ FZ} & FX\ \otimes\ (FY\ \otimes\ FZ) \ar[d]^{FX\ \otimes\ \phi_{Y,Z}} \\
-F(X\ \otimes\ Y)\ \otimes\ FZ \ar[d]_{\phi_{X\ \otimes\ Y,Z}} & FX\ \otimes\ F(Y\ \otimes\ Z) \ar[d]^{\phi_{X,Y\ \otimes\ Z}} \\
-F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ Z)) \\
+\xymatrix @=5pc {
+\mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D}
 }
 \end{xy}
 {% endraw %}
 
-{% raw %}
-<div class="splitscreen">
-  <div class="left">
-\begin{xy}
-\xymatrix{
-  FX\ \otimes\ 1_{\mathcal{C}}\ar[d]_{\rho} \ar[r]^{FX\ \otimes\ \eta\ \ \ \ \ } & FX\ \otimes\ F(1_{\mathcal{C}}) \ar[d]^{\phi_{X,1_{\mathcal{C}}}} \\
-  FX & F(X\ \otimes\ 1_{\mathcal{C}}) \ar[l]_{F_{\rho}}
-}
-\end{xy}
-  </div>
-
-  <div class="right">
-\begin{xy}
-\xymatrix{
-  1_{\mathcal{C}}\ \otimes\ FY\ar[d]_{\lambda} \ar[r]^{\eta\ \otimes\ FY\ \ \ \ } & F(1_{\mathcal{C}})\ \otimes\ F\ Y \ar[d]^{\phi_{1_{\mathcal{C},Y}}} \\
-  FY & F(1_{\mathcal{C}}\ \otimes\ Y) \ar[l]_{{F_{\lambda}}}
-}
-\end{xy}
-  </div>
-</div>
-{% endraw %}
-
-The different natural transformations, indicated by $\alpha$ (associativity) ,$\rho$ (right identity) ,$\lambda$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
+<!-- \mathcal{C} \ar@/^1pc/[rr]^{alpha} && \mathcal{D} -->
 
 
-Applicative functors are a relatively new concept. They were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided.[^2]
+
+
+
+Natural transformations are one of the most important aspects of category theory. Saunders Mac Lane, one of the founders of category theory, once said, "I didn't invent categories to study functors; I invented them to study natural transformations."
+
 
 # Example
 
