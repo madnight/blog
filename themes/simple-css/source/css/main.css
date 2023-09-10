@@ -164,6 +164,7 @@ body > footer a {
 
 header > nav a {
     border: 1px solid var(--darkreader-border--border);
+    color: var(--darkreader-text--text);
 }
 
 header > nav a:visited {
