@@ -38,11 +38,11 @@ Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be Functors $\
 
 * For every object $X$ in $\mathcal{C}$, a morphism $\alpha_{\mathcal{C}} : F(X) \rightarrow G(X)$ between objects of $\mathcal{D}$. The morphism $\alpha_{X}$ is called the component of $\alpha$ at $X$.
 
-* Components must be such tat for every morphism $f : X \rightarrow Y$ in $\mathcal{C}$ we have: $\alpha_{Y} \circ F(f) = G(f) \circ \alpha_{X}$
+* Components must be such that for every morphism $f : X \rightarrow Y$ in $\mathcal{C}$ we have: $\alpha_{Y} \circ F(f) = G(f) \circ \alpha_{X}$
 
 
 <!-- A natural tansformation $\phi : F \Rightarrow G$ kk -->
-such that the following diagram commute:
+such that the following diagram commutes:
 
 {% raw %}
 \begin{xy}
@@ -76,22 +76,36 @@ Natural transformations are one of the most important aspects of category theory
 The Applicative typeclass in Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called Monoidal that reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between `bind` and `>>=`, as discussed in my post on [monads](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
 
 
-Haskell Definition of Monoidal (Interface)
+In Haskell, we can define a natural transformation like so:
 
 {% vimhl hs %}
-class Functor f => Monoidal f where
-  unit :: f ()
-  (**) :: f a  -> f b  -> f (a, b)
+class (Functor f, Functor g) => Transformation f g where
+    alpha :: f a -> g a
 {% endvimhl %}
 
-Please note that `fa -> fb -> f(a, b)` is actually the curried version of
-`(f a, f b) -> f (a, b)`
-{% vimhl hs %}
-curry :: ((a, b) -> c) -> a -> b -> c
-curry f x y = f (x, y)
 
-uncurry :: (a -> b -> c) -> (a, b) -> c
-uncurry f p =  f (fst p) (snd p)
+Again, the requirement of compatibility with the actions of the functors is not expressible as a type signature, but we can require it as a law:
+
+{% vimhl hs %}
+alpha (fmap f a) = fmap f (alpha a)
+{% endvimhl %}
+
+`listToMaybe :: [a] -> Maybe a` is a natural transformation but not a natural isomorphism, because it is not invertible.
+
+
+{% vimhl hs %}
+identityToMaybe :: Identity a -> Maybe a
+identityToMaybe (Identity a) = Just a
+
+
+{% endvimhl %}
+
+A simple example is safeHead. Its a natural transformation between List and Maybe.
+
+{% vimhl hs %}
+safeHead :: [a] -> Maybe a
+safeHead [] = Nothing
+safeHead (x:xs) = Just x
 {% endvimhl %}
 
 Haskell comes with `curry` and `uncurry` as part of its standard library, which together form an isomorphism. Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:
