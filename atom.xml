@@ -241,9 +241,9 @@
     
       <category term="functional programming" scheme="https://beuke.org/tags/functional-programming/"/>
     
-      <category term="monads" scheme="https://beuke.org/tags/monads/"/>
-    
       <category term="python" scheme="https://beuke.org/tags/python/"/>
+    
+      <category term="monads" scheme="https://beuke.org/tags/monads/"/>
     
   </entry>
   
@@ -266,9 +266,9 @@
     </summary>
     
     
-      <category term="arch" scheme="https://beuke.org/tags/arch/"/>
-    
       <category term="linux" scheme="https://beuke.org/tags/linux/"/>
+    
+      <category term="arch" scheme="https://beuke.org/tags/arch/"/>
     
       <category term="upgrades" scheme="https://beuke.org/tags/upgrades/"/>
     
@@ -428,11 +428,11 @@
     </summary>
     
     
-      <category term="linux" scheme="https://beuke.org/tags/linux/"/>
-    
       <category term="bspwm" scheme="https://beuke.org/tags/bspwm/"/>
     
       <category term="wm" scheme="https://beuke.org/tags/wm/"/>
+    
+      <category term="linux" scheme="https://beuke.org/tags/linux/"/>
     
       <category term="ricing" scheme="https://beuke.org/tags/ricing/"/>
     
