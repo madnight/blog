@@ -29,10 +29,10 @@ window.addEventListener('load', function() {
 </style>
 {% endraw %}
 
-<br>
-<img src="/images/applicative.png" onclick="window.open(this.src)">
+<!-- <br> -->
+<!-- <img src="/images/applicative.png" onclick="window.open(this.src)"> -->
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
-<br>
+<!-- <br> -->
 
 Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be Functors $\mathcal{C} \rightarrow \mathcal{D}$. Then a natrual transofrmation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requierements:
 
