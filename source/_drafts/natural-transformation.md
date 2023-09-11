@@ -137,6 +137,78 @@ $\square$
 </div>
 
 
+<!-- Require Import List. -->
+<!-- Import ListNotations. -->
+<!-- Require Import FunInd. -->
+<!-- Require Import Coq.Init.Datatypes. -->
+
+<!-- Definition safeHead {A : Type} (l : list A): option A := -->
+<!--   match l with -->
+<!--   | [] => None -->
+<!--   | x :: _ => Some x -->
+<!--   end. -->
+
+<!-- (* fmap Definition of Maybe *) -->
+<!-- (* Definition fmap {A B : Type} (f : A -> B) (l : option A) : option B := -->
+<!--   match l with -->
+<!--   | None => None -->
+<!--   | Some x => Some (f x) -->
+<!--   end. *) -->
+
+<!-- (* fmap Definition of List *) -->
+<!-- Fixpoint fmap' {A B : Type} (f : A -> B) (l : list A) : list B := -->
+<!--   match l with -->
+<!--   | [] => [] -->
+<!--   | x :: xs => f x :: fmap' f xs -->
+<!--   end. -->
+
+<!-- Inductive Maybe (A:Type) : Type := -->
+<!--   | Just : A -> Maybe A -->
+<!--   | Nothing : Maybe A. -->
+
+<!-- Arguments Just {A} a. -->
+<!-- Arguments Nothing {A}. -->
+
+<!-- Definition maybe_fmap (A B:Type) (f:A->B) (o : Maybe A) : Maybe B := -->
+<!--   match o with -->
+<!--     | Just a => @Just B (f a) -->
+<!--     | Nothing => @Nothing B -->
+<!--   end. -->
+
+<!-- Class Functor (F : Type -> Type) := { -->
+<!--   fmap : forall {A B : Type}, (A -> B) -> F A -> F B -->
+<!-- }. -->
+
+<!-- #[local] -->
+<!-- Instance Maybe_Functor : Functor option := -->
+<!-- { -->
+<!--   fmap A B f x := match x with -->
+<!--                    | None => None -->
+<!--                    | Some y => Some (f y) -->
+<!--                    end -->
+<!-- }. -->
+
+<!-- Fixpoint fmap_list {A B : Type} (f: A -> B) (xs: list A) : list B := -->
+<!--   match xs with -->
+<!--   | nil => nil -->
+<!--   | cons y ys => cons (f y) (fmap_list f ys) -->
+<!--   end. -->
+
+<!-- #[local] -->
+<!-- Instance List_Functor : Functor list := { -->
+<!--   fmap A B f l := fmap_list f l -->
+<!-- }. -->
+
+<!-- Functional Scheme safeHead_ind := Induction for safeHead Sort Prop. -->
+
+<!-- Lemma fmap_safeHead : -->
+<!--   forall (A B : Type) (f : A -> B) (l : list A), -->
+<!--      fmap f (safeHead l) = safeHead (fmap f l). -->
+<!-- Proof. -->
+<!--   intros A B f l. -->
+<!--   functional induction (safeHead l); simpl; auto. -->
+<!-- Qed. -->
+
 This is an natural transformation from the Identify Functor to Maybe, that works for any type a.
 
 Here are some more:
