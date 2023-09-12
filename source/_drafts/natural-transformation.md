@@ -116,7 +116,7 @@ safeHead [] = Nothing
 safeHead (x:xs) = Just x
 {% endvimhl %}
 
-This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called `safeHead`, because there is also a "unsafeHead" in the Haskell standard library, simply called `head`. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning (or [Coq](https://gist.github.com/madnight/903335b1ba1a56b0ae05b2e8df839c38) if you like) that the naturality condition holds:
+This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called `safeHead`, because there is also a "unsafeHead" in the Haskell standard library, simply called `head`. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning (or [Coq](https://gist.github.com/madnight/903335b1ba1a56b0ae05b2e8df839c38) if you like) that the naturality condition holds in case of `safeHead`:
 
 
 {% vimhl hs %}
@@ -202,64 +202,49 @@ $\square$
 <!--     reflexivity. -->
 <!-- Qed. -->
 
-
-This is an natural transformation from the Identify Functor to Maybe, that works for any type a.
-
 Here are some more:
 
 {% vimhl hs %}
+eitherToMaybe :: Either a b -> Maybe b
+eitherToMaybe (Left _)  = Nothing
+eitherToMaybe (Right x) = Just x
+
+identityToMaybe :: Identity a -> Maybe a
+identityToMaybe (Identity x) = Just x
+
 maybeToList  :: Maybe a -> [a]
 maybeToList  Nothing   = []
 maybeToList  (Just x)  = [x]
 
-listToMaybe :: [a] -> Maybe a
-listToMaybe = foldr (const . Just) Nothing
+maybeToList2 :: Maybe a -> [a]
+maybeToList2 Nothing = []
+maybeToList2 (Just x) = [x,x]
 
--- Basic usage:
---
--- >>> listToMaybe []
--- Nothing
---
--- >>> listToMaybe [9]
--- Just 9
---
--- >>> listToMaybe [1,2,3]
--- Just 1
+maybeToList3 :: Maybe a -> [a]
+maybeToList3 Nothing = []
+maybeToList3 (Just x) = [x,x,x]
 
-
-identityToMaybe :: Identity a -> Maybe a
-identityToMaybe (Identity a) = Just a
+-- ...
 {% endvimhl %}
 
+As we can see there is an infinite number of natural transformations.
 
-`listToMaybe :: [a] -> Maybe a` is a natural transformation but not a natural isomorphism, because it is not invertible.
-
-
-A simple example is safeHead. Its a natural transformation between List and Maybe.
+You can open an interactive Haskell interpreter (ghci), load the functions and test the following examples.
 
 {% vimhl hs %}
-safeHead :: [a] -> Maybe a
-safeHead [] = Nothing
-safeHead (x:xs) = Just x
-{% endvimhl %}
+ghci> safeHead [1,2,3]
+Just 1
 
-All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.
-
-{% vimhl hs %}
-ghci> [(*2)] <*> [1,2,3]
-[2,4,6]
-
-ghci> [(+1),(*2)] <*> [1,2,3]
-[2,3,4,2,4,6]
-
-ghci> Just (*2) <*> Just (3)
-6
-
-ghci> Just (*2) <*> Nothing
+ghci> safeHead []
 Nothing
+
+ghci> maybeToList2 Nothing
+[]
+
+ghci> maybeToList3 (Just "Hi")
+["Hi","Hi","Hi"]
 {% endvimhl %}
 
 ### References
 
-[^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
 [^1]: [Natural Transformations by Bartosz Milewski (2015)](https://bartoszmilewski.com/2015/04/07/natural-transformations/)
