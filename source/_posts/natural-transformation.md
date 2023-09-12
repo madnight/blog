@@ -1,6 +1,6 @@
 ---
 title: Natural Transformation
-date: 2023-09-10
+date: 2023-09-12
 tags: ["category theory", "haskell"]
 subtitle: A Morphism of Functors
 mathjax: true
@@ -34,7 +34,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <!-- <br> -->
 
-Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be Functors $\mathcal{C} \rightarrow \mathcal{D}$. Then a natrual transofrmation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requierements:
+Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be Functors $\mathcal{C} \rightarrow \mathcal{D}$. Then a natural transformation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requirements:
 
 * For every object $X$ in $\mathcal{C}$, a morphism $\alpha_{\mathcal{C}} : F(X) \rightarrow G(X)$ between objects of $\mathcal{D}$. The morphism $\alpha_{X}$ is called the component of $\alpha$ at $X$.
 
@@ -53,7 +53,7 @@ Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F}  & F(Y) \ar[r]^{\alph
 \end{xy}
 {% endraw %}
 
-We denote natural transformations as double arrows, $\alpha : F \Rightarrow G$, to distinguish them in diagrams from usual morphisms:
+We often denote natural transformations as double arrows, $\alpha : F \Rightarrow G$, to distinguish them in diagrams from usual morphisms:
 {% raw %}
 \begin{xy}
 \xymatrix @=5pc {
@@ -72,9 +72,6 @@ Natural transformations are one of the most important aspects of category theory
 
 
 # Example
-
-The Applicative typeclass in Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called Monoidal that reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between `bind` and `>>=`, as discussed in my post on [monads](/monad). Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.
-
 
 In Haskell, we can define a natural transformation like so:
 
@@ -95,7 +92,7 @@ type f ~> g = forall a . f a -> g a
 Again, the requirement of compatibility with the actions of the functors is not expressible as a type signature, but we can write it down as law in pseudocode:
 
 {% vimhl hs %}
-alpha (fmap f a) = fmap f (alpha a) -- naturality condition
+alpha (fmap f a) = fmap f (alpha a) -- (naturality condition)
 {% endvimhl %}
 
 <!-- The `forall a` is optional in Haskell  -->
@@ -106,9 +103,9 @@ Now Haskell supports parametric polymorphism, that means that a function will ac
 alpha :: F a -> G a
 {% endvimhl %}
 
-where F and G are functors. The naturality condition in terms of Haskell means that it doesn’t matter whether we first apply a function, through the application of fmap, and then change the structure via a structure preserving mapping (natural transformation); or first change the structure, and then apply the function to the new structure, with its own implementation of fmap. [^1] 
+where F and G are functors. The naturality condition in terms of Haskell means that it doesn’t matter whether we first apply a function, through the application of `fmap`, and then change the structure via a structure preserving mapping; or first change the structure, and then apply the function to the new structure, with its own implementation of `fmap`. [^1]
 
-Lets have a look at the following examples of natural transformations:
+Lets have a look at the following example:
 
 {% vimhl hs %}
 safeHead :: [a] -> Maybe a
@@ -202,7 +199,7 @@ $\square$
 <!--     reflexivity. -->
 <!-- Qed. -->
 
-Here are some more:
+Here are some more natural transformations:
 
 {% vimhl hs %}
 eitherToMaybe :: Either a b -> Maybe b
