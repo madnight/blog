@@ -116,7 +116,7 @@ safeHead [] = Nothing
 safeHead (x:xs) = Just x
 {% endvimhl %}
 
-This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called `safeHead`, because there is also a "unsafeHead" in the Haskell standard library, simply called `head`. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning that the naturality condition holds:
+This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called `safeHead`, because there is also a "unsafeHead" in the Haskell standard library, simply called `head`. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning (or [Coq](https://gist.github.com/madnight/903335b1ba1a56b0ae05b2e8df839c38) if you like) that the naturality condition holds:
 
 
 {% vimhl hs %}
@@ -136,31 +136,10 @@ safeHead (fmap f (x:xs)) = safeHead (f x : fmap f xs) = Just (f x)
 $\square$
 </div>
 
-
 <!-- Require Import List. -->
 <!-- Import ListNotations. -->
 <!-- Require Import FunInd. -->
 <!-- Require Import Coq.Init.Datatypes. -->
-
-<!-- Definition safeHead {A : Type} (l : list A): option A := -->
-<!--   match l with -->
-<!--   | [] => None -->
-<!--   | x :: _ => Some x -->
-<!--   end. -->
-
-<!-- (* fmap Definition of Maybe *) -->
-<!-- (* Definition fmap {A B : Type} (f : A -> B) (l : option A) : option B := -->
-<!--   match l with -->
-<!--   | None => None -->
-<!--   | Some x => Some (f x) -->
-<!--   end. *) -->
-
-<!-- (* fmap Definition of List *) -->
-<!-- Fixpoint fmap' {A B : Type} (f : A -> B) (l : list A) : list B := -->
-<!--   match l with -->
-<!--   | [] => [] -->
-<!--   | x :: xs => f x :: fmap' f xs -->
-<!--   end. -->
 
 <!-- Inductive Maybe (A:Type) : Type := -->
 <!--   | Just : A -> Maybe A -->
@@ -169,22 +148,16 @@ $\square$
 <!-- Arguments Just {A} a. -->
 <!-- Arguments Nothing {A}. -->
 
-<!-- Definition maybe_fmap (A B:Type) (f:A->B) (o : Maybe A) : Maybe B := -->
-<!--   match o with -->
-<!--     | Just a => @Just B (f a) -->
-<!--     | Nothing => @Nothing B -->
-<!--   end. -->
-
 <!-- Class Functor (F : Type -> Type) := { -->
 <!--   fmap : forall {A B : Type}, (A -> B) -> F A -> F B -->
 <!-- }. -->
 
 <!-- #[local] -->
-<!-- Instance Maybe_Functor : Functor option := -->
+<!-- Instance Maybe_Functor : Functor Maybe := -->
 <!-- { -->
 <!--   fmap A B f x := match x with -->
-<!--                    | None => None -->
-<!--                    | Some y => Some (f y) -->
+<!--                    | Nothing => Nothing -->
+<!--                    | Just y => Just (f y) -->
 <!--                    end -->
 <!-- }. -->
 
@@ -199,15 +172,36 @@ $\square$
 <!--   fmap A B f l := fmap_list f l -->
 <!-- }. -->
 
+<!-- Definition safeHead {A : Type} (l : list A): Maybe A := -->
+<!--   match l with -->
+<!--   | [] => Nothing -->
+<!--   | x :: _ => Just x -->
+<!--   end. -->
+
 <!-- Functional Scheme safeHead_ind := Induction for safeHead Sort Prop. -->
 
-<!-- Lemma fmap_safeHead : -->
+<!-- Lemma safeHead_is_natural : -->
 <!--   forall (A B : Type) (f : A -> B) (l : list A), -->
 <!--      fmap f (safeHead l) = safeHead (fmap f l). -->
 <!-- Proof. -->
 <!--   intros A B f l. -->
-<!--   functional induction (safeHead l); simpl; auto. -->
+<!--   functional induction (safeHead l); simpl. -->
+<!--   - (* Case: l = [] *) -->
+<!--     (* The safeHead of an empty list is Nothing, and mapping any function over *) -->
+<!--     (* Nothing gives Nothing. On the other hand, mapping any function over an *) -->
+<!--     (* empty list gives an empty list and applying safeHead to an empty list *) -->
+<!--     (* gives Nothing. Hence in this case, both sides of the equation are Nothing *) -->
+<!--     (* which makes them equal. *) -->
+<!--     reflexivity. -->
+<!--   - (* Case: l = x :: ls for some x and ls *) -->
+<!--     (* The safeHead of a list beginning with x is Just x, and mapping f over *) -->
+<!--     (* Just x gives Just (f x). On the other hand, mapping f over a list *) -->
+<!--     (* beginning with x gives a list beginning with f x and applying safeHead *) -->
+<!--     (* to this new list gives Just (f x). Hence in this case, both sides of *) -->
+<!--     (* the equation are Just (f x) which makes them equal. *) -->
+<!--     reflexivity. -->
 <!-- Qed. -->
+
 
 This is an natural transformation from the Identify Functor to Maybe, that works for any type a.
 
