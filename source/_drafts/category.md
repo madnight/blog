@@ -41,6 +41,12 @@ window.addEventListener('load', function() {
 A category $\mathcal{C}$ is a quadruple $(\text{Obj}(\mathcal{C}), \text{Mor}(\mathcal{C}),\mu,1_\mathcal{C})$ consisting of a collection of objects $\text{Obj}(\mathcal{C})$,
 For each pair of objects $A,B$, a set $\text{Hom}(A,B)$ of morphisms, also called [hom-sets](/hom-sets).
 
+
+composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$
+
+-- https://ncatlab.org/nlab/show/category 
+
+
 * Set, the category of sets and set functions
 * Mon, the category of monoids and monoid morphisms
 * Monoids are themselves one-object categories
