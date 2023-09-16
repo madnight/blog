@@ -36,13 +36,11 @@ window.addEventListener('load', function() {
 
 Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be Functors $\mathcal{C} \rightarrow \mathcal{D}$. Then a natural transformation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requirements:
 
-* For every object $X$ in $\mathcal{C}$, a morphism $\alpha_{\mathcal{C}} : F(X) \rightarrow G(X)$ between objects of $\mathcal{D}$. The morphism $\alpha_{X}$ is called the component of $\alpha$ at $X$.
+* For every object $X$ in $\mathcal{C}$, a natural transformation $\alpha$ from the functor $F$ to the functor $G$ assigns a morphism $\alpha_{X} : F(X) \rightarrow G(X)$ between objects of $\mathcal{D}$. The morphism $\alpha_{X}$ is called the component of $\alpha$ at $X$.
 
 * Components must be such that for every morphism $f : X \rightarrow Y$ in $\mathcal{C}$ we have: $\alpha_{Y} \circ F(f) = G(f) \circ \alpha_{X}$ (naturality condition)
 
-
-<!-- A natural tansformation $\phi : F \Rightarrow G$ kk -->
-such that the following diagram commutes:
+These requirements can be expressed by the following commutative diagram:
 
 {% raw %}
 \begin{xy}
@@ -66,9 +64,7 @@ We often denote natural transformations as double arrows, $\alpha : F \Rightarro
 
 
 
-
-
-Natural transformations are one of the most important aspects of category theory. Saunders Mac Lane, one of the founders of category theory, once said, "I didn't invent categories to study functors; I invented them to study natural transformations."
+In other words, a natural transformation is a way of transforming one functor into another while respecting the internal structure of the categories involved. Natural transformations are one of the most important aspects of category theory. Saunders Mac Lane, one of the founders of category theory, once said, "I didn't invent categories to study functors; I invented them to study natural transformations."[^1]
 
 
 # Example
@@ -103,7 +99,7 @@ Now Haskell supports parametric polymorphism, that means that a function will ac
 alpha :: F a -> G a
 {% endvimhl %}
 
-where F and G are functors. The naturality condition in terms of Haskell means that it doesn’t matter whether we first apply a function, through the application of `fmap`, and then change the structure via a structure preserving mapping; or first change the structure, and then apply the function to the new structure, with its own implementation of `fmap`. [^1]
+where F and G are functors. The naturality condition in terms of Haskell means that it doesn’t matter whether we first apply a function, through the application of `fmap`, and then change the structure via a structure preserving mapping; or first change the structure, and then apply the function to the new structure, with its own implementation of `fmap`. [^2]
 
 Lets have a look at the following example:
 
@@ -244,4 +240,5 @@ ghci> maybeToList3 (Just "Hi")
 
 ### References
 
-[^1]: [Natural Transformations by Bartosz Milewski (2015)](https://bartoszmilewski.com/2015/04/07/natural-transformations/)
+[^1]: Mac Lane, Saunders (1998), Categories for the Working Mathematician, Graduate Texts in Mathematics 5 (2nd ed.), Springer-Verlag, p. 16, ISBN 0-387-98403-8
+[^2]: [Natural Transformations by Bartosz Milewski (2015)](https://bartoszmilewski.com/2015/04/07/natural-transformations/)
