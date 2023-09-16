@@ -44,6 +44,11 @@ For each pair of objects $A,B$, a set $\text{Hom}(A,B)$ of morphisms, also calle
 
 composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$
 
+
+A category $\mathcal{C}$ consists of a collection of objects, denoted $Obj(\mathcal{C})$ and, for every two objects $x, y \in Obj(\mathcal{C})$, a set of morphisms $\text{Hom}(x,y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
+
+* For every three objects $x,y,z \in Obj(\mathcal{C})$, there is a composition law $\text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$.
+
 -- https://ncatlab.org/nlab/show/category 
 
 
