@@ -30,11 +30,18 @@ window.addEventListener('load', function() {
 })
 </script>
 
+<style>
+<!-- li { -->
+  <!-- list-style-type: none; -->
+<!-- } -->
+ul > li {
+  list-style-type: disc;
+}
 </style>
 {% endraw %}
 
 <br>
-<img src="/images/functor.svg" onclick="window.open(this.src)">
+<img src="/images/category.png" onclick="window.open(this.src)">
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
@@ -45,9 +52,11 @@ window.addEventListener('load', function() {
 
 A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $x, y \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(x,y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
 
-* For every three objects $x,y,z \in \text{Obj}(\mathcal{C})$, there is a composition law:
+* For every three objects $x,y,z \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
 
-  * $\text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$
+  * $\circ : \text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$, or it can be written as: $(g,f) \rightarrow g\ \circ\ f$
+    <!-- <li style="list-style-type: none;">Item 1</li> -->
+    <!-- <li style="list-style-type: none;">Item 2</li> -->
 
 * Composition is associative: for all $w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z), g \in \text{Hom}(x,y), h \in \text{Hom}(w,x)$ we have:
 
@@ -73,6 +82,8 @@ It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathca
 \end{xy}
 {% endraw %}
 
+Proposition: The identity morphism is unique.
+Proof: Suppose that each of $1_{x}$ and $1'_{x}$ is such a morphism. Then by left and right unit laws we have: $1'_{x} \circ 1_{x} = 1'_{x}$
 
 * Set, the category of sets and set functions
 * Mon, the category of monoids and monoid morphisms
