@@ -47,18 +47,31 @@ A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj
 
 * For every three objects $x,y,z \in \text{Obj}(\mathcal{C})$, there is a composition law:
 
-  * $\text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$.
+  * $\text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$
 
 * Composition is associative: for all $w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z), g \in \text{Hom}(x,y), h \in \text{Hom}(w,x)$ we have:
 
     * $f \circ (g \circ h) = (f \circ g) \circ h$
 
-* For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$, such that, for every $y \in \text{Obj}(\mathcal{C})$,
+* For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$ (identity morphism), such that, for every $y \in \text{Obj}(\mathcal{C})$, we have left and right unit laws:
 
     * $f \circ 1_{x} = f$ for all $f \in \text{Hom}(x, y)$
     * $1_{x} \circ f = f$ for all $f \in \text{Hom}(y,x)$
 
--- https://ncatlab.org/nlab/show/category 
+<!-- For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$ (identity morphism), such that for every pair $x,y \in \text{Obj}(\mathcal{C})$, if $f \in \text{Hom}(x,y)$, then we have left and right unit laws: -->
+
+<!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
+
+It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from x to y', it's typically written as $f: x \rightarrow y$ rather than $f \in \text{Hom}(x,y)$. A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the previously mentioned conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
+
+{% raw %}
+\begin{xy}
+	\xymatrix{
+	X \ar@(l,u)^{1_X}[] \ar_{g\ \circ\ f}[dr] \ar^f[r] & Y \ar@(u,r)^{1_Y}[] \ar^g[d]\\
+	&Z \ar@(d,r)_{1_Z}[]
+	}
+\end{xy}
+{% endraw %}
 
 
 * Set, the category of sets and set functions
