@@ -38,16 +38,25 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-A category $\mathcal{C}$ is a quadruple $(\text{Obj}(\mathcal{C}), \text{Mor}(\mathcal{C}),\mu,1_\mathcal{C})$ consisting of a collection of objects $\text{Obj}(\mathcal{C})$,
-For each pair of objects $A,B$, a set $\text{Hom}(A,B)$ of morphisms, also called [hom-sets](/hom-sets).
+<!-- A category $\mathcal{C}$ is a quadruple $(\text{Obj}(\mathcal{C}), \text{Mor}(\mathcal{C}),\mu,1_\mathcal{C})$ consisting of a collection of objects $\text{Obj}(\mathcal{C})$, -->
+<!-- For each pair of objects $A,B$, a set $\text{Hom}(A,B)$ of morphisms, also called [hom-sets](/hom-sets). -->
 
+<!-- composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$ -->
 
-composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$
+A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $x, y \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(x,y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
 
+* For every three objects $x,y,z \in \text{Obj}(\mathcal{C})$, there is a composition law:
 
-A category $\mathcal{C}$ consists of a collection of objects, denoted $Obj(\mathcal{C})$ and, for every two objects $x, y \in Obj(\mathcal{C})$, a set of morphisms $\text{Hom}(x,y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
+  * $\text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$.
 
-* For every three objects $x,y,z \in Obj(\mathcal{C})$, there is a composition law $\text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$.
+* Composition is associative: for all $w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z), g \in \text{Hom}(x,y), h \in \text{Hom}(w,x)$ we have:
+
+    * $f \circ (g \circ h) = (f \circ g) \circ h$
+
+* For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$, such that, for every $y \in \text{Obj}(\mathcal{C})$,
+
+    * $f \circ 1_{x} = f$ for all $f \in \text{Hom}(x, y)$
+    * $1_{x} \circ f = f$ for all $f \in \text{Hom}(y,x)$
 
 -- https://ncatlab.org/nlab/show/category 
 
