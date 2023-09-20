@@ -37,6 +37,10 @@ window.addEventListener('load', function() {
 ul > li {
   list-style-type: disc;
 }
+.right {
+   text-align: right;
+   margin-top: -1rem;
+}
 </style>
 {% endraw %}
 
@@ -82,8 +86,52 @@ It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathca
 \end{xy}
 {% endraw %}
 
-Proposition: The identity morphism is unique.
-Proof: Suppose that each of $1_{x}$ and $1'_{x}$ is such a morphism. Then by left and right unit laws we have: $1'_{x} \circ 1_{x} = 1'_{x}$
+
+(Or in [Coq](https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75))
+
+Proposition: *The identity morphism is unique.*
+Proof: Suppose that each of $1_{x}$ and $1'_{x}$ is an identity morphism. Then by left and right unit laws we have: $1'_{x} \circ 1_{x} = 1'_{x}$ and $1'_{x} \circ 1_{x} = 1_{x}$, hence $1'_{x} = 1'_{x} \circ 1_{x} = 1_{x}$
+{% raw %}
+<div class="right">
+{% endraw %}
+$\pmb{\scriptstyle \square}$
+{% raw %}
+</div>
+{% endraw %}
+
+
+https://www.heldermann.de/SSPM/SSPM01/Chapter-3.pdf
+
+
+
+<!-- Section Category. -->
+<!--   Context `{Hom : Type -> Type -> Type}. -->
+
+<!--   Class Category := { -->
+<!--     id : forall {X}, Hom X X; -->
+<!--     compose  : forall {X Y Z}, Hom X Y -> Hom Y Z -> Hom X Z; -->
+
+<!--     (* Identity Laws *) -->
+<!--     left_identity  : forall {X Y} (f: Hom X Y), -->
+<!--       compose id f = f; -->
+<!--     right_identity : forall {X Y} (f: Hom X Y), -->
+<!--       compose f id = f; -->
+<!--   }. -->
+
+<!--   Variables X : Type. -->
+<!--   Variables (id1 id2 : Hom X X). -->
+<!--   Context `{C : @Category Hom}. -->
+
+<!--   Hypothesis H1 : forall {Y} (f : Hom X Y), compose id1 f = f. -->
+<!--   Hypothesis H2 : forall {Y} (f : Hom X Y), compose id2 f = f. -->
+
+<!--   Theorem identity_unique : id1 = id2. -->
+<!--   Proof. -->
+<!--     specialize H1 with (f:=id1). -->
+<!--     specialize H2 with (f:=id1). -->
+<!--     rewrite <- H1 in H2. -->
+<!--     exact H2. -->
+<!--   Qed. -->
 
 * Set, the category of sets and set functions
 * Mon, the category of monoids and monoid morphisms
