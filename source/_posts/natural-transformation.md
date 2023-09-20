@@ -26,7 +26,6 @@ window.addEventListener('load', function() {
 })
 </script>
 
-</style>
 {% endraw %}
 
 <!-- <br> -->
@@ -111,23 +110,20 @@ safeHead (x:xs) = Just x
 
 This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called `safeHead`, because there is also a "unsafeHead" in the Haskell standard library, simply called `head`. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning (or [Coq](https://gist.github.com/madnight/903335b1ba1a56b0ae05b2e8df839c38) if you like) that the naturality condition holds in case of `safeHead`:
 
-
 {% vimhl hs %}
--- Proposition
+-- Proposition.
 fmap f . safeHead = safeHead . fmap f
 
--- Case Nothing
+-- Case Nothing.
 fmap f (safeHead []) = fmap f Nothing = Nothing
 safeHead (fmap f []) = safeHead [] = Nothing
 
--- Case non-empty List
+-- Case non-empty List.
 fmap f (safeHead (x:xs)) = fmap f (Just x) = Just (f x)
 safeHead (fmap f (x:xs)) = safeHead (f x : fmap f xs) = Just (f x)
-{% endvimhl %}
-<div align="right">
 
-$\square$
-</div>
+-- Qed.
+{% endvimhl %}
 
 <!-- Require Import List. -->
 <!-- Import ListNotations. -->

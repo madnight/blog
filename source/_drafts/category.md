@@ -37,10 +37,6 @@ window.addEventListener('load', function() {
 ul > li {
   list-style-type: disc;
 }
-.right {
-   text-align: right;
-   margin-top: -1rem;
-}
 </style>
 {% endraw %}
 
@@ -58,11 +54,11 @@ A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj
 
 * For every three objects $x,y,z \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
 
-  * $\circ : \text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$, or it can be written as: $(g,f) \rightarrow g\ \circ\ f$
+  * $\circ : \text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$, that can be written as: $(g,f) \rightarrow g\ \circ\ f$
     <!-- <li style="list-style-type: none;">Item 1</li> -->
     <!-- <li style="list-style-type: none;">Item 2</li> -->
 
-* Composition is associative: for all $w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z), g \in \text{Hom}(x,y), h \in \text{Hom}(w,x)$ we have:
+* Composition is associative: for all $w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z)$, $g \in \text{Hom}(x,y)$, $h \in \text{Hom}(w,x)$ we have:
 
     * $f \circ (g \circ h) = (f \circ g) \circ h$
 
@@ -75,7 +71,7 @@ A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj
 
 <!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
 
-It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from x to y', it's typically written as $f: x \rightarrow y$ rather than $f \in \text{Hom}(x,y)$. A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the previously mentioned conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
+It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from x to y', it's typically written as $f: x \rightarrow y$ rather than $f \in \text{Hom}(x,y)$. A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
 
 {% raw %}
 \begin{xy}
@@ -87,20 +83,23 @@ It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathca
 {% endraw %}
 
 
-(Or in [Coq](https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75))
 
-Proposition: *The identity morphism is unique.*
-Proof: Suppose that each of $1_{x}$ and $1'_{x}$ is an identity morphism. Then by left and right unit laws we have: $1'_{x} \circ 1_{x} = 1'_{x}$ and $1'_{x} \circ 1_{x} = 1_{x}$, hence $1'_{x} = 1'_{x} \circ 1_{x} = 1_{x}$
-{% raw %}
+One interesting aspect that follows from the left and right unit laws is that the identity morphism is unique, so there really is just one way to loop back to itself.
+<div class="proof" >
+
+**Proposition.** &nbsp; *The identity morphism is unique.*
+*Proof.* &nbsp; Suppose that each of $1_{x}$ and $1'_{x}$ is an identity morphism. Then by left and right unit laws we have: $1'_{x} \circ 1_{x} = 1'_{x}$ and $1'_{x} \circ 1_{x} = 1_{x}$, hence $1'_{x} = 1'_{x} \circ 1_{x} = 1_{x}$
 <div class="right">
-{% endraw %}
+
 $\pmb{\scriptstyle \square}$
-{% raw %}
-</div>
-{% endraw %}
+</div> </div>
 
+Here is an alternative formulation in [Coq](https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75).
 
-https://www.heldermann.de/SSPM/SSPM01/Chapter-3.pdf
+<!-- Clean proof style -->
+<!-- https://math.berkeley.edu/~wodzicki/253.F16/Cat.pdf -->
+
+<!-- https://www.heldermann.de/SSPM/SSPM01/Chapter-3.pdf -->
 
 
 
@@ -132,6 +131,10 @@ https://www.heldermann.de/SSPM/SSPM01/Chapter-3.pdf
 <!--     rewrite <- H1 in H2. -->
 <!--     exact H2. -->
 <!--   Qed. -->
+
+# Example
+
+Here are some more examples:
 
 * Set, the category of sets and set functions
 * Mon, the category of monoids and monoid morphisms
