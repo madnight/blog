@@ -99,6 +99,18 @@ aside {
     border: 0px;
 }
 
+.right {
+   text-align: right;
+   margin-top: -1.5rem;
+}
+
+.proof {
+    background: var(--accent-bg);
+    padding: 1rem 2rem;
+    padding-bottom: 0.1rem;
+    margin: 0rem 0;
+}
+
 main img {
     display: block;
     margin-left: auto;
@@ -386,7 +398,7 @@ blockquote {
 .notice {
     background: var(--accent-bg);
     padding: 1rem 2rem;
-    border: 2px solid var(--text);
+    /* border: 2px solid var(--text); */
     border-radius: 4px;
     margin: 3rem 0;
 }

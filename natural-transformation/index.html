@@ -293,7 +293,7 @@
                                     </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.59445em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">Y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">G</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (naturality condition)</p>
                     </li>
                 </ul>
-                <p>These requirements can be expressed by the following commutative diagram:</p> \begin{xy} \xymatrix{ X \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{X}\ \circ\ F} & F(X) \ar[r]_{\alpha_{X}} \ar[d]_{F(f)} & G(X) \ar[d]_{G(f)} \\ Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F} & F(Y) \ar[r]^{\alpha_{Y}} & G(Y) } \end{xy} <p>We often denote natural transformations as double arrows, <span class="katex"><span class="katex-mathml"><math>
+                <p>These requirements can be expressed by the following commutative diagram:</p> \begin{xy} \xymatrix{ X \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{X}\ \circ\ F} & F(X) \ar[r]_{\alpha_{X}} \ar[d]_{F(f)} & G(X) \ar[d]_{G(f)} \\ Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F} & F(Y) \ar[r]^{\alpha_{Y}} & G(Y) } \end{xy} <p>Natural transformations are often denoted as double arrows, <span class="katex"><span class="katex-mathml"><math>
                                 <semantics>
                                     <mrow>
                                         <mi>α</mi>
@@ -346,28 +346,20 @@ safeHead <font color="#afaf5f">(</font>x<font color="#87afaf">:</font>xs<font c
                     </figure>
                     <p>This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called <code>safeHead</code>, because there is also a “unsafeHead” in the Haskell standard library, simply called <code>head</code>. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning (or <a target="_blank" rel="noopener" href="https://gist.github.com/madnight/903335b1ba1a56b0ae05b2e8df839c38">Coq</a> if you like) that the naturality condition holds in case of <code>safeHead</code>:</p>
                     <figure class="highlight">
-                        <pre><font face="monospace"><font color="#767676">-- Proposition</font>
+                        <pre><font face="monospace"><font color="#767676">-- Proposition.</font>
 fmap f <font color="#87afaf">.</font> safeHead <font color="#87afaf">=</font> safeHead <font color="#87afaf">.</font> fmap f
 
-<font color="#767676">-- Case Nothing</font>
+<font color="#767676">-- Case Nothing.</font>
 fmap f <font color="#afaf5f">(</font>safeHead <font color="#afaf5f">[])</font> <font color="#87afaf">=</font> fmap f <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
 safeHead <font color="#afaf5f">(</font>fmap f <font color="#afaf5f">[])</font> <font color="#87afaf">=</font> safeHead <font color="#afaf5f">[]</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
 
-<font color="#767676">-- Case non-empty List</font>
+<font color="#767676">-- Case non-empty List.</font>
 fmap f <font color="#afaf5f">(</font>safeHead <font color="#afaf5f">(</font>x<font color="#87afaf">:</font>xs<font color="#afaf5f">))</font> <font color="#87afaf">=</font> fmap f <font color="#afaf5f">(</font><font color="#d7875f">Just</font> x<font color="#afaf5f">)</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>f x<font color="#afaf5f">)</font>
 safeHead <font color="#afaf5f">(</font>fmap f <font color="#afaf5f">(</font>x<font color="#87afaf">:</font>xs<font color="#afaf5f">))</font> <font color="#87afaf">=</font> safeHead <font color="#afaf5f">(</font>f x <font color="#87afaf">:</font> fmap f xs<font color="#afaf5f">)</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>f x<font color="#afaf5f">)</font>
+
+<font color="#767676">-- Qed.</font>
 </font></pre>
                     </figure>
-                    <div align="right">
-                        <p><span class="katex"><span class="katex-mathml"><math>
-                                        <semantics>
-                                            <mrow>
-                                                <mi mathvariant="normal">□</mi>
-                                            </mrow>
-                                            <annotation encoding="application/x-tex">\square</annotation>
-                                        </semantics>
-                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.675em;vertical-align:0em;"></span><span class="mord amsrm">□</span></span></span></span></p>
-                    </div>
                     <!-- Require Import List. -->
                     <!-- Import ListNotations. -->
                     <!-- Require Import FunInd. -->

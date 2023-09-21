@@ -299,7 +299,7 @@ uncurry f p <font color="#87afaf">=</font>  f <font color="#afaf5f">(</font>
                 </figure>
                 <p>Haskell comes with <code>curry</code> and <code>uncurry</code> as part of its standard library, which together form an isomorphism.</p> \begin{xy} \xymatrix { \texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}} && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}} \end{xy}
                 <!-- \mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D} -->
-                <p>Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:</p>
+                <p>Hence we can also phrase Monoidal this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">=></font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">where</font>
 <font color="#767676">-- η     : 1  -> F(1) (unit)</font>
@@ -315,7 +315,7 @@ uncurry f p <font color="#87afaf">=</font>  f <font color="#afaf5f">(</font>
 u <font color="#87afaf">**</font> <font color="#afaf5f">(</font>v <font color="#87afaf">**</font> w<font color="#afaf5f">)</font> <font color="#87afaf">==</font> <font color="#afaf5f">(</font>u <font color="#87afaf">**</font> v<font color="#afaf5f">)</font> <font color="#87afaf">**</font> w <font color="#767676">-- Associativity</font>
 </font></pre>
                 </figure>
-                <p>Now that we have established the definition lets have a look at the equivalent Applicative definition in Haskell.</p>
+                <p>Now that we have established the definition of Monoidal lets have a look at the equivalent Applicative definition in Haskell.</p>
                 <p>Haskell Definition of Applicative (Interface)</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">where</font>
@@ -341,7 +341,7 @@ unit   <font color="#87afaf">=</font> pure <font color="#afaf5f">()</font>
 f <font color="#87afaf">**</font> g <font color="#87afaf">=</font> fmap <font color="#afaf5f">(</font><font color="#afaf5f">,</font><font color="#afaf5f">)</font> f <font color="#87afaf"><*></font> g
 </font></pre>
                 </figure>
-                <p>We’ve now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal has actually be shown in a computer checked <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/62959880">proof</a> in Coq. Now, lets have a look at some instances of Applicative.</p>
+                <p>We’ve now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/62959880">proof</a> in Coq. Now, lets have a look at some instances of Applicative.</p>
                 <!-- Require Import Coq.Program.Basics. -->
                 <!-- Require Import Coq.Init.Datatypes. -->
                 <!-- Require Import Coq.Init.Notations. -->
