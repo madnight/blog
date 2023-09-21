@@ -115,7 +115,7 @@ Haskell comes with `curry` and `uncurry` as part of its standard library, which 
 <!-- \mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D} -->
 
 
-Hence we can also phrase Monoidal in this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:
+Hence we can also phrase Monoidal this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:
 
 {% vimhl hs %}
 class Functor f => Monoidal f where
@@ -134,7 +134,7 @@ unit ** v == v == v ** unit    -- Left and Right Identity
 u ** (v ** w) == (u ** v) ** w -- Associativity
 {% endvimhl %}
 
-Now that we have established the definition lets have a look at the equivalent Applicative definition in Haskell.
+Now that we have established the definition of Monoidal lets have a look at the equivalent Applicative definition in Haskell.
 
 Haskell Definition of Applicative (Interface)
 
@@ -163,7 +163,7 @@ unit   = pure ()
 f ** g = fmap (,) f <*> g
 {% endvimhl %}
 
-We've now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal has actually be shown in a computer checked [proof](https://stackoverflow.com/a/62959880) in Coq. Now, lets have a look at some instances of Applicative.
+We've now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked [proof](https://stackoverflow.com/a/62959880) in Coq. Now, lets have a look at some instances of Applicative.
 
 <!-- Require Import Coq.Program.Basics. -->
 <!-- Require Import Coq.Init.Datatypes. -->

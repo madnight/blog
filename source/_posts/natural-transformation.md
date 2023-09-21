@@ -50,7 +50,7 @@ Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F}  & F(Y) \ar[r]^{\alph
 \end{xy}
 {% endraw %}
 
-We often denote natural transformations as double arrows, $\alpha : F \Rightarrow G$, to distinguish them in diagrams from usual morphisms:
+Natural transformations are often denoted as double arrows, $\alpha : F \Rightarrow G$, to distinguish them in diagrams from usual morphisms:
 {% raw %}
 \begin{xy}
 \xymatrix @=5pc {
