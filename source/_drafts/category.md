@@ -134,10 +134,92 @@ Here is an alternative formulation in [Coq](https://gist.github.com/madnight/f1d
 
 # Example
 
+In Haskell objects are types and morphisms are functions.
+
  In Haskell, the identity morphism is id, and we have trivially:
 ```hs
 id . f = f . id = f
 ```
+
+{% vimhl hs %}
+class Category cat where
+    -- the identity morphism
+    id :: cat a a
+
+    -- morphism composition
+    (.) :: cat b c -> cat a b -> cat a c
+{% endvimhl %}
+
+<!-- askell types along with functions between types form (almost†) a category. We have an identity morphism (function) (id :: a -> a) for every object (type) a; and composition of morphisms ((.) :: (b -> c) -> (a -> b) -> a -> c), which obey category laws: -->
+
+
+
+
+We can convince ourself that this laws actually hold:
+
+{% vimhl hs %}
+-- Left identity: id . f = f
+id . f
+= \x -> id (f x)
+= \x -> f x
+= f
+
+-- Right identity: f . id = f
+f . id
+= \x -> f (id x)
+= \x -> f x
+= f
+
+-- Associativity: (f . g) . h = f . (g . h)
+(f . g) . h
+= \x -> (f . g) (h x)
+= \x -> f (g (h x))
+= \x -> f ((g . h) x)
+= \x -> (f . (g . h)) x
+= f . (g . h)
+{% endvimhl %}
+
+
+<!-- We usually call this category Hask. -->
+
+<!-- https://hackage.haskell.org/package/base-4.6.0.1/docs/Control-Arrow.html -->
+<!-- is category -->
+
+<!-- The canonical example of a Category in Haskell is the function category: -->
+
+<!-- Another common example is the Category of Kleisli arrows for a Monad: -->
+
+The Category type class in Haskell isn't typically used for everyday programming tasks, but it does have a few interesting and practical applications. Some of these include:
+
+
+Interesting:
+https://devtut.github.io/haskell/applicative-functor.html#alternative-definition
+
+class Functor f => PairingFunctor f where
+  funit :: f ()                  -- create a context, carrying nothing of import
+  fpair :: (f a,f b) -> f (a,b)  -- collapse a pair of contexts into a pair-carrying context
+
+
+This class is isomorphic to Applicative.
+
+pure a = const a <$> funit = a <$ funit  
+fa <*> fb = (\(a,b) -> a b) <$> fpair (fa, fb) = uncurry ($) <$> fpair (fa, fb)
+
+And inverse:
+
+
+funit = pure ()
+
+fpair (fa, fb) = (,) <$> fa <*> fb
+
+
+
+A correct instance of Applicative should satisfy the applicative laws, though these are not enforced by the compiler:
+
+pure id <*> a = a                              -- identity
+pure (.) <*> a <*> b <*> c = a <*> (b <*> c)   -- composition
+pure f <*> pure a = pure (f a)                 -- homomorphism
+a <*> pure b = pure ($ b) <*> a                -- interchange
 
 Here are some more examples:
 
