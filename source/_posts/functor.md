@@ -88,7 +88,7 @@ instance  Functor Maybe  where
     fmap f (Just a)      = Just (f a)
 {% endvimhl %}
 
-All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.
+All of the above is already implemented in the standard Haskell library, so you can simply open an interactive Haskell interpreter (ghci) and test the following examples.
 
 {% vimhl hs %}
 ghci> fmap (*2) [1,2,3]
@@ -121,4 +121,4 @@ Some more examples contains basically everything that can be mapped over:
 ### References
 
 [^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
-[^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition) -->
+[^1]: [Functor in ncatlab](https://ncatlab.org/nlab/show/functor#definition)

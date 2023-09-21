@@ -134,6 +134,11 @@ Here is an alternative formulation in [Coq](https://gist.github.com/madnight/f1d
 
 # Example
 
+ In Haskell, the identity morphism is id, and we have trivially:
+```hs
+id . f = f . id = f
+```
+
 Here are some more examples:
 
 * Set, the category of sets and set functions
