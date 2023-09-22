@@ -94,7 +94,7 @@ One interesting aspect that follows from the left and right unit laws is that th
 $\pmb{\scriptstyle \square}$
 </div> </div>
 
-Here is an alternative formulation in [Coq](https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75).
+Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75).
 
 <!-- Clean proof style -->
 <!-- https://math.berkeley.edu/~wodzicki/253.F16/Cat.pdf -->
@@ -139,6 +139,8 @@ In Haskell objects are types and morphisms are functions.
  In Haskell, the identity morphism is id, and we have trivially:
 ```hs
 id . f = f . id = f
+
+f g h = (f . g) . h = f . (g . h)
 ```
 
 {% vimhl hs %}
@@ -147,12 +149,30 @@ class Category cat where
     id :: cat a a
 
     -- morphism composition
-    (.) :: cat b c -> cat a b -> cat a c
+    (.) :: (b `cat` c) -> (a `cat` b) -> (a `cat` c)
 {% endvimhl %}
 
-<!-- askell types along with functions between types form (almost†) a category. We have an identity morphism (function) (id :: a -> a) for every object (type) a; and composition of morphisms ((.) :: (b -> c) -> (a -> b) -> a -> c), which obey category laws: -->
+askell types along with functions between types form (almost†) a category. We have an identity morphism (function) (id :: a -> a) for every object (type) a; and composition of morphisms ((.) :: (b -> c) -> (a -> b) -> a -> c), which obey category laws:
+
+The category laws state that id is the identity for composition and that composition is associative.
+
+In Haskell, we implement the standard category as follows:
 
 
+
+{% vimhl hs %}
+instance Category (->) where
+    id :: a -> a
+    id x = x
+
+    (.) :: (b -> c) -> (a -> b) -> a -> c
+    g . f = \x -> g (f x)
+{% endvimhl %}
+
+This instance represents the category of Haskell types and functions.
+
+
+In Haskell, the 'Objects of a Category' are defined by types. The typeclass variable `cat` characterizes the variety of morphisms in the given category, particularly when the origins and destinations of our morphisms are concealed in the morphisms' type declarations for which we establish a category instance. In the instance of `(->)`, the origin and destination can be any data type in Haskell. Conversely, for a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free (Consider Grp encoding, for example).
 
 
 We can convince ourself that this laws actually hold:
@@ -177,6 +197,21 @@ f . id
 = \x -> f ((g . h) x)
 = \x -> (f . (g . h)) x
 = f . (g . h)
+{% endvimhl %}
+
+Another common example is the Category of Kleisli arrows for a Monad:
+
+{% vimhl hs %}
+newtype Kleisli m a b = Kleisli {
+  runKleisli :: a -> m b
+}
+
+instance Monad m => Category (Kleisli m) where
+  id :: Kleisli m a a
+  id = Kleisli return
+
+  (.) :: Kleisli m b c -> Kleisli m a b -> Kleisli m a c
+  Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
 {% endvimhl %}
 
 
