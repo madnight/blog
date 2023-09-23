@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/natural-transformation/</loc>
+    
+    <lastmod>2023-09-23T12:23:06.819Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2023-09-21T19:33:24.827Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://beuke.org/functor/</loc>
     
     <lastmod>2023-09-21T19:31:27.995Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/natural-transformation/</loc>
-    
-    <lastmod>2023-09-21T19:30:33.235Z</lastmod>
     
   </url>
   
@@ -100,14 +100,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
+    <loc>https://beuke.org/arch-linux-archive/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/arch-linux-archive/</loc>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -121,7 +121,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
