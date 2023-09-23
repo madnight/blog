@@ -478,17 +478,20 @@ blockquote {
 .splitscreen .left,
 .splitscreen .right {
   width: 100%;
+  align-items: center;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.right {
+  align-self: flex-end;
 }
 
 @media (min-width: 600px) {
   .splitscreen {
     display: flex;
-  }
-
-  .splitscreen .left,
-  .splitscreen .right {
-    width: auto;
-    flex: 1;
   }
 }
 
