@@ -37,6 +37,24 @@ window.addEventListener('load', function() {
 ul > li {
   list-style-type: disc;
 }
+.code-box {
+    position: relative;
+    padding-top: 12px;
+    margin-top: -0.5rem;
+}
+.language-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #20211f;
+    padding: 2px 5px;
+    border-color: rgb(59, 60, 58);
+    border-top: 1px solid #393a38;
+    border-right: 1px solid #393a38;
+    border-left: 1px solid #393a38;
+    font-size: 0.9rem;
+    text-align: right; /* Aligns the text to the right */
+}
 </style>
 {% endraw %}
 
@@ -201,6 +219,10 @@ f . id
 
 Another common example is the Category of Kleisli arrows for a Monad:
 
+{% raw %} 
+<div class="code-box">
+<div class="language-label">Haskell</div>
+{% endraw %}
 {% vimhl hs %}
 newtype Kleisli m a b = Kleisli {
   runKleisli :: a -> m b
@@ -213,6 +235,9 @@ instance Monad m => Category (Kleisli m) where
   (.) :: Kleisli m b c -> Kleisli m a b -> Kleisli m a c
   Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
 {% endvimhl %}
+{% raw %}
+</div>
+{% endraw %}
 
 
 <!-- We usually call this category Hask. -->
