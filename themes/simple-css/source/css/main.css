@@ -193,6 +193,27 @@ header > nav a:hover {
 code,
 pre {
     color: var(--darkreader-text--code);
+    border-radius: 0px;
+}
+
+.code-box {
+    position: relative;
+    padding-top: 12px;
+    margin-top: -0.5rem;
+}
+
+.language-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #20211f;
+    padding: 2px 5px;
+    border-color: rgb(59, 60, 58);
+    border-top: 1px solid #393a38;
+    border-right: 1px solid #393a38;
+    border-left: 1px solid #393a38;
+    font-size: 0.9rem;
+    text-align: right; /* Aligns the text to the right */
 }
 
 aside {
@@ -501,8 +522,6 @@ blockquote {
       padding: 0rem 0rem 0rem 0rem;
       font-size: 0.8rem;
   }
-
-
 
   pre {
       font-size: 0.8rem;
