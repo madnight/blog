@@ -219,10 +219,6 @@ f . id
 
 Another common example is the Category of Kleisli arrows for a Monad:
 
-{% raw %} 
-<div class="code-box">
-<div class="language-label">Haskell</div>
-{% endraw %}
 {% vimhl hs %}
 newtype Kleisli m a b = Kleisli {
   runKleisli :: a -> m b
@@ -235,10 +231,6 @@ instance Monad m => Category (Kleisli m) where
   (.) :: Kleisli m b c -> Kleisli m a b -> Kleisli m a c
   Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
 {% endvimhl %}
-{% raw %}
-</div>
-{% endraw %}
-
 
 <!-- We usually call this category Hask. -->
 
