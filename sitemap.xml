@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/applicative/</loc>
+    
+    <lastmod>2023-09-23T12:33:54.706Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/natural-transformation/</loc>
     
     <lastmod>2023-09-23T12:23:06.819Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://beuke.org/functor/</loc>
     
     <lastmod>2023-09-21T19:31:27.995Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/applicative/</loc>
-    
-    <lastmod>2023-09-21T19:29:39.995Z</lastmod>
     
   </url>
   
@@ -121,6 +121,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/disk-latency/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
@@ -129,13 +136,6 @@
   
   <url>
     <loc>https://beuke.org/elm-json/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
