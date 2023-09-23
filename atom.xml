@@ -270,9 +270,9 @@
     
       <category term="functional programming" scheme="https://beuke.org/tags/functional-programming/"/>
     
-      <category term="monads" scheme="https://beuke.org/tags/monads/"/>
-    
       <category term="python" scheme="https://beuke.org/tags/python/"/>
+    
+      <category term="monads" scheme="https://beuke.org/tags/monads/"/>
     
   </entry>
   
