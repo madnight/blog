@@ -152,14 +152,7 @@ Here is an alternative formulation of this proof in [Coq](https://gist.github.co
 
 # Example
 
-In Haskell objects are types and morphisms are functions.
-
- In Haskell, the identity morphism is id, and we have trivially:
-```hs
-id . f = f . id = f
-
-f g h = (f . g) . h = f . (g . h)
-```
+In Haskell, Category is a type class that abstracts the concept of a mathematical category. In the context of Haskell, types are considered as objects and functions as morphisms.
 
 {% vimhl hs %}
 class Category cat where
@@ -170,13 +163,7 @@ class Category cat where
     (.) :: (b `cat` c) -> (a `cat` b) -> (a `cat` c)
 {% endvimhl %}
 
-askell types along with functions between types form (almost†) a category. We have an identity morphism (function) (id :: a -> a) for every object (type) a; and composition of morphisms ((.) :: (b -> c) -> (a -> b) -> a -> c), which obey category laws:
-
-The category laws state that id is the identity for composition and that composition is associative.
-
 In Haskell, we implement the standard category as follows:
-
-
 
 {% vimhl hs %}
 instance Category (->) where
@@ -187,35 +174,19 @@ instance Category (->) where
     g . f = \x -> g (f x)
 {% endvimhl %}
 
-This instance represents the category of Haskell types and functions.
-
-
-In Haskell, the 'Objects of a Category' are defined by types. The typeclass variable `cat` characterizes the variety of morphisms in the given category, particularly when the origins and destinations of our morphisms are concealed in the morphisms' type declarations for which we establish a category instance. In the instance of `(->)`, the origin and destination can be any data type in Haskell. Conversely, for a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free (Consider Grp encoding, for example).
-
-
-We can convince ourself that this laws actually hold:
+This instance represents the category of Haskell types and functions, also called `Hask`. The id function is the identity morphism that leaves the object unchanged. The (.) function is a composition of morphisms, which obey category laws (pseudo haskell):
 
 {% vimhl hs %}
--- Left identity: id . f = f
-id . f
-= \x -> id (f x)
-= \x -> f x
-= f
-
--- Right identity: f . id = f
-f . id
-= \x -> f (id x)
-= \x -> f x
-= f
-
--- Associativity: (f . g) . h = f . (g . h)
-(f . g) . h
-= \x -> (f . g) (h x)
-= \x -> f (g (h x))
-= \x -> f ((g . h) x)
-= \x -> (f . (g . h)) x
-= f . (g . h)
+id . f = f . id = f       -- left and right identity law
+(f . g) . h = f . (g . h) -- composition is associative
 {% endvimhl %}
+
+
+It is also important to note that Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a monad, where morphisms are functions of type `a -> m b` for some monad.
+
+Hask, however has some problems. Hence, Haskell developers often think in a subset of Haskell where types do not have bottom values due to the difficulties that arise when dealing with non-termination. This subset only includes functions that terminate and typically only finite values. The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1.
+
+In Haskell, the 'Objects of a Category' are defined by types. The typeclass variable `cat` characterizes the variety of morphisms in the given category, particularly when the origins and destinations of our morphisms are concealed in the morphisms' type declarations for which we establish a category instance. In the instance of `(->)`, the origin and destination can be any data type in Haskell. Conversely, for a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free.
 
 Another common example is the Category of Kleisli arrows for a Monad:
 
@@ -273,6 +244,12 @@ pure (.) <*> a <*> b <*> c = a <*> (b <*> c)   -- composition
 pure f <*> pure a = pure (f a)                 -- homomorphism
 a <*> pure b = pure ($ b) <*> a                -- interchange
 
+```
+ghci> (show . sqrt . (+2) . abs) 14
+"4.0"
+
+```
+
 Here are some more examples:
 
 * Set, the category of sets and set functions
@@ -294,3 +271,4 @@ Here are some more examples:
 ### References
 
 [^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
+[^1]: [Control.Category](https://hackage.haskell.org/package/base-4.18.1.0/docs/Control-Category.html)
