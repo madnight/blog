@@ -106,7 +106,7 @@ Haskell comes with `curry` and `uncurry` as part of its standard library, which 
 
 {% raw %}
 \begin{xy}
-\xymatrix {
+\xymatrix@C-=1cm{
 \texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}}  && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}}
 \end{xy}
 {% endraw %}
