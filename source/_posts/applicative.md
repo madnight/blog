@@ -34,10 +34,10 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-An applicative, in category theory, is a lax monoidal endofunctor with tensorial strength. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
+An applicative, in category theory, is a lax monoidal endofunctor with tensorial strength. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a [functor](/functor) $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 * $\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})$ (the unit morphism)
 
-* $\phi_{X,Y} : FX \otimes FY \rightarrow F(X \otimes Y)$ (a natural transformation)
+* $\phi_{X,Y} : FX \otimes FY \rightarrow F(X \otimes Y)$ (a [natural transformation](/natural-transformation))
 
 such that the following diagrams commute:
 
@@ -73,8 +73,13 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 </div>
 {% endraw %}
 
-The different natural transformations, $\alpha : (a \otimes b) \otimes c\ \rightarrow a \otimes (b \otimes c)$ (associativity), $\rho : a \otimes 1_{\mathcal{C}} \rightarrow a$ (right identity), $\lambda : 1_{\mathcal{C}} \otimes a \rightarrow a$ (left identity) are part of the monoidal structure on ${\mathcal {C}}$.
+The [natural transformations](/natural-transformation):
 
+* $\alpha : (a \otimes b) \otimes c\ \rightarrow a \otimes (b \otimes c)$ (associativity)
+* $\rho : a \otimes 1_{\mathcal{C}} \rightarrow a$ (right identity)
+* $\lambda : 1_{\mathcal{C}} \otimes a \rightarrow a$ (left identity)
+
+are part of the monoidal structure on ${\mathcal {C}}$.
 
 Applicative functors are a relatively new concept. They were first introduced in 2008 by Conor McBride and Ross Paterson in their paper *Applicative programming with effects*.[^1] In functional programming every functor is an endofunctor and every functor applied to the monoidal category $\mathbf{Set}$, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within $\mathbf{Set}$ being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of $\mathbf{Set}$ functors, this coherent association is automatically provided.[^2]
 
