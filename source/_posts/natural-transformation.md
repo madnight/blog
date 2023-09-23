@@ -63,7 +63,10 @@ Natural transformations are often denoted as double arrows, $\alpha : F \Rightar
 
 
 
-In other words, a natural transformation is a way of transforming one functor into another while respecting the internal structure of the categories involved. Natural transformations are one of the most important aspects of category theory. Saunders Mac Lane, one of the founders of category theory, once said, "I didn't invent categories to study functors; I invented them to study natural transformations."[^1]
+In other words, a natural transformation is a way of transforming one functor into another while respecting the internal structure of the categories involved. Natural transformations are one of the most important aspects of category theory. Saunders Mac Lane, one of the founders of category theory, once said:
+{% blockquote [^1] %}
+I didn't invent categories to study functors; I invented them to study natural transformations.
+{% endblockquote %}
 
 
 # Example
