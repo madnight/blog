@@ -26,6 +26,13 @@ window.addEventListener('load', function() {
 })
 </script>
 
+
+<style>
+  @media only screen and (max-width: 400px) {
+    mjx-math {
+        font-size: 0.9rem !important;
+    }
+  }
 </style>
 {% endraw %}
 
@@ -73,7 +80,7 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 </div>
 {% endraw %}
 
-The [natural transformations](/natural-transformation):
+The natural transformations:
 
 * $\alpha : (a \otimes b) \otimes c\ \rightarrow a \otimes (b \otimes c)$ (associativity)
 * $\rho : a \otimes 1_{\mathcal{C}} \rightarrow a$ (right identity)

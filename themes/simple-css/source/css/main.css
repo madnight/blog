@@ -535,10 +535,6 @@ blockquote {
         margin: 0 1.5% 1rem 1.5%;
     }
 
-    mjx-math {
-        font-size: 0.9rem !important;
-    }
-
     .post-title {
       font-size: 2.5rem;
     }

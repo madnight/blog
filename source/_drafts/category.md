@@ -174,19 +174,26 @@ instance Category (->) where
     g . f = \x -> g (f x)
 {% endvimhl %}
 
-This instance represents the category of Haskell types and functions, also called `Hask`. The id function is the identity morphism that leaves the object unchanged. The (.) function is a composition of morphisms, which obey category laws (pseudo haskell):
+This instance represents the category of Haskell types and functions, also called **Hask**. The `id` function is the identity morphism that leaves the object unchanged. The `(.)` function is a composition of morphisms, which obey category laws in pseudo notation:
 
 {% vimhl hs %}
 id . f = f . id = f       -- left and right identity law
 (f . g) . h = f . (g . h) -- composition is associative
 {% endvimhl %}
 
+**Hask**, however has some problems. Hence, Haskell developers often think in a subset of Haskell where types do not have bottom values due to the difficulties that arise when dealing with non-termination. This subset only includes functions that terminate and typically only finite values. This subset essentially excludes everything that prevents Haskell from being a category.
 
-It is also important to note that Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a monad, where morphisms are functions of type `a -> m b` for some monad.
+<!-- The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1. -->
 
-Hask, however has some problems. Hence, Haskell developers often think in a subset of Haskell where types do not have bottom values due to the difficulties that arise when dealing with non-termination. This subset only includes functions that terminate and typically only finite values. The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1.
+The Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a monad, where morphisms are functions of type `a -> m b`.
 
-In Haskell, the 'Objects of a Category' are defined by types. The typeclass variable `cat` characterizes the variety of morphisms in the given category, particularly when the origins and destinations of our morphisms are concealed in the morphisms' type declarations for which we establish a category instance. In the instance of `(->)`, the origin and destination can be any data type in Haskell. Conversely, for a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free.
+The entities in this group are identical to the types in Haskell as found in Hask. However, the transformation between these entities are represented by Kleisli arrows. Within the context of Kleisli m, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type a -> m a, is denoted as return.
+
+Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides. There is a Category instance in base for Kleisli arrows that can be helpful[^1].
+
+In the instance of `(->)`, the origin and destination can be any data type in Haskell. Conversely, for a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free.
+
+https://bartoszmilewski.com/2014/12/23/kleisli-categories/
 
 Another common example is the Category of Kleisli arrows for a Monad:
 
