@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2023-09-27T06:59:10.376Z</lastmod>
+    <lastmod>2023-09-27T06:59:53.972Z</lastmod>
     
   </url>
   
@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -114,6 +114,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/disk-latency/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/bspwm-missing-docs/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
@@ -121,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -136,13 +143,6 @@
   
   <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
