@@ -175,7 +175,18 @@ unit   = pure ()
 f ** g = fmap (,) f <*> g
 {% endvimhl %}
 
-We've now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked [proof](https://stackoverflow.com/a/62959880) in Coq. Now, lets have a look at some instances of Applicative.
+We've now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked [proof](https://stackoverflow.com/a/62959880) in Coq.
+
+Though the compiler does not enforce it, a proper instance of Applicative should comply with the applicative laws:
+
+{% vimhl hs %}
+pure id <*> a = a                              -- identity
+pure (.) <*> a <*> b <*> c = a <*> (b <*> c)   -- composition
+pure f <*> pure a = pure (f a)                 -- homomorphism
+a <*> pure b = pure ($ b) <*> a                -- interchange
+{% endvimhl %}
+
+Now, lets have a look at some instances of Applicative.
 
 <!-- Require Import Coq.Program.Basics. -->
 <!-- Require Import Coq.Init.Datatypes. -->
