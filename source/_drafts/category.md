@@ -89,7 +89,9 @@ A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj
 
 <!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
 
-It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from x to y', it's typically written as $f: x \rightarrow y$ rather than $f \in \text{Hom}(x,y)$. A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
+It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from x to y', it's typically written as $f: x \rightarrow y$ rather than $f \in \text{Hom}(x,y)$.
+
+A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
 
 {% raw %}
 \begin{xy}
@@ -181,21 +183,14 @@ id . f = f . id = f       -- left and right identity law
 (f . g) . h = f . (g . h) -- composition is associative
 {% endvimhl %}
 
-**Hask**, however has some problems. Hence, Haskell developers often think in a subset of Haskell where types do not have bottom values due to the difficulties that arise when dealing with non-termination. This subset only includes functions that terminate and typically only finite values. This subset essentially excludes everything that prevents Haskell from being a category.
+However, **Hask** has some problems when we consider all of Haskell. Therefore, Haskell developers often work with a subset of Haskell where types do not have bottom values. This is due to the difficulties that arise when dealing with non-termination. This subset only includes functions that terminate and typically only finite values. It also fixes some other subtleties. Essentially, this subset excludes everything that prevents Haskell from being a category.
 
 <!-- The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1. -->
 
-The Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a monad, where morphisms are functions of type `a -> m b`.
+The Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a [monad](/monad), where morphisms are functions of type `a -> m b`. The entities in this group are identical to the types in Haskell as found in Hask. However, the transformation between these entities are represented by Kleisli arrows. Within the context of Kleisli, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type `a -> m a`, is denoted as `return`.
 
-The entities in this group are identical to the types in Haskell as found in Hask. However, the transformation between these entities are represented by Kleisli arrows. Within the context of Kleisli m, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type a -> m a, is denoted as return.
+Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides. There is a Category instance in base for Kleisli arrows that can be helpful:
 
-Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides. There is a Category instance in base for Kleisli arrows that can be helpful[^1].
-
-In the instance of `(->)`, the origin and destination can be any data type in Haskell. Conversely, for a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free.
-
-https://bartoszmilewski.com/2014/12/23/kleisli-categories/
-
-Another common example is the Category of Kleisli arrows for a Monad:
 
 {% vimhl hs %}
 newtype Kleisli m a b = Kleisli {
@@ -210,6 +205,15 @@ instance Monad m => Category (Kleisli m) where
   Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
 {% endvimhl %}
 
+
+In the instance of `(->)`, the origin and destination can be any data type in Haskell. For a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. 
+
+<!-- This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free. -->
+
+<!-- https://bartoszmilewski.com/2014/12/23/kleisli-categories/ -->
+
+Another common example is the Category of Kleisli arrows for a Monad:
+
 <!-- We usually call this category Hask. -->
 
 <!-- https://hackage.haskell.org/package/base-4.6.0.1/docs/Control-Arrow.html -->
@@ -221,36 +225,6 @@ instance Monad m => Category (Kleisli m) where
 
 The Category type class in Haskell isn't typically used for everyday programming tasks, but it does have a few interesting and practical applications. Some of these include:
 
-
-Interesting:
-https://devtut.github.io/haskell/applicative-functor.html#alternative-definition
-
-class Functor f => PairingFunctor f where
-  funit :: f ()                  -- create a context, carrying nothing of import
-  fpair :: (f a,f b) -> f (a,b)  -- collapse a pair of contexts into a pair-carrying context
-
-
-This class is isomorphic to Applicative.
-
-pure a = const a <$> funit = a <$ funit  
-fa <*> fb = (\(a,b) -> a b) <$> fpair (fa, fb) = uncurry ($) <$> fpair (fa, fb)
-
-And inverse:
-
-
-funit = pure ()
-
-fpair (fa, fb) = (,) <$> fa <*> fb
-
-
-
-A correct instance of Applicative should satisfy the applicative laws, though these are not enforced by the compiler:
-
-pure id <*> a = a                              -- identity
-pure (.) <*> a <*> b <*> c = a <*> (b <*> c)   -- composition
-pure f <*> pure a = pure (f a)                 -- homomorphism
-a <*> pure b = pure ($ b) <*> a                -- interchange
-
 ```
 ghci> (show . sqrt . (+2) . abs) 14
 "4.0"
@@ -259,16 +233,16 @@ ghci> (show . sqrt . (+2) . abs) 14
 
 Here are some more examples:
 
-* Set, the category of sets and set functions
-* Mon, the category of monoids and monoid morphisms
+* $\mathbf{Set}$, the category of sets and set functions
+* $\mathbf{Mon}$, the category of monoids and monoid morphisms
+* $\mathbf{Grp}$, the category of groups and group morphisms
+* $\mathbf{Rng}$, the category of rings and ring morphisms
+* $\mathbf{Grph}$, the category of graphs and graph morphisms
+* $\mathbf{Top}$, the category of topological spaces and continuous maps
+* $\mathbf{Preord}$, the category of preorders and order preserving maps
+* $\mathbf{CPO}$, the category of complete partial orders and continuous functions
+* $\mathbf{Cat}$, the category of categories and functors
 * Monoids are themselves one-object categories
-* Grp, the category of groups and group morphisms
-* Rng, the category of rings and ring morphisms
-* Grph, the category of graphs and graph morphisms
-* Top, the category of topological spaces and continuous maps
-* Preord, the category of preorders and order preserving maps
-* CPO, the category of complete partial orders and continuous functions
-* Cat, the category of categories and functors
 * The category of data types and functions on data structures
 * The category of functions and data flows (data flow diagram)
 * The category of stateful objects and dependencies (object diagram)
