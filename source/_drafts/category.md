@@ -159,13 +159,14 @@ In Haskell, Category is a type class that abstracts the concept of a mathematica
 {% vimhl hs %}
 class Category cat where
     -- the identity morphism
-    id :: cat a a
+    id :: a `cat` a
 
     -- morphism composition
     (.) :: (b `cat` c) -> (a `cat` b) -> (a `cat` c)
 {% endvimhl %}
 
-In Haskell, we implement the standard category as follows:
+
+In Haskell, one traditionally works in the category (->) called **Hask**, in which any Haskell type is an object. We can implement **Hask** as follows:
 
 {% vimhl hs %}
 instance Category (->) where
@@ -176,20 +177,18 @@ instance Category (->) where
     g . f = \x -> g (f x)
 {% endvimhl %}
 
-This instance represents the category of Haskell types and functions, also called **Hask**. The `id` function is the identity morphism that leaves the object unchanged. The `(.)` function is a composition of morphisms, which obey category laws in pseudo notation:
+As we can see, `cat` has simply been replaced by Haskell arrows. This instance represents the category of Haskell types and functions. The `id` function is the identity morphism that leaves the object unchanged. The `(.)` function is a composition of morphisms, which obey category laws in pseudo notation:
 
 {% vimhl hs %}
 id . f = f . id = f       -- left and right identity law
 (f . g) . h = f . (g . h) -- composition is associative
 {% endvimhl %}
 
-However, **Hask** has some problems when we consider all of Haskell. Therefore, Haskell developers often work with a subset of Haskell where types do not have bottom values. This is due to the difficulties that arise when dealing with non-termination. This subset only includes functions that terminate and typically only finite values. It also fixes some other subtleties. Essentially, this subset excludes everything that prevents Haskell from being a category.
+While Haskell has broad capabilities, it faces challenges when considered in its entirety as category **Hask** due to features like non-termination and bottom values. Therefore, Haskell developers often work within a constrained subset that excludes these problematic aspects. Specifically, this subset only permits terminating functions operating on finite values. It also resolves other subtleties. In essence, this pragmatic subset removes everything preventing Haskell from being modeled as a category.
 
 <!-- The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1. -->
 
-The Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a [monad](/monad), where morphisms are functions of type `a -> m b`. The entities in this group are identical to the types in Haskell as found in Hask. However, the transformation between these entities are represented by Kleisli arrows. Within the context of Kleisli, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type `a -> m a`, is denoted as `return`.
-
-Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides. There is a Category instance in base for Kleisli arrows that can be helpful:
+The Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a [monad](/monad), where morphisms are functions of type `a -> m b`. The entities in this group are identical to the types in Haskell as found in `Hask`. However, the transformation between these entities are represented by Kleisli arrows. Within the context of Kleisli, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type `a -> m a`, is denoted as `return`.
 
 
 {% vimhl hs %}
@@ -205,6 +204,7 @@ instance Monad m => Category (Kleisli m) where
   Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
 {% endvimhl %}
 
+Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides.
 
 In the instance of `(->)`, the origin and destination can be any data type in Haskell. For a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. 
 
