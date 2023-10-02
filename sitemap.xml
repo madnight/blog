@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/category/</loc>
+    
+    <lastmod>2023-10-02T19:53:17.713Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2023-09-27T06:59:53.972Z</lastmod>
+    <lastmod>2023-09-27T19:10:58.248Z</lastmod>
     
   </url>
   
@@ -65,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -100,14 +107,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
+    <loc>https://beuke.org/arch-linux-archive/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/arch-linux-archive/</loc>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -128,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/github-mirror/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
@@ -142,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     

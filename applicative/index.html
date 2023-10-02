@@ -57,7 +57,7 @@
             <section>
                 <div class="post-title"> Applicative </div>
                 <div class="post-subtitle"> A Strong Lax Monoidal Endofunctor </div>
-                <div class="post-subsubtitle"> Posted on Sep 8 2023 ~ 7 min read</div>
+                <div class="post-subsubtitle"> Posted on Sep 8 2023 ~ 8 min read</div>
                 <div class="post-subtitle-tags">
                     <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/haskell/">#haskell</a>  </div>
                 <hr class="solid">
@@ -355,7 +355,16 @@ unit   <font color="#87afaf">=</font> pure <font color="#afaf5f">()</font>
 f <font color="#87afaf">**</font> g <font color="#87afaf">=</font> fmap <font color="#afaf5f">(</font><font color="#afaf5f">,</font><font color="#afaf5f">)</font> f <font color="#87afaf"><*></font> g
 </font></pre>
                 </figure>
-                <p>We’ve now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/62959880">proof</a> in Coq. Now, lets have a look at some instances of Applicative.</p>
+                <p>We’ve now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/62959880">proof</a> in Coq.</p>
+                <p>Though the compiler does not enforce it, a proper instance of Applicative should comply with the applicative laws:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">pure id <font color="#87afaf"><*></font> a <font color="#87afaf">=</font> a                              <font color="#767676">-- identity</font>
+pure <font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font> <font color="#87afaf"><*></font> a <font color="#87afaf"><*></font> b <font color="#87afaf"><*></font> c <font color="#87afaf">=</font> a <font color="#87afaf"><*></font> <font color="#afaf5f">(</font>b <font color="#87afaf"><*></font> c<font color="#afaf5f">)</font>   <font color="#767676">-- composition</font>
+pure f <font color="#87afaf"><*></font> pure a <font color="#87afaf">=</font> pure <font color="#afaf5f">(</font>f a<font color="#afaf5f">)</font>                 <font color="#767676">-- homomorphism</font>
+a <font color="#87afaf"><*></font> pure b <font color="#87afaf">=</font> pure <font color="#afaf5f">(</font><font color="#87afaf">$</font> b<font color="#afaf5f">)</font> <font color="#87afaf"><*></font> a                <font color="#767676">-- interchange</font>
+</font></pre>
+                </figure>
+                <p>Now, lets have a look at some instances of Applicative.</p>
                 <!-- Require Import Coq.Program.Basics. -->
                 <!-- Require Import Coq.Init.Datatypes. -->
                 <!-- Require Import Coq.Init.Notations. -->

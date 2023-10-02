@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+    </noscript>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <h1>beuke.org</h1>
+    <h2>A personal blog about computer science topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Category </div>
+                <div class="post-subtitle"> Collection of Objects Linked by Arrows </div>
+                <div class="post-subsubtitle"> Posted on Oct 2 2023 ~ 9 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/haskell/">#haskell</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <script>
+                    MathJax = {
+                        loader:
+                        {
+                            load: ['[custom]/xypic.js'],
+                            paths:
+                            {
+                                custom: 'https://beuke.org/js'
+                            }
+                        },
+                        tex:
+                        {
+                            packages:
+                            {
+                                '[+]': ['xypic']
+                            }
+                        }
+                    };
+
+                </script>
+                <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+                <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg-full.js"></script> -->
+                <script>
+                    window.addEventListener('load', function ()
+                    {
+                        document.querySelectorAll("mjx-xypic-object").forEach((x) => (x.style.color = "var(--darkreader-text--text"));
+                        document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", "var(--darkreader-text--text"))
+                    })
+
+                </script>
+                <style>
+                    <!-- li { 
+                    -->
+                <!-- list-style-type: none; -->
+                <!-- } --> ul > li { list-style-type: disc; } .code-box { position: relative; padding-top: 12px; margin-top: -0.5rem; } .language-label { position: absolute; top: 0; left: 0; background-color: #20211f; padding: 2px 5px; border-color: rgb(59, 60, 58); border-top: 1px solid #393a38; border-right: 1px solid #393a38; border-left: 1px solid #393a38; font-size: 0.9rem; text-align: right; /* Aligns the text to the right */ } </style>
+                <br>
+                <img src="/images/category.png" onclick="window.open(this.src)">
+                <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
+                <br>
+                <!-- A category $\mathcal{C}$ is a quadruple $(\text{Obj}(\mathcal{C}), \text{Mor}(\mathcal{C}),\mu,1_\mathcal{C})$ consisting of a collection of objects $\text{Obj}(\mathcal{C})$, -->
+                <!-- For each pair of objects $A,B$, a set $\text{Hom}(A,B)$ of morphisms, also called [hom-sets](/hom-sets). -->
+                <!-- composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$ -->
+                <p>A category <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">C</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> consists of a collection of objects, denoted <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mtext>Obj</mtext>
+                                        <mo stretchy="false">(</mo>
+                                        <mi mathvariant="script">C</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\text{Obj}(\mathcal{C})</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span> and, for every two objects <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>y</mi>
+                                        <mo>∈</mo>
+                                        <mtext>Obj</mtext>
+                                        <mo stretchy="false">(</mo>
+                                        <mi mathvariant="script">C</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x, y \in \text{Obj}(\mathcal{C})</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span>, a set of morphisms <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mtext>Hom</mtext>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>x</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>y</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\text{Hom}(x,y)</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>, also called <a href="/hom-sets">hom-sets</a>, satisfying the following properties:</p>
+                <ul>
+                    <li>
+                        <p>For every three objects <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mi>x</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>y</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>z</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Obj</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi mathvariant="script">C</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x,y,z \in \text{Obj}(\mathcal{C})</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span>, there exist a binary operation <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mo>∘</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">\circ</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44445em;vertical-align:0em;"></span><span class="mord">∘</span></span></span></span>, called composition of morphisms, that satisfies the composition law:</p>
+                        <ul>
+                            <li><span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>∘</mo>
+                                                    <mo>:</mo>
+                                                    <mtext>Hom</mtext>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>y</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>z</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>×</mo>
+                                                    <mtext>Hom</mtext>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>y</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>→</mo>
+                                                    <mtext>Hom</mtext>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>z</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\circ : \text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44445em;vertical-align:0em;"></span><span class="mord">∘</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, that can be written as: <span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>g</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>f</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>→</mo>
+                                                    <mi>g</mi>
+                                                    <mtext> </mtext>
+                                                    <mo>∘</mo>
+                                                    <mtext> </mtext>
+                                                    <mi>f</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">(g,f) \rightarrow g\ \circ\ f</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace"> </span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace"> </span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span><!-- <li style="list-style-type: none;">Item 1</li> -->
+                                <!-- <li style="list-style-type: none;">Item 2</li> -->
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Composition is associative: for all <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mi>w</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>x</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>y</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>z</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Obj</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi mathvariant="script">C</mi>
+                                                <mo stretchy="false">)</mo>
+                                                <mo separator="true">,</mo>
+                                                <mi>f</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Hom</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>y</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>z</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mi>g</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Hom</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>x</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>y</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">g \in \text{Hom}(x,y)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mi>h</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Hom</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>w</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>x</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">h \in \text{Hom}(w,x)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> we have:</p>
+                        <ul>
+                            <li><span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>f</mi>
+                                                    <mo>∘</mo>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>g</mi>
+                                                    <mo>∘</mo>
+                                                    <mi>h</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>=</mo>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>f</mi>
+                                                    <mo>∘</mo>
+                                                    <mi>g</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>∘</mo>
+                                                    <mi>h</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">f \circ (g \circ h) = (f \circ g) \circ h</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span></span></span></span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>For each <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mi>x</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Obj</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi mathvariant="script">C</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x \in \text{Obj}(\mathcal{C})</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span>, there is a unique element <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mn>1</mn>
+                                                    <mi>x</mi>
+                                                </msub>
+                                                <mo>∈</mo>
+                                                <mtext>Hom</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>x</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>x</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1_{x} \in \text{Hom}(x,x)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> (identity morphism), such that, for every <span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mi>y</mi>
+                                                <mo>∈</mo>
+                                                <mtext>Obj</mtext>
+                                                <mo stretchy="false">(</mo>
+                                                <mi mathvariant="script">C</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">y \in \text{Obj}(\mathcal{C})</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span>, we have left and right unit laws:</p>
+                        <ul>
+                            <li><span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>f</mi>
+                                                    <mo>∘</mo>
+                                                    <msub>
+                                                        <mn>1</mn>
+                                                        <mi>x</mi>
+                                                    </msub>
+                                                    <mo>=</mo>
+                                                    <mi>f</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">f \circ 1_{x} = f</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> for all <span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>f</mi>
+                                                    <mo>∈</mo>
+                                                    <mtext>Hom</mtext>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>y</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">f \in \text{Hom}(x, y)</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></li>
+                            <li><span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <msub>
+                                                        <mn>1</mn>
+                                                        <mi>x</mi>
+                                                    </msub>
+                                                    <mo>∘</mo>
+                                                    <mi>f</mi>
+                                                    <mo>=</mo>
+                                                    <mi>f</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1_{x} \circ f = f</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> for all <span class="katex"><span class="katex-mathml"><math>
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>f</mi>
+                                                    <mo>∈</mo>
+                                                    <mtext>Hom</mtext>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>y</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">f \in \text{Hom}(y,x)</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$ (identity morphism), such that for every pair $x,y \in \text{Obj}(\mathcal{C})$, if $f \in \text{Hom}(x,y)$, then we have left and right unit laws: -->
+                <!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
+                <p>It is common to express <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo>∈</mo>
+                                        <mi mathvariant="script">C</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x \in \mathcal{C}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> instead of <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo>∈</mo>
+                                        <mtext>Obj</mtext>
+                                        <mo stretchy="false">(</mo>
+                                        <mi mathvariant="script">C</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x \in \text{Obj}(\mathcal{C})</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span> and when indicating ‘f is a function from x to y’, it’s typically written as <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>f</mi>
+                                        <mo>:</mo>
+                                        <mi>x</mi>
+                                        <mo>→</mo>
+                                        <mi>y</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">f: x \rightarrow y</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> rather than <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>f</mi>
+                                        <mo>∈</mo>
+                                        <mtext>Hom</mtext>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>x</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>y</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">f \in \text{Hom}(x,y)</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Hom</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>.</p>
+                <p>A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>X</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>Y</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>Z</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">X, Y, Z</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span></span></span></span> and collection of morphisms denoted <span class="katex"><span class="katex-mathml"><math>
+                                <semantics>
+                                    <mrow>
+                                        <mi>f</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>g</mi>
+                                        <mo separator="true">,</mo>
+                                        <mi>g</mi>
+                                        <mo>∘</mo>
+                                        <mi>f</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">f, g, g \circ f</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>, and the loops are the identity morphisms.</p> \begin{xy} \xymatrix{ X \ar@(l,u)^{1_X}[] \ar_{g\ \circ\ f}[dr] \ar^f[r] & Y \ar@(u,r)^{1_Y}[] \ar^g[d]\\ &Z \ar@(d,r)_{1_Z}[] } \end{xy} <p>One interesting aspect that follows from the left and right unit laws is that the identity morphism is unique, so there really is just one way to loop back to itself.</p>
+                <div class="proof">
+                    <p><strong>Proposition.</strong>   <em>The identity morphism is unique.</em><br>
+                        <em>Proof.</em>   Suppose that each of <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <msub>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                            </msub>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">1_{x}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <msubsup>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                                <mo mathvariant="normal">′</mo>
+                                            </msubsup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">1'_{x}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> is an identity morphism. Then by left and right unit laws we have: <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <msubsup>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                                <mo mathvariant="normal">′</mo>
+                                            </msubsup>
+                                            <mo>∘</mo>
+                                            <msub>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                            </msub>
+                                            <mo>=</mo>
+                                            <msubsup>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                                <mo mathvariant="normal">′</mo>
+                                            </msubsup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">1'_{x} \circ 1_{x} = 1'_{x}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <msubsup>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                                <mo mathvariant="normal">′</mo>
+                                            </msubsup>
+                                            <mo>∘</mo>
+                                            <msub>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                            </msub>
+                                            <mo>=</mo>
+                                            <msub>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                            </msub>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">1'_{x} \circ 1_{x} = 1_{x}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, hence <span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <msubsup>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                                <mo mathvariant="normal">′</mo>
+                                            </msubsup>
+                                            <mo>=</mo>
+                                            <msubsup>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                                <mo mathvariant="normal">′</mo>
+                                            </msubsup>
+                                            <mo>∘</mo>
+                                            <msub>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                            </msub>
+                                            <mo>=</mo>
+                                            <msub>
+                                                <mn>1</mn>
+                                                <mi>x</mi>
+                                            </msub>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">1'_{x} = 1'_{x} \circ 1_{x} = 1_{x}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+                    <div class="right">
+                        <p><span class="katex"><span class="katex-mathml"><math>
+                                        <semantics>
+                                            <mrow>
+                                                <mstyle scriptlevel="1" displaystyle="false">
+                                                    <mi mathvariant="normal">□</mi>
+                                                </mstyle>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">\pmb{\scriptstyle \square}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4947222222222222em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.4725em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="rlap"><span class="strut" style="height:0.4725em;vertical-align:0em;"></span><span class="inner"><span class="mord"><span class="mord amsrm mtight sizing reset-size6 size3">□</span></span></span><span class="fix"></span></span></span></span></span></span></span><span class="mord"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.4947222222222222em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="rlap"><span class="strut" style="height:0.4947222222222222em;vertical-align:0em;"></span><span class="inner"><span class="mord"><span class="mspace" style="margin-right:0.022222222222222223em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.4947222222222222em;"><span style="top:-2.7222222222222223em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord text"><span class="mord amsrm mtight sizing reset-size6 size3">□</span></span></span></span></span></span></span></span><span class="fix"></span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.044444444444444446em;"></span><span class="mord amsrm mtight sizing reset-size6 size3">□</span></span></span></span></span></span></span></p>
+                    </div>
+                </div>
+                <p>Here is an alternative formulation of this proof in <a target="_blank" rel="noopener" href="https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75">Coq</a>.</p>
+                <!-- Clean proof style -->
+                <!-- https://math.berkeley.edu/~wodzicki/253.F16/Cat.pdf -->
+                <!-- https://www.heldermann.de/SSPM/SSPM01/Chapter-3.pdf -->
+                <!-- Section Category. -->
+                <!--   Context `{Hom : Type -> Type -> Type}. -->
+                <!--   Class Category := { -->
+                <!--     id : forall {X}, Hom X X; -->
+                <!--     compose  : forall {X Y Z}, Hom X Y -> Hom Y Z -> Hom X Z; -->
+                <!--     (* Identity Laws *) -->
+                <!--     left_identity  : forall {X Y} (f: Hom X Y), -->
+                <!--       compose id f = f; -->
+                <!--     right_identity : forall {X Y} (f: Hom X Y), -->
+                <!--       compose f id = f; -->
+                <!--   }. -->
+                <!--   Variables X : Type. -->
+                <!--   Variables (id1 id2 : Hom X X). -->
+                <!--   Context `{C : @Category Hom}. -->
+                <!--   Hypothesis H1 : forall {Y} (f : Hom X Y), compose id1 f = f. -->
+                <!--   Hypothesis H2 : forall {Y} (f : Hom X Y), compose id2 f = f. -->
+                <!--   Theorem identity_unique : id1 = id2. -->
+                <!--   Proof. -->
+                <!--     specialize H1 with (f:=id1). -->
+                <!--     specialize H2 with (f:=id1). -->
+                <!--     rewrite <- H1 in H2. -->
+                <!--     exact H2. -->
+                <!--   Qed. -->
+                <h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
+                <p>In Haskell, Category is a type class that abstracts the concept of a mathematical category. In the context of Haskell, types are considered as objects and functions as morphisms.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Category</font> cat <font color="#87afaf">where</font>
+    <font color="#767676">-- the identity morphism</font>
+    <font color="#af87af">id</font> <font color="#87afaf">::</font> a <font color="#87afaf">`cat`</font> a
+
+    <font color="#767676">-- morphism composition</font>
+    <font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#afaf5f">(</font>b <font color="#87afaf">`cat`</font> c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">`cat`</font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">`cat`</font> c<font color="#afaf5f">)</font>
+</font></pre>
+                </figure>
+                <p>In Haskell, one traditionally works in the category (->) called <strong>Hask</strong>, in which any Haskell type is an object and functions are morphisms. We can implement <strong>Hask</strong> as follows:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Category</font> <font color="#afaf5f">(</font><font color="#87afaf">-></font><font color="#afaf5f">)</font> <font color="#87afaf">where</font>
+    <font color="#af87af">id</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> a
+    id x <font color="#87afaf">=</font> x
+
+    <font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#afaf5f">(</font>b <font color="#87afaf">-></font> c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> a <font color="#87afaf">-></font> c
+    g <font color="#87afaf">.</font> f <font color="#87afaf">=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> g <font color="#afaf5f">(</font>f x<font color="#afaf5f">)</font>
+</font></pre>
+                </figure>
+                <p>As we can see, <code>cat</code> has simply been replaced by Haskell arrows. The <code>id</code> function is the identity morphism that leaves the object unchanged. The <code>(.)</code> function is a composition of morphisms, which obey category laws in pseudo notation:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">id <font color="#87afaf">.</font> f <font color="#87afaf">=</font> f <font color="#87afaf">.</font> id <font color="#87afaf">=</font> f       <font color="#767676">-- left and right identity law</font>
+<font color="#afaf5f">(</font>f <font color="#87afaf">.</font> g<font color="#afaf5f">)</font> <font color="#87afaf">.</font> h <font color="#87afaf">=</font> f <font color="#87afaf">.</font> <font color="#afaf5f">(</font>g <font color="#87afaf">.</font> h<font color="#afaf5f">)</font> <font color="#767676">-- composition is associative</font>
+</font></pre>
+                </figure>
+                <p>Haskell faces some challenges when considered in its entirety as category <strong>Hask</strong> due to features like non-termination and bottom values. Therefore, Haskell developers often work within a constrained subset that excludes these problematic aspects. Specifically, this subset only permits terminating functions operating on finite values. It also resolves other subtleties. In essence, this pragmatic subset removes everything preventing Haskell from being modeled as a category.</p>
+                <!-- The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1. -->
+                <p>The Category typeclass<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Control.Category](https://hackage.haskell.org/package/base-4.18.1.0/docs/Control-Category.html)
+">[1]</span></a></sup> can also be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a <a href="/monad">monad</a>, where morphisms are functions of type <code>a -> m b</code>. The objects in this category are identical to the types in Haskell as found in <code>Hask</code>. However, the transformation between these entities are represented by Kleisli arrows.</p>
+                <!-- Within the context of Kleisli, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type `a -> m a`, is denoted as `return`. -->
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">newtype</font> <font color="#d7875f">Kleisli</font> m a b <font color="#87afaf">=</font> <font color="#d7875f">Kleisli</font> <font color="#afaf5f">{</font>
+    <font color="#af87af">runKleisli</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m b
+<font color="#afaf5f">}</font>
+
+<font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">=></font> <font color="#d7875f">Category</font> <font color="#afaf5f">(</font><font color="#d7875f">Kleisli</font> m<font color="#afaf5f">)</font> <font color="#87afaf">where</font>
+    <font color="#af87af">id</font> <font color="#87afaf">::</font> <font color="#d7875f">Kleisli</font> m a a
+    id <font color="#87afaf">=</font> <font color="#d7875f">Kleisli</font> return
+
+    <font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#d7875f">Kleisli</font> m b c <font color="#87afaf">-></font> <font color="#d7875f">Kleisli</font> m a b <font color="#87afaf">-></font> <font color="#d7875f">Kleisli</font> m a c
+    <font color="#d7875f">Kleisli</font> f <font color="#87afaf">.</font> <font color="#d7875f">Kleisli</font> g <font color="#87afaf">=</font> <font color="#d7875f">Kleisli</font> <font color="#afaf5f">(</font>join <font color="#87afaf">.</font> fmap g <font color="#87afaf">.</font> f<font color="#afaf5f">)</font>
+</font></pre>
+                </figure>
+                <p>Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don’t provide any additional functionality beyond what the monad already provides. The use of this syntax in Haskell, since it overwrites <code>id</code> and standard function composition <code>(.)</code>, which can be quite confusing if used in this manner. Instead, Kleisli composition is often defined using the “fish” operator, as shown below:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#afaf5f">(</font><font color="#87afaf"><=<</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">=></font> <font color="#afaf5f">(</font>b <font color="#87afaf">-></font> m c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m c<font color="#afaf5f">)</font>
+<font color="#afaf5f">(</font>g <font color="#87afaf"><=<</font> f<font color="#afaf5f">)</font> a <font color="#87afaf">=</font> f a <font color="#87afaf">>>=</font> g
+
+<font color="#767676">-- m >>= f = (f <=< return) m</font>
+</font></pre>
+                </figure>
+                <p>As we can see <=< can be expressed in terms of <code>>>=</code> and vice versa, hence they form an isomorphism. All of the above is already implemented in the standard Haskell library, so you can simply open an interactive Haskell interpreter (ghci) and test the following examples:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">ghci<font color="#87afaf">></font> <font color="#afaf5f">(</font>show <font color="#87afaf">.</font> <font color="#afaf5f">(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#87afaf">.</font> sqrt <font color="#87afaf">.</font> <font color="#afaf5f">(</font><font color="#87afaf">+</font>2<font color="#afaf5f">)</font> <font color="#87afaf">.</font> abs<font color="#afaf5f">)</font> 14
+<font color="#afaf5f">"8.0"</font>
+
+ghci<font color="#87afaf">></font> import <font color="#d7875f">Control</font><font color="#87afaf">.</font><font color="#d7875f">Monad</font>
+ghci<font color="#87afaf">></font> <font color="#afaf5f">(</font><font color="#d7875f">Just</font> <font color="#87afaf">.</font> <font color="#afaf5f">(</font><font color="#87afaf">+</font>2<font color="#afaf5f">))</font> <font color="#87afaf"><=<</font> <font color="#afaf5f">(</font><font color="#d7875f">Just</font> 2 <font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">$</font> return
+<font color="#d7875f">Just</font> 4
+
+ghci<font color="#87afaf">></font> putStrLn <font color="#87afaf"><=<</font> <font color="#afaf5f">(</font>getLine <font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">$</font> return
+<font color="#d7875f">Hello</font> <font color="#d7875f">World</font>
+<font color="#d7875f">Hello</font> <font color="#d7875f">World</font>
+</font></pre>
+                </figure>
+                <p>Here are some more examples:</p>
+                <ul>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">S</mi>
+                                            <mi mathvariant="bold">e</mi>
+                                            <mi mathvariant="bold">t</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Set}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span>, the category of sets and set functions</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">M</mi>
+                                            <mi mathvariant="bold">o</mi>
+                                            <mi mathvariant="bold">n</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Mon}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">M</span><span class="mord mathbf">o</span><span class="mord mathbf">n</span></span></span></span></span>, the category of monoids and monoid morphisms</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">G</mi>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mi mathvariant="bold">p</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Grp}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8805499999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">G</span><span class="mord mathbf">r</span><span class="mord mathbf">p</span></span></span></span></span>, the category of groups and group morphisms</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">R</mi>
+                                            <mi mathvariant="bold">n</mi>
+                                            <mi mathvariant="bold">g</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Rng}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8805499999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">R</span><span class="mord mathbf">n</span><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span>, the category of rings and ring morphisms</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">G</mi>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mi mathvariant="bold">p</mi>
+                                            <mi mathvariant="bold">h</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Grph}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">G</span><span class="mord mathbf">r</span><span class="mord mathbf">p</span><span class="mord mathbf">h</span></span></span></span></span>, the category of graphs and graph morphisms</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">T</mi>
+                                            <mi mathvariant="bold">o</mi>
+                                            <mi mathvariant="bold">p</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Top}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8805499999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">T</span><span class="mord mathbf">o</span><span class="mord mathbf">p</span></span></span></span></span>, the category of topological spaces and continuous maps</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">P</mi>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mi mathvariant="bold">e</mi>
+                                            <mi mathvariant="bold">o</mi>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mi mathvariant="bold">d</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Preord}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">P</span><span class="mord mathbf">r</span><span class="mord mathbf">e</span><span class="mord mathbf">o</span><span class="mord mathbf">r</span><span class="mord mathbf">d</span></span></span></span></span>, the category of preorders and order preserving maps</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">C</mi>
+                                            <mi mathvariant="bold">P</mi>
+                                            <mi mathvariant="bold">O</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{CPO}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">C</span><span class="mord mathbf">P</span><span class="mord mathbf">O</span></span></span></span></span>, the category of complete partial orders and continuous functions</li>
+                    <li><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">C</mi>
+                                            <mi mathvariant="bold">a</mi>
+                                            <mi mathvariant="bold">t</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{Cat}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">C</span><span class="mord mathbf">a</span><span class="mord mathbf">t</span></span></span></span></span>, the category of categories and functors</li>
+                    <li>Monoids are themselves one-object categories</li>
+                    <li>The category of data types and functions on data structures</li>
+                    <li>The category of functions and data flows (data flow diagram)</li>
+                    <li>The category of stateful objects and dependencies (object diagram)</li>
+                    <li>The category of values and value constructors</li>
+                    <li>The category of states and messages (state diagram)</li>
+                </ul>
+                <h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:0"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">0.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">The diagram displayed at the top of this post is a modified version of Brent Yorgey's <a target="_blank" rel="noopener" href="https://wiki.haskell.org/File:Typeclassopedia-diagram.png">Typeclassopedia diagram</a><a href="#fnref:0" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.18.1.0/docs/Control-Category.html">Control.Category</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>
