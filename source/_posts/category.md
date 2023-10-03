@@ -1,6 +1,6 @@
 ---
 title: Category
-date: 2023-09-14
+date: 2023-10-02
 tags: ["category theory", "haskell"]
 subtitle: Collection of Objects Linked by Arrows
 mathjax: true
@@ -166,7 +166,7 @@ class Category cat where
 {% endvimhl %}
 
 
-In Haskell, one traditionally works in the category (->) called **Hask**, in which any Haskell type is an object. We can implement **Hask** as follows:
+In Haskell, one traditionally works in the category (->) called **Hask**, in which any Haskell type is an object and functions are morphisms. We can implement **Hask** as follows:
 
 {% vimhl hs %}
 instance Category (->) where
@@ -177,59 +177,60 @@ instance Category (->) where
     g . f = \x -> g (f x)
 {% endvimhl %}
 
-As we can see, `cat` has simply been replaced by Haskell arrows. This instance represents the category of Haskell types and functions. The `id` function is the identity morphism that leaves the object unchanged. The `(.)` function is a composition of morphisms, which obey category laws in pseudo notation:
+As we can see, `cat` has simply been replaced by Haskell arrows. The `id` function is the identity morphism that leaves the object unchanged. The `(.)` function is a composition of morphisms, which obey category laws in pseudo notation:
 
 {% vimhl hs %}
 id . f = f . id = f       -- left and right identity law
 (f . g) . h = f . (g . h) -- composition is associative
 {% endvimhl %}
 
-While Haskell has broad capabilities, it faces challenges when considered in its entirety as category **Hask** due to features like non-termination and bottom values. Therefore, Haskell developers often work within a constrained subset that excludes these problematic aspects. Specifically, this subset only permits terminating functions operating on finite values. It also resolves other subtleties. In essence, this pragmatic subset removes everything preventing Haskell from being modeled as a category.
+Haskell faces some challenges when considered in its entirety as category **Hask** due to features like non-termination and bottom values. Therefore, when speaking about **Hask** it is often referred to a constrained subset of Haskell that excludes these problematic aspects. Specifically, this subset only permits terminating functions operating on finite values. It also resolves other subtleties. In essence, this pragmatic subset removes everything preventing Haskell from being modeled as a category.
 
 <!-- The corresponding category has the expected initial and terminal objects, sums and products, and instances of Functor and Monad really are endofunctors and monads 1. -->
 
-The Category typeclass[^1] is a generalization of the Prelude (standard library) function composition and identity, and it can be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a [monad](/monad), where morphisms are functions of type `a -> m b`. The entities in this group are identical to the types in Haskell as found in `Hask`. However, the transformation between these entities are represented by Kleisli arrows. Within the context of Kleisli, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type `a -> m a`, is denoted as `return`.
+The Category typeclass[^1] can also be used with other structures that can be viewed as categories, not just functions between types. For example, it can be used with the Kleisli category of a [monad](/monad), where morphisms are functions of type `a -> m b`. The objects in this category are identical to the types in Haskell as found in `Hask`. However, the transformation between these entities are represented by Kleisli arrows. 
+
+
+<!-- Within the context of Kleisli, the composition operation becomes the Kleisli composition operator (<=<), and the identity transformation, possessing type `a -> m a`, is denoted as `return`. -->
 
 
 {% vimhl hs %}
 newtype Kleisli m a b = Kleisli {
-  runKleisli :: a -> m b
+    runKleisli :: a -> m b
 }
 
 instance Monad m => Category (Kleisli m) where
-  id :: Kleisli m a a
-  id = Kleisli return
+    id :: Kleisli m a a
+    id = Kleisli return
 
-  (.) :: Kleisli m b c -> Kleisli m a b -> Kleisli m a c
-  Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
+    (.) :: Kleisli m b c -> Kleisli m a b -> Kleisli m a c
+    Kleisli f . Kleisli g = Kleisli (join . fmap g . f)
 {% endvimhl %}
 
-Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides.
+Kleisli arrows are a way of composing monadic programs. They are a notational feature that can be useful, but they don't provide any additional functionality beyond what the monad already provides. The use of this syntax in Haskell, since it overwrites `id` and standard function composition `(.)`, can be quite confusing if used in this manner. Instead, Kleisli composition is often defined using the "fish" operator, as shown below:
 
-In the instance of `(->)`, the origin and destination can be any data type in Haskell. For a Kleisli morphism, the source can be any Haskell data type, but the target must conform to the `m a` structure for some `m`. 
+{% vimhl hs %}
+(<=<) :: Monad m => (b -> m c) -> (a -> m b) -> (a -> m c)
+(g <=< f) a = f a >>= g
 
-<!-- This allows us to sketch the constitution of a morphism in the category, but it doesn't lay out all the laws for free. -->
+-- m >>= f = (f <=< return) m
+{% endvimhl %}
 
-<!-- https://bartoszmilewski.com/2014/12/23/kleisli-categories/ -->
+As we can see <=< can be expressed in terms of `>>=` and vice versa, hence they form an isomorphism. All of the above is already implemented in the standard Haskell library, so you can simply open an interactive Haskell interpreter (ghci) and test the following examples:
 
-Another common example is the Category of Kleisli arrows for a Monad:
+{% vimhl hs %}
+ghci> (show . (*2) . sqrt . (+2) . abs) 14
+"8.0"
 
-<!-- We usually call this category Hask. -->
+ghci> import Control.Monad
+ghci> (Just . (+2)) <=< (Just 2 >>=) $ return
+Just 4
 
-<!-- https://hackage.haskell.org/package/base-4.6.0.1/docs/Control-Arrow.html -->
-<!-- is category -->
+ghci> putStrLn <=< (getLine >>=) $ return
+Hello World
+Hello World
 
-<!-- The canonical example of a Category in Haskell is the function category: -->
-
-<!-- Another common example is the Category of Kleisli arrows for a Monad: -->
-
-The Category type class in Haskell isn't typically used for everyday programming tasks, but it does have a few interesting and practical applications. Some of these include:
-
-```
-ghci> (show . sqrt . (+2) . abs) 14
-"4.0"
-
-```
+{% endvimhl %}
 
 Here are some more examples:
 
