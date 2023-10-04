@@ -64,8 +64,8 @@ A type qualifies as a Semigroup if it offers an associative function (<>), allow
 Haskell Definition of Semigroup (Interface)
 {% vimhl hs %}
 class Semigroup a where
--- ⊗  :  S x S  -> S (multiplication)
-  (<>) :: a -> a -> a
+    -- ⊗  :  S x S  -> S (multiplication)
+    (<>) :: a -> a -> a
 {% endvimhl %}
 
 Associativity implies that the following condition must always hold:
@@ -77,16 +77,16 @@ Associativity implies that the following condition must always hold:
 An Instance of Semigroup, the List Semigroup
 {% vimhl hs %}
 instance Semigroup [a] where
-        (<>) = (++)
+    (<>) = (++)
 {% endvimhl %}
 
 Another Instance, the Maybe Semigroup
 {% vimhl hs %}
 instance Semigroup a => Semigroup (Maybe a) where
-  Just a  <> Just b  = Just (a <> b)
-  Just a  <> Nothing = Just a
-  Nothing <> Just b  = Just b
-  Nothing <> Nothing = Nothing
+    Just a  <> Just b  = Just (a <> b)
+    Just a  <> Nothing = Just a
+    Nothing <> Just b  = Just b
+    Nothing <> Nothing = Nothing
 {% endvimhl %}
 
 All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.

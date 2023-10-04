@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-In category theory, a Monoid is a triple ($M$, $\eta$, $\mu$) in a monoidal category ($\mathcal{C}$, $\otimes$, $1_{M}$) together with two morphisms:
+In category theory, a Monoid is a triple ($M$, $\eta$, $\mu$) in a monoidal [category](/category) ($\mathcal{C}$, $\otimes$, $1_{M}$) together with two morphisms:
 
 * $\eta: 1_{M} \rightarrow M$ is a [natural transformation](/natural-transformation) (the unit)
 * $\mu: M \otimes M \rightarrow M$ is another natural transformation (the multiplication)
@@ -107,11 +107,11 @@ instance Monoid [a] where
 Another Instance, the Maybe Monoid
 {% vimhl hs %}
 instance Monoid a => Monoid (Maybe a) where
-  mempty = Nothing
-  Just a  <> Just b  = Just (a <> b)
-  Just a  <> Nothing = Just a
-  Nothing <> Just b  = Just b
-  Nothing <> Nothing = Nothing
+    mempty = Nothing
+    Just a  <> Just b  = Just (a <> b)
+    Just a  <> Nothing = Just a
+    Nothing <> Just b  = Just b
+    Nothing <> Nothing = Nothing
 {% endvimhl %}
 
 All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.

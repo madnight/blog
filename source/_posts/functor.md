@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-A functor, in category theory, is a structural-preserving mapping between categories. Given two categories, $\mathcal{C}$ and $\mathcal{D}$, a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ associates each object in $\mathcal{C}$ with an object in $\mathcal{D}$ and each morphism $f : X \rightarrow Y$ in $\mathcal{C}$ with a morphism $F(f) : F(X) \rightarrow F(Y)$ in $\mathcal{D}$, such that:
+A functor, in category theory, is a structural-preserving mapping between [categories](/category). Given two categories, $\mathcal{C}$ and $\mathcal{D}$, a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ associates each object in $\mathcal{C}$ with an object in $\mathcal{D}$ and each morphism $f : X \rightarrow Y$ in $\mathcal{C}$ with a morphism $F(f) : F(X) \rightarrow F(Y)$ in $\mathcal{D}$, such that:
 
 * $F(id_{X}) = id_{F(X)}$ for every object $X$ in $\mathcal{C}$,
 

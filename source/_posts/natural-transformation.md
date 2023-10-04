@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <!-- <br> -->
 
-Let $\mathcal{C}$ and $\mathcal{D}$ be categories and $F$ and $G$ be [functors](/functor) $\mathcal{C} \rightarrow \mathcal{D}$. Then a natural transformation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requirements:
+Let $\mathcal{C}$ and $\mathcal{D}$ be [categories](/category) and $F$ and $G$ be [functors](/functor) $\mathcal{C} \rightarrow \mathcal{D}$. Then a natural transformation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requirements:
 
 * For every object $X$ in $\mathcal{C}$, a natural transformation $\alpha$ from the functor $F$ to the functor $G$ assigns a morphism $\alpha_{X} : F(X) \rightarrow G(X)$ between objects of $\mathcal{D}$. The morphism $\alpha_{X}$ is called the component of $\alpha$ at $X$.
 
