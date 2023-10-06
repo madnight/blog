@@ -119,7 +119,7 @@
                                     </mrow>
                                     <annotation encoding="application/x-tex">\mu</annotation>
                                 </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>) in a monoidal category (<span class="katex"><span class="katex-mathml"><math>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>) in a monoidal <a href="/category">category</a> (<span class="katex"><span class="katex-mathml"><math>
                                 <semantics>
                                     <mrow>
                                         <mi mathvariant="script">C</mi>
@@ -295,11 +295,11 @@ mempty <font color="#87afaf"><></font> x <font color="#87afaf"><></font> mem
                 <p>Another Instance, the Maybe Monoid</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monoid</font> a <font color="#87afaf">=></font> <font color="#d7875f">Monoid</font> <font color="#afaf5f">(</font><font color="#d7875f">Maybe</font> a<font color="#afaf5f">)</font> <font color="#87afaf">where</font>
-  mempty <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
-  <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>a <font color="#87afaf"><></font> b<font color="#afaf5f">)</font>
-  <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> a
-  <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> b
-  <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
+    mempty <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
+    <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>a <font color="#87afaf"><></font> b<font color="#afaf5f">)</font>
+    <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> a
+    <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> b
+    <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
 </font></pre>
                 </figure>
                 <p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>

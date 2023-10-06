@@ -305,8 +305,8 @@
                 <p>Haskell Definition of Semigroup (Interface)</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Semigroup</font> a <font color="#87afaf">where</font>
-<font color="#767676">-- ⊗  :  S x S  -> S (multiplication)</font>
-  <font color="#afaf5f">(</font><font color="#87afaf"><></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> a <font color="#87afaf">-></font> a
+    <font color="#767676">-- ⊗  :  S x S  -> S (multiplication)</font>
+    <font color="#afaf5f">(</font><font color="#87afaf"><></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> a <font color="#87afaf">-></font> a
 </font></pre>
                 </figure>
                 <p>Associativity implies that the following condition must always hold:</p>
@@ -317,16 +317,16 @@
                 <p>An Instance of Semigroup, the List Semigroup</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Semigroup</font> <font color="#afaf5f">[</font>a<font color="#afaf5f">]</font> <font color="#87afaf">where</font>
-        <font color="#afaf5f">(</font><font color="#87afaf"><></font><font color="#afaf5f">)</font> <font color="#87afaf">=</font> <font color="#afaf5f">(</font><font color="#87afaf">++</font><font color="#afaf5f">)</font>
+    <font color="#afaf5f">(</font><font color="#87afaf"><></font><font color="#afaf5f">)</font> <font color="#87afaf">=</font> <font color="#afaf5f">(</font><font color="#87afaf">++</font><font color="#afaf5f">)</font>
 </font></pre>
                 </figure>
                 <p>Another Instance, the Maybe Semigroup</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Semigroup</font> a <font color="#87afaf">=></font> <font color="#d7875f">Semigroup</font> <font color="#afaf5f">(</font><font color="#d7875f">Maybe</font> a<font color="#afaf5f">)</font> <font color="#87afaf">where</font>
-  <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>a <font color="#87afaf"><></font> b<font color="#afaf5f">)</font>
-  <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> a
-  <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> b
-  <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
+    <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>a <font color="#87afaf"><></font> b<font color="#afaf5f">)</font>
+    <font color="#d7875f">Just</font> a  <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> a
+    <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Just</font> b  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> b
+    <font color="#d7875f">Nothing</font> <font color="#87afaf"><></font> <font color="#d7875f">Nothing</font> <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
 </font></pre>
                 </figure>
                 <p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>

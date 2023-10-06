@@ -2,44 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://beuke.org/applicative/</loc>
-    
-    <lastmod>2023-10-03T11:31:19.724Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/category/</loc>
     
-    <lastmod>2023-10-03T11:22:21.607Z</lastmod>
+    <lastmod>2023-10-06T20:49:40.445Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/natural-transformation/</loc>
     
-    <lastmod>2023-09-23T18:45:01.104Z</lastmod>
+    <lastmod>2023-10-06T20:36:47.119Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/monoid/</loc>
     
-    <lastmod>2023-09-23T12:50:21.480Z</lastmod>
+    <lastmod>2023-10-03T11:41:51.651Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/semigroup/</loc>
     
-    <lastmod>2023-09-21T19:33:24.827Z</lastmod>
+    <lastmod>2023-10-03T11:38:31.682Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/functor/</loc>
     
-    <lastmod>2023-09-21T19:31:27.995Z</lastmod>
+    <lastmod>2023-10-03T11:35:02.277Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/applicative/</loc>
+    
+    <lastmod>2023-10-03T11:31:19.724Z</lastmod>
     
   </url>
   
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
