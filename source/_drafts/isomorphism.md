@@ -2,7 +2,7 @@
 title: Isomorphism
 date: 2023-10-04
 tags: ["category theory", "haskell"]
-subtitle: 
+subtitle: Structure-Preserving Mapping with Inverse
 mathjax: true
 ---
 {% raw %}
@@ -41,6 +41,9 @@ Two categories $\mathcal{C}$ and $\mathcal{D}$ are isomorhphic if there exist [f
 
 A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $x \in \mathcal{C} , \eta_{x} : F(x) \Rightarrow G(x)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$.
 
+https://arxiv.org/pdf/1912.10642.pdf 16
+https://math.jhu.edu/~eriehl/context.pdf 42
+https://proofwiki.org/wiki/Definition:Natural_Isomorphism
 
 The term isomorphism originates from the Greek word morphe (μορφή), which translates to form or structure, and the prefix iso-, signifying equal. Consequently, isomorphism implies having an equal structure.
 

@@ -68,28 +68,28 @@ ul > li {
 
 <!-- composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$ -->
 
-A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $x, y \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(x,y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
+A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $X, Y \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(X,Y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
 
-* For every three objects $x,y,z \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
+* For every three objects $X,Y,Z \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
 
-  * $\circ : \text{Hom}(y,z) \times \text{Hom}(x,y) \rightarrow \text{Hom}(x,z)$, that can be written as: $(g,f) \rightarrow g\ \circ\ f$
+  * $\circ : \text{Hom}(Y,Z) \times \text{Hom}(X,Y) \rightarrow \text{Hom}(X,Z)$, that can be written as: $(g,f) \rightarrow g\ \circ\ f$
     <!-- <li style="list-style-type: none;">Item 1</li> -->
     <!-- <li style="list-style-type: none;">Item 2</li> -->
 
-* Composition is associative: for all $w,x,y,z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(y,z)$, $g \in \text{Hom}(x,y)$, $h \in \text{Hom}(w,x)$ we have:
+* Composition is associative: for all $W,X,Y,Z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(Y,Z)$, $g \in \text{Hom}(X,Y)$, $h \in \text{Hom}(W,X)$ we have:
 
     * $f \circ (g \circ h) = (f \circ g) \circ h$
 
-* For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$ (identity morphism), such that, for every $y \in \text{Obj}(\mathcal{C})$, we have left and right unit laws:
+* For each $X \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{X} \in \text{Hom}(X,X)$ (identity morphism), such that, for every $Y \in \text{Obj}(\mathcal{C})$, we have left and right unit laws:
 
-    * $f \circ 1_{x} = f$ for all $f \in \text{Hom}(x, y)$
-    * $1_{x} \circ f = f$ for all $f \in \text{Hom}(y,x)$
+    * $f \circ 1_{X} = f$ for all $f \in \text{Hom}(X, Y)$
+    * $1_{X} \circ f = f$ for all $f \in \text{Hom}(Y,X)$
 
 <!-- For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$ (identity morphism), such that for every pair $x,y \in \text{Obj}(\mathcal{C})$, if $f \in \text{Hom}(x,y)$, then we have left and right unit laws: -->
 
 <!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
 
-It is common to express $x \in \mathcal{C}$ instead of $x \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from x to y', it's typically written as $f: x \rightarrow y$ rather than $f \in \text{Hom}(x,y)$.
+It is common to express $X \in \mathcal{C}$ instead of $X \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from X to Y', it's typically written as $f: X \rightarrow Y$ rather than $f \in \text{Hom}(X,Y)$.
 
 A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
 
@@ -108,7 +108,7 @@ One interesting aspect that follows from the left and right unit laws is that th
 <div class="proof" >
 
 **Proposition.** &nbsp; *The identity morphism is unique.*
-*Proof.* &nbsp; Suppose that each of $1_{x}$ and $1'_{x}$ is an identity morphism. Then by left and right unit laws we have: $1'_{x} \circ 1_{x} = 1'_{x}$ and $1'_{x} \circ 1_{x} = 1_{x}$, hence $1'_{x} = 1'_{x} \circ 1_{x} = 1_{x}$
+*Proof.* &nbsp; Suppose that each of $1_{X}$ and $1'_{X}$ is an identity morphism. Then by left and right unit laws we have: $1'_{X} \circ 1_{X} = 1'_{X}$ and $1'_{X} \circ 1_{X} = 1_{X}$, hence $1'_{X} = 1'_{X} \circ 1_{X} = 1_{X}$
 <div class="right">
 
 $\pmb{\scriptstyle \square}$
@@ -159,9 +159,11 @@ In Haskell, Category is a type class that abstracts the concept of a mathematica
 {% vimhl hs %}
 class Category cat where
     -- the identity morphism
+    --    Hom(X,X)
     id :: a `cat` a
 
     -- morphism composition
+    --      Hom(Y,Z)    ×   Hom(X,Y)   →  Hom(X,Z)
     (.) :: (b `cat` c) -> (a `cat` b) -> (a `cat` c)
 {% endvimhl %}
 
