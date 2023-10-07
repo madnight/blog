@@ -37,9 +37,27 @@ Let $\mathcal{C}$ be a [category](/category) and $A, B$ be objects of $\mathcal{
 in which case one writes $A \cong B$.
 
 
-Two categories $\mathcal{C}$ and $\mathcal{D}$ are isomorhphic if there exist [functors](/functor) $F : \mathcal{C} \rightarrow \mathcal{D}$ and $G : D \rightarrow C$ which are mutually inverse to each other, that is, $F \circ G = 1_{D}$, the identity functor on D and $G \circ F = 1_{C}$, the identity functor on C.
+Two categories $\mathcal{C}$ and $\mathcal{D}$ are isomorhphic if there exist [functors](/functor) $F : \mathcal{C} \rightarrow \mathcal{D}$ and $G : D \rightarrow C$ which are mutually inverse to each other, that is, $F \circ G = 1_{D}$ and $G \circ F = 1_{C}$.
 
 A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $A \in \mathcal{C} , \eta_{A} : F(A) \Rightarrow G(A)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$.
+
+
+
+<div class="proof" >
+
+**Proposition.** &nbsp; *Identity morphism are isomorphisms.*
+
+*Proof.* &nbsp; To show that $1_A$ is an isomorphism, we need to find an inverse morphism $g$ such that $g \circ 1_{A} = 1_{A} \circ g = 1_{A}$. Let's take $g$ to be $1_{A}$ itself. Then we have $1_{A} \circ 1_{A} = 1_{A}$ since the composition of the identity arrow with itself is the identity arrow (by definition). Hence, $1_{A}$ is an isomorphism with inverse $1_{A}$.
+<!-- $\pmb{\scriptstyle \square}$ -->
+<div class="right">
+
+$\pmb{\scriptstyle \square}$
+</div> </div>
+
+Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/4d00970f1944a66113d7f04465af20f8)
+
+
+
 
 https://arxiv.org/pdf/1912.10642.pdf 16
 https://math.jhu.edu/~eriehl/context.pdf 42
