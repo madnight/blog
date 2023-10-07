@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
 
 A semigroup is an algebraic structure $(S, \otimes)$ in which $S$ is a non-empty set and $\otimes : S \times S \rightarrow S$ is a binary associative operation on $S$, such that the equation $(a \otimes  b) \otimes c = a \otimes (b \otimes c)$ holds for all $a, b, c \in \mathcal{S}$. In category theory, a semigroup is a [monoid](/monoid/) where there might not be an identity element. More formally, a semigroup is a semicategory (a [category](/category) without the requirement for identiy morphism) $\mathcal{C}$ with just one object $S$ and the following conditions:
 
-* The set of morphisms ([hom-set](/hom-sets)) is closed under composition: For every pair of morphisms $f, g$ in $Hom_\mathcal{C}(S,S)$, their composition $f \circ g$ also belongs to $Hom_{C}(S,S)$
+* The set of morphisms ([hom-set](/hom-set)) is closed under composition: For every pair of morphisms $f, g$ in $Hom_\mathcal{C}(S,S)$, their composition $f \circ g$ also belongs to $Hom_{C}(S,S)$
 
 * The composition operation is associative: For any three morphisms $f, g, h$ in $Hom_{C}(S, S)$, we have $(f \circ g) \circ h = f \circ (g \circ h)$.
 

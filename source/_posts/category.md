@@ -68,7 +68,7 @@ ul > li {
 
 <!-- composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$ -->
 
-A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $A, B \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(A,B)$, also called [hom-sets](/hom-sets), satisfying the following properties:
+A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $A, B \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(A,B)$, also called [hom-sets](/hom-set), satisfying the following properties:
 
 * For every three objects $A,B,C \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
 

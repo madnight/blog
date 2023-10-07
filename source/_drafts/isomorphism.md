@@ -2,7 +2,7 @@
 title: Isomorphism
 date: 2023-10-04
 tags: ["category theory", "haskell"]
-subtitle: Structure-Preserving Mapping with Inverse
+subtitle: A Morphism with Inverse
 mathjax: true
 ---
 {% raw %}
@@ -33,13 +33,13 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <!-- <br> -->
 
-Let $\mathcal{C}$ be a [category](/category) and $x,y$ be objects of $\mathcal{C}$, an isomorphism is a morphism $f : x \rightarrow y$ if and only if there exists a morphism an inverse morphism $g : y \rightarrow x$, such that, $f \circ g = 1_{y}$ and $g \circ f = 1_{x}$, where $1_{x}$ denotes the identity morphism on $x$.
-in which case one writes $x \cong y$.
+Let $\mathcal{C}$ be a [category](/category) and $A, B$ be objects of $\mathcal{C}$, an isomorphism is a morphism $f : A \rightarrow B$ if and only if there exists a morphism an inverse morphism $g : B \rightarrow A$, such that, $f \circ g = 1_{B}$ and $g \circ f = 1_{A}$, where $1_{A}$ denotes the identity morphism on $A$.
+in which case one writes $A \cong B$.
 
 
 Two categories $\mathcal{C}$ and $\mathcal{D}$ are isomorhphic if there exist [functors](/functor) $F : \mathcal{C} \rightarrow \mathcal{D}$ and $G : D \rightarrow C$ which are mutually inverse to each other, that is, $F \circ G = 1_{D}$, the identity functor on D and $G \circ F = 1_{C}$, the identity functor on C.
 
-A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $x \in \mathcal{C} , \eta_{x} : F(x) \Rightarrow G(x)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$.
+A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $A \in \mathcal{C} , \eta_{A} : F(A) \Rightarrow G(A)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$.
 
 https://arxiv.org/pdf/1912.10642.pdf 16
 https://math.jhu.edu/~eriehl/context.pdf 42
@@ -50,8 +50,8 @@ The term isomorphism originates from the Greek word morphe (μορφή), which t
 {% raw %}
 \begin{xy}
 \xymatrix{
-X \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{X}\ \circ\ F} & F(X) \ar[r]_{\alpha_{X}} \ar[d]_{F(f)} & G(X) \ar[d]_{G(f)} \\
-Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F}  & F(Y) \ar[r]^{\alpha_{Y}}  & G(Y)
+A \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{A}\ \circ\ F} & F(A) \ar[r]_{\alpha_{A}} \ar[d]_{F(f)} & G(A) \ar[d]_{G(f)} \\
+B \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{B}\ \circ\ F}  & F(B) \ar[r]^{\alpha_{B}}  & G(B)
 }
 \end{xy}
 {% endraw %}
@@ -227,7 +227,7 @@ maybeToList3 (Just x) = [x,x,x]
 
 As we can see there is an infinite number of natural transformations.
 
-You can open an interactive Haskell interpreter (ghci), load the functions and test the following examples.
+Bou can open an interactive Haskell interpreter (ghci), load the functions and test the following examples.
 
 {% vimhl hs %}
 ghci> safeHead [1,2,3]

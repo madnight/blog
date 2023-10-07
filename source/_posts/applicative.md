@@ -41,7 +41,9 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-An applicative, in category theory, is a lax monoidal [functor](/functor) with tensorial strength. In the following, we will present the definition as an endofunctor, since the concept has its origin in the context of functional programming where every functor is an endofunctor. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
+An applicative, in category theory, is a lax monoidal [functor](/functor) with tensorial strength. In the following, we will present the definition as an endofunctor, since the concept has its origin in the context of functional programming where every functor is an endofunctor.
+
+Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 * $\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})$ (the unit morphism)
 
 * $\phi_{A,B} : FA \otimes FB \rightarrow F(A \otimes B)$ (a [natural transformation](/natural-transformation))
