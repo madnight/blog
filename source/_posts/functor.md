@@ -1,7 +1,7 @@
 ---
 title: Functor
 date: 2023-08-30
-tags: ["category theory", "abstract algebra"]
+tags: ["category theory", "haskell"]
 subtitle: A Homomorphism of Categories
 mathjax: true
 ---
@@ -38,21 +38,21 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
-A functor, in category theory, is a structural-preserving mapping between [categories](/category). Given two categories, $\mathcal{C}$ and $\mathcal{D}$, a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ associates each object in $\mathcal{C}$ with an object in $\mathcal{D}$ and each morphism $f : X \rightarrow Y$ in $\mathcal{C}$ with a morphism $F(f) : F(X) \rightarrow F(Y)$ in $\mathcal{D}$, such that:
+A functor, in category theory, is a structural-preserving mapping between [categories](/category). Given two categories, $\mathcal{C}$ and $\mathcal{D}$, a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ associates each object in $\mathcal{C}$ with an object in $\mathcal{D}$ and each morphism $f : A \rightarrow B$ in $\mathcal{C}$ with a morphism $F(f) : F(A) \rightarrow F(B)$ in $\mathcal{D}$, such that:
 
-* $F(id_{X}) = id_{F(X)}$ for every object $X$ in $\mathcal{C}$,
+* $F(id_{A}) = id_{F(A)}$ for every object $A$ in $\mathcal{C}$,
 
-* $F(g \circ f) = F(g) \circ F(f)$ for all morphisms $f : X \rightarrow Y$ and $g : Y \rightarrow Z$ in $\mathcal{C}$
+* $F(g \circ f) = F(g) \circ F(f)$ for all morphisms $f : A \rightarrow B$ and $g : B \rightarrow C$ in $\mathcal{C}$
 
-<!-- , or in terms of [hom-sets](/hom-sets) $Hom_{C}(X,Y) \rightarrow Hom_{D}(F(X),F(Y))$, -->
+<!-- , or in terms of [hom-sets](/hom-sets) $Hom_{C}(A,B) \rightarrow Hom_{D}(F(A),F(B))$, -->
 
 
 That is, functors must preserve identity morphisms and composition of morphisms. We can rephrase these conditions using the subsequent commutative diagram:
 {% raw %}
 \begin{xy}
 \xymatrix{
-F(X) \ar[r]_{F(f)} \ar@/^1.5pc/[rr]^{F(g\ \circ f)} & F(Y) \ar[r]_{F(g)} & F(Z) \\
-X \ar[r]^{f} \ar@/_1.5pc/[rr]_{g\ \circ\ f} \ar[u]_{F} & Y \ar[r]^{g} \ar[u]_{F} & Z \ar[u]_{F}
+F(A) \ar[r]_{F(f)} \ar@/^1.5pc/[rr]^{F(g\ \circ f)} & F(B) \ar[r]_{F(g)} & F(C) \\
+A \ar[r]^{f} \ar@/_1.5pc/[rr]_{g\ \circ\ f} \ar[u]_{F} & B \ar[r]^{g} \ar[u]_{F} & C \ar[u]_{F}
 }
 \end{xy}
 {% endraw %}
@@ -64,7 +64,7 @@ A Functor in Haskell is a typeclass that represents a type that can be mapped ov
 Haskell Definition of Functor (Interface)
 {% vimhl hs %}
 class Functor f where
-    --      (X -> Y) -> F(X) -> F(Y)
+    --      (A -> B) -> F(A) -> F(B)
     fmap :: (a -> b) -> f a  -> f b
 {% endvimhl %}
 

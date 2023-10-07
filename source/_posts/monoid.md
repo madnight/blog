@@ -45,8 +45,8 @@ In category theory, a Monoid is a triple ($M$, $\eta$, $\mu$) in a monoidal [cat
 
 These must satisfy the following coherence conditions:
 
-* $\mu(\mu(x, y), z) = \mu(x, \mu(y, z))\ \ \forall\ x, y, z \in M$ (associativity)
-* $\mu(\eta(1_{M}), x) = x = \mu(x, \eta(1_{M}))\ \ \forall\ x \in M$ (left and right identiy)
+* $\mu(\mu(a, b), c) = \mu(a, \mu(b, c))\ \ \forall\ a, b, c \in M$ (associativity)
+* $\mu(\eta(1_{M}), a) = a = \mu(a, \eta(1_{M}))\ \ \forall\ a \in M$ (left and right identiy)
 
 We can rephrase these conditions using the subsequent commutative diagrams:
 

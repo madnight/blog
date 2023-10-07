@@ -44,16 +44,16 @@ window.addEventListener('load', function() {
 An applicative, in category theory, is a lax monoidal [functor](/functor) with tensorial strength. In the following, we will present the definition as an endofunctor, since the concept has its origin in the context of functional programming where every functor is an endofunctor. Let $(\mathcal{C}, \otimes, 1_{\mathcal{C}})$ be a monoidal category. A lax monoidal endofunctor is a functor $F : \mathcal{C} \rightarrow \mathcal{C}$ together with two coherence maps:
 * $\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})$ (the unit morphism)
 
-* $\phi_{X,Y} : FX \otimes FY \rightarrow F(X \otimes Y)$ (a [natural transformation](/natural-transformation))
+* $\phi_{A,B} : FA \otimes FB \rightarrow F(A \otimes B)$ (a [natural transformation](/natural-transformation))
 
 such that the following diagrams commute:
 
 {% raw %}
 \begin{xy}
 \xymatrix{
-(FX\ \otimes\ FY)\ \otimes\ FZ \ar[r]^{\alpha} \ar[d]_{\phi_{X,Y}\ \otimes\ FZ} & FX\ \otimes\ (FY\ \otimes\ FZ) \ar[d]^{FX\ \otimes\ \phi_{Y,Z}} \\
-F(X\ \otimes\ Y)\ \otimes\ FZ \ar[d]_{\phi_{X\ \otimes\ Y,Z}} & FX\ \otimes\ F(Y\ \otimes\ Z) \ar[d]^{\phi_{X,Y\ \otimes\ Z}} \\
-F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ Z)) \\
+(FA\ \otimes\ FB)\ \otimes\ FC \ar[r]^{\alpha} \ar[d]_{\phi_{A,B}\ \otimes\ FC} & FA\ \otimes\ (FB\ \otimes\ FC) \ar[d]^{FA\ \otimes\ \phi_{B,C}} \\
+F(A\ \otimes\ B)\ \otimes\ FC \ar[d]_{\phi_{A\ \otimes\ B,C}} & FA\ \otimes\ F(B\ \otimes\ C) \ar[d]^{\phi_{A,B\ \otimes\ C}} \\
+F((A\ \otimes\ B)\ \otimes\ C) \ar[r]_{F_{\alpha}} & F(A\ \otimes\ (B\ \otimes\ C)) \\
 }
 \end{xy}
 {% endraw %}
@@ -63,8 +63,8 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
   <div class="left">
 \begin{xy}
 \xymatrix{
-  FX\ \otimes\ 1_{\mathcal{C}}\ar[d]_{\rho} \ar[r]^{FX\ \otimes\ \eta\ \ \ \ \ } & FX\ \otimes\ F(1_{\mathcal{C}}) \ar[d]^{\phi_{X,1_{\mathcal{C}}}} \\
-  FX & F(X\ \otimes\ 1_{\mathcal{C}}) \ar[l]_{F_{\rho}}
+  FA\ \otimes\ 1_{\mathcal{C}}\ar[d]_{\rho} \ar[r]^{FA\ \otimes\ \eta\ \ \ \ \ } & FA\ \otimes\ F(1_{\mathcal{C}}) \ar[d]^{\phi_{A,1_{\mathcal{C}}}} \\
+  FA & F(A\ \otimes\ 1_{\mathcal{C}}) \ar[l]_{F_{\rho}}
 }
 \end{xy}
   </div>
@@ -72,8 +72,8 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
   <div class="right">
 \begin{xy}
 \xymatrix{
-  1_{\mathcal{C}}\ \otimes\ FY\ar[d]_{\lambda} \ar[r]^{\eta\ \otimes\ FY\ \ \ \ } & F(1_{\mathcal{C}})\ \otimes\ F\ Y \ar[d]^{\phi_{1_{\mathcal{C},Y}}} \\
-  FY & F(1_{\mathcal{C}}\ \otimes\ Y) \ar[l]_{{F_{\lambda}}}
+  1_{\mathcal{C}}\ \otimes\ FB\ar[d]_{\lambda} \ar[r]^{\eta\ \otimes\ FB\ \ \ \ } & F(1_{\mathcal{C}})\ \otimes\ F\ B \ar[d]^{\phi_{1_{\mathcal{C},B}}} \\
+  FB & F(1_{\mathcal{C}}\ \otimes\ B) \ar[l]_{{F_{\lambda}}}
 }
 \end{xy}
   </div>
@@ -82,9 +82,9 @@ F((X\ \otimes\ Y)\ \otimes\ Z) \ar[r]_{F_{\alpha}} & F(X\ \otimes\ (Y\ \otimes\ 
 
 The natural transformations:
 
-* $\alpha : (a \otimes b) \otimes c\ \rightarrow a \otimes (b \otimes c)$ (associativity)
-* $\rho : a \otimes 1_{\mathcal{C}} \rightarrow a$ (right identity)
-* $\lambda : 1_{\mathcal{C}} \otimes a \rightarrow a$ (left identity)
+* $\alpha : (A \otimes B) \otimes C\ \rightarrow A \otimes (B \otimes C)$ (associativity)
+* $\rho : A \otimes 1_{\mathcal{C}} \rightarrow A$ (right identity)
+* $\lambda : 1_{\mathcal{C}} \otimes A \rightarrow A$ (left identity)
 
 are part of the monoidal structure on ${\mathcal {C}}$.
 
@@ -133,7 +133,7 @@ Hence we can also phrase Monoidal this way, and it aligns seamlessly with our ca
 class Functor f => Monoidal f where
 -- η     : 1  -> F(1) (unit)
   unit' :: () -> f ()
--- ϕx,y  : F(X) ⊗ F(Y) -> F(X ⊗ Y)
+-- ϕx,y  : F(A) ⊗ F(B) -> F(A ⊗ B)
   (**') :: (f a, f b)   -> f (a, b)
 {% endvimhl %}
 
