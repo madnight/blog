@@ -4,68 +4,68 @@
   <url>
     <loc>https://beuke.org/category/</loc>
     
-    <lastmod>2023-10-06T20:49:40.445Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/natural-transformation/</loc>
-    
-    <lastmod>2023-10-06T20:36:47.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monoid/</loc>
-    
-    <lastmod>2023-10-03T11:41:51.651Z</lastmod>
+    <lastmod>2023-10-07T19:33:00.242Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/semigroup/</loc>
     
-    <lastmod>2023-10-03T11:38:31.682Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/functor/</loc>
-    
-    <lastmod>2023-10-03T11:35:02.277Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/applicative/</loc>
-    
-    <lastmod>2023-10-03T11:31:19.724Z</lastmod>
+    <lastmod>2023-10-07T19:30:56.096Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/monad/</loc>
     
-    <lastmod>2023-09-08T19:09:25.690Z</lastmod>
+    <lastmod>2023-10-07T19:28:37.880Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/hom-sets/</loc>
+    <loc>https://beuke.org/monoid/</loc>
     
-    <lastmod>2023-09-06T10:10:44.611Z</lastmod>
+    <lastmod>2023-10-07T19:24:31.692Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/hom-set/</loc>
+    
+    <lastmod>2023-10-07T19:21:14.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/functor/</loc>
+    
+    <lastmod>2023-10-07T19:14:07.695Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/applicative/</loc>
+    
+    <lastmod>2023-10-07T19:12:27.639Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/natural-transformation/</loc>
+    
+    <lastmod>2023-10-07T19:08:38.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
