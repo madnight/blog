@@ -68,36 +68,36 @@ ul > li {
 
 <!-- composition is associative: for each quadruple $a,b,c,d \in \text{Obj}(\mathcal{C})$ of objects, if $f \in HOM\ Mor?$ -->
 
-A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $X, Y \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(X,Y)$, also called [hom-sets](/hom-sets), satisfying the following properties:
+A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj}(\mathcal{C})$ and, for every two objects $A, B \in \text{Obj}(\mathcal{C})$, a set of morphisms $\text{Hom}(A,B)$, also called [hom-sets](/hom-sets), satisfying the following properties:
 
-* For every three objects $X,Y,Z \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
+* For every three objects $A,B,C \in \text{Obj}(\mathcal{C})$, there exist a binary operation $\circ$, called composition of morphisms, that satisfies the composition law:
 
-  * $\circ : \text{Hom}(Y,Z) \times \text{Hom}(X,Y) \rightarrow \text{Hom}(X,Z)$, that can be written as: $(g,f) \rightarrow g\ \circ\ f$
+  * $\circ : \text{Hom}(B,C) \times \text{Hom}(A,B) \rightarrow \text{Hom}(A,C)$, that can be written as: $(g,f) \rightarrow g\ \circ\ f$
     <!-- <li style="list-style-type: none;">Item 1</li> -->
     <!-- <li style="list-style-type: none;">Item 2</li> -->
 
-* Composition is associative: for all $W,X,Y,Z \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(Y,Z)$, $g \in \text{Hom}(X,Y)$, $h \in \text{Hom}(W,X)$ we have:
+* Composition is associative: for all $A,B,C,D \in \text{Obj}(\mathcal{C}), f \in \text{Hom}(B,C)$, $g \in \text{Hom}(A,B)$, $h \in \text{Hom}(D,A)$ we have:
 
     * $f \circ (g \circ h) = (f \circ g) \circ h$
 
-* For each $X \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{X} \in \text{Hom}(X,X)$ (identity morphism), such that, for every $Y \in \text{Obj}(\mathcal{C})$, we have left and right unit laws:
+* For each $A \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{A} \in \text{Hom}(A,A)$ (identity morphism), such that, for every $B \in \text{Obj}(\mathcal{C})$, we have left and right unit laws:
 
-    * $f \circ 1_{X} = f$ for all $f \in \text{Hom}(X, Y)$
-    * $1_{X} \circ f = f$ for all $f \in \text{Hom}(Y,X)$
+    * $f \circ 1_{A} = f$ for all $f \in \text{Hom}(A, B)$
+    * $1_{A} \circ f = f$ for all $f \in \text{Hom}(B,A)$
 
 <!-- For each $x \in \text{Obj}(\mathcal{C})$, there is a unique element $1_{x} \in \text{Hom}(x,x)$ (identity morphism), such that for every pair $x,y \in \text{Obj}(\mathcal{C})$, if $f \in \text{Hom}(x,y)$, then we have left and right unit laws: -->
 
 <!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
 
-It is common to express $X \in \mathcal{C}$ instead of $X \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from X to Y', it's typically written as $f: X \rightarrow Y$ rather than $f \in \text{Hom}(X,Y)$.
+It is common to express $A \in \mathcal{C}$ instead of $A \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from A to B', it's typically written as $f: A \rightarrow B$ rather than $f \in \text{Hom}(A,B)$.
 
-A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $X, Y, Z$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
+A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $A, B, C$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
 
 {% raw %}
 \begin{xy}
 	\xymatrix{
-	X \ar@(l,u)^{1_X}[] \ar_{g\ \circ\ f}[dr] \ar^f[r] & Y \ar@(u,r)^{1_Y}[] \ar^g[d]\\
-	&Z \ar@(d,r)_{1_Z}[]
+	A \ar@(l,u)^{1_A}[] \ar_{g\ \circ\ f}[dr] \ar^f[r] & B \ar@(u,r)^{1_B}[] \ar^g[d]\\
+	&C \ar@(d,r)_{1_C}[]
 	}
 \end{xy}
 {% endraw %}
@@ -108,7 +108,7 @@ One interesting aspect that follows from the left and right unit laws is that th
 <div class="proof" >
 
 **Proposition.** &nbsp; *The identity morphism is unique.*
-*Proof.* &nbsp; Suppose that each of $1_{X}$ and $1'_{X}$ is an identity morphism. Then by left and right unit laws we have: $1'_{X} \circ 1_{X} = 1'_{X}$ and $1'_{X} \circ 1_{X} = 1_{X}$, hence $1'_{X} = 1'_{X} \circ 1_{X} = 1_{X}$
+*Proof.* &nbsp; Suppose that each of $1_{A}$ and $1'_{A}$ is an identity morphism. Then by left and right unit laws we have: $1'_{A} \circ 1_{A} = 1'_{A}$ and $1'_{A} \circ 1_{A} = 1_{A}$, hence $1'_{A} = 1'_{A} \circ 1_{A} = 1_{A}$
 <div class="right">
 
 $\pmb{\scriptstyle \square}$
@@ -127,22 +127,22 @@ Here is an alternative formulation of this proof in [Coq](https://gist.github.co
 <!--   Context `{Hom : Type -> Type -> Type}. -->
 
 <!--   Class Category := { -->
-<!--     id : forall {X}, Hom X X; -->
-<!--     compose  : forall {X Y Z}, Hom X Y -> Hom Y Z -> Hom X Z; -->
+<!--     id : forall {A}, Hom A A; -->
+<!--     compose  : forall {A B C}, Hom A B -> Hom B C -> Hom A C; -->
 
 <!--     (* Identity Laws *) -->
-<!--     left_identity  : forall {X Y} (f: Hom X Y), -->
+<!--     left_identity  : forall {A B} (f: Hom A B), -->
 <!--       compose id f = f; -->
-<!--     right_identity : forall {X Y} (f: Hom X Y), -->
+<!--     right_identity : forall {A B} (f: Hom A B), -->
 <!--       compose f id = f; -->
 <!--   }. -->
 
-<!--   Variables X : Type. -->
-<!--   Variables (id1 id2 : Hom X X). -->
+<!--   Variables A : Type. -->
+<!--   Variables (id1 id2 : Hom A A). -->
 <!--   Context `{C : @Category Hom}. -->
 
-<!--   Hypothesis H1 : forall {Y} (f : Hom X Y), compose id1 f = f. -->
-<!--   Hypothesis H2 : forall {Y} (f : Hom X Y), compose id2 f = f. -->
+<!--   Hypothesis H1 : forall {B} (f : Hom A B), compose id1 f = f. -->
+<!--   Hypothesis H2 : forall {B} (f : Hom A B), compose id2 f = f. -->
 
 <!--   Theorem identity_unique : id1 = id2. -->
 <!--   Proof. -->
@@ -159,11 +159,11 @@ In Haskell, Category is a type class that abstracts the concept of a mathematica
 {% vimhl hs %}
 class Category cat where
     -- the identity morphism
-    --    Hom(X,X)
+    --    Hom(A,A)
     id :: a `cat` a
 
     -- morphism composition
-    --      Hom(Y,Z)    ×   Hom(X,Y)   →  Hom(X,Z)
+    --      Hom(B,C)    ×   Hom(A,B)   →  Hom(A,C)
     (.) :: (b `cat` c) -> (a `cat` b) -> (a `cat` c)
 {% endvimhl %}
 

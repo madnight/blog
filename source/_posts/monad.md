@@ -46,10 +46,10 @@ These must satisfy the following coherence conditions, known as the Monad laws:
 * $\mu \circ T\mu = \mu \circ \mu T$ (associativity)
 * $\mu \circ T\eta = \mu \circ \eta T = 1_T$ (left and right identity)
 
-This means that for any object $X$ in $\mathcal{C}$, we have:
+This means that for any object $A$ in $\mathcal{C}$, we have:
 
-* $\mu_X \circ T(\mu_X) = \mu_X \circ \mu_{T(X)}$ (associativity)
-* $\mu_X \circ T(\eta_X) = \mu_X \circ \eta_{T(X)} = id_{T(X)}$ (left and right unit laws)
+* $\mu_A \circ T(\mu_A) = \mu_A \circ \mu_{T(A)}$ (associativity)
+* $\mu_A \circ T(\eta_A) = \mu_A \circ \eta_{T(A)} = id_{T(A)}$ (left and right unit laws)
 
 
 We can rephrase these conditions using the subsequent commutative diagrams:
@@ -76,15 +76,15 @@ We can rephrase these conditions using the subsequent commutative diagrams:
 </div>
 {% endraw %}
 
-We can also write down the natural transformations in terms of their components. For each object $X$ of $\mathcal{C}$, the unit is a morphism $\eta_{X} : X \rightarrow T X$, and the multiplication is a morphism $\mu_{X} : T(T X) \rightarrow T X$, such that the following diagrams commute:
+We can also write down the natural transformations in terms of their components. For each object $A$ of $\mathcal{C}$, the unit is a morphism $\eta_{A} : A \rightarrow T A$, and the multiplication is a morphism $\mu_{A} : T(T A) \rightarrow T A$, such that the following diagrams commute:
 
 {% raw %}
 <div class="splitscreen">
   <div class="left">
 \begin{xy}
 \xymatrix{
-  T(T(TX)) \ar[d]_{\mu TX} \ar[r]^{T\mu{(X)}} & T(TX) \ar[d]^{\mu{X}} \\
-  T(TX) \ar[r]_{\mu{X}} & TX
+  T(T(TA)) \ar[d]_{\mu TA} \ar[r]^{T\mu{(A)}} & T(TA) \ar[d]^{\mu{A}} \\
+  T(TA) \ar[r]_{\mu{A}} & TA
 }
 \end{xy}
   </div>
@@ -92,8 +92,8 @@ We can also write down the natural transformations in terms of their components.
   <div class="right">
 \begin{xy}
 \xymatrix{
-  TX \ar[d]_{\eta TX} \ar[r]^{T\eta{(X)}} \ar@{=}[dr] & T(TX) \ar[d]^{\mu{X}} \\
-  T(TX) \ar[r]_{\mu{X}} & TX
+  TA \ar[d]_{\eta TA} \ar[r]^{T\eta{(A)}} \ar@{=}[dr] & T(TA) \ar[d]^{\mu{A}} \\
+  T(TA) \ar[r]_{\mu{A}} & TA
 }
 \end{xy}
   </div>
@@ -110,10 +110,10 @@ The Monad, by definition, requires us to implement two functions: the unit, whic
 Haskell Definition of Monad (Interface)
 {% vimhl hs %}
 class Monad m where
-  --   ηx : X -> T X (unit)
+  --   ηx : A -> T A (unit)
   return :: a -> m a
 
-  --   μx : T (T X) -> T X (multiplication)
+  --   μx : T (T A) -> T A (multiplication)
   join   :: m (m a) -> m a
 {% endvimhl %}
 

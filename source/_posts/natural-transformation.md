@@ -35,17 +35,17 @@ window.addEventListener('load', function() {
 
 Let $\mathcal{C}$ and $\mathcal{D}$ be [categories](/category) and $F$ and $G$ be [functors](/functor) $\mathcal{C} \rightarrow \mathcal{D}$. Then a natural transformation $\alpha$ from $F$ to $G$ is a family of morphism that satisfies the following requirements:
 
-* For every object $X$ in $\mathcal{C}$, a natural transformation $\alpha$ from the functor $F$ to the functor $G$ assigns a morphism $\alpha_{X} : F(X) \rightarrow G(X)$ between objects of $\mathcal{D}$. The morphism $\alpha_{X}$ is called the component of $\alpha$ at $X$.
+* For every object $A$ in $\mathcal{C}$, a natural transformation $\alpha$ from the functor $F$ to the functor $G$ assigns a morphism $\alpha_{A} : F(A) \rightarrow G(A)$ between objects of $\mathcal{D}$. The morphism $\alpha_{A}$ is called the component of $\alpha$ at $A$.
 
-* Components must be such that for every morphism $f : X \rightarrow Y$ in $\mathcal{C}$ we have: $\alpha_{Y} \circ F(f) = G(f) \circ \alpha_{X}$ (naturality condition)
+* Components must be such that for every morphism $f : A \rightarrow B$ in $\mathcal{C}$ we have: $\alpha_{B} \circ F(f) = G(f) \circ \alpha_{A}$ (naturality condition)
 
 These requirements can be expressed by the following commutative diagram:
 
 {% raw %}
 \begin{xy}
 \xymatrix{
-X \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{X}\ \circ\ F} & F(X) \ar[r]_{\alpha_{X}} \ar[d]_{F(f)} & G(X) \ar[d]_{G(f)} \\
-Y \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{Y}\ \circ\ F}  & F(Y) \ar[r]^{\alpha_{Y}}  & G(Y)
+A \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{A}\ \circ\ F} & F(A) \ar[r]_{\alpha_{A}} \ar[d]_{F(f)} & G(A) \ar[d]_{G(f)} \\
+B \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{B}\ \circ\ F}  & F(B) \ar[r]^{\alpha_{B}}  & G(B)
 }
 \end{xy}
 {% endraw %}
