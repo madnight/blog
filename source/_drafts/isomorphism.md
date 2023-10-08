@@ -54,9 +54,10 @@ A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such 
 $\pmb{\scriptstyle \square}$
 </div> </div>
 
-Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/4d00970f1944a66113d7f04465af20f8)
+Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/4d00970f1944a66113d7f04465af20f8).
 
 
+https://www.logicmatters.net/resources/pdfs/SmithCat-I.pdf 76
 
 
 https://arxiv.org/pdf/1912.10642.pdf 16

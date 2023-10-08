@@ -108,6 +108,7 @@ One interesting aspect that follows from the left and right unit laws is that th
 <div class="proof" >
 
 **Proposition.** &nbsp; *The identity morphism is unique.*
+
 *Proof.* &nbsp; Suppose that each of $1_{A}$ and $1'_{A}$ is an identity morphism. Then by left and right unit laws we have: $1'_{A} \circ 1_{A} = 1'_{A}$ and $1'_{A} \circ 1_{A} = 1_{A}$, hence $1'_{A} = 1'_{A} \circ 1_{A} = 1_{A}$
 <div class="right">
 
