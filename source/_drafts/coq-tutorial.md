@@ -2,7 +2,7 @@
 title: Coq Tutorial
 date: 2023-10-05
 tags: ["category theory", "haskell"]
-subtitle: Interactive Theorem Proving with Coq and Coqtop REPL
+subtitle: Interactive Theorem Proving with Coq
 mathjax: true
 ---
 {% raw %}
@@ -57,7 +57,7 @@ Coq is a proof management system that provides a formal language to write mathem
      sudo pacman -S coq
      {% endvimhl %}
 
-# Writing a Simple Proof with Coqtop
+# Writing a Simple Proof in Coq
 
 <!-- If you wish to paste or write a proof without utilizing an interactive REPL, you can insert your code into a file, such as `hello_world.v`, and execute it using the command `coqc hello_world.v`. If your proofs are accurate, this command will exit with 0; otherwise, it will provide an error explaining why the proof is not yet complete. -->
 
@@ -67,18 +67,69 @@ Now, we aim to prove that 1 + 1 = 2 using Coq. Let's create a file named `hello_
 Proposition one_plus_one_is_two : 1 + 1 = 2.
 {% endvimhl %}
 
-If we just try to compile our proof with `coqc hello_proof.v` it will throw the following error as epexteced:
+If we attempt to compile our proof using `coqc hello_proof.v`, it will generate the following error, as expected:
 
 ```
 Error: There are pending proofs in file ./hello_proof.v: one_plus_one_is_two.
 ```
 
-That is because we have an unproven statement in our file. Now lets load our file into `coqtop` with `coqtop -load-vernac-source hello_proof.v` and try to prove this trivial proposition interactivly.
+That is because we have an unproven statement in our file. Now, lets load our file into `coqtop` with `coqtop -load-vernac-source hello_proof.v` and try to prove this trivial proposition interactivly. Coqtop is the Read-Eval-Print Loop (REPL) for Coq. It allows you to interactively develop proofs.
 
+1. Start Coqtop by running `coqtop -load-vernac-source hello_proof.v` in your terminal.
 
-Coqtop is the Read-Eval-Print Loop (REPL) for Coq. It allows you to interactively develop proofs. Here's how to write a simple proof using Coqtop.
+2. Let's prove that 1 + 1 = 2. First, we need to enter proof mode by writing `Proof.`, pressing enter, and then writing `Show.`, followed by another enter, to view the current proof goal.
 
-1. Start Coqtop by running `coqtop` in your terminal.
+   ```
+   Welcome to Coq 8.16.1
+
+   one_plus_one_is_two < Proof.
+
+   one_plus_one_is_two < Show.
+   1 goal
+
+     ============================
+     1 + 1 = 2
+   ```
+   This is how it looks with with `vim` (top) and `coqtop` (bottom) in `tmux`:
+
+   ![](/images/vim-coq-top-down.png)
+
+3. Okay we have successfully loaded our propositon into coqtop and can now try to prove it using tatics. The first tactic I want to introduce is `simpl`. The `simpl` tactic reduces complex terms to simpler forms:
+
+   ```
+   one_plus_one_is_two < simpl.
+   1 goal
+
+     ============================
+     2 = 2
+   ```
+
+4. As we can see, the `simpl` tactic has reduced our term `1 + 1` on the left side by evaluating it as `2`. Now, it's quite obvious that the term `2 = 2` is indeed true. We can solve the last goal with `reflexivity`, which is another basic tactic that solves the goal if it is a trivial equality, like in our case. 
+
+   ```
+   one_plus_one_is_two < reflexivity.
+   No more goals.
+   ```
+
+   After that we can write `Qed.` to end our proof and finish the proof mode.
+   ```
+   one_plus_one_is_two < Qed.
+   ```
+
+5. We can now put all the steps together into our `hello_word.v` file:
+
+   {% vimhl v %}
+   Proposition one_plus_one_is_two : 1 + 1 = 2.
+   Proof.
+     simpl.
+     reflexivity.
+   Qed.
+   {% endvimhl %}
+
+   and compile the proof with `coqc hello_word.v`.
+
+Here you can find a sheet cheat for more tactics, like trival, auto, contradiction, rewrite, unfold, ... https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html
+
 
 2. Let's prove that for all natural numbers, if n is greater than or equal to 0, then n + 0 = n. In Coq, we can write this as follows:
 
@@ -98,8 +149,6 @@ Proposition one_equals_one : 1 = 1.
 Proof.
 reflexivity.
 Qed.
-
-
 
 <!-- Print lt. -->
 <!-- lt = fun n m : nat => S n <= m -->
