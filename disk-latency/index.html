@@ -20,15 +20,15 @@
     <noscript>
         <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
     </noscript>
-    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" as="style">
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
     <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
     <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
     <noscript>
         <link rel="stylesheet" href="/css/main.css">
     </noscript>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
     <noscript>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     </noscript>
     <script defer type="text/javascript">
         document.addEventListener("DOMContentLoaded", function (event)
@@ -153,21 +153,21 @@ min/avg/max/mdev = 747.8 us / 795.7 us / 871.1 us / 55.5 us
                         </table>
                     </center>
                 </div>
-                <p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math>
+                <p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
                                 <semantics>
                                     <mrow>
                                         <mi>t</mi>
                                     </mrow>
                                     <annotation encoding="application/x-tex">t</annotation>
                                 </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>, whereas <span class="katex"><span class="katex-mathml"><math>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span>, whereas <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
                                 <semantics>
                                     <mrow>
                                         <mi>t</mi>
                                     </mrow>
                                     <annotation encoding="application/x-tex">t</annotation>
                                 </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> is latency in seconds.</p>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> is latency in seconds.</p>
                 <p>We can conclude that I/O latency plays an important role for many applications, because I/O operations often happen to be sequential. This is similar to the importance of single-thread performance in a multi-core CPU architecture. While it is good to have many cores available, the single-thread performance of each core is still very relevant for the overall CPU speed in practice. The reason for that is that many applications runs single-threaded, like all coreutils except for sort<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Decoded: GNU coreutils](http://maizure.org/projects/decoded-gnu-coreutils/)">[2]</span></a></sup>, and can only utilize one core at a time.</p>
                 <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
                 <div id="footnotes">
