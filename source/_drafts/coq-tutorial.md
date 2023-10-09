@@ -1,7 +1,7 @@
 ---
 title: Coq Tutorial
-date: 2023-10-05
-tags: ["category theory", "haskell"]
+date: 2023-10-09
+tags: ["theorem proving", "proof theory", "coq"]
 subtitle: Interactive Theorem Proving with Coq
 mathjax: true
 ---
@@ -28,14 +28,13 @@ window.addEventListener('load', function() {
 
 {% endraw %}
 
-Coq is a proof management system that provides a formal language to write mathematical definitions, executable algorithms, and theorems together with an environment for semi-interactive development of machine-checked proofs. This tutorial will guide you through the process of installing Coq on Windows, Mac, and Linux, and then how to write a simple proof using Coqtop REPL. If you come from Haskell, you can think of Coq like GHC and Coqtop like GHCi.
+Coq is a proof management system that provides a formal language to write mathematical definitions, executable algorithms, and theorems together with an environment for semi-interactive development of machine-checked proofs. This tutorial will guide you through the process of installing Coq on Windows, Mac, and Linux, and then how to write a simple proof using coqtop. coqtop is the Read-Eval-Print Loop (REPL) for Coq. It allows you to interactively develop proofs. If you come from Haskell, you can think of Coq like GHC and coqtop like GHCi.
 
 # Installing Coq
 
 * Installing Coq on **Windows**
 
-   - Download the Windows installer from the Coq website (https://coq.inria.fr/download).
-   - Run the installer and follow the instructions. The installer will guide you through the process and install Coq and CoqIDE (the integrated development environment for Coq).
+   - Download and run the Windows installer from the Coq website (https://coq.inria.fr/download).
 
 * Installing Coq on **Mac**
 
@@ -44,15 +43,15 @@ Coq is a proof management system that provides a formal language to write mathem
 
 * Installing Coq on **Linux**
 
-   - For Debian-based distributions like Ubuntu, you can install Coq using apt. Run the following commands in your terminal:
+   - For Debian-based distributions like Ubuntu, use apt to install Coq.
      {% vimhl bash %}
      sudo apt install coq
      {% endvimhl %}
-   - For Red Hat-based distributions like Fedora, you can install Coq using dnf:
+   - For Red Hat-based distributions like Fedora, use dnf to install Coq.
      {% vimhl bash %}
      sudo dnf install coq
      {% endvimhl %}
-   - For Arch Linux-based distributions like Manjaro, you can install Coq using pacman:
+   - For Arch Linux-based distributions like Manjaro, use pacman to install Coq.
      {% vimhl bash %}
      sudo pacman -S coq
      {% endvimhl %}
@@ -61,23 +60,26 @@ Coq is a proof management system that provides a formal language to write mathem
 
 <!-- If you wish to paste or write a proof without utilizing an interactive REPL, you can insert your code into a file, such as `hello_world.v`, and execute it using the command `coqc hello_world.v`. If your proofs are accurate, this command will exit with 0; otherwise, it will provide an error explaining why the proof is not yet complete. -->
 
-Now, we aim to prove that 1 + 1 = 2 using Coq. Let's create a file named `hello_proof.v` and insert the following proposition that we seek to prove:
+Now, we aim to prove that **1 + 1 = 2** using Coq.
 
-{% vimhl v %}
-Proposition one_plus_one_is_two : 1 + 1 = 2.
-{% endvimhl %}
+1. Let's create a file named `hello_proof.v` and insert the following proposition that we seek to prove:
 
-If we attempt to compile our proof using `coqc hello_proof.v`, it will generate the following error, as expected:
+   {% vimhl v %}
+   Proposition one_plus_one_is_two : 1 + 1 = 2.
+   {% endvimhl %}
 
-```
-Error: There are pending proofs in file ./hello_proof.v: one_plus_one_is_two.
-```
+   If we attempt to compile our proof using `coqc hello_proof.v`, it will generate the following error, as expected:
 
-That is because we have an unproven statement in our file. Now, lets load our file into `coqtop` with `coqtop -load-vernac-source hello_proof.v` and try to prove this trivial proposition interactivly. Coqtop is the Read-Eval-Print Loop (REPL) for Coq. It allows you to interactively develop proofs.
+   ```
+   Error: There are pending proofs in file
+   ./hello_proof.v: one_plus_one_is_two.
+   ```
 
-1. Start Coqtop by running `coqtop -load-vernac-source hello_proof.v` in your terminal.
+   That is because we have an unproven statement in our file. Now, lets try to prove this proposition interactively.
 
-2. Let's prove that 1 + 1 = 2. First, we need to enter proof mode by writing `Proof.`, pressing enter, and then writing `Show.`, followed by another enter, to view the current proof goal.
+2. Start coqtop by running `coqtop -load-vernac-source hello_proof.v` in your terminal.
+
+3. First, we need to enter proof mode by writing `Proof.`, pressing enter, and then writing `Show.`, followed by another enter, to view the current proof goal.
 
    ```
    Welcome to Coq 8.16.1
@@ -94,7 +96,7 @@ That is because we have an unproven statement in our file. Now, lets load our fi
 
    ![](/images/vim-coq-top-down.png)
 
-3. Okay we have successfully loaded our propositon into coqtop and can now try to prove it using tatics. The first tactic I want to introduce is `simpl`. The `simpl` tactic reduces complex terms to simpler forms:
+4. We have successfully loaded our proposition into coqtop and can now attempt to prove it using tactics. The first tactic I'd like to introduce is `simpl`. The `simpl` tactic reduces complex terms to simpler forms:
 
    ```
    one_plus_one_is_two < simpl.
@@ -104,7 +106,7 @@ That is because we have an unproven statement in our file. Now, lets load our fi
      2 = 2
    ```
 
-4. As we can see, the `simpl` tactic has reduced our term `1 + 1` on the left side by evaluating it as `2`. Now, it's quite obvious that the term `2 = 2` is indeed true. We can solve the last goal with `reflexivity`, which is another basic tactic that solves the goal if it is a trivial equality, like in our case. 
+5. As we can see, the `simpl` tactic has reduced our term `1 + 1` on the left side by evaluating it as `2`. Now, it's quite obvious that the term `2 = 2` is indeed true. We can solve the last goal with `reflexivity`, which is another basic tactic that solves the goal if it is a trivial equality, like in our case.
 
    ```
    one_plus_one_is_two < reflexivity.
@@ -116,7 +118,7 @@ That is because we have an unproven statement in our file. Now, lets load our fi
    one_plus_one_is_two < Qed.
    ```
 
-5. We can now put all the steps together into our `hello_word.v` file:
+6. We can now put all the steps together into our `hello_word.v` file:
 
    {% vimhl v %}
    Proposition one_plus_one_is_two : 1 + 1 = 2.
@@ -128,78 +130,57 @@ That is because we have an unproven statement in our file. Now, lets load our fi
 
    and compile the proof with `coqc hello_word.v`.
 
-Here you can find a sheet cheat for more tactics, like trival, auto, contradiction, rewrite, unfold, ... https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html
 
+# Proof by Induction
 
-2. Let's prove that for all natural numbers, if n is greater than or equal to 0, then n + 0 = n. In Coq, we can write this as follows:
+1. Let's prove that for all natural numbers, if n is greater than or equal to 0, then n + 0 = n. In Coq, we can write this as follows:
 
      {% vimhl v %}
-Theorem add_0_r_secondtry : forall n:nat,
-  n + 0 = n.
-Proof.
-simpl. rewrite -> IHn'. reflexivity.
-
-Theorem add_0_r : forall n:nat, n + 0 = n.
-Proof.
-  intros n. induction n as [| n' IHn'].
-  - (* n = 0 *) reflexivity.
-  - (* n = S n' *) simpl. rewrite -> IHn'.reflexivity. Qed.
-
-Proposition one_equals_one : 1 = 1.
-Proof.
-reflexivity.
-Qed.
-
-<!-- Print lt. -->
-<!-- lt = fun n m : nat => S n <= m -->
-     <!-- : nat -> nat -> Prop -->
-Proposition zero_lt_three : 0 < 3.
-Proof.
-unfold lt.
-repeat constructor.
-Qed.
-
-Proposition one_plus_one_is_two : 1 + 1 = 2.
-Proof.
-simpl.
-reflexivity.
-Qed.
-
+     Proposition n_minus_n_equals_zero : forall n, n - n = 0.
+     Proof.
+       induction n.
      {% endvimhl %}
 
-   This statement hasn't been proven yet. It's just a theorem statement. To prove it, we need to enter proof mode by typing `Proof.`
+     This starts the proof with the induction tactic. This setups two goals, the base case and the inductive step.
 
-3. Now we're in proof mode. The goal is to show that `n + 0 = n` for any natural number `n`. We can start by introducing `n`:
+    ```
+    2 goals
 
-   ```
-   intros n.
-   ```
+      ============================
+      0 - 0 = 0
 
-   This moves `n` from our assumptions to our context.
+    goal 2 is:
+     S n - S n = 0
+    ```
 
-4. Now we need to prove that `n + 0 = n`. In Coq, natural numbers are defined inductively, and `0` is the base case. So we can prove this by induction on `n`:
+2. The base case is trivial, with `simpl.` we have `0 = 0` and then just tell Coq that this is really the same `reflexivity.`
 
-   ```
-   induction n as [| n' IHn'].
-   ```
+    ```
+    1 goal
 
-   This breaks our proof into two cases. The first case is when `n` is `0`, and the second case is when `n` is the successor of some number `n'`.
+      n : nat
+      IHn : n - n = 0
+      ============================
+      S n - S n = 0
+    ```
 
-5. In the base case, we need to prove that `0 + 0 = 0`. This is true by the definition of `+`, so we can use the `reflexivity` tactic:
+3. Now, we are left with the inductive step `S n - S n = 0`. Let's assume the proposition holds for n, and we show it holds for n + 1. `simpl.` applies simplification, reducing the expression `S n - S n` to `n - n` by definition of subtraction in Coq. `rewrite IHn.` uses the inductive hypothesis (IHn) to replace `n - n` with 0. Lastly, `reflexivity.` asserts that `S n - S n` simplifies to 0, which is true after the rewrite. Thus, the proof demonstrates that the proposition `forall n, n - n = 0` holds true for all natural numbers n.
 
-   ```
-   reflexivity.
-   ```
+     {% vimhl v %}
+     Proposition n_minus_n_equals_zero : forall n, n - n = 0.
+     Proof.
+       induction n.
+       - reflexivity.
+       - simpl.
+         rewrite IHn.
+         reflexivity.
+     Qed.
+     {% endvimhl %}
 
-6. In the inductive case, we need to prove that `(S n') + 0 = S n'`. By the definition of `+`, this simplifies to `S (n' + 0) = S n'`. By our inductive hypothesis, `n' + 0 = n'`, so we can use the `rewrite` tactic to simplify our goal:
 
-   ```
-   rewrite -> IHn'.
-   reflexivity.
-   ```
+# Conclusion
 
-7. Now we've proven both cases, so our proof is complete. We can end the proof with `Qed.`
 
-Conclusion
+You might wonder how to come up with all these different tactics. Well, you can look them up, e.g., in the sheet from Cornell University, which is helpful: [Coq Tactics Cheat Sheet](https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html), or examine various examples online. It requires some trial and error with simple proofs to become more proficient in proving with Coq. I can highly recommend the [Software Foundations online book](https://softwarefoundations.cis.upenn.edu/lf-current/toc.html), which can be considered as the reference framework.
 
-Congratulations! You've installed Coq and written a simple proof using Coqtop REPL. Coq is a powerful tool for formalizing mathematical proofs and programming language semantics, and there's much more to learn. Happy proving!
+After successfully installing Coq and crafting a straightforward proof using the coqtop REPL, your journey into the meticulous world of formalizing mathematical proofs and programming language semantics is just beginning. Coq offers a robust toolkit for exploring these domains further. Keep exploring, and happy proving!
