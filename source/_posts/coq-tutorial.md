@@ -133,7 +133,7 @@ Now, we aim to prove that **1 + 1 = 2** using Coq.
 
 # Proof by Induction
 
-1. Let's prove that for all natural numbers, if n is greater than or equal to 0, then n + 0 = n. In Coq, we can write this as follows:
+1. Let's prove that for all natural numbers, `n - n = 0`. In Coq, we can write this as follows:
 
      {% vimhl v %}
      Proposition n_minus_n_equals_zero : forall n, n - n = 0.
