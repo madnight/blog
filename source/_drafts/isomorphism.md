@@ -1,6 +1,6 @@
 ---
 title: Isomorphism
-date: 2023-10-04
+date: 2023-10-15
 tags: ["category theory", "haskell"]
 subtitle: A Morphism with Inverse
 mathjax: true
@@ -18,6 +18,10 @@ mathjax: true
   };
 </script>
 
+
+<link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax-demo.glitch.me/tikzjax.js"></script>
+
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
 <script>
 window.addEventListener('load', function() {
@@ -33,13 +37,63 @@ window.addEventListener('load', function() {
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <!-- <br> -->
 
-Let $\mathcal{C}$ be a [category](/category) and $A, B$ be objects of $\mathcal{C}$, an isomorphism is a morphism $f : A \rightarrow B$ if and only if there exists a morphism an inverse morphism $g : B \rightarrow A$, such that, $f \circ g = 1_{B}$ and $g \circ f = 1_{A}$, where $1_{A}$ denotes the identity morphism on $A$.
-in which case one writes $A \cong B$.
+Let $\mathcal{C}$ be a [category](/category) and $A, B$ be objects of $\mathcal{C}$, an isomorphism is a morphism $f : A \rightarrow B$ if and only if there exists an inverse morphism $g : B \rightarrow A$, such that, $f \circ g = 1_{B}$ and $g \circ f = 1_{A}$, where $1_{A}$ denotes the identity morphism on $A$, in which case one writes $A \cong B$.
 
+{% raw %}
+\begin{xy}
+\xymatrix{
+A \ar@/^1.0pc/[rr]^{f}  && B \ar@/^1.0pc/[ll]^{g}
+}
+\end{xy}
+{% endraw %}
 
 Two categories $\mathcal{C}$ and $\mathcal{D}$ are isomorhphic if there exist [functors](/functor) $F : \mathcal{C} \rightarrow \mathcal{D}$ and $G : D \rightarrow C$ which are mutually inverse to each other, that is, $F \circ G = 1_{D}$ and $G \circ F = 1_{C}$.
 
+{% raw %}
+\begin{xy}
+\xymatrix{
+\mathcal{C} \ar@/^1.0pc/[rr]^{F} && \mathcal{D} \ar@/^1.0pc/[ll]^{G}
+}
+\end{xy}
+{% endraw %}
+
 A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $A \in \mathcal{C} , \eta_{A} : F(A) \Rightarrow G(A)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$.
+
+{% raw %}
+\begin{xy}
+\xymatrix @=5pc {
+\mathcal{C} \rtwocell<5>^{F(A)}_{G(A)}{\ \ \ \ \eta_{A}} & \mathcal{D} \ltwocell<5>^{G(A)}_{F(A)}{\ \ \ \ \eta_{A}}
+}
+\end{xy}
+{% endraw %}
+
+
+<!-- {% raw %} -->
+<!-- \begin{xy} -->
+<!-- \xymatrix{ -->
+<!-- A\ar[d]\ar[r]\xtwocell[0,1]{}\omit{<2>} & B\\ -->
+<!-- C\ar@{.>}[ur] & -->
+<!-- } -->
+<!-- \end{xy} -->
+<!-- {% endraw %} -->
+
+A
+<!-- {% raw %} -->
+<script type="text/tikz">
+  \begin{tikzpicture}
+    \draw (0,0) circle (1in);
+  \end{tikzpicture}
+</script>
+<!-- {% endraw %} -->
+B
+<!-- {% raw %} -->
+<!-- \begin{xy} -->
+<!-- \xymatrix @=5pc { -->
+<!-- P \rtwocell~!~’{\dir{>>}}~‘{\dir{|}} ^{<1.5>M}_{<1.5>M’}{=f} & S -->
+<!-- } -->
+<!-- \end{xy} -->
+<!-- {% endraw %} -->
+
 
 
 
@@ -47,52 +101,52 @@ A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such 
 
 **Proposition.** &nbsp; *Identity morphism are isomorphisms.*
 
-*Proof.* &nbsp; To show that $1_A$ is an isomorphism, we need to find an inverse morphism $g$ such that $g \circ 1_{A} = 1_{A} \circ g = 1_{A}$. Let's take $g$ to be $1_{A}$ itself. Then we have $1_{A} \circ 1_{A} = 1_{A}$ since the composition of the identity arrow with itself is the identity arrow (by definition). Hence, $1_{A}$ is an isomorphism with inverse $1_{A}$.
+*Proof.* &nbsp; To show that $1_A$ is an isomorphism, we need to find an inverse morphism $g$ such that $g \circ 1_{A} = 1_{A} \circ g = 1_{A}$. Let's take $g$ to be $1_{A}$ itself. Then we have $1_{A} \circ 1_{A} = 1_{A}$ since the composition of the identity arrow with itself is the identity arrow by definition. Hence, $1_{A}$ is an isomorphism with inverse $1_{A}$.
 <!-- $\pmb{\scriptstyle \square}$ -->
 <div class="right">
 
 $\pmb{\scriptstyle \square}$
 </div> </div>
 
-Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/4d00970f1944a66113d7f04465af20f8).
+<details>
+  <summary>In Coq.</summary>
+  <div class="coq">
+{% vimhl hs %}
+Section IdentityIsomorphism.
+  Variable Obj : Type.
+  Variable Hom : Obj -> Obj -> Type.
 
+  Variable id : forall A : Obj, Hom A A.
+  Variable composition : forall {X Y Z : Obj},
+    Hom Y Z -> Hom X Y -> Hom X Z.
 
-https://www.logicmatters.net/resources/pdfs/SmithCat-I.pdf 76
+  Notation "g 'o' f" := (composition g f) (at level 50).
 
+  Hypothesis id_left : forall A B : Obj,
+    forall f : Hom A B, (id B) o f = f.
+  Hypothesis id_right : forall A B : Obj,
+    forall f : Hom A B, f o (id A) = f.
 
-https://arxiv.org/pdf/1912.10642.pdf 16
-https://math.jhu.edu/~eriehl/context.pdf 42
-https://proofwiki.org/wiki/Definition:Natural_Isomorphism
+  Proposition identity_is_isomorphism :
+    forall A : Obj, (id A) o (id A) = id A.
+  Proof.
+    intros A.
+    rewrite <- id_right.
+    reflexivity.
+  Qed.
+End IdentityIsomorphism.
+{% endvimhl %}
+  </div>
+</details>
+
+<!-- Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/4d00970f1944a66113d7f04465af20f8). -->
 
 The term isomorphism originates from the Greek word morphe (μορφή), which translates to form or structure, and the prefix iso-, signifying equal. Consequently, isomorphism implies having an equal structure.
 
-{% raw %}
-\begin{xy}
-\xymatrix{
-A \ar[r]_{F\ \ \ } \ar[d]_{f} \ar@/^1.5pc/[rr]^{\alpha_{A}\ \circ\ F} & F(A) \ar[r]_{\alpha_{A}} \ar[d]_{F(f)} & G(A) \ar[d]_{G(f)} \\
-B \ar[r]^{F\ \ \ } \ar@/_1.5pc/[rr]_{\alpha_{B}\ \circ\ F}  & F(B) \ar[r]^{\alpha_{B}}  & G(B)
-}
-\end{xy}
-{% endraw %}
-
-Natural transformations are often denoted as double arrows, $\alpha : F \Rightarrow G$, to distinguish them in diagrams from usual morphisms:
-{% raw %}
-\begin{xy}
-\xymatrix @=5pc {
-\mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D}
-}
-\end{xy}
-{% endraw %}
-
-<!-- \mathcal{C} \ar@/^1pc/[rr]^{alpha} && \mathcal{D} -->
-
-
-
-In other words, a natural transformation is a way of transforming one functor into another while respecting the internal structure of the categories involved. Natural transformations are one of the most important aspects of category theory. Saunders Mac Lane, one of the founders of category theory, once said:
-{% blockquote [^1] %}
-I didn't invent categories to study functors; I invented them to study natural transformations.
-{% endblockquote %}
-
+<!-- https://www.logicmatters.net/resources/pdfs/SmithCat-I.pdf 76 -->
+<!-- https://arxiv.org/pdf/1912.10642.pdf 16 -->
+<!-- https://math.jhu.edu/~eriehl/context.pdf 42 -->
+<!-- https://proofwiki.org/wiki/Definition:Natural_Isomorphism -->
 
 # Example
 

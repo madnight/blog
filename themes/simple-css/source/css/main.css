@@ -99,9 +99,30 @@ aside {
     border: 0px;
 }
 
+details {
+  background-color: var(--accent-bg);
+  border: 0px solid var(--border);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.coq pre {
+    border: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+summary {
+    padding-top: 0.0rem;
+}
+
+details[open]>summary {
+    margin-bottom: 0px;
+}
+
 .right {
    text-align: right;
-   margin-top: -1.5rem;
+   margin-top: -1.0rem;
 }
 
 .proof {
