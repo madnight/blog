@@ -19,9 +19,6 @@ mathjax: true
 </script>
 
 
-<link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
-<script src="https://tikzjax-demo.glitch.me/tikzjax.js"></script>
-
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
 <script>
 window.addEventListener('load', function() {
@@ -57,44 +54,17 @@ Two categories $\mathcal{C}$ and $\mathcal{D}$ are isomorhphic if there exist [f
 \end{xy}
 {% endraw %}
 
-A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $A \in \mathcal{C} , \eta_{A} : F(A) \Rightarrow G(A)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$.
+<!-- A natural isomorphism is a natural transformation $\eta : F \Rightarrow G$ such that for all $A \in \mathcal{C} , \eta_{A} : F(A) \Rightarrow G(A)$ is an isomorphism. In this case, the natural isomorphism is often written as $\eta : F \cong G$. -->
+
+A natural isomorphism is a [natural transformation](/natural-transformation) $\eta : F \Rightarrow G$ if there exist an inverse natural transformation $\mu : G \Rightarrow F$, such that the compositions $\mu \circ \eta = 1_{F}$ and $\eta \circ \mu = 1_{G}$ are identity natural transformations.
 
 {% raw %}
 \begin{xy}
-\xymatrix @=5pc {
-\mathcal{C} \rtwocell<5>^{F(A)}_{G(A)}{\ \ \ \ \eta_{A}} & \mathcal{D} \ltwocell<5>^{G(A)}_{F(A)}{\ \ \ \ \eta_{A}}
+\xymatrix {
+F \ar@/^1.0pc/[rr]^{\eta} && G \ar@/^1.0pc/[ll]^{\mu}
 }
 \end{xy}
 {% endraw %}
-
-
-<!-- {% raw %} -->
-<!-- \begin{xy} -->
-<!-- \xymatrix{ -->
-<!-- A\ar[d]\ar[r]\xtwocell[0,1]{}\omit{<2>} & B\\ -->
-<!-- C\ar@{.>}[ur] & -->
-<!-- } -->
-<!-- \end{xy} -->
-<!-- {% endraw %} -->
-
-A
-<!-- {% raw %} -->
-<script type="text/tikz">
-  \begin{tikzpicture}
-    \draw (0,0) circle (1in);
-  \end{tikzpicture}
-</script>
-<!-- {% endraw %} -->
-B
-<!-- {% raw %} -->
-<!-- \begin{xy} -->
-<!-- \xymatrix @=5pc { -->
-<!-- P \rtwocell~!~’{\dir{>>}}~‘{\dir{|}} ^{<1.5>M}_{<1.5>M’}{=f} & S -->
-<!-- } -->
-<!-- \end{xy} -->
-<!-- {% endraw %} -->
-
-
 
 
 <div class="proof" >
