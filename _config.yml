@@ -70,6 +70,10 @@ time_format: HH:mm:ss
 per_page: 8
 pagination_dir: page
 
+inline_svg:
+  enable: true
+  priority: 100
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
