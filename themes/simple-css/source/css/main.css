@@ -35,6 +35,38 @@
     --darkreader-bg--disabled: #232422;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent: #1a1a1a;
+    --code: #000000;
+    --marked: #204a75;
+    --preformatted: #232323;
+    --bg: #ffffff;
+    --text-bg: #353434;
+    --border-bg: #d4d2c7;
+    --accent-bg: #dddcdc;
+    --bg-text: #d3d4d3;
+    --border-text: #c5c6c4;
+    --text-light: #55545b;
+    --darkreader-text--bg: #3f453c;
+    --darkreader-text--accent: #8a716b;
+    --darkreader-text--text: #504f50;
+    --darkreader-text--text-light: #6d726b;
+    --darkreader-text--code: #3f453c;
+    --darkreader-text--preformatted: #62615a;
+    --darkreader-bg--bg: #e8e8e8;
+    --darkreader-bg--accent-bg: #e3e3e2;
+    --darkreader-bg--text: #e2e2e3;
+    --darkreader-border--bg: #d0cfd1;
+    --darkreader-bg--border: #b8b8b3;
+    --darkreader-border--border: #b7b7b9;
+    --darkreader-bg--accent: #e0ccaf;
+    --darkreader-border--accent: #d5b98e;
+    --darkreader-bg--marked: #99a5da;
+    --darkreader-bg--disabled: #dcdcdc;
+  }
+}
+
 pre {
     font-size: 0.9rem;
     border-width: 1px;

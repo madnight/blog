@@ -19,7 +19,6 @@ mathjax: true
 </script>
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
-<script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
 <script>
 window.addEventListener('load', function() {
    document.querySelectorAll("mjx-xypic-object").forEach( (x) => (x.style.color = "var(--darkreader-text--text"));
@@ -41,19 +40,28 @@ window.addEventListener('load', function() {
 {% endraw %}
 
 
+<!-- <aside> -->
 
-<br>
+<!-- {% raw %} -->
+<!--   <dark-mode-toggle -->
+<!--     id="dark-mode-toggle-1" -->
+<!--     appearance="switch" -->
+<!--     dark="Dark" -->
+<!--     light="Light" -->
+<!--     remember="Remember this" -->
+<!--   ></dark-mode-toggle> -->
+<!-- {% endraw %} -->
+<!-- </aside> -->
+
+
+
 <div class=typeclass>
 <img src="/images/applicative.svg">
 </div>
-
-
 <!-- <object type="image/svg+xml" data="/images/applicative.svg"></object> -->
-
-
 <!-- <use xlink:href="/images/applicative.svg"></use> -->
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
-<br>
+<!-- <br> -->
 
 An applicative, in category theory, is a lax monoidal [functor](/functor) with tensorial strength. In the following, we will present the definition as an endofunctor, since the concept has its origin in the context of functional programming where every functor is an endofunctor.
 
