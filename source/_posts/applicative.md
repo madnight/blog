@@ -19,6 +19,7 @@ mathjax: true
 </script>
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+<script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
 <script>
 window.addEventListener('load', function() {
    document.querySelectorAll("mjx-xypic-object").forEach( (x) => (x.style.color = "var(--darkreader-text--text"));
@@ -33,11 +34,24 @@ window.addEventListener('load', function() {
         font-size: 0.9rem !important;
     }
   }
+  .typeclass svg {
+     width: 100%;
+  }
 </style>
 {% endraw %}
 
+
+
 <br>
-<img src="/images/applicative.png" onclick="window.open(this.src)">
+<div class=typeclass>
+<img src="/images/applicative.svg">
+</div>
+
+
+<!-- <object type="image/svg+xml" data="/images/applicative.svg"></object> -->
+
+
+<!-- <use xlink:href="/images/applicative.svg"></use> -->
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 

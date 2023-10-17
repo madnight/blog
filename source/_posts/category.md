@@ -89,7 +89,7 @@ A category $\mathcal{C}$ consists of a collection of objects, denoted $\text{Obj
 
 <!-- * $1_{y} \circ f = f = f \circ 1_{x}$ -->
 
-It is common to express $A \in \mathcal{C}$ instead of $A \in \text{Obj}(\mathcal{C})$ and when indicating 'f is a function from A to B', it's typically written as $f: A \rightarrow B$ rather than $f \in \text{Hom}(A,B)$.
+It is common to express $A \in \mathcal{C}$ instead of $A \in \text{Obj}(\mathcal{C})$ and when indicating $f$ is a function from $A$ to $B$, it's typically written as $f: A \rightarrow B$ rather than $f \in \text{Hom}(A,B)$.
 
 A category is a very general concept, the objects and morphisms can be anything, as long as they adhere to the stated conditions. The following is an example category with a collection of objects $A, B, C$ and collection of morphisms denoted $f, g, g \circ f$, and the loops are the identity morphisms.
 
@@ -160,11 +160,11 @@ In Haskell, Category is a type class that abstracts the concept of a mathematica
 {% vimhl hs %}
 class Category cat where
     -- the identity morphism
-    --    Hom(A,A)
+    --    Hom(A, A)
     id :: a `cat` a
 
     -- morphism composition
-    --      Hom(B,C)    ×   Hom(A,B)   →  Hom(A,C)
+    --      Hom(B, C)   ×   Hom(A, B)  →  Hom(A, C)
     (.) :: (b `cat` c) -> (a `cat` b) -> (a `cat` c)
 {% endvimhl %}
 
