@@ -38,6 +38,7 @@
         });
 
     </script>
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
 <header>
@@ -437,7 +438,28 @@
                                     </mrow>
                                     <annotation encoding="application/x-tex">A \in \text{Obj}(\mathcal{C})</annotation>
                                 </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span> and when indicating ‘f is a function from A to B’, it’s typically written as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Obj</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mclose">)</span></span></span></span> and when indicating <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>f</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">f</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> is a function from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>A</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">A</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>B</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">B</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>, it’s typically written as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
                                 <semantics>
                                     <mrow>
                                         <mi>f</mi>
@@ -627,11 +649,11 @@
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Category</font> cat <font color="#87afaf">where</font>
     <font color="#767676">-- the identity morphism</font>
-    <font color="#767676">--    Hom(A,A)</font>
+    <font color="#767676">--    Hom(A, A)</font>
     <font color="#af87af">id</font> <font color="#87afaf">::</font> a <font color="#87afaf">`cat`</font> a
 
     <font color="#767676">-- morphism composition</font>
-    <font color="#767676">--      Hom(B,C)    ×   Hom(A,B)   →  Hom(A,C)</font>
+    <font color="#767676">--      Hom(B, C)   ×   Hom(A, B)  →  Hom(A, C)</font>
     <font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#afaf5f">(</font>b <font color="#87afaf">`cat`</font> c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">`cat`</font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">`cat`</font> c<font color="#afaf5f">)</font>
 </font></pre>
                 </figure>

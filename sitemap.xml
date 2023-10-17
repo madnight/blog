@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://beuke.org/coq-tutorial/</loc>
+    <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2023-10-10T11:50:33.629Z</lastmod>
+    <lastmod>2023-10-17T19:58:53.366Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/category/</loc>
     
-    <lastmod>2023-10-08T11:02:23.436Z</lastmod>
+    <lastmod>2023-10-17T09:30:31.490Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/applicative/</loc>
+    <loc>https://beuke.org/news/index.html</loc>
     
-    <lastmod>2023-10-07T19:52:24.539Z</lastmod>
+    <lastmod>2023-10-15T15:00:32.862Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/coq-tutorial/</loc>
+    
+    <lastmod>2023-10-10T11:50:33.629Z</lastmod>
     
   </url>
   
@@ -135,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
