@@ -120,161 +120,66 @@ The term isomorphism originates from the Greek word morphe (μορφή), which t
 
 # Example
 
-In Haskell, we can define a natural transformation like so:
+In Haskell, we can define an isomorphism like so:
 
 {% vimhl hs %}
-class (Functor f, Functor g) => Transformation f g where
-    alpha :: f a -> g a
+data Isomorphism a b = Isomorphism
+    { forward  :: a -> b
+    , backward :: b -> a
+    }
 {% endvimhl %}
 
-Or we could also define it the following way, as an infix operator (~>):
+We say that two types a and b are isomorphic in Haskell if there is a pair of functions `f :: a -> b` and `g :: b -> a` satisfying `f . g = id` and `g . f = id`.
+
+One typical example for an isomorphism in Haskell is curry and uncurry.
 
 {% vimhl hs %}
-{-# LANGUAGE TypeOperators #-}
-{-# LANGUAGE RankNTypes    #-}
+curry :: ((a, b) -> c) -> a -> b -> c
+curry f x y = f (x, y)
 
-type f ~> g = forall a . f a -> g a
+uncurry :: (a -> b -> c) -> (a, b) -> c
+uncurry f p = f (fst p) (snd p)
+
+currying :: Isomorphism ((a, b) -> c) (a -> b -> c)
+currying = Isomorphism { forward = curry, backward = uncurry }
 {% endvimhl %}
 
-Again, the requirement of compatibility with the actions of the functors is not expressible as a type signature, but we can write it down as law in pseudocode:
+Haskell comes with `curry` and `uncurry` as part of its standard library, which together form an isomorphism.
+
+
+{% raw %}
+\begin{xy}
+\xymatrix@C-=1cm{
+\texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}}  && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}}
+\end{xy}
+{% endraw %}
+
+The `swap` isomorphism is another example and a special case of an isomorphism in Haskell. It is a function that swaps the order of a tuple's elements. For example, the swap function for a tuple of two elements (a, b) would return (b, a). This function is special because it is its own inverse, meaning that applying the swap function twice returns the original tuple. 
 
 {% vimhl hs %}
-alpha (fmap f a) = fmap f (alpha a) -- (naturality condition)
+swap :: (a, b) -> (b, a)
+swap (a, b) = (b, a)
+
+isoswap :: Isomorphism (a, b) (b, a)
+isoswap = Isomorphism { forward = swap, backward = swap }
 {% endvimhl %}
 
-<!-- The `forall a` is optional in Haskell  -->
-<!-- In Haskell, we usually omit the forall quantifier when there’s no danger of confusion. Any signature that contains a type variable is automatically universally quantified over it. -->
-Now Haskell supports parametric polymorphism, that means that a function will act on all types uniformly and thus automatically satisfies the naturality condition for any polymorphic function of the type:
 
-{% vimhl hs %}
-alpha :: F a -> G a
-{% endvimhl %}
-
-where F and G are functors. The naturality condition in terms of Haskell means that it doesn’t matter whether we first apply a function, through the application of `fmap`, and then change the structure via a structure preserving mapping; or first change the structure, and then apply the function to the new structure, with its own implementation of `fmap`. [^2]
-
-Lets have a look at the following example:
-
-{% vimhl hs %}
-safeHead :: [a] -> Maybe a
-safeHead [] = Nothing
-safeHead (x:xs) = Just x
-{% endvimhl %}
-
-This function returns Nothing in case of an empty list and the first element of the list in case of an non-empty List. This function is called `safeHead`, because there is also a "unsafeHead" in the Haskell standard library, simply called `head`. The unsafe variant throws an Exception in case the List is empty. We can prove by equational reasoning (or [Coq](https://gist.github.com/madnight/903335b1ba1a56b0ae05b2e8df839c38) if you like) that the naturality condition holds in case of `safeHead`:
-
-{% vimhl hs %}
--- Proposition.
-fmap f . safeHead = safeHead . fmap f
-
--- Case Nothing.
-fmap f (safeHead []) = fmap f Nothing = Nothing
-safeHead (fmap f []) = safeHead [] = Nothing
-
--- Case non-empty List.
-fmap f (safeHead (x:xs)) = fmap f (Just x) = Just (f x)
-safeHead (fmap f (x:xs)) = safeHead (f x : fmap f xs) = Just (f x)
-
--- Qed.
-{% endvimhl %}
-
-<!-- Require Import List. -->
-<!-- Import ListNotations. -->
-<!-- Require Import FunInd. -->
-<!-- Require Import Coq.Init.Datatypes. -->
-
-<!-- Inductive Maybe (A:Type) : Type := -->
-<!--   | Just : A -> Maybe A -->
-<!--   | Nothing : Maybe A. -->
-
-<!-- Arguments Just {A} a. -->
-<!-- Arguments Nothing {A}. -->
-
-<!-- Class Functor (F : Type -> Type) := { -->
-<!--   fmap : forall {A B : Type}, (A -> B) -> F A -> F B -->
-<!-- }. -->
-
-<!-- #[local] -->
-<!-- Instance Maybe_Functor : Functor Maybe := -->
-<!-- { -->
-<!--   fmap A B f x := match x with -->
-<!--                    | Nothing => Nothing -->
-<!--                    | Just y => Just (f y) -->
-<!--                    end -->
-<!-- }. -->
-
-<!-- Fixpoint fmap_list {A B : Type} (f: A -> B) (xs: list A) : list B := -->
-<!--   match xs with -->
-<!--   | nil => nil -->
-<!--   | cons y ys => cons (f y) (fmap_list f ys) -->
-<!--   end. -->
-
-<!-- #[local] -->
-<!-- Instance List_Functor : Functor list := { -->
-<!--   fmap A B f l := fmap_list f l -->
-<!-- }. -->
-
-<!-- Definition safeHead {A : Type} (l : list A): Maybe A := -->
-<!--   match l with -->
-<!--   | [] => Nothing -->
-<!--   | x :: _ => Just x -->
-<!--   end. -->
-
-<!-- Functional Scheme safeHead_ind := Induction for safeHead Sort Prop. -->
-
-<!-- Lemma safeHead_is_natural : -->
-<!--   forall (A B : Type) (f : A -> B) (l : list A), -->
-<!--      fmap f (safeHead l) = safeHead (fmap f l). -->
-<!-- Proof. -->
-<!--   intros A B f l. -->
-<!--   functional induction (safeHead l); simpl. -->
-<!--   - (* Case: l = [] *) -->
-<!--     (* The safeHead of an empty list is Nothing, and mapping any function over *) -->
-<!--     (* Nothing gives Nothing. On the other hand, mapping any function over an *) -->
-<!--     (* empty list gives an empty list and applying safeHead to an empty list *) -->
-<!--     (* gives Nothing. Hence in this case, both sides of the equation are Nothing *) -->
-<!--     (* which makes them equal. *) -->
-<!--     reflexivity. -->
-<!--   - (* Case: l = x :: ls for some x and ls *) -->
-<!--     (* The safeHead of a list beginning with x is Just x, and mapping f over *) -->
-<!--     (* Just x gives Just (f x). On the other hand, mapping f over a list *) -->
-<!--     (* beginning with x gives a list beginning with f x and applying safeHead *) -->
-<!--     (* to this new list gives Just (f x). Hence in this case, both sides of *) -->
-<!--     (* the equation are Just (f x) which makes them equal. *) -->
-<!--     reflexivity. -->
-<!-- Qed. -->
-
-Here are some more natural transformations:
-
-{% vimhl hs %}
-eitherToMaybe :: Either a b -> Maybe b
-eitherToMaybe (Left _)  = Nothing
-eitherToMaybe (Right x) = Just x
-
-identityToMaybe :: Identity a -> Maybe a
-identityToMaybe (Identity x) = Just x
-
-maybeToList  :: Maybe a -> [a]
-maybeToList  Nothing   = []
-maybeToList  (Just x)  = [x]
-
-maybeToList2 :: Maybe a -> [a]
-maybeToList2 Nothing = []
-maybeToList2 (Just x) = [x,x]
-
-maybeToList3 :: Maybe a -> [a]
-maybeToList3 Nothing = []
-maybeToList3 (Just x) = [x,x,x]
-
--- ...
-{% endvimhl %}
-
-As we can see there is an infinite number of natural transformations.
+{% raw %}
+\begin{xy}
+\xymatrix@C-=1cm{
+\texttt{(a, b)} \ar@/^1.5pc/[rr]^{\texttt{swap}}  && \texttt{(b, a)} \ar@/^1.5pc/[ll]^{\texttt{swap}}}
+\end{xy}
+{% endraw %}
 
 Bou can open an interactive Haskell interpreter (ghci), load the functions and test the following examples.
 
 {% vimhl hs %}
-ghci> safeHead [1,2,3]
-Just 1
+ghci> forward isoswap (1,2)
+(2,1)
+
+ghci> backward isoswap $ forward isoswap (1,2)
+(1,2)
 
 ghci> safeHead []
 Nothing
