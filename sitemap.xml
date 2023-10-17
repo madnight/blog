@@ -16,13 +16,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/news/index.html</loc>
-    
-    <lastmod>2023-10-15T15:00:32.862Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/coq-tutorial/</loc>
     
     <lastmod>2023-10-10T11:50:33.629Z</lastmod>
@@ -149,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
