@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2023-10-17T19:58:53.366Z</lastmod>
+    <lastmod>2023-10-18T19:52:22.117Z</lastmod>
     
   </url>
   
@@ -135,6 +135,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/disk-latency/</loc>
+    
+    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
@@ -143,13 +150,6 @@
   
   <url>
     <loc>https://beuke.org/elm-json/</loc>
-    
-    <lastmod>2023-07-23T21:13:34.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
