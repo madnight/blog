@@ -73,6 +73,11 @@ pre {
     border-color: rgb(59, 60, 58);
 }
 
+.typeclass svg {
+    width: 100%;
+    height: 100%;
+}
+
 section {
     border-top: 0px;
     border-bottom: 0px solid;

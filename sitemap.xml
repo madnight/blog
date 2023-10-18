@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/monad/</loc>
+    
+    <lastmod>2023-10-18T20:08:22.525Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monoid/</loc>
+    
+    <lastmod>2023-10-18T20:07:28.256Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/semigroup/</loc>
+    
+    <lastmod>2023-10-18T20:06:17.026Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/functor/</loc>
+    
+    <lastmod>2023-10-18T20:05:54.560Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2023-10-18T19:52:22.117Z</lastmod>
+    <lastmod>2023-10-18T20:05:01.910Z</lastmod>
     
   </url>
   
@@ -23,37 +51,9 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
-    
-    <lastmod>2023-10-07T19:30:56.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monad/</loc>
-    
-    <lastmod>2023-10-07T19:28:37.880Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monoid/</loc>
-    
-    <lastmod>2023-10-07T19:24:31.692Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/hom-set/</loc>
     
     <lastmod>2023-10-07T19:21:14.233Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/functor/</loc>
-    
-    <lastmod>2023-10-07T19:14:07.695Z</lastmod>
     
   </url>
   
@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/arch-linux-archive/</loc>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
+    <loc>https://beuke.org/arch-linux-archive/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
