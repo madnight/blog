@@ -60,7 +60,7 @@ ul > li {
 
 <br>
 <div class=typeclass>
-<img src="/images/category.png" onclick="window.open(this.src)">
+<img src="/images/category.svg" onclick="window.open(this.src)">
 </div>
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
