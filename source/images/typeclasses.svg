@@ -10,238 +10,238 @@
 <!-- Functor -->
 <g id="node1" class="node">
 <title>Functor</title>
-<polygon fill="none" stroke="white" points="58,-252 0,-252 0,-216 58,-216 58,-252"/>
-<text text-anchor="middle" x="29" y="-228.95" font-family="Times,serif" font-size="14.00" fill="white">Functor</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="58,-252 0,-252 0,-216 58,-216 58,-252"/>
+<text text-anchor="middle" x="29" y="-228.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Functor</text>
 </g>
 <!-- Applicative -->
 <g id="node2" class="node">
 <title>Applicative</title>
-<polygon fill="none" stroke="white" points="149.5,-180 70.5,-180 70.5,-144 149.5,-144 149.5,-180"/>
-<text text-anchor="middle" x="110" y="-156.95" font-family="Times,serif" font-size="14.00" fill="white">Applicative</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="149.5,-180 70.5,-180 70.5,-144 149.5,-144 149.5,-180"/>
+<text text-anchor="middle" x="110" y="-156.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Applicative</text>
 </g>
 <!-- Functor&#45;&gt;Applicative -->
 <g id="edge1" class="edge">
 <title>Functor&#45;&gt;Applicative</title>
-<path fill="none" stroke="white" d="M49.02,-215.7C58.86,-207.2 70.87,-196.81 81.63,-187.51"/>
-<polygon fill="white" stroke="white" points="83.65,-189.53 88.93,-180.35 79.07,-184.24 83.65,-189.53"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M49.02,-215.7C58.86,-207.2 70.87,-196.81 81.63,-187.51"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="83.65,-189.53 88.93,-180.35 79.07,-184.24 83.65,-189.53"/>
 </g>
 <!-- Traversable -->
 <g id="node3" class="node">
 <title>Traversable</title>
-<polygon fill="none" stroke="white" points="98.88,-36 19.12,-36 19.12,0 98.88,0 98.88,-36"/>
-<text text-anchor="middle" x="59" y="-12.95" font-family="Times,serif" font-size="14.00" fill="white">Traversable</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="98.88,-36 19.12,-36 19.12,0 98.88,0 98.88,-36"/>
+<text text-anchor="middle" x="59" y="-12.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Traversable</text>
 </g>
 <!-- Functor&#45;&gt;Traversable -->
 <g id="edge2" class="edge">
 <title>Functor&#45;&gt;Traversable</title>
-<path fill="none" stroke="white" d="M31.4,-215.85C36.57,-178.99 48.78,-91.92 55.08,-46.96"/>
-<polygon fill="white" stroke="white" points="58.66,-47.62 56.58,-37.23 51.73,-46.65 58.66,-47.62"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M31.4,-215.85C36.57,-178.99 48.78,-91.92 55.08,-46.96"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="58.66,-47.62 56.58,-37.23 51.73,-46.65 58.66,-47.62"/>
 </g>
 <!-- Applicative&#45;&gt;Traversable -->
 <g id="edge7" class="edge">
 <title>Applicative&#45;&gt;Traversable</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M97.48,-143.62C90.81,-133.63 82.98,-120.59 78,-108 68.53,-84.05 63.41,-54.52 60.95,-36.22"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M97.48,-143.62C90.81,-133.63 82.98,-120.59 78,-108 68.53,-84.05 63.41,-54.52 60.95,-36.22"/>
 </g>
 <!-- Alternative -->
 <g id="node6" class="node">
 <title>Alternative</title>
-<polygon fill="none" stroke="white" points="163.38,-108 86.62,-108 86.62,-72 163.38,-72 163.38,-108"/>
-<text text-anchor="middle" x="125" y="-84.95" font-family="Times,serif" font-size="14.00" fill="white">Alternative</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="163.38,-108 86.62,-108 86.62,-72 163.38,-72 163.38,-108"/>
+<text text-anchor="middle" x="125" y="-84.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Alternative</text>
 </g>
 <!-- Applicative&#45;&gt;Alternative -->
 <g id="edge5" class="edge">
 <title>Applicative&#45;&gt;Alternative</title>
-<path fill="none" stroke="white" d="M113.71,-143.7C115.32,-136.15 117.26,-127.12 119.07,-118.68"/>
-<polygon fill="white" stroke="white" points="122.66,-119.62 121.33,-109.1 115.82,-118.15 122.66,-119.62"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M113.71,-143.7C115.32,-136.15 117.26,-127.12 119.07,-118.68"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="122.66,-119.62 121.33,-109.1 115.82,-118.15 122.66,-119.62"/>
 </g>
 <!-- Monad -->
 <g id="node7" class="node">
 <title>Monad</title>
-<polygon fill="none" stroke="white" stroke-width="2" points="324.88,-108 263.12,-108 263.12,-72 324.88,-72 324.88,-108"/>
-<text text-anchor="start" x="271.12" y="-85.95" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white"> Monad</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" stroke-width="2" points="324.88,-108 263.12,-108 263.12,-72 324.88,-72 324.88,-108"/>
+<text text-anchor="start" x="271.12" y="-85.95" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="var(--darkreader-text--text)"> Monad</text>
 </g>
 <!-- Applicative&#45;&gt;Monad -->
 <g id="edge6" class="edge">
 <title>Applicative&#45;&gt;Monad</title>
-<path fill="none" stroke="white" d="M149.93,-146.9C176.68,-137.32 212.88,-124.1 252.14,-108.66"/>
-<polygon fill="white" stroke="white" points="253.17,-111.62 261.18,-104.69 250.6,-105.11 253.17,-111.62"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M149.93,-146.9C176.68,-137.32 212.88,-124.1 252.14,-108.66"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="253.17,-111.62 261.18,-104.69 250.6,-105.11 253.17,-111.62"/>
 </g>
 <!-- Apply -->
 <g id="node4" class="node">
 <title>Apply</title>
-<polygon fill="none" stroke="white" points="137,-252 83,-252 83,-216 137,-216 137,-252"/>
-<text text-anchor="middle" x="110" y="-228.95" font-family="Times,serif" font-size="14.00" fill="white">Apply</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="137,-252 83,-252 83,-216 137,-216 137,-252"/>
+<text text-anchor="middle" x="110" y="-228.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Apply</text>
 </g>
 <!-- Apply&#45;&gt;Applicative -->
 <g id="edge3" class="edge">
 <title>Apply&#45;&gt;Applicative</title>
-<path fill="none" stroke="white" d="M110,-215.7C110,-208.24 110,-199.32 110,-190.97"/>
-<polygon fill="white" stroke="white" points="113.5,-191.1 110,-181.1 106.5,-191.1 113.5,-191.1"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M110,-215.7C110,-208.24 110,-199.32 110,-190.97"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="113.5,-191.1 110,-181.1 106.5,-191.1 113.5,-191.1"/>
 </g>
 <!-- Semigroup -->
 <g id="node5" class="node">
 <title>Semigroup</title>
-<polygon fill="none" stroke="white" points="332,-252 256,-252 256,-216 332,-216 332,-252"/>
-<text text-anchor="middle" x="294" y="-228.95" font-family="Times,serif" font-size="14.00" fill="white">Semigroup</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="332,-252 256,-252 256,-216 332,-216 332,-252"/>
+<text text-anchor="middle" x="294" y="-228.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Semigroup</text>
 </g>
 <!-- Semigroup&#45;&gt;Apply -->
 <g id="edge4" class="edge">
 <title>Semigroup&#45;&gt;Apply</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M255.75,-234C216.27,-234 176.79,-234 137.31,-234"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M255.75,-234C216.27,-234 176.79,-234 137.31,-234"/>
 </g>
 <!-- Monoid -->
 <g id="node11" class="node">
 <title>Monoid</title>
-<polygon fill="none" stroke="white" points="323.75,-180 264.25,-180 264.25,-144 323.75,-144 323.75,-180"/>
-<text text-anchor="middle" x="294" y="-156.95" font-family="Times,serif" font-size="14.00" fill="white">Monoid</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="323.75,-180 264.25,-180 264.25,-144 323.75,-144 323.75,-180"/>
+<text text-anchor="middle" x="294" y="-156.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Monoid</text>
 </g>
 <!-- Semigroup&#45;&gt;Monoid -->
 <g id="edge11" class="edge">
 <title>Semigroup&#45;&gt;Monoid</title>
-<path fill="none" stroke="white" d="M294,-215.7C294,-208.24 294,-199.32 294,-190.97"/>
-<polygon fill="white" stroke="white" points="297.5,-191.1 294,-181.1 290.5,-191.1 297.5,-191.1"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M294,-215.7C294,-208.24 294,-199.32 294,-190.97"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="297.5,-191.1 294,-181.1 290.5,-191.1 297.5,-191.1"/>
 </g>
 <!-- MonadPlus -->
 <g id="node8" class="node">
 <title>MonadPlus</title>
-<polygon fill="none" stroke="white" points="340.12,-36 261.88,-36 261.88,0 340.12,0 340.12,-36"/>
-<text text-anchor="middle" x="301" y="-12.95" font-family="Times,serif" font-size="14.00" fill="white">MonadPlus</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="340.12,-36 261.88,-36 261.88,0 340.12,0 340.12,-36"/>
+<text text-anchor="middle" x="301" y="-12.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">MonadPlus</text>
 </g>
 <!-- Monad&#45;&gt;MonadPlus -->
 <g id="edge8" class="edge">
 <title>Monad&#45;&gt;MonadPlus</title>
-<path fill="none" stroke="white" d="M295.77,-71.34C296.49,-64.07 297.35,-55.47 298.16,-47.36"/>
-<polygon fill="white" stroke="white" points="301.75,-47.71 299.26,-37.42 294.78,-47.02 301.75,-47.71"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M295.77,-71.34C296.49,-64.07 297.35,-55.47 298.16,-47.36"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="301.75,-47.71 299.26,-37.42 294.78,-47.02 301.75,-47.71"/>
 </g>
 <!-- MonadFix -->
 <g id="node9" class="node">
 <title>MonadFix</title>
-<polygon fill="none" stroke="white" points="243.5,-36 170.5,-36 170.5,0 243.5,0 243.5,-36"/>
-<text text-anchor="middle" x="207" y="-12.95" font-family="Times,serif" font-size="14.00" fill="white">MonadFix</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="243.5,-36 170.5,-36 170.5,0 243.5,0 243.5,-36"/>
+<text text-anchor="middle" x="207" y="-12.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">MonadFix</text>
 </g>
 <!-- Monad&#45;&gt;MonadFix -->
 <g id="edge9" class="edge">
 <title>Monad&#45;&gt;MonadFix</title>
-<path fill="none" stroke="white" d="M272.05,-71.34C261.46,-62.82 248.59,-52.46 237.1,-43.22"/>
-<polygon fill="white" stroke="white" points="239.63,-39.96 229.65,-36.42 235.24,-45.41 239.63,-39.96"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M272.05,-71.34C261.46,-62.82 248.59,-52.46 237.1,-43.22"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="239.63,-39.96 229.65,-36.42 235.24,-45.41 239.63,-39.96"/>
 </g>
 <!-- ArrowApply -->
 <g id="node10" class="node">
 <title>ArrowApply</title>
-<polygon fill="none" stroke="white" points="443.5,-36 358.5,-36 358.5,0 443.5,0 443.5,-36"/>
-<text text-anchor="middle" x="401" y="-12.95" font-family="Times,serif" font-size="14.00" fill="white">ArrowApply</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="443.5,-36 358.5,-36 358.5,0 443.5,0 443.5,-36"/>
+<text text-anchor="middle" x="401" y="-12.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">ArrowApply</text>
 </g>
 <!-- Monad&#45;&gt;ArrowApply -->
 <g id="edge10" class="edge">
 <title>Monad&#45;&gt;ArrowApply</title>
-<path fill="none" stroke="white" stroke-width="2" d="M321.28,-71.15C337.62,-60.46 358.31,-46.93 374.51,-36.33"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-width="2" d="M321.28,-71.15C337.62,-60.46 358.31,-46.93 374.51,-36.33"/>
 </g>
 <!-- Monoid&#45;&gt;Applicative -->
 <g id="edge12" class="edge">
 <title>Monoid&#45;&gt;Applicative</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M263.88,-162C225.89,-162 187.89,-162 149.89,-162"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M263.88,-162C225.89,-162 187.89,-162 149.89,-162"/>
 </g>
 <!-- Monoid&#45;&gt;Alternative -->
 <g id="edge14" class="edge">
 <title>Monoid&#45;&gt;Alternative</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M263.79,-148.49C235.87,-136.92 194.25,-119.69 163.87,-107.1"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M263.79,-148.49C235.87,-136.92 194.25,-119.69 163.87,-107.1"/>
 </g>
 <!-- Monoid&#45;&gt;Monad -->
 <g id="edge18" class="edge">
 <title>Monoid&#45;&gt;Monad</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M294,-143.7C294,-133.01 294,-119.33 294,-108.59"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M294,-143.7C294,-133.01 294,-119.33 294,-108.59"/>
 </g>
 <!-- Monoid&#45;&gt;MonadPlus -->
 <g id="edge15" class="edge">
 <title>Monoid&#45;&gt;MonadPlus</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M311.73,-143.6C320.24,-134 329.53,-121.34 334,-108 339.08,-92.83 338.4,-87.38 334,-72 330.31,-59.08 322.45,-46.24 315.33,-36.43"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M311.73,-143.6C320.24,-134 329.53,-121.34 334,-108 339.08,-92.83 338.4,-87.38 334,-72 330.31,-59.08 322.45,-46.24 315.33,-36.43"/>
 </g>
 <!-- Category -->
 <g id="node12" class="node">
 <title>Category</title>
-<polygon fill="none" stroke="white" points="440.75,-180 375.25,-180 375.25,-144 440.75,-144 440.75,-180"/>
-<text text-anchor="middle" x="408" y="-156.95" font-family="Times,serif" font-size="14.00" fill="white">Category</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="440.75,-180 375.25,-180 375.25,-144 440.75,-144 440.75,-180"/>
+<text text-anchor="middle" x="408" y="-156.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Category</text>
 </g>
 <!-- Monoid&#45;&gt;Category -->
 <g id="edge13" class="edge">
 <title>Monoid&#45;&gt;Category</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M323.84,-162C340.82,-162 357.81,-162 374.79,-162"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M323.84,-162C340.82,-162 357.81,-162 374.79,-162"/>
 </g>
 <!-- ArrowPlus -->
 <g id="node13" class="node">
 <title>ArrowPlus</title>
-<polygon fill="none" stroke="white" points="622.25,-108 547.75,-108 547.75,-72 622.25,-72 622.25,-108"/>
-<text text-anchor="middle" x="585" y="-84.95" font-family="Times,serif" font-size="14.00" fill="white">ArrowPlus</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="622.25,-108 547.75,-108 547.75,-72 622.25,-72 622.25,-108"/>
+<text text-anchor="middle" x="585" y="-84.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">ArrowPlus</text>
 </g>
 <!-- Monoid&#45;&gt;ArrowPlus -->
 <g id="edge16" class="edge">
 <title>Monoid&#45;&gt;ArrowPlus</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M324.09,-153.72C336.98,-150.64 352.21,-147.07 366,-144 442.23,-127.03 462.87,-129.34 538,-108 541.09,-107.12 544.27,-106.14 547.44,-105.11"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M324.09,-153.72C336.98,-150.64 352.21,-147.07 366,-144 442.23,-127.03 462.87,-129.34 538,-108 541.09,-107.12 544.27,-106.14 547.44,-105.11"/>
 </g>
 <!-- Foldable -->
 <g id="node14" class="node">
 <title>Foldable</title>
-<polygon fill="none" stroke="white" points="244.62,-108 181.38,-108 181.38,-72 244.62,-72 244.62,-108"/>
-<text text-anchor="middle" x="213" y="-84.95" font-family="Times,serif" font-size="14.00" fill="white">Foldable</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="244.62,-108 181.38,-108 181.38,-72 244.62,-72 244.62,-108"/>
+<text text-anchor="middle" x="213" y="-84.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Foldable</text>
 </g>
 <!-- Monoid&#45;&gt;Foldable -->
 <g id="edge17" class="edge">
 <title>Monoid&#45;&gt;Foldable</title>
-<path fill="none" stroke="white" stroke-dasharray="1,5" d="M273.98,-143.7C261.52,-132.93 245.54,-119.12 233.07,-108.35"/>
+<path fill="none" stroke="var(--darkreader-text--text)" stroke-dasharray="1,5" d="M273.98,-143.7C261.52,-132.93 245.54,-119.12 233.07,-108.35"/>
 </g>
 <!-- Arrow -->
 <g id="node15" class="node">
 <title>Arrow</title>
-<polygon fill="none" stroke="white" points="435,-108 381,-108 381,-72 435,-72 435,-108"/>
-<text text-anchor="middle" x="408" y="-84.95" font-family="Times,serif" font-size="14.00" fill="white">Arrow</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="435,-108 381,-108 381,-72 435,-72 435,-108"/>
+<text text-anchor="middle" x="408" y="-84.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">Arrow</text>
 </g>
 <!-- Category&#45;&gt;Arrow -->
 <g id="edge19" class="edge">
 <title>Category&#45;&gt;Arrow</title>
-<path fill="none" stroke="white" d="M408,-143.7C408,-136.24 408,-127.32 408,-118.97"/>
-<polygon fill="white" stroke="white" points="411.5,-119.1 408,-109.1 404.5,-119.1 411.5,-119.1"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M408,-143.7C408,-136.24 408,-127.32 408,-118.97"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="411.5,-119.1 408,-109.1 404.5,-119.1 411.5,-119.1"/>
 </g>
 <!-- Foldable&#45;&gt;Traversable -->
 <g id="edge24" class="edge">
 <title>Foldable&#45;&gt;Traversable</title>
-<path fill="none" stroke="white" d="M181.09,-74.5C159.81,-64.82 131.45,-51.93 107.41,-41"/>
-<polygon fill="white" stroke="white" points="108.96,-37.41 98.41,-36.46 106.06,-43.78 108.96,-37.41"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M181.09,-74.5C159.81,-64.82 131.45,-51.93 107.41,-41"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="108.96,-37.41 98.41,-36.46 106.06,-43.78 108.96,-37.41"/>
 </g>
 <!-- Arrow&#45;&gt;ArrowApply -->
 <g id="edge21" class="edge">
 <title>Arrow&#45;&gt;ArrowApply</title>
-<path fill="none" stroke="white" d="M406.27,-71.7C405.52,-64.24 404.63,-55.32 403.8,-46.97"/>
-<polygon fill="white" stroke="white" points="407.19,-46.71 402.71,-37.1 400.22,-47.4 407.19,-46.71"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M406.27,-71.7C405.52,-64.24 404.63,-55.32 403.8,-46.97"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="407.19,-46.71 402.71,-37.1 400.22,-47.4 407.19,-46.71"/>
 </g>
 <!-- ArrowChoice -->
 <g id="node16" class="node">
 <title>ArrowChoice</title>
-<polygon fill="none" stroke="white" points="550.75,-36 461.25,-36 461.25,0 550.75,0 550.75,-36"/>
-<text text-anchor="middle" x="506" y="-12.95" font-family="Times,serif" font-size="14.00" fill="white">ArrowChoice</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="550.75,-36 461.25,-36 461.25,0 550.75,0 550.75,-36"/>
+<text text-anchor="middle" x="506" y="-12.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">ArrowChoice</text>
 </g>
 <!-- Arrow&#45;&gt;ArrowChoice -->
 <g id="edge20" class="edge">
 <title>Arrow&#45;&gt;ArrowChoice</title>
-<path fill="none" stroke="white" d="M432.48,-71.52C444.73,-62.76 459.74,-52.04 472.99,-42.58"/>
-<polygon fill="white" stroke="white" points="474.73,-44.92 480.84,-36.26 470.66,-39.22 474.73,-44.92"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M432.48,-71.52C444.73,-62.76 459.74,-52.04 472.99,-42.58"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="474.73,-44.92 480.84,-36.26 470.66,-39.22 474.73,-44.92"/>
 </g>
 <!-- ArrowZero -->
 <g id="node17" class="node">
 <title>ArrowZero</title>
-<polygon fill="none" stroke="white" points="529.38,-108 452.62,-108 452.62,-72 529.38,-72 529.38,-108"/>
-<text text-anchor="middle" x="491" y="-84.95" font-family="Times,serif" font-size="14.00" fill="white">ArrowZero</text>
+<polygon fill="none" stroke="var(--darkreader-text--text)" points="529.38,-108 452.62,-108 452.62,-72 529.38,-72 529.38,-108"/>
+<text text-anchor="middle" x="491" y="-84.95" font-family="Times,serif" font-size="14.00" fill="var(--darkreader-text--text)">ArrowZero</text>
 </g>
 <!-- Arrow&#45;&gt;ArrowZero -->
 <g id="edge22" class="edge">
 <title>Arrow&#45;&gt;ArrowZero</title>
-<path fill="none" stroke="white" d="M435.23,-90C437.27,-90 439.31,-90 441.34,-90"/>
-<polygon fill="white" stroke="white" points="441.23,-93.5 451.23,-90 441.23,-86.5 441.23,-93.5"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M435.23,-90C437.27,-90 439.31,-90 441.34,-90"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="441.23,-93.5 451.23,-90 441.23,-86.5 441.23,-93.5"/>
 </g>
 <!-- ArrowZero&#45;&gt;ArrowPlus -->
 <g id="edge23" class="edge">
 <title>ArrowZero&#45;&gt;ArrowPlus</title>
-<path fill="none" stroke="white" d="M529.55,-90C531.87,-90 534.18,-90 536.49,-90"/>
-<polygon fill="white" stroke="white" points="536.31,-93.5 546.31,-90 536.31,-86.5 536.31,-93.5"/>
+<path fill="none" stroke="var(--darkreader-text--text)" d="M529.55,-90C531.87,-90 534.18,-90 536.49,-90"/>
+<polygon fill="var(--darkreader-text--text)" stroke="var(--darkreader-text--text)" points="536.31,-93.5 546.31,-90 536.31,-86.5 536.31,-93.5"/>
 </g>
 </g>
 </svg>

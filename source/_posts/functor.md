@@ -34,7 +34,9 @@ window.addEventListener('load', function() {
 {% endraw %}
 
 <br>
-<img src="/images/functor.svg" onclick="window.open(this.src)">
+<div class=typeclass>
+<img src="/images/functor.svg">
+</div>
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 

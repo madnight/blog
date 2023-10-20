@@ -59,7 +59,9 @@ ul > li {
 {% endraw %}
 
 <br>
+<div class=typeclass>
 <img src="/images/category.png" onclick="window.open(this.src)">
+</div>
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
 <br>
 
