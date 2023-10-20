@@ -31,9 +31,12 @@ window.addEventListener('load', function() {
 {% endraw %}
 
 <br>
-<img src="/images/typeclasses.svg" onclick="window.open(this.src)">
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
+<div class=typeclass>
+<img src="/images/typeclasses.svg">
+</div>
 <br>
+
 
 A Monad is a triple $(T, \eta, \mu)$ where:
 

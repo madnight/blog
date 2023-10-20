@@ -26,15 +26,11 @@ window.addEventListener('load', function() {
 })
 </script>
 
-
 <style>
   @media only screen and (max-width: 400px) {
     mjx-math {
         font-size: 0.9rem !important;
     }
-  }
-  .typeclass svg {
-     width: 100%;
   }
 </style>
 {% endraw %}
@@ -51,13 +47,12 @@ window.addEventListener('load', function() {
 <!--     remember="Remember this" -->
 <!--   ></dark-mode-toggle> -->
 <!-- {% endraw %} -->
-<!-- </aside> -->
 
-
-
+<br>
 <div class=typeclass>
 <img src="/images/applicative.svg">
 </div>
+<br>
 <!-- <object type="image/svg+xml" data="/images/applicative.svg"></object> -->
 <!-- <use xlink:href="/images/applicative.svg"></use> -->
 <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
