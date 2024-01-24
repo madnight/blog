@@ -117,7 +117,45 @@ One interesting aspect that follows from the left and right unit laws is that th
 $\pmb{\scriptstyle \square}$
 </div> </div>
 
-Here is an alternative formulation of this proof in [Coq](https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75).
+<details>
+  <summary>In Coq.</summary>
+  <div class="coq">
+{% vimhl hs %}
+Section Category.
+  Variable Obj : Type.
+  Variable Hom : Obj -> Obj -> Type.
+
+  Variable composition : forall {X Y Z : Obj},
+      Hom Y Z -> Hom X Y -> Hom X Z.
+  Notation "g 'o' f" := (composition g f) (at level 50).
+
+  Variable id : forall {X : Obj}, Hom X X.
+
+  Hypothesis id_left : forall {X Y : Obj} (f : Hom X Y), id o f = f.
+  Hypothesis id_right : forall {X Y : Obj} (f : Hom X Y), f o id = f.
+
+  Theorem id_unique : forall {X : Obj} (id1 id2 : Hom X X),
+        (forall {Y : Obj} (f : Hom Y X), id1 o f = f) ->
+        (forall {Y : Obj} (f : Hom X Y), f o id1 = f) ->
+        (forall {Y : Obj} (f : Hom Y X), id2 o f = f) ->
+        (forall {Y : Obj} (f : Hom X Y), f o id2 = f) ->
+        id1 = id2.
+    Proof.
+      intros X id1 id2 H1 H2 H3 H4.
+      transitivity (id o id1).
+      - symmetry.
+        apply id_left.
+      - transitivity (id o id2).
+        + rewrite H2.
+          symmetry.
+          rewrite H4.
+          reflexivity.
+        + apply id_left.
+    Qed.
+End Category.
+{% endvimhl %}
+  </div>
+</details>
 
 <!-- Clean proof style -->
 <!-- https://math.berkeley.edu/~wodzicki/253.F16/Cat.pdf -->
