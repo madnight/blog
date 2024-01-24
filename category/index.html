@@ -58,7 +58,7 @@
             <section>
                 <div class="post-title"> Category </div>
                 <div class="post-subtitle"> Collection of Objects Linked by Arrows </div>
-                <div class="post-subsubtitle"> Posted on Oct 2 2023 ~ 9 min read</div>
+                <div class="post-subsubtitle"> Posted on Oct 2 2023 ~ 10 min read</div>
                 <div class="post-subtitle-tags">
                     <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/haskell/">#haskell</a>  </div>
                 <hr class="solid">
@@ -859,7 +859,46 @@
                                     </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4725em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.4725em;vertical-align:0em;"></span><span class="inner"><span class="mord"><span class="mord amsrm mtight sizing reset-size6 size3">□</span></span></span><span class="fix"></span></span></span></span><span class="mspace" style="margin-right:0.050187499999999996em;"></span><span class="mord amsrm mtight sizing reset-size6 size3">□</span></span></span></span></span></span></p>
                     </div>
                 </div>
-                <p>Here is an alternative formulation of this proof in <a target="_blank" rel="noopener" href="https://gist.github.com/madnight/f1d0f4d2d21b645549365056c4d4ae75">Coq</a>.</p>
+                <details>
+                    <summary>In Coq.</summary>
+                    <div class="coq">
+                        <figure class="highlight">
+                            <pre><font face="monospace"><font color="#d7875f">Section</font> <font color="#d7875f">Category</font><font color="#87afaf">.</font>
+  <font color="#d7875f">Variable</font> <font color="#d7875f">Obj</font> <font color="#87afaf">:</font> <font color="#d7875f">Type</font><font color="#87afaf">.</font>
+  <font color="#d7875f">Variable</font> <font color="#d7875f">Hom</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font> <font color="#87afaf">-></font> <font color="#d7875f">Obj</font> <font color="#87afaf">-></font> <font color="#d7875f">Type</font><font color="#87afaf">.</font>
+
+  <font color="#d7875f">Variable</font> composition <font color="#87afaf">:</font> forall <font color="#afaf5f">{</font><font color="#d7875f">X</font> <font color="#d7875f">Y</font> <font color="#d7875f">Z</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font><font color="#afaf5f">,</font>
+      <font color="#d7875f">Hom</font> <font color="#d7875f">Y</font> <font color="#d7875f">Z</font> <font color="#87afaf">-></font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">Y</font> <font color="#87afaf">-></font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">Z</font><font color="#87afaf">.</font>
+  <font color="#d7875f">Notation</font> <font color="#afaf5f">"g o f"</font> <font color="#87afaf">:=</font> <font color="#afaf5f">(</font>composition g f<font color="#afaf5f">)</font> <font color="#afaf5f">(</font>at level 50<font color="#afaf5f">)</font><font color="#87afaf">.</font>
+
+  <font color="#d7875f">Variable</font> id <font color="#87afaf">:</font> forall <font color="#afaf5f">{</font><font color="#d7875f">X</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font><font color="#afaf5f">,</font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">X</font><font color="#87afaf">.</font>
+
+  <font color="#d7875f">Hypothesis</font> id_left <font color="#87afaf">:</font> forall <font color="#afaf5f">{</font><font color="#d7875f">X</font> <font color="#d7875f">Y</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>f <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">Y</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font> id o f <font color="#87afaf">=</font> f<font color="#87afaf">.</font>
+  <font color="#d7875f">Hypothesis</font> id_right <font color="#87afaf">:</font> forall <font color="#afaf5f">{</font><font color="#d7875f">X</font> <font color="#d7875f">Y</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>f <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">Y</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font> f o id <font color="#87afaf">=</font> f<font color="#87afaf">.</font>
+
+  <font color="#d7875f">Theorem</font> id_unique <font color="#87afaf">:</font> forall <font color="#afaf5f">{</font><font color="#d7875f">X</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>id1 id2 <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">X</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font>
+        <font color="#afaf5f">(</font>forall <font color="#afaf5f">{</font><font color="#d7875f">Y</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>f <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">Y</font> <font color="#d7875f">X</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font> id1 o f <font color="#87afaf">=</font> f<font color="#afaf5f">)</font> <font color="#87afaf">-></font>
+        <font color="#afaf5f">(</font>forall <font color="#afaf5f">{</font><font color="#d7875f">Y</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>f <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">Y</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font> f o id1 <font color="#87afaf">=</font> f<font color="#afaf5f">)</font> <font color="#87afaf">-></font>
+        <font color="#afaf5f">(</font>forall <font color="#afaf5f">{</font><font color="#d7875f">Y</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>f <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">Y</font> <font color="#d7875f">X</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font> id2 o f <font color="#87afaf">=</font> f<font color="#afaf5f">)</font> <font color="#87afaf">-></font>
+        <font color="#afaf5f">(</font>forall <font color="#afaf5f">{</font><font color="#d7875f">Y</font> <font color="#87afaf">:</font> <font color="#d7875f">Obj</font><font color="#afaf5f">}</font> <font color="#afaf5f">(</font>f <font color="#87afaf">:</font> <font color="#d7875f">Hom</font> <font color="#d7875f">X</font> <font color="#d7875f">Y</font><font color="#afaf5f">)</font><font color="#afaf5f">,</font> f o id2 <font color="#87afaf">=</font> f<font color="#afaf5f">)</font> <font color="#87afaf">-></font>
+        id1 <font color="#87afaf">=</font> id2<font color="#87afaf">.</font>
+    <font color="#d7875f">Proof</font><font color="#87afaf">.</font>
+      intros <font color="#d7875f">X</font> id1 id2 <font color="#d7875f">H1</font> <font color="#d7875f">H2</font> <font color="#d7875f">H3</font> <font color="#d7875f">H4</font><font color="#87afaf">.</font>
+      transitivity <font color="#afaf5f">(</font>id o id1<font color="#afaf5f">)</font><font color="#87afaf">.</font>
+      <font color="#87afaf">-</font> symmetry<font color="#87afaf">.</font>
+        apply id_left<font color="#87afaf">.</font>
+      <font color="#87afaf">-</font> transitivity <font color="#afaf5f">(</font>id o id2<font color="#afaf5f">)</font><font color="#87afaf">.</font>
+        <font color="#87afaf">+</font> rewrite <font color="#d7875f">H2</font><font color="#87afaf">.</font>
+          symmetry<font color="#87afaf">.</font>
+          rewrite <font color="#d7875f">H4</font><font color="#87afaf">.</font>
+          reflexivity<font color="#87afaf">.</font>
+        <font color="#87afaf">+</font> apply id_left<font color="#87afaf">.</font>
+    <font color="#d7875f">Qed</font><font color="#87afaf">.</font>
+<font color="#d7875f">End</font> <font color="#d7875f">Category</font><font color="#87afaf">.</font>
+</font></pre>
+                        </figure>
+                    </div>
+                </details>
                 <!-- Clean proof style -->
                 <!-- https://math.berkeley.edu/~wodzicki/253.F16/Cat.pdf -->
                 <!-- https://www.heldermann.de/SSPM/SSPM01/Chapter-3.pdf -->
