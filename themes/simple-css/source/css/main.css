@@ -143,6 +143,10 @@ main img {
     margin-right: auto;
 }
 
+.imgContainer{
+    float:left;
+}
+
 nav a:hover,
 nav a.current {
     text-decoration: none;
