@@ -71,6 +71,11 @@
                         border: 0px;
                     }
 
+                    html,
+                    body {
+                        overflow-x: hidden;
+                    }
+
                 </style>
                 <h1 id="motivation"><a class="markdownIt-Anchor" href="#motivation"></a> Motivation</h1>
                 <p>I’ve been a long-time user of Xterm. I tried to switch to other terminal emulators several times because of Xterm’s broken Unicode support, especially regarding glyphs/emojis and multi-font substitution. These glyphs are part of many modern CLI tools and are often printed as blank squares in Xterm. More recently, I attempted to switch again, but every time I try, I’m discouraged by the additional latency added during typing. I’m not a super-fast typist. I average about 80 WPM for normal text with bursts for common terminal commands of up to 120 WPM. The text appears in the terminal, of course, but not as quickly as I would like. There is a noticeable delay, especially when comparing something like Xterm to xfce4-terminal. I’ve placed some hope in the recent development of GPU-accelerated terminals, e.g., wezterm, but it still felt as slow as xfce4-terminals. When I read the benchmarks, they often show how fast it can print a gigabyte text file to stdout, but honestly, this is something I’m not so interested in for everyday use. I found some other interesting benchmarks regarding terminal latency, but there were always some terminal emulators missing for which I would like to know the result, or the results were slightly outdated.</p>
