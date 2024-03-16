@@ -71,11 +71,6 @@
                         border: 0px;
                     }
 
-                    table {
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-
                 </style>
                 <h1 id="motivation"><a class="markdownIt-Anchor" href="#motivation"></a> Motivation</h1>
                 <p>I’ve been a long-time user of Xterm. I tried to switch to other terminal emulators several times because of Xterm’s broken Unicode support, especially regarding glyphs/emojis and multi-font substitution. These glyphs are part of many modern CLI tools and are often printed as blank squares in Xterm. More recently, I attempted to switch again, but every time I try, I’m discouraged by the additional latency added during typing. I’m not a super-fast typist. I average about 80 WPM for normal text with bursts for common terminal commands of up to 120 WPM. The text appears in the terminal, of course, but not as quickly as I would like. There is a noticeable delay, especially when comparing something like Xterm to xfce4-terminal. I’ve placed some hope in the recent development of GPU-accelerated terminals, e.g., wezterm, but it still felt as slow as xfce4-terminals. When I read the benchmarks, they often show how fast it can print a gigabyte text file to stdout, but honestly, this is something I’m not so interested in for everyday use. I found some other interesting benchmarks regarding terminal latency, but there were always some terminal emulators missing for which I would like to know the result, or the results were slightly outdated.</p>
@@ -111,117 +106,121 @@
                 <p><img src="/images/tilix.jpg" alt="xterm-"></p>
                 <center> hyper (v3.4.1) </center>
                 <p><img src="/images/hyper.jpg" alt="xterm-"></p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Terminal Emulator</th>
-                            <th style="text-align:center">Min</th>
-                            <th style="text-align:center">Max</th>
-                            <th style="text-align:center">Avg</th>
-                            <th style="text-align:center">Stddev</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>xterm (389-1)</td>
-                            <td style="text-align:center">2.8</td>
-                            <td style="text-align:center">9.8</td>
-                            <td style="text-align:center"><b>5.2</b></td>
-                            <td style="text-align:center">1.1</td>
-                        </tr>
-                        <tr>
-                            <td>alacritty (0.13.1-1)</td>
-                            <td style="text-align:center">5.2</td>
-                            <td style="text-align:center">17.8</td>
-                            <td style="text-align:center"><b>6.9</b></td>
-                            <td style="text-align:center">1.8</td>
-                        </tr>
-                        <tr>
-                            <td>kitty-tuned (0.31.0-1)</td>
-                            <td style="text-align:center">8.1</td>
-                            <td style="text-align:center">16.3</td>
-                            <td style="text-align:center"><b>10.7</b></td>
-                            <td style="text-align:center">1.4</td>
-                        </tr>
-                        <tr>
-                            <td>zutty (0.14-2)</td>
-                            <td style="text-align:center">7.4</td>
-                            <td style="text-align:center">16.4</td>
-                            <td style="text-align:center"><b>11.2</b></td>
-                            <td style="text-align:center">1.6</td>
-                        </tr>
-                        <tr>
-                            <td>st (master 95f22c5)</td>
-                            <td style="text-align:center">11.4</td>
-                            <td style="text-align:center">17.9</td>
-                            <td style="text-align:center"><b>14.2</b></td>
-                            <td style="text-align:center">1.2</td>
-                        </tr>
-                        <tr>
-                            <td>urxvt (9.31-4)</td>
-                            <td style="text-align:center">18.4</td>
-                            <td style="text-align:center">22.7</td>
-                            <td style="text-align:center"><b>20.4</b></td>
-                            <td style="text-align:center">0.8</td>
-                        </tr>
-                        <tr>
-                            <td>konsole (24.02.0-1)</td>
-                            <td style="text-align:center">16.4</td>
-                            <td style="text-align:center">26.8</td>
-                            <td style="text-align:center"><b>20.7</b></td>
-                            <td style="text-align:center">2.2</td>
-                        </tr>
-                        <tr>
-                            <td>kitty (0.31.0-1)</td>
-                            <td style="text-align:center">11.5</td>
-                            <td style="text-align:center">34.4</td>
-                            <td style="text-align:center"><b>23.8 </b></td>
-                            <td style="text-align:center">2.6</td>
-                        </tr>
-                        <tr>
-                            <td>wezterm (20230712.072601)</td>
-                            <td style="text-align:center">11.3</td>
-                            <td style="text-align:center">40.9</td>
-                            <td style="text-align:center"><b>26.1</b></td>
-                            <td style="text-align:center">7.2</td>
-                        </tr>
-                        <tr>
-                            <td>gnome-terminal (3.50.1-1)</td>
-                            <td style="text-align:center">29.0</td>
-                            <td style="text-align:center">32.3</td>
-                            <td style="text-align:center"><b>30.2</b></td>
-                            <td style="text-align:center">0.8</td>
-                        </tr>
-                        <tr>
-                            <td>xfce4-terminal (1.1.1-2)</td>
-                            <td style="text-align:center">28.0</td>
-                            <td style="text-align:center">36.1</td>
-                            <td style="text-align:center"><b>30.2</b></td>
-                            <td style="text-align:center">1.1</td>
-                        </tr>
-                        <tr>
-                            <td>terminator (2.1.3-3)</td>
-                            <td style="text-align:center">28.7</td>
-                            <td style="text-align:center">48.0</td>
-                            <td style="text-align:center"><b>30.5</b></td>
-                            <td style="text-align:center">2.0</td>
-                        </tr>
-                        <tr>
-                            <td>tilix (1.9.6-3)</td>
-                            <td style="text-align:center">28.6</td>
-                            <td style="text-align:center">69.7</td>
-                            <td style="text-align:center"><b>31.0</b></td>
-                            <td style="text-align:center">4.4</td>
-                        </tr>
-                        <tr>
-                            <td>hyper (v3.4.1)</td>
-                            <td style="text-align:center">28.1</td>
-                            <td style="text-align:center">58.9</td>
-                            <td style="text-align:center"><b>39.8</b></td>
-                            <td style="text-align:center">5.7</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="overflow-x:auto;">
+                    <center>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Terminal Emulator</th>
+                                    <th style="text-align:center">Min</th>
+                                    <th style="text-align:center">Max</th>
+                                    <th style="text-align:center">Avg</th>
+                                    <th style="text-align:center">Stddev</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>xterm (389-1)</td>
+                                    <td style="text-align:center">2.8</td>
+                                    <td style="text-align:center">9.8</td>
+                                    <td style="text-align:center"><b>5.2</b></td>
+                                    <td style="text-align:center">1.1</td>
+                                </tr>
+                                <tr>
+                                    <td>alacritty (0.13.1-1)</td>
+                                    <td style="text-align:center">5.2</td>
+                                    <td style="text-align:center">17.8</td>
+                                    <td style="text-align:center"><b>6.9</b></td>
+                                    <td style="text-align:center">1.8</td>
+                                </tr>
+                                <tr>
+                                    <td>kitty-tuned (0.31.0-1)</td>
+                                    <td style="text-align:center">8.1</td>
+                                    <td style="text-align:center">16.3</td>
+                                    <td style="text-align:center"><b>10.7</b></td>
+                                    <td style="text-align:center">1.4</td>
+                                </tr>
+                                <tr>
+                                    <td>zutty (0.14-2)</td>
+                                    <td style="text-align:center">7.4</td>
+                                    <td style="text-align:center">16.4</td>
+                                    <td style="text-align:center"><b>11.2</b></td>
+                                    <td style="text-align:center">1.6</td>
+                                </tr>
+                                <tr>
+                                    <td>st (master 95f22c5)</td>
+                                    <td style="text-align:center">11.4</td>
+                                    <td style="text-align:center">17.9</td>
+                                    <td style="text-align:center"><b>14.2</b></td>
+                                    <td style="text-align:center">1.2</td>
+                                </tr>
+                                <tr>
+                                    <td>urxvt (9.31-4)</td>
+                                    <td style="text-align:center">18.4</td>
+                                    <td style="text-align:center">22.7</td>
+                                    <td style="text-align:center"><b>20.4</b></td>
+                                    <td style="text-align:center">0.8</td>
+                                </tr>
+                                <tr>
+                                    <td>konsole (24.02.0-1)</td>
+                                    <td style="text-align:center">16.4</td>
+                                    <td style="text-align:center">26.8</td>
+                                    <td style="text-align:center"><b>20.7</b></td>
+                                    <td style="text-align:center">2.2</td>
+                                </tr>
+                                <tr>
+                                    <td>kitty (0.31.0-1)</td>
+                                    <td style="text-align:center">11.5</td>
+                                    <td style="text-align:center">34.4</td>
+                                    <td style="text-align:center"><b>23.8 </b></td>
+                                    <td style="text-align:center">2.6</td>
+                                </tr>
+                                <tr>
+                                    <td>wezterm (20230712.072601)</td>
+                                    <td style="text-align:center">11.3</td>
+                                    <td style="text-align:center">40.9</td>
+                                    <td style="text-align:center"><b>26.1</b></td>
+                                    <td style="text-align:center">7.2</td>
+                                </tr>
+                                <tr>
+                                    <td>gnome-terminal (3.50.1-1)</td>
+                                    <td style="text-align:center">29.0</td>
+                                    <td style="text-align:center">32.3</td>
+                                    <td style="text-align:center"><b>30.2</b></td>
+                                    <td style="text-align:center">0.8</td>
+                                </tr>
+                                <tr>
+                                    <td>xfce4-terminal (1.1.1-2)</td>
+                                    <td style="text-align:center">28.0</td>
+                                    <td style="text-align:center">36.1</td>
+                                    <td style="text-align:center"><b>30.2</b></td>
+                                    <td style="text-align:center">1.1</td>
+                                </tr>
+                                <tr>
+                                    <td>terminator (2.1.3-3)</td>
+                                    <td style="text-align:center">28.7</td>
+                                    <td style="text-align:center">48.0</td>
+                                    <td style="text-align:center"><b>30.5</b></td>
+                                    <td style="text-align:center">2.0</td>
+                                </tr>
+                                <tr>
+                                    <td>tilix (1.9.6-3)</td>
+                                    <td style="text-align:center">28.6</td>
+                                    <td style="text-align:center">69.7</td>
+                                    <td style="text-align:center"><b>31.0</b></td>
+                                    <td style="text-align:center">4.4</td>
+                                </tr>
+                                <tr>
+                                    <td>hyper (v3.4.1)</td>
+                                    <td style="text-align:center">28.1</td>
+                                    <td style="text-align:center">58.9</td>
+                                    <td style="text-align:center"><b>39.8</b></td>
+                                    <td style="text-align:center">5.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
                 <p>Xterm yields the best results, and Hyper (a web-based terminal) has the worst results. This has met my expectations and matched the results from other blog posts. Hyper, with about 40ms latency, is not as bad as I thought. However, anything with more than 20ms I consider a noticeable delay, and everything below 10ms is fast enough for my needs. I find it quite interesting that kitty can be tuned to be more than twice as fast in terms latency. For kitty tuned I used the following settings:</p>
                 <figure class="highlight">
                     <pre><font face="monospace"><font color="#767676"># 150 FPS</font>
