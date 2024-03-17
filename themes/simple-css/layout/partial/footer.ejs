@@ -11,3 +11,37 @@
 </svg>Source</a>
     </p>
     </footer>
+    <script>
+window.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.querySelector('.dark-mode-button');
+    const body = document.body; // Ensure you have this line to reference the body element
+
+    // Function to apply dark mode based on localStorage
+    function applyDarkMode() {
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        } else {
+            body.classList.remove("dark-mode");
+        }
+    }
+
+    // Initially apply dark mode based on localStorage
+    applyDarkMode();
+
+    // Toggle Button Event Listener
+    document.querySelector(".toggle input").addEventListener("change", (evt) => {
+        const isDarkModeEnabled = body.classList.contains("dark-mode");
+        if (!isDarkModeEnabled) {
+            body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+            document.querySelector(':root').style.setProperty('--darkreader-text--text', "#afa89d");
+        } else {
+            body.classList.remove("dark-mode");
+            localStorage.removeItem("darkMode"); // Correctly remove the item instead of setting it to null
+            document.querySelector(':root').style.setProperty('--darkreader-text--text', "black");
+        }
+    });
+});
+
+</script>
