@@ -77,7 +77,7 @@ For the benchmark, I used Typometer[^1], a tool designed to measure and analyze 
 {% raw %}<div style="overflow-x:auto;"><center>{% endraw %}
 | Terminal Emulator   | Min | Max          | Avg  | Stddev|
 | ------------- |:-------------:|:---:| :-----:|:-----:|
-| xterm (389-1) | 2.8 | 9.8 | <b>5.2</b> | 1.1 |
+| xterm (389-1) | 2.8 | 9.8 | <b>5.3</b> | 1.1 |
 | alacritty (0.13.1-1)| 5.2 | 17.8 | <b>6.9</b> | 1.8 |
 | kitty-tuned (0.31.0-1) | 8.1 | 16.3 | <b>10.7</b> | 1.4 |
 | zutty (0.14-2) | 7.4 | 16.4 | <b>11.2</b> | 1.6 |
@@ -128,9 +128,43 @@ As we can see, the latency for Neovim inside tmux inside Alacritty (8.3 ms) is n
 
 I'm quite satisfied with the results, especially now that I have found a decent alternative to Xterm, which has only 1.7 ms more latency - Alacritty. I've seen benchmarks in the past that measured higher values for Alacritty. Hence, I think the terminal latency has improved over time due to complaints on GitHub[^3] that caught some attention from the maintainers (there's also my thumbs up on that issue). For now, I will migrate my configs from Xterm to Alacritty and report back in the form of another blog post in case there are any issues.
 
+### Update: March 17, 2024
+
+One of the contributors[^4] to the st terminal emulator reached out to me and mentioned the possibility of configuring and recompiling st for lower latency. One might ask why the latency settings are not zero altogether for the smallest possible delay. Here's the answer by avih:
+
+<blockquote>
+Generally speaking, there's a tradeoff between latency and throughput/flicker.
+
+The smaller the latency, the worse the throughput is (e.g. in cat huge.txt) because the terminal has to render more frequently, and the more flicker-prone it becomes, for instance when the terminal updates the screen before the application completed its "output batch" - which then requires another screen update once the output batch is complete, e.g. when holding page-down in auto-repeat in vim or less.
+
+This behavior is not unique to st, but what is unique to st is that it's configurable, and can be adaptive.
+
+By default it's adaptive between 8 and 32 ms, and tries to draw as soon as possible after the application-output batch completes, i.e. the terminal input becomes idle.
+</blockquote>
+
+In response to this blog post, the default minlatency setting of st has now changed from 8 milliseconds to 2 to offer a smaller default latency for all users. I've chosen to rerun the tests, of course. Here are the new results:
+
+
+{% raw %} <center> st (master f20e169) </center> {% endraw %}
+![xterm-](/images/st-f20e169.jpg)
+
+{% raw %} <center> st-tuned (custom f20e169) </center> {% endraw %}
+![xterm-](/images/st-tuned.jpg)
+
+{% raw %}<div style="overflow-x:auto;"><center>{% endraw %}
+| Terminal Emulator        | Min | Max          | Avg  | Stddev|
+| ------------- |:-------------:|:---:| :-----:|:-----:|
+|st (master f20e169) | 4.5 | 10.4 | <b>6.2</b> |  1.0 |
+|st (custom f20e169)| 2.2 | 20.6 | <b>5.2</b> | 2.1 |
+{% raw %}</div>{% endraw %}
+
+
+With the new commits, the master branch of st is now placed second, behind xterm and before Alacritty. However, if we custom-tune the settings for the lowest latency possible I chose `minlatency = 0` and `maxlatency = 1` then we have a new winner. Applying this custom tuning results in an average latency of <b>5.2</b> ms, which is 0.1 ms lower than xterm, and that's with having a much more sane terminal without legacy cruft.
+
 
 ## References
 [^1]: [Typometer GitHub](https://github.com/pavelfatin/typometer)
 [^2]: [Measuring terminal latency](https://www.lkhrs.com/blog/2022/07/terminal-latency/)
 [^3]: [Improve input latency ](https://github.com/alacritty/alacritty/issues/673)
-
+[^4]: [st Contributor](https://github.com/avih)
+[^5]: [Lower default latency in st](https://git.suckless.org/st/commit/f20e169a20f3ee761f7e09714f1d4c10916cf4c6.html)
