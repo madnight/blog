@@ -2,30 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://beuke.org/terminal-latency/</loc>
+    <loc>https://beuke.org/monoid/</loc>
     
-    <lastmod>2024-03-17T18:19:09.179Z</lastmod>
+    <lastmod>2024-03-30T21:50:15.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/natural-transformation/</loc>
+    
+    <lastmod>2024-03-30T21:50:15.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/applicative/</loc>
+    
+    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/category/</loc>
     
-    <lastmod>2024-01-24T10:05:49.809Z</lastmod>
+    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/functor/</loc>
+    
+    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/hom-set/</loc>
+    
+    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/monad/</loc>
     
-    <lastmod>2023-10-18T20:08:22.525Z</lastmod>
+    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monoid/</loc>
+    <loc>https://beuke.org/terminal-latency/</loc>
     
-    <lastmod>2023-10-18T20:07:28.256Z</lastmod>
+    <lastmod>2024-03-17T18:19:09.179Z</lastmod>
     
   </url>
   
@@ -37,37 +65,9 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/functor/</loc>
-    
-    <lastmod>2023-10-18T20:05:54.560Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/applicative/</loc>
-    
-    <lastmod>2023-10-18T20:05:01.910Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/coq-tutorial/</loc>
     
     <lastmod>2023-10-10T11:50:33.629Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/hom-set/</loc>
-    
-    <lastmod>2023-10-07T19:21:14.233Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/natural-transformation/</loc>
-    
-    <lastmod>2023-10-07T19:08:38.504Z</lastmod>
     
   </url>
   
