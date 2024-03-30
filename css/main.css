@@ -8,6 +8,8 @@
     --accent: #1a2b55;
     --preformatted: #dcdcdc;
 
+    /*this is a svg fix for the popular dark reader extension*/
+    --darkreader-text--svg-text: #dcdcdc;
     --svg-text: #171717;
 
     --dark-accent: #d4d4d4;
@@ -37,6 +39,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --svg-text: #dcdcdc;
+         /*this is a svg fix for the popular dark reader extension*/
+        --darkreader-text--svg-text: #dcdcdc;
     }
 }
 
