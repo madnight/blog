@@ -22,13 +22,7 @@ mathjax: true
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
 <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg-full.js"></script> -->
-
-<script>
-window.addEventListener('load', function() {
-   document.querySelectorAll("mjx-xypic-object").forEach( (x) => (x.style.color = "var(--darkreader-text--text"));
-   document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", "var(--darkreader-text--text"))
-})
-</script>
+<script id="dark-toggle" async src="/js/dark-toggle.js"></script>
 
 <style>
 <!-- li { -->
@@ -297,3 +291,6 @@ Here are some more examples:
 
 [^0]: The diagram displayed at the top of this post is a modified version of Brent Yorgey's [Typeclassopedia diagram](https://wiki.haskell.org/File:Typeclassopedia-diagram.png)
 [^1]: [Control.Category](https://hackage.haskell.org/package/base-4.18.1.0/docs/Control-Category.html)
+
+
+
