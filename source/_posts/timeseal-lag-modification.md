@@ -9,7 +9,7 @@ The following exploit works for any online chess server that use timeseal. This 
 
 > Timeseal is a program that has been developed to improve chess on internet.  Netlag often causes players to lose valuable seconds or even minutes on their chess clocks.  Transmission time is counted against you, unless the chess server can tell exactly when information is transmitted.  The timeseal program acts as a relay station and keeps track of transmission times.  What timeseal does is record your thinking time, so that transmission time is not counted against you.  Timeseal will not prevent netlag but it makes the games fairer when lag occurs. [^2]
 
-<img src="https://i.imgur.com/M2oOKFx.png" onclick="window.open(this.src)">
+<img src="/images/olly.png" onclick="window.open(this.src)">
 
 Timeseal calculates the lag as a difference between two timestamps. Modifying the lag value can be done by adding an random offset to the timestamp calculation. The code can be hex edited (hardcoded) into the timeseal binary.
 
