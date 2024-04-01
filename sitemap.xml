@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://beuke.org/timeseal-lag-modification/</loc>
-    
-    <lastmod>2024-03-30T21:56:16.214Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monoid/</loc>
-    
-    <lastmod>2024-03-30T21:50:15.262Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/natural-transformation/</loc>
     
-    <lastmod>2024-03-30T21:50:15.262Z</lastmod>
+    <lastmod>2024-04-01T11:25:03.478Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/applicative/</loc>
     
-    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    <lastmod>2024-04-01T11:25:03.475Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/category/</loc>
     
-    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    <lastmod>2024-04-01T11:25:03.475Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/functor/</loc>
     
-    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    <lastmod>2024-04-01T11:25:03.475Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/hom-set/</loc>
     
-    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    <lastmod>2024-04-01T11:25:03.475Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/monad/</loc>
     
-    <lastmod>2024-03-30T21:50:15.259Z</lastmod>
+    <lastmod>2024-04-01T11:25:03.475Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monoid/</loc>
+    
+    <lastmod>2024-04-01T11:25:03.475Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/timeseal-lag-modification/</loc>
+    
+    <lastmod>2024-03-30T21:56:16.214Z</lastmod>
     
   </url>
   
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2023-07-23T21:13:34.484Z</lastmod>
     
