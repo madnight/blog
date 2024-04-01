@@ -23,3 +23,9 @@
     opacity: 0.8;
   }
 }
+
+
+pre {
+  background: #0a0800;
+  filter: invert(1);
+}
