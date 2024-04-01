@@ -47,25 +47,25 @@
     --dark-mode-toggle-dark-icon: url(/images/sun.svg);
     --dark-mode-toggle-light-icon: url(/images/moon.svg);
     --dark-mode-toggle-icon-size: 1.5rem;
-    --dark-mode-toggle-icon-filter: invert(100%);
-     margin-top: -0.2rem; /* Moves the toggle up */
-     margin-right: 0.5rem; /* Moves the toggle to the right */
+    /*--dark-mode-toggle-icon-filter: invert(100%);*/
+    margin-top: -0.2rem; /* Moves the toggle up */
+    margin-right: 0.5rem; /* Moves the toggle to the right */
 }
 
 .title-con {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title-container {
-  display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
 }
 
 .title-container h1 {
-  margin-right: 10px; /* Give some space between the h1 and the toggle */
+    margin-right: 10px; /* Give some space between the h1 and the toggle */
 }
 
 /* Other styling remains the same */
@@ -265,9 +265,6 @@ blockquote {
     float: left;
     padding: 20px;
     border: 2px solid red;
-}
-
-.content a:link {
 }
 
 .post-description {
