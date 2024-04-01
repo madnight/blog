@@ -18,8 +18,9 @@ mathjax: true
   };
 </script>
 
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
-<script id="dark-toggle" async src="/js/dark-toggle.js"></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+<script id="dark-toggle" src="/js/dark-toggle.js"></script>
+
 
 {% endraw %}
 
