@@ -104,3 +104,6 @@ hfc_html:
 deploy:
   type: git
   repo: https://github.com/madnight/blog.git
+
+browsersync:
+  notify: false

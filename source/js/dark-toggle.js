@@ -1,16 +1,26 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+const updateColor = (color) => {
+    document
+        .querySelectorAll("mjx-xypic-object")
+        .forEach((el) => (el.style.color = color));
+    document
+        .querySelectorAll("mjx-math > mjx-xypic > svg > g")
+        .forEach((el) => el.setAttribute("stroke", color));
+};
 
-// Code to run after MathJax has finished loading and rendering goes here
-MathJax.startup.promise.then(function() {
-   const rootStyles = getComputedStyle(document.documentElement);
-   const textVarValue = rootStyles.getPropertyValue('--svg-text').trim();
-   document.querySelectorAll("mjx-xypic-object").forEach( (x) => (x.style.color = textVarValue));
-   document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", textVarValue));
+document.addEventListener("DOMContentLoaded", () => {
+    MathJax.startup.promise.then(() => {
+        const initialColor = getComputedStyle(document.documentElement)
+            .getPropertyValue("--svg-text")
+            .trim();
+        updateColor(initialColor);
+    });
+    let toggle = document.querySelector("dark-mode-toggle");
+    toggle.addEventListener("colorschemechange", () => {
+        toggle = document.querySelector("dark-mode-toggle");
+        updateColor(toggle.mode === "dark" ? "#dcdcdc" : "#171717");
+    });
 });
-})
 
-window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-  const textVarValue = getComputedStyle(document.documentElement).getPropertyValue('--svg-text').trim();
-   document.querySelectorAll("mjx-xypic-object").forEach( (x) => (x.style.color = textVarValue));
-   document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", textVarValue));
+window.matchMedia("(prefers-color-scheme: dark)").addListener((e) => {
+    updateColor(e.matches ? "#dcdcdc" : "#171717");
 });
