@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beuke.org/"/>
-  <updated>2024-03-17T18:19:09.179Z</updated>
+  <updated>2024-10-26T15:10:00.789Z</updated>
   <id>https://beuke.org/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Zen</title>
+    <link href="https://beuke.org/zen/"/>
+    <id>https://beuke.org/zen/</id>
+    <published>2024-10-25T22:00:00.000Z</published>
+    <updated>2024-10-26T15:10:00.789Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>I have compiled a few lessons from Zen teachings that I gathered from various sources and want to share with you.</p><p><strong>Listening with Openness: Letting Go of Judgment in Communication</strong><br />When listening to someone, set aside your biases, judgments, and reactions. Approach the conversation with curiosity and acceptance, allowing the person to speak without feeling evaluated or criticized. Resist the urge to interrupt or offer immediate responses, instead, let them express their full thoughts before you speak. Accept their perspective, even if it differs from yours. This approach creates a space for honest, open communication, making the other person feel truly heard and respected.</p><p><strong>Merging with the Moment: Finding Calm and Meaning in Life’s Simple Tasks</strong><br />In every activity you do, whether it’s folding laundry, walking through the park, or simply moving through your day, bring your full awareness to the moment. Feel the texture of the fabric in your hands, hear the rustle of the clothes, or notice the rhythm of your footsteps. Slow down your pace, take time to savor the small things. When speaking, add pauses; when walking, reduce your speed; when eating, chew more deliberately. By letting go of distractions and adopting a calmer, more mindful approach, you will not only complete tasks but also uncover a deep sense of connection and peace in the world around you. In this stillness, life’s simplicity becomes rich with meaning.</p><p><strong>Emotional Healing: Recognizing and Releasing Old Emotions</strong><br />Become aware of the accumulation of emotional pain that resides within you from past experiences. When you feel emotional reactions rising, pause and observe them without judgment. Recognize that these are old emotions replaying in your mind. By consciously observing them, you allow these emotional echoes from the past to lessen and begin to dissolve, initiating a process of healing that leads to inner peace.</p><p><strong>From Resistance to Acceptance: Learning to Accept Life’s Constant Changes</strong><br />Impermanence is the essence of existence — everything is in constant motion. Hanging on to what is fleeting leads to suffering, as attachment creates an illusion of permanence. Instead, flow with life’s changes, releasing the need to hold on. Life’s beauty lies in its transience; each moment is precious because it cannot be repeated. By accepting this, you find freedom, moving through life with grace. Accept change and loss with peace, trusting that each ending brings a new beginning. Life is a constant unfolding — move with it, and find serenity in its ever-changing nature.</p><p><strong>Trusting the Process: Releasing the Need for Control</strong><br />Life is unpredictable, often beyond our control. The urge to manage everything stems from fear — fear of uncertainty, loss, and the unknown. But no matter how much we try, life will take its own course. Letting go of control isn’t surrendering to chaos but to life itself. It’s a deep act of trust, recognizing the wisdom in life’s unfolding, even when the path ahead is uncertain. Releasing control means accepting that you can’t dictate outcomes. Instead, accept life’s unpredictability with openness. Respond to changes with grace, seeing challenges as opportunities for growth and deeper alignment with the flow of life.</p><p><strong>Healing Through Empathy: Recognizing Our Shared Struggles</strong><br />True compassion arises from recognizing our shared humanity. Begin by understanding that every individual, including yourself, carries their own burdens of pain, fear, and uncertainty — wounds often hidden beneath the surface. Everyone longs for love, peace, and understanding. When faced with suffering — whether your own or another’s — resist judgment. Instead, see the common desires that unite us all. Compassion is not just an act of kindness but a profound acknowledgment that another’s pain reflects our own. Start with self-compassion, accepting your imperfections as part of healing, not flaws to fix. From there, extend empathy to others. When someone acts out of anger or fear, try to see the pain behind their actions. Compassion isn’t about excusing harm, but about offering understanding over judgment. By cultivating compassion in this way, you respond with kindness and transform your way of being into one of deep empathy and healing — for both others and yourself.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;I have compiled a few lessons from Zen
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Terminal Latency</title>
@@ -558,35 +579,6 @@ html, b
       <category term="wm" scheme="https://beuke.org/tags/wm/"/>
     
       <category term="ricing" scheme="https://beuke.org/tags/ricing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Minimal Wkthmltopdf Docker Container</title>
-    <link href="https://beuke.org/docker-alpine-wkhtmltopdf/"/>
-    <id>https://beuke.org/docker-alpine-wkhtmltopdf/</id>
-    <published>2017-06-21T22:00:00.000Z</published>
-    <updated>2023-07-23T21:13:34.481Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1><p>All major browsers, such as Chrome, Firefox and Safari are capable of exporting the currently visited website from HTML to PDF. This can be done via the <em>print</em> or <em>save as</em> function. However, there is no standard way of doing so on the command-line. Lets build a command-line with the following goals in mind: a small footprint, minimal dependencies, composing existing technology, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained command-line utility <em>wkhtmltopdf</em> and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.</p><h1 id="alpine-linux"><a class="markdownIt-Anchor" href="#alpine-linux"></a> Alpine Linux</h1><p>Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes or more. This is a well known problem and therefore many Docker image distributors are also offering an Alpine Linux based Docker image. The Alpine Linux distribution is a very common Docker base distribution, because of its very small size of about 5 MB. After a fast Google search, the <em>wkhtmltopdf</em> package of the <a href="https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf">official Alpine repositories</a> shows up in the search results. Interestingly though, the given binary size is just about 202 KB. Which would be perfectly fine, if it wasn’t for the dependency list. It contains 7 items, including <em>qt5-qtwebkit</em>. Unfortunately, this alone requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.</p><h1 id="qt-patches"><a class="markdownIt-Anchor" href="#qt-patches"></a> Qt Patches</h1><p>Since <em>wkhtmltopdf</em> uses the webkit engine to render PDFs, there is no way around the <em>qt5-qtwebkit</em> dependency. However, it is possible to avoid Xorg. I was able to find a <a href="https://github.com/alloylab/Docker-Alpine-wkhtmltopdf">GitHub repository</a> that provides a solution, by compiling a <em>qt-webkit</em> version without the need for Xorg.</p><figure class="highlight"><pre><font face="monospace"><font color="#87afd7">FROM</font>&#xA0;alpine:3.5<font color="#87afd7">MAINTAINER</font>&#xA0;Fabian Beuke &lt;mail@beuke.org&gt;<font color="#87afd7">RUN</font>&#xA0;apk add&#xA0;<font color="#afaf5f">--update</font>&#xA0;<font color="#afaf5f">--no-cache</font>&#xA0;<font color="#87afaf">\</font>&#xA0;&#xA0;&#xA0;&#xA0;libgcc libstdc++ libx11 glib libxrender libxext libintl&#xA0;<font color="#87afaf">\</font>&#xA0;&#xA0;&#xA0;&#xA0;libcrypto1.0&#xA0;libssl1.0&#xA0;<font color="#87afaf">\</font>&#xA0;&#xA0;&#xA0;&#xA0;ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family<font color="#767676"># on alpine static compiled patched qt headless wkhtmltopdf (47.2 MB)</font><font color="#767676"># compilation takes 4 hours on EC2 m1.large in 2016 thats why binary</font><font color="#87afd7">COPY</font>&#xA0;wkhtmltopdf /bin<font color="#87afd7">ENTRYPOINT</font>&#xA0;<font color="#afaf5f">[</font>&quot;<font color="#afaf5f">wkhtmltopdf</font>&quot;<font color="#afaf5f">]</font></font></pre></figure><p>Unfortunately, this led to a new problem. The compilation of the whole Qt library including the necessary patches takes about 4 hours on <em>EC2 m1.large</em> in 2016. It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don’t already have that Docker layer. At first, I thought that I could address that issue by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a <a href="https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build">build timeout</a> after 2 hours, so it wasn’t able to finish the build.</p><img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)"><p>Therefore I compiled the Dockerfile on my computer, pushed the binary to the GitHub repository, copied it into the Dockerfile and pushed everything to <a href="https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/">Docker Hub</a>.</p><h3 id="update-september-2019"><a class="markdownIt-Anchor" href="#update-september-2019"></a> Update September 2019</h3><p>I found that it is now possible to build the patched wkhtmltopdf Alpine binary in Travis CI, although documentation says otherwise:</p><blockquote><p>It is very common for test suites or build scripts to hang. Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:</p><ul><li>When a job produces no log output for 10 minutes.</li><li>When a job on a public repository takes longer than 50 minutes.</li><li>When a job on a private repository takes longer than 120 minutes.</li></ul></blockquote><p>Source: <a href="https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts">https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts</a></p><p>As you can see in <a href="https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf/builds/585241704">Travis CI</a> the build takes more than one hour, despite being a job on a public repository. Now, being able to build in CI, I removed the binary from the git repository and copied it from the builder image into the Docker image.</p><figure class="highlight"><pre><font face="monospace"><font color="#87afd7">COPY</font>&#xA0;<font color="#afaf5f">--from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10</font>&#xA0;\&#xA0;&#xA0;&#xA0;&#xA0;/bin/wkhtmltopdf /bin/wkhtmltopdf</font></pre></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h1 id=&quot;introduction&quot;&gt;&lt;a class=&quot;markdownI
-      
-    
-    </summary>
-    
-    
-      <category term="docker" scheme="https://beuke.org/tags/docker/"/>
-    
-      <category term="patch" scheme="https://beuke.org/tags/patch/"/>
-    
-      <category term="pdf" scheme="https://beuke.org/tags/pdf/"/>
-    
-      <category term="musl" scheme="https://beuke.org/tags/musl/"/>
     
   </entry>
   
