@@ -1,6 +1,6 @@
 ---
 title: The Ekpyrotic Universe
-date: 2025-02-21
+date: 2025-03-01
 tags: ["theoretical physics", "big bang", "cosmology"]
 subtitle: A Different Perspective on the Beginning of Time
 ---
