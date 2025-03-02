@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/branes/</loc>
+    
+    <lastmod>2025-03-02T17:33:51.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/branes.html</loc>
+    
+    <lastmod>2025-03-02T12:08:06.700Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/ekpyrotic/</loc>
     
     <lastmod>2025-03-01T16:51:49.032Z</lastmod>
@@ -156,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/bspwm-missing-docs/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/bspwm-missing-docs/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
