@@ -1,7 +1,7 @@
 ---
 title: D-Branes
 date: 2025-03-02
-tags: ["theoretical physics", "string theory", "m-theory"]
+tags: ["theoretical physics", "string theory", "cosmology"]
 subtitle: Dirichlet Membranes in String Theory
 ---
 
