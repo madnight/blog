@@ -2,7 +2,7 @@
 title: Retrieval Augmented Generation
 date: 2025-03-03
 tags: ["artificial intelligence", "LLM", "GPT"]
-subtitle: 
+subtitle: Enhancing LLMs with External Knowledge
 ---
 
 <style>
