@@ -203,7 +203,7 @@ Several chunking strategies have emerged to balance this. A straightforward appr
 
 Choosing the right chunking strategy often depends on the use case and the data. As a general guideline, experts have found that using smaller, self-contained chunks that capture a single idea or answer tends to work well. A practical approach is to iterate: if chunks are too big and retrievals seem broad, try making them smaller; if you lose context, introduce overlap or merge small chunks. In any case, chunking is a critical pre-processing step in RAG – it directly impacts what the retriever can find. Good chunking ensures that when the system retrieves text, it gets precisely the information needed to answer the query, with minimal extraneous text. That way, the LLM can focus on the most relevant content, and the risk of it getting distracted or misled by irrelevant info is reduced. Thus, chunking and retrieval go hand-in-hand: a well-chunked knowledge base makes the retriever’s job easier and the generator’s answers better.
 
-### Open-Source Frameworks and SaaS Offerings
+### Open-Source Frameworks
 
 In response to the growing popularity of retrieval-augmented techniques, many open-source frameworks have emerged to simplify building RAG systems. Here are a few of the most widely adopted ones:
 
