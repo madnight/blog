@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/quantum-eraser/</loc>
+    
+    <lastmod>2025-03-05T10:48:29.854Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-03-04T08:23:02.429Z</lastmod>
@@ -191,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2023-07-23T21:13:34.481Z</lastmod>
     
