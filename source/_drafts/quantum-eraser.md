@@ -1,6 +1,6 @@
 ---
 title: Delayed-Choice Quantum Eraser
-date: 2025-03-03
+date: 2025-03-05
 tags: ["theoretical physics", "quantum mechancis", "philosophy"]
 subtitle: Illusion of Retrocausality in Quantum Mechanics
 ---
@@ -73,6 +73,9 @@ Therefore, although the experiment is undoubtedly clever and important for under
 ### References
 
 
+* Scully, Marlan O.; Kai Drühl (1982). "Quantum eraser: A proposed photon correlation experiment concerning observation and "delayed choice" in quantum mechanics". Physical Review A. 25 (4): 2208–2213. Bibcode:1982PhRvA..25.2208S. doi:10.1103/PhysRevA.25.2208.
+* Kim, Y.H., Yu, R., Kulik, S.P., Shih, Y. and Scully, M.O., 2000. Delayed “choice” quantum eraser. Physical Review Letters, 84(1), p.1.
+* Kastner, R.E., 2019. The ‘delayed choice quantum eraser’neither erases nor delays. Foundations of Physics, 49(7), pp.717-727.
 * [The Delayed Choice Quantum Eraser, Debunked by Sabine Hossenfelder](https://www.youtube.com/watch?v=RQv5CVELG3U)
 * [The Notorious Delayed-Choice Quantum Eraser by Sean Carroll](https://www.preposterousuniverse.com/blog/2019/09/21/the-notorious-delayed-choice-quantum-eraser/)
 * [Boy, Was I Wrong! How the Delayed Choice Quantum Eraser Really works by Arvin Ash](https://www.youtube.com/watch?v=s5yON4Gs3D0)
