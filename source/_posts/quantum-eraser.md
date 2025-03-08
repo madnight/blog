@@ -26,7 +26,7 @@ html, body {
     Your browser does not support the audio element.
   </audio>
 
-The Quantum eraser experiment has sparked some controversy. Sabine Hossfelder addresses it in her YouTube video ["The Delayed Choice Quantum Eraser, Debunked,"](https://www.youtube.com/watch?v=RQv5CVELG3U) while Sean Carroll offers insights in his blog post ["The Notorious Delayed-Choice Quantum Eraser"](https://www.preposterousuniverse.com/blog/2019/09/21/the-notorious-delayed-choice-quantum-eraser/). Both agree that there is no mystical retrocausality involved, and in that regard, it can be considered debunked. However, I think it remains a interesting experiment, and I would like to share a analysis with you.
+The Quantum eraser experiment has sparked some controversy. Sabine Hossfelder addresses it in her YouTube video ["The Delayed Choice Quantum Eraser, Debunked,"](https://www.youtube.com/watch?v=RQv5CVELG3U) while Sean Carroll offers insights in his blog post ["The Notorious Delayed-Choice Quantum Eraser"](https://www.preposterousuniverse.com/blog/2019/09/21/the-notorious-delayed-choice-quantum-eraser/). Both agree that there is no mystical retrocausality involved, and in that regard, it can be considered debunked. However, I think it remains an interesting experiment, and I would like to share an analysis with you.
 
 
 ###  Introduction and Wheeler’s Delayed Choice
