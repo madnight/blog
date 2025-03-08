@@ -2,7 +2,7 @@
 title: The Metamorphosis
 date: 2025-02-21
 tags: ["kafka", "novella", "analysis"]
-subtitle: A novella by Franz Kafka
+subtitle: A Novella by Franz Kafka
 ---
 
 <style>
