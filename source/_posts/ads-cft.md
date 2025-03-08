@@ -6,7 +6,7 @@ subtitle: A Non-Perturbative Formulation of String Theory
 ---
 
   <audio controls>
-    <source src="/audio/ads-cft.mp3" type="audio/mpeg">
+    <source src="/audio/adscft.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
