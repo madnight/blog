@@ -17,7 +17,7 @@ AdS/CFT is a concrete realization of the holographic principle in physics. The h
 
 A useful way to visualize AdS spacetime is as a cylindrical shape, where the upward direction represents the progression of time, and each horizontal cross-section corresponds to a spatial snapshot at a specific moment. In this representation, the associated conformal field theory (CFT) can be thought of as residing on the boundary of the cylinder. Notably, this boundary has one dimension less than the interior, often referred to as the "bulk."
 
-<img src="/images/bulk.png" width="650">
+<img src="/images/boundary.png" width="650">
 
 ### Historical and Theoretical Context
 
