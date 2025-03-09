@@ -1,5 +1,5 @@
 ---
-title: Planet 9
+title: Planet Nine
 date: 2025-03-09
 tags: ["theoretical physics", "astronomy", "planetary science"]
 subtitle: Gravitational Perturbations as Indicator of a Trans-Neptunian Planet
