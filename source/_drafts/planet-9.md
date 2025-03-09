@@ -2,7 +2,7 @@
 title: Planet 9
 date: 2025-03-09
 tags: ["theoretical physics", "astronomy", "planetary science"]
-subtitle: 
+subtitle: Gravitational Perturbations as Indicator of a Trans-Neptunian Planet
 ---
 
   <audio controls>
@@ -11,6 +11,8 @@ subtitle:
   </audio>
 
 Astronomers have long considered the possibility of additional, yet undiscovered planets in the solar system. The discovery of Neptune in 1846, based on mathematical predictions, demonstrated the potential for identifying new planets through indirect evidence. In recent years, some researchers have proposed the existence of a ninth planet, referred to as Planet 9, to explain certain orbital patterns observed in the outer solar system. This report outlines the development of the Planet 9 hypothesis, examining the key observations that have contributed to this idea and assessing the current state of the supporting evidence.
+
+![](/images/planet9.png)
 
 ### Historical Context
 
@@ -43,12 +45,6 @@ Additionally, planetary exploration missions offer promising avenues for indirec
 ### Alternative Hypotheses
 
 While the gravitational influence of a distant planet continues to be the primary explanation for observed orbital anomalies in the outer solar system, alternative hypotheses regarding the nature of "Planet 9" have also been explored. In 2023, researchers proposed that instead of a conventional planet, Planet 9 could potentially be an "axion star"—a gravitationally bound cluster composed of theoretical particles known as axions or axion-like particles. Such an axion star, with a mass approximately equal to five Earth masses, would exhibit gravitational behavior similar to that expected from Planet 9. Moreover, the likelihood of the solar system capturing an axion star was estimated to be comparable to or even greater than capturing a free-floating planet under specific conditions. This concept broadens the theoretical framework beyond traditional rocky or gaseous planetary bodies.
-
-In 2019, physicists Jakub Scholtz and James Unwin proposed that Planet Nine could be a primordial black hole (PBH) with a mass comparable to a planet, estimated around 5–10 Earth masses (Scholtz & Unwin, 2019), implying a Schwarzschild radius on the order of just a few centimeters—roughly akin to the diameter of a golf ball—for such a compact object. The possibility that Planet Nine might be a PBH has also been discussed in broader contexts, given observational similarities between these two exotic objects. Primordial black holes, formed shortly after the Big Bang, would be incredibly compact and challenging to detect, distinguishable primarily by gravitational effects rather than reflective properties. If this hypothesis proves accurate, the implications would be significant: PBHs of planetary mass could naturally explain gravitational anomalies attributed to Planet Nine and potentially offer a direct observational handle on dark matter.
-
-Despite this intriguing potential, primordial black holes of several Earth masses would be exceedingly difficult to detect. They might be identified through gravitational microlensing—where a PBH briefly magnifies the light from distant stars—or by spotting faint Hawking radiation emissions. However, current observational capabilities are insufficient to detect such low-energy signals, rendering the PBH scenario speculative. Moreover, cosmological models suggest that primordial black holes in this mass range are exceedingly rare, further challenging their plausibility. Existing and upcoming instruments—such as the Vera C. Rubin Observatory, ESA’s Euclid telescope, and the microlensing surveys conducted by missions like Gaia—may help test this hypothesis, but at present, observational data neither conclusively supports nor rules it out.
-
-### Ongoing Search and Current Status
 
 In 2019, physicists Jakub Scholtz and James Unwin proposed that Planet Nine could be a primordial black hole (PBH) with a mass comparable to a planet, estimated around 5–10 Earth masses (Scholtz & Unwin, 2019), implying a Schwarzschild radius on the order of just a few centimeters—roughly akin to the diameter of a golf ball—for such a compact object. The possibility that Planet Nine might be a PBH has also been discussed in broader contexts, given observational similarities between these two exotic objects. Primordial black holes, formed shortly after the Big Bang, would be incredibly compact and challenging to detect, distinguishable primarily by gravitational effects rather than reflective properties. If this hypothesis proves accurate, the implications would be significant: PBHs of planetary mass could naturally explain gravitational anomalies attributed to Planet Nine and potentially offer a direct observational handle on dark matter.
 
