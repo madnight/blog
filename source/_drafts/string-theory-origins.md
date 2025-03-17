@@ -1,10 +1,9 @@
 ---
 title: Origins of String Theory
-date: 2025-03-17
+date: 2025-03-18
 tags: ["theoretical physics", "string theory", "quantum gravity"]
 subtitle: The Invention and Evolution of String Theory
 ---
-
 
 
   <audio controls>
@@ -26,6 +25,159 @@ String theory was not initially conceived as a theory of everything or even as a
 In a remarkable twist of scientific development, the very features that made string theory unsuitable as a theory of nuclear physics made it an intriguing candidate for a quantum theory of gravity. In the early 1970s, physicists discovered that the string models necessarily included a massless spin-2 particle—exactly what would be expected for the graviton, the hypothetical particle that would carry the gravitational force in a quantum theory of gravity.[^2] This discovery shifted the focus of string theory research. Instead of viewing strings as models of hadrons, physicists began exploring strings as fundamental entities underlying all particles and forces in nature. The characteristic length scale of these strings was reconceived to be extremely small—on the order of the Planck length (approximately 10^-35 meters)—explaining why they would appear as point-like particles in all existing experiments. This transition represented a fundamental change in ambition: string theory was no longer just a theory of the strong force but a potential unified theory of all fundamental interactions, including gravity.
 
 The earliest formulation of string theory was bosonic string theory, which described only bosons—particles that transmit forces, such as photons (carriers of electromagnetic force) and the hypothetical graviton (carrier of gravitational force). This version required a 26-dimensional spacetime for mathematical consistency, far beyond our observed four dimensions (three spatial dimensions plus time). While mathematically intriguing, bosonic string theory suffered from significant problems, including the prediction of particles called tachyons (particles that travel faster than light, violating causality) and its inability to describe fermions—the matter particles like electrons and quarks that make up our world.
+
+
+![](/images/strings.png)
+
+{% raw %}
+
+<!--
+\documentclass[border=5mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,positioning,decorations.pathmorphing,decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\sffamily,
+    label/.style={font=\sffamily\bfseries},
+    arrow/.style={->,>=stealth,thick},
+    scale=1
+]
+
+% Define positions
+\coordinate (solid) at (0,0);
+\coordinate (atoms) at (4,0.5);
+\coordinate (nucleon) at (7.5,0);
+\coordinate (electron) at (5,-2);
+\coordinate (nucleus) at (7,-2);
+\coordinate (string) at (12.5,0);
+
+% Solid (3D cube with shading)
+\begin{scope}[shift={(solid)}]
+    % Bottom face
+    \fill[gray!30] (0,0) -- (1.5,0) -- (1.5,1.5) -- (0,1.5) -- cycle;
+    % Left face
+    \fill[gray!50] (0,0) -- (0,1.5) -- (0.5,2) -- (0.5,0.5) -- cycle;
+    % Right face
+    \fill[gray!70] (1.5,0) -- (1.5,1.5) -- (2,2) -- (2,0.5) -- cycle;
+    % Top face
+    \fill[gray!40] (0,1.5) -- (1.5,1.5) -- (2,2) -- (0.5,2) -- cycle;
+    % Outline
+    \draw (0,0) -- (1.5,0) -- (1.5,1.5) -- (0,1.5) -- cycle;
+    \draw (0,0) -- (0,1.5) -- (0.5,2) -- (2,2) -- (2,0.5) -- (1.5,0);
+    \draw (1.5,1.5) -- (2,2);
+    \draw[dashed] (0.5,0.5) -- (0.5,2);
+    \draw[dashed] (0.5,0.5) -- (2,0.5);
+    
+    % Label
+    \node[label, below=0.3cm] at (1,0) {Matter};
+\end{scope}
+
+% Atoms (cluster of atoms in honeycomb pattern - made smaller)
+\begin{scope}[shift={(atoms)}]
+    % Create a hexagonal pattern of circles with reduced size
+    \foreach \i in {0,60,...,300} {
+        \fill[gray!20] ({\i}:0.6) circle (0.3);
+        \draw[black] ({\i}:0.6) circle (0.3);
+    }
+    \fill[gray!20] (0,0) circle (0.3);
+    \draw[black] (0,0) circle (0.3);
+    
+    % Label
+    \node[label, above=0.5cm] at (0,0.5) {Atoms};
+\end{scope}
+
+% Nucleon (proton/neutron)
+\begin{scope}[shift={(nucleon)}]
+    % Draw outer circle
+    \fill[gray!20] (0,0) circle (1);
+    \draw (0,0) circle (1);
+    
+    % Draw inner circles for neutrons/protons
+    \foreach \i in {0,120,240} {
+        \fill[gray!50] ({\i}:0.4) circle (0.25);
+        \draw ({\i}:0.4) circle (0.25);
+    }
+    
+    % Add quark label with straight line (no arrow) pointing directly to one of the inner particles
+    % Using the exact center of the quark at angle 0 degrees
+    \draw[thick] (1.2,0.6) -- (0.4,0);
+    \node[label] at (1.8,0.65) {Quark};
+    
+    % Label
+    \node[label, above=0.3cm] at (0,1) {Nucleon};
+\end{scope}
+
+% Electron orbiting nucleus - made smaller
+\begin{scope}[shift={(electron)}]
+    % Draw nucleus (smaller)
+    \fill[gray!50] (0,0) circle (0.4);
+    \draw (0,0) circle (0.4);
+    
+    % Draw electron orbits (ellipses) - adjusted for smaller nucleus
+    \draw[rotate=60] (0,0) ellipse (1.4 and 0.6);
+    \draw[rotate=0] (0,0) ellipse (1.1 and 0.7);
+    \draw[rotate=-60] (0,0) ellipse (1.4 and 0.6);
+    
+    % Draw electron
+    \fill[gray!70] (1.1,0) circle (0.15);
+    \draw (1.1,0) circle (0.15);
+    
+    % Labels moved outside with a straight line to the electron, adjusted upward and shortened
+    \draw[thick] (1.1,0) -- (1.8,0.4);
+    \node[label] at (2.7,0.4) {Electron};
+    \node[label, below left=0.3cm and 0.3cm] at (-0.8,-0.5) {Nucleus};
+\end{scope}
+
+% String Visualization - adjusted position to match arrows
+\begin{scope}[shift={(string)}]
+    % Define string positions precisely
+    \coordinate (upperString) at (-2,0);
+    \coordinate (lowerString) at (-1,-1.5);
+    
+    % String label moved upward for both strings - changed to plural
+    \node[label] (stringLabel) at (-1.5, 1) {Strings};
+    
+    % First string (upper) - positioned to match arrow from nucleon
+    \begin{scope}[shift={(upperString)}]
+        \draw[thick] plot[smooth cycle, tension=0.7] 
+            coordinates {
+                (-0.1,0.3) (0.15,0.4) (0.35,0.25) (0.4,0) 
+                (0.3,-0.2) (0.1,-0.3) (-0.1,-0.25) (-0.25,-0.35)
+                (-0.4,-0.2) (-0.45,0) (-0.3,0.2)
+            };
+        % Line connecting to label
+        \draw[thick] (0.1,0.38) -- ($(stringLabel) + (-0.3,-0.3)$);
+    \end{scope}
+    
+    % Second string (lower) - positioned to match arrow from electron
+    \begin{scope}[shift={(lowerString)}]
+        \draw[thick] plot[smooth cycle, tension=0.7]
+            coordinates {
+                (0,0.4) (0.2,0.35) (0.35,0.1) (0.25,-0.15)
+                (0.4,-0.3) (0.15,-0.4) (-0.05,-0.35) (-0.2,-0.4)
+                (-0.35,-0.25) (-0.4,-0.05) (-0.35,0.15) (-0.25,0.3)
+            };
+        % Line connecting to label
+        \draw[thick] (0,0.38) -- ($(stringLabel) + (0.3,-0.5)$);
+    \end{scope}
+\end{scope}
+
+% Connect with arrows - modified to stop before reaching the strings
+\draw[arrow] (2.2,0.6) -- ($(atoms) + (-1.2,0)$);
+% Adjusted arrow from atoms to nucleon to point more directly center-to-center, and made shorter
+\draw[arrow] ($(atoms) + (1.1,-0.2)$) -- ($(nucleon) + (-1.2,0.2)$);
+% Slightly shorter arrow from nucleon to string
+\draw[arrow] ($(nucleon) + (0.4,0)$) -- ($(string) + (-2.6,0)$);
+\draw[arrow, bend right=25] ($(nucleus) + (-0.9,0)$) to ($(string) + (-1.5,-1.5)$);
+% Arrow from atoms to nucleus - moved more left and bent more inward toward center
+\draw[arrow, bend right=60] ($(atoms) + (-0.8,-0.6)$) to ($(electron) + (-1.25,0)$);
+
+\end{tikzpicture}
+\end{document} 
+-->
+{% endraw %}
+
 
 ### Superstring Theory
 
