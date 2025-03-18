@@ -7,7 +7,7 @@ subtitle: The Invention and Evolution of String Theory
 
 
   <audio controls>
-    <source src="/audio/string-theory-origns.mp3" type="audio/mpeg">
+    <source src="/audio/string-theory-origins.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
