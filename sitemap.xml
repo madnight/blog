@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/gauge-theory/</loc>
+    
+    <lastmod>2025-03-23T17:35:22.967Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/planet-nine/</loc>
+    
+    <lastmod>2025-03-23T15:12:02.520Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/string-theory-origins/</loc>
     
     <lastmod>2025-03-18T08:59:02.654Z</lastmod>
@@ -47,13 +61,6 @@
     <loc>https://beuke.org/ads-cft/</loc>
     
     <lastmod>2025-03-13T08:53:17.499Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/planet-nine/</loc>
-    
-    <lastmod>2025-03-13T08:42:38.329Z</lastmod>
     
   </url>
   
