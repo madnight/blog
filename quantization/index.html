@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Quantization </div>
+                <div class="post-subtitle"> A Key Technique for GPT Model Compression and Efficiency </div>
+                <div class="post-subsubtitle"> Posted on Apr 6 2023 ~ 7 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/artificial-intelligence/">#artificial intelligence</a>  <a href="/tags/GPT/">#GPT</a>  <a href="/tags/LLM/">#LLM</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <aside>
+                    <img src="/images/lama.png" width="250" onclick="window.open(this.src)">
+                </aside>
+                <p>GPT (Generative Pre-trained Transformer) models, such as GPT-4 by OpenAI, have been revolutionizing natural language processing (NLP) with their incredible capa­bilities to generate human-like text, translations, and even code. However, their large sizes make them compu­tationally expensive, limiting their real-world deployment. Quantization is a technique that can sig­nificantly optimize these models, reducing the memory footprint and speeding up inference without sacrificing much of their performance. In this blog post, we will explore quantization in the context of GPT models and discuss its benefits, challenges, and practical applications.</p>
+                <h1 id="what-is-quantization"><a class="markdownIt-Anchor" href="#what-is-quantization"></a> What is Quantization?</h1>
+                <p>Quantization, in the context of neural networks, is a technique that reduces the precision of model weights and activations to lower numerical formats, such as integers or lower-precision floating-point representations, while retaining a model’s performance as much as possible. In the context of GPT models, quantization can reduce the memory footprint and computational requirements by converting 32-bit floating-point (FP32) weights and activations to more efficient formats such as 16-bit floating-point (FP16), 8-bit integers (INT8), or even lower<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[I am currently quantizing LLaMA-65B, 30B and 13B (including 3bit and 4bit quantized models)](https://www.reddit.com/r/LocalLLaMA/comments/1248183/i_am_currently_quantizing_llama65b_30b_and_13b/)
+">[1]</span></a></sup><sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Compressing Large-Scale Transformer-Based Models](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00413/107387/Compressing-Large-Scale-Transformer-Based-Models-A)
+">[2]</span></a></sup>. Suppose we have a 16-bit floating-point parameter, 3.1415. We can quantize this to an 4-bit integer, 3, which reduces the size by a factor of 4. Although this process sacrifices precision, the result, 3, can be sufficient in many cases.</p>
+                <h1 id="benefits-of-quantization"><a class="markdownIt-Anchor" href="#benefits-of-quantization"></a> Benefits of Quantization</h1>
+                <p>One of the most significant benefits of quantization is model compression. By converting continuous-valued weights and activations to discrete representations, the memory footprint of the model can be reduced dramatically. This not only allows GPTs to be stored on devices with limited storage capabilities but also reduces the amount of data that needs to be transferred when deploying the models in cloud-based or distributed systems. The following table provides an overview of the memory usage of different llama.cpp models, to get some idea of the reduction possibilities:<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Inference of LLaMA model in pure C/C++](https://github.com/ggerganov/llama.cpp/tree/d2beca95dcfcd6f1145886e914b879ffc3604b7a#memorydisk-requirements)
+">[3]</span></a></sup></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameters</th>
+                            <th>Original Size (16-bit)</th>
+                            <th>Quantized Size (4-bit)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>7B</td>
+                            <td>13 GB</td>
+                            <td>3.9 GB</td>
+                        </tr>
+                        <tr>
+                            <td>13B</td>
+                            <td>24 GB</td>
+                            <td>7.8 GB</td>
+                        </tr>
+                        <tr>
+                            <td>30B</td>
+                            <td>60 GB</td>
+                            <td>19.5 GB</td>
+                        </tr>
+                        <tr>
+                            <td>65B</td>
+                            <td>120 GB</td>
+                            <td>38.5 GB</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Furthermore, quantization can result in substantial reductions in the computational power required to perform inference with GPT models. This is especially important when deploying GPTs on edge devices or mobile platforms, where energy efficiency is a crucial concern. By using quantized models, these devices can run GPT-based applications with lower latency and reduced power consumption.</p>
+                <h1 id="challenges-of-quantization"><a class="markdownIt-Anchor" href="#challenges-of-quantization"></a> Challenges of Quantization</h1>
+                <p>While quantization offers significant benefits in terms of model compression and deployment, it is essential to consider the potential impact on performance and accuracy. Quantizing a GPT model inevitably introduces some approximation errors due to the conversion of continuous-valued parameters to discrete representations. The degree of error depends on the specific quantization technique employed and the number of discrete levels used. In order to counteract such effects, it is beneficial to integrate quantization-aware training methods into the model’s learning procedure.</p>
+                <p>Quantization-aware training<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Quantization aware training](https://www.tensorflow.org/model_optimization/guide/quantization/training)
+">[4]</span></a></sup> involves simulating the effects of quantization during the training process, allowing the model to learn to adapt to the approximations introduced by quantization. This can be achieved by incorporating quantization operations into the forward and backward passes of the training algorithm. By doing so, the model learns to compensate for the quantization errors, leading to more robust performance when the final quantized model is deployed.</p>
+                <p>Moreover, fine-tuning is another crucial step in optimizing quantized GPT models. Once the model has been quantized, it can be further refined using a smaller dataset, typically specific to the target application. This fine-tuning process helps to adapt the quantized model to the particular nuances of the application domain, ensuring optimal performance and accuracy.</p>
+                <p>Recent research has demonstrated that GPT models can be effectively quantized with minimal impact on performance. Techniques such as mixed-precision training<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Train With Mixed Precision](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html)
+">[5]</span></a></sup> have proven to be particularly effective in maintaining the accuracy of quantized GPT models. By carefully selecting the appropriate quantization strategy and fine-tuning the model, it is possible to achieve a balance between model compression and performance that meets the requirements of specific applications.</p>
+                <h1 id="practical-applications"><a class="markdownIt-Anchor" href="#practical-applications"></a> Practical Applications</h1>
+                <p>Here is a collection of practical use cases for quantized GPT models:</p>
+                <ul>
+                    <li>
+                        <p><strong>Consumer Hardware:</strong> Quantized GPT models can be integrated into mobile and desktop applications, offering on-device natural language understanding capabilities without relying on cloud services. This enables privacy-sensitive applications and reduces latency.</p>
+                    </li>
+                    <li>
+                        <p><strong>Edge Computing:</strong> Quantized GPT models can be deployed on edge devices, such as IoT gadgets, to offer real-time NLP capabilities. This approach allows for decentralized processing and reduces the need for constant communication with centralized servers, saving bandwidth and improving responsiveness.</p>
+                    </li>
+                    <li>
+                        <p><strong>Data Center Optimization:</strong> Deploying quantized GPT models in data centers can lead to more efficient resource utilization, lowering energy consumption and reducing operational costs. This is particularly beneficial for large-scale NLP services that handle high volumes of user queries.</p>
+                    </li>
+                </ul>
+                <h1 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h1>
+                <p>Quantization is an essential technique for optimizing GPT models, making them more accessible and deployable in real-world applications. By reducing memory footprint, speeding up inference, and improving energy efficiency, quantization unlocks the potential of GPT models on memory-constrained devices, enables real-time NLP capabilities. Despite its challenges, such as potential loss of accuracy and hardware compatibility, quantization is a critical step toward the widespread adoption of GPT models across various platforms and applications.</p>
+                <p>As the adoption of GPT models continues to grow, the need for optimization techniques like quantization becomes increasingly important. Researchers and practitioners must keep exploring novel quantization methods to further improve the efficiency of these models, addressing challenges and hardware limitations along the way. By investing in these optimization efforts, we can ensure that GPT models become even more accessible and scalable, revolutionizing the field of natural language processing and enabling a wide range of applications across various industries.</p>
+                <p>Future research in the field of quantization for GPT models will likely focus on developing new techniques to further optimize the trade-off between model compression and performance. Additionally, the development of hardware accelerators specifically designed to handle quantized models could help to unlock the full potential of quantization in GPTs.</p>
+                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.reddit.com/r/LocalLLaMA/comments/1248183/i_am_currently_quantizing_llama65b_30b_and_13b/">I am currently quantizing LLaMA-65B, 30B and 13B (including 3bit and 4bit quantized models)</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00413/107387/Compressing-Large-Scale-Transformer-Based-Models-A">Compressing Large-Scale Transformer-Based Models</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp/tree/d2beca95dcfcd6f1145886e914b879ffc3604b7a#memorydisk-requirements">Inference of LLaMA model in pure C/C++</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.tensorflow.org/model_optimization/guide/quantization/training">Quantization aware training</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html">Train With Mixed Precision</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

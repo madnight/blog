@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Minimal Wkthmltopdf Docker Container </div>
+                <div class="post-subtitle"> HTML to PDF minimal Docker container, without X11 </div>
+                <div class="post-subsubtitle"> Posted on Jun 22 2017 ~ 5 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/docker/">#docker</a>  <a href="/tags/patch/">#patch</a>  <a href="/tags/pdf/">#pdf</a>  <a href="/tags/musl/">#musl</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1>
+                <p>All major browsers, such as Chrome, Firefox and Safari are capable of exporting the currently visited website from HTML to PDF. This can be done via the <em>print</em> or <em>save as</em> function. However, there is no standard way of doing so on the command-line. Lets build a command-line with the following goals in mind: a small footprint, minimal dependencies, composing existing technology, many options for full control of the PDF generation process and a simple usage on Linux, Mac and Windows. To achieve this, I decided to use the well documented and maintained command-line utility <em>wkhtmltopdf</em> and a Alpine Linux based Docker image, to make it available on all platforms with Docker support.</p>
+                <h1 id="alpine-linux"><a class="markdownIt-Anchor" href="#alpine-linux"></a> Alpine Linux</h1>
+                <p>Building Docker images based on Debian or Ubuntu often results in image sizes of a few hundred megabytes or more. This is a well known problem and therefore many Docker image distributors are also offering an Alpine Linux based Docker image. The Alpine Linux distribution is a very common Docker base distribution, because of its very small size of about 5 MB. After a fast Google search, the <em>wkhtmltopdf</em> package of the <a target="_blank" rel="noopener" href="https://pkgs.alpinelinux.org/package/edge/testing/x86/wkhtmltopdf">official Alpine repositories</a> shows up in the search results. Interestingly though, the given binary size is just about 202 KB. Which would be perfectly fine, if it wasn’t for the dependency list. It contains 7 items, including <em>qt5-qtwebkit</em>. Unfortunately, this alone requires 28 MB (installed size) and Xorg. Not only that, the Xorg server needs to be started in order to use the binary.</p>
+                <h1 id="qt-patches"><a class="markdownIt-Anchor" href="#qt-patches"></a> Qt Patches</h1>
+                <p>Since <em>wkhtmltopdf</em> uses the webkit engine to render PDFs, there is no way around the <em>qt5-qtwebkit</em> dependency. However, it is possible to avoid Xorg. I was able to find a <a target="_blank" rel="noopener" href="https://github.com/alloylab/Docker-Alpine-wkhtmltopdf">GitHub repository</a> that provides a solution, by compiling a <em>qt-webkit</em> version without the need for Xorg.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">FROM</font> alpine:3.5
+<font color="#87afd7">MAINTAINER</font> Fabian Beuke <mail@beuke.org>
+
+<font color="#87afd7">RUN</font> apk add <font color="#afaf5f">--update</font> <font color="#afaf5f">--no-cache</font> <font color="#87afaf">\</font>
+    libgcc libstdc++ libx11 glib libxrender libxext libintl <font color="#87afaf">\</font>
+    libcrypto1.0 libssl1.0 <font color="#87afaf">\</font>
+    ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
+
+<font color="#767676"># on alpine static compiled patched qt headless wkhtmltopdf (47.2 MB)</font>
+<font color="#767676"># compilation takes 4 hours on EC2 m1.large in 2016 thats why binary</font>
+<font color="#87afd7">COPY</font> wkhtmltopdf /bin
+
+<font color="#87afd7">ENTRYPOINT</font> <font color="#afaf5f">[</font>"<font color="#afaf5f">wkhtmltopdf</font>"<font color="#afaf5f">]</font>
+</font></pre>
+                </figure>
+                <p>Unfortunately, this led to a new problem. The compilation of the whole Qt library including the necessary patches takes about 4 hours on <em>EC2 m1.large</em> in 2016. It would be ok to do so once, but Docker requires you to do so every time you want to build the container, in case that you don’t already have that Docker layer. At first, I thought that I could address that issue by pushing the build to Docker Hub. Docker Hub compiles Dockerfiles and provides a compiled Docker image that can be pulled from their servers. But Docker Hub has a <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/34440753/docker-hub-timeout-in-automated-build">build timeout</a> after 2 hours, so it wasn’t able to finish the build.</p>
+                <img src="/images/docker-wkhtmltopdf-alpine.png" onclick="window.open(this.src)">
+                <p>Therefore I compiled the Dockerfile on my computer, pushed the binary to the GitHub repository, copied it into the Dockerfile and pushed everything to <a target="_blank" rel="noopener" href="https://hub.docker.com/r/madnight/docker-alpine-wkhtmltopdf/">Docker Hub</a>.</p>
+                <h3 id="update-september-2019"><a class="markdownIt-Anchor" href="#update-september-2019"></a> Update September 2019</h3>
+                <p>I found that it is now possible to build the patched wkhtmltopdf Alpine binary in Travis CI, although documentation says otherwise:</p>
+                <blockquote>
+                    <p>It is very common for test suites or build scripts to hang. Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:</p>
+                    <ul>
+                        <li>When a job produces no log output for 10 minutes.</li>
+                        <li>When a job on a public repository takes longer than 50 minutes.</li>
+                        <li>When a job on a private repository takes longer than 120 minutes.</li>
+                    </ul>
+                </blockquote>
+                <p>Source: <a target="_blank" rel="noopener" href="https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts">https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts</a></p>
+                <p>As you can see in <a target="_blank" rel="noopener" href="https://travis-ci.org/madnight/docker-alpine-wkhtmltopdf/builds/585241704">Travis CI</a> the build takes more than one hour, despite being a job on a public repository. Now, being able to build in CI, I removed the binary from the git repository and copied it from the builder image into the Docker image.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">COPY</font> <font color="#afaf5f">--from=madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10</font> \
+    /bin/wkhtmltopdf /bin/wkhtmltopdf
+</font></pre>
+                </figure>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

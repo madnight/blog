@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Pure Imperative Haskell </div>
+                <div class="post-subtitle"> Pure Imperative Code Examples in Haskell </div>
+                <div class="post-subsubtitle"> Posted on Aug 27 2018 ~ 5 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/haskell/">#haskell</a>  <a href="/tags/functional-programming/">#functional programming</a>  <a href="/tags/imperative/">#imperative</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <p>It’s often said that simple things which matter in the real world are quite hard to write in Haskell. And indeed it requires more syntax to program in an imperative mutating style in Haskell when compared to Python or JavaScript.</p>
+                <center>
+                    <img src="/images/hask-hello.jpg" style="width:500px;">
+                </center>
+                <p>In this post we will compare these three languages with simple examples and see how much more syntax we need to write in Haskell to do imperative style programming.</p>
+                <h1 id="for-loops"><a class="markdownIt-Anchor" href="#for-loops"></a> FOR Loops</h1>
+                <p>A simple for loop with print to <code>stdout</code>.</p>
+                <p>In Python:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">for</font> i <font color="#87afaf">in</font> <font color="#ffd75f">range</font>(4):
+    <font color="#ffd75f">print</font>(i)
+</font></pre>
+                </figure>
+                <p>In JavaScript:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">for</font> (i<font color="#87afaf">=</font>0; i <font color="#87afaf"><</font> 4; i<font color="#87afaf">++</font>)
+    console.<font color="#ffd75f">log</font>(i)
+</font></pre>
+                </figure>
+                <p>In Haskell:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">forM_ <font color="#afaf5f">[</font>0<font color="#87afaf">..</font>3<font color="#afaf5f">]</font> <font color="#87afaf">$</font> <font color="#87afaf">\</font>i <font color="#87afaf">-></font>
+    print i
+</font></pre>
+                </figure>
+                <p>Result:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">0
+1
+2
+3
+</font></pre>
+                </figure>
+                <p>The similarities are quiet obvious and none of these snippets is more or less complex than the others. One should note that the <code>for</code> in Python and JavaScript are native language keywords, whereas the Haskell version <code>forM_</code> is a function.</p>
+                <h1 id="while-true-with-sleep"><a class="markdownIt-Anchor" href="#while-true-with-sleep"></a> While True with Sleep</h1>
+                <p>One common task in programming is to create endless loops that does something and then sleeps for a while and repeat. The following example implements a <code>while</code> true loop and logs the current date to a temporary file.</p>
+                <p>In Python:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">while</font> True:                                           <font color="#767676"># endless loop</font>
+    now <font color="#87afaf">=</font> datetime.datetime.<font color="#ffd75f">utcnow</font>().<font color="#ffd75f">isoformat</font>()      <font color="#767676"># timestamp</font>
+    <font color="#87afd7">with</font> <font color="#ffd75f">open</font>(<font color="#afaf5f">/tmp/times.txt</font>, <font color="#afaf5f">a</font>) <font color="#87afd7">as</font> file:         <font color="#767676"># open file</font>
+        file.<font color="#ffd75f">write</font>(now <font color="#87afaf">+</font> <font color="#afaf5f">"</font><font color="#afaf5f">\n</font><font color="#afaf5f">"</font>)                        <font color="#767676"># write file</font>
+    time.<font color="#ffd75f">sleep</font>(2)                                     <font color="#767676"># sleep 2 seconds</font>
+</font></pre>
+                </figure>
+                <p>In JavaScript:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">while</font>(true) {                                         <font color="#767676">// endless loop</font>
+    <font color="#d7875f">let</font> now <font color="#87afaf">=</font> <font color="#87afaf">new</font> Date().<font color="#ffd75f">toISOString</font>()                <font color="#767676">// timestamp</font>
+    fs.<font color="#ffd75f">appendFileSync</font>(<font color="#afaf5f">"/tmp/times.txt"</font>, now <font color="#87afaf">+</font> <font color="#afaf5f">"</font><font color="#afaf5f">\n</font><font color="#afaf5f">"</font>);  <font color="#767676">// write file</font>
+    <font color="#87afd7">await</font> <font color="#87afaf">new</font> Promise(done <font color="#d7875f">=></font> <font color="#ffd75f">setTimeout</font>(done, 2000)) <font color="#767676">// sleep 2 seconds</font>
+}
+</font></pre>
+                </figure>
+                <p>In Haskell:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">forever <font color="#87afaf">$</font> <font color="#87afd7">do</font>                                           <font color="#767676">-- endless loop</font>
+    now <font color="#87afaf"><-</font> getCurrentTime                              <font color="#767676">-- timestamp</font>
+    appendFile <font color="#afaf5f">"/tmp/times.txt"</font> <font color="#87afaf">$</font> show now <font color="#87afaf">++</font> <font color="#afaf5f">"\n"</font>     <font color="#767676">-- write file</font>
+    threadDelay <font color="#87afaf">$</font> 2 <font color="#87afaf">*</font> 1000 <font color="#87afaf">*</font> 1000                      <font color="#767676">-- sleep 2 seconds</font>
+</font></pre>
+                </figure>
+                <p>Result:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">$ cat /tmp/timestamps.txt
+2018-08-23T20:09:22.553Z
+2018-08-23T20:09:24.556Z
+2018-08-23T20:09:26.558Z
+...
+</font></pre>
+                </figure>
+                <p>Please note that in order to use the <code>await</code> keyword in JavaScript it is necessary to put it in an <code>async</code> function. I omitted this kind of extra “noise” to make the syntax comparisons of the <code>while</code> loop more clear. I also removed the import statements for Python and Haskell. Haskells <code>main</code> function is also ommited. As we can see there is not much difference between the code examples. The Haskell versions of doing I/O (reading time, writing to file and sleep) is syntactically the shortest one. Of course high expressivenesses, and thus fewer lines of code, does not imply simplicity. A language that is very terse tend to be more complex to understand. That is because it requires the programmer to know the meaning of different short names, standard functions and operators.</p>
+                <h1 id="nested-loop-over-2d-list"><a class="markdownIt-Anchor" href="#nested-loop-over-2d-list"></a> Nested Loop over 2D List</h1>
+                <p>In Python:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#767676"># list declaration</font>
+list2D <font color="#87afaf">=</font> [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+<font color="#87afd7">for</font> x <font color="#87afaf">in</font> <font color="#ffd75f">range</font>(<font color="#ffd75f">len</font>(list2D)):                       <font color="#767676"># outer loop</font>
+    <font color="#87afd7">for</font> y <font color="#87afaf">in</font> <font color="#ffd75f">range</font>(<font color="#ffd75f">len</font>(list2D[x])):                <font color="#767676"># inner loop</font>
+      list2D[x][y] <font color="#87afaf">=</font> 42                            <font color="#767676"># mutate list at x,y</font>
+
+<font color="#ffd75f">print</font>(list2D)                                      <font color="#767676"># print list</font>
+</font></pre>
+                </figure>
+                <p>In JavaScript:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#767676">// list declaration</font>
+<font color="#d7875f">let</font> list2D <font color="#87afaf">=</font> [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+<font color="#87afd7">for</font> (x<font color="#87afaf">=</font>0; x <font color="#87afaf"><</font> list2D.length; x<font color="#87afaf">++</font>)                  <font color="#767676">// outer loop</font>
+   <font color="#87afd7">for</font> (y<font color="#87afaf">=</font>0; y <font color="#87afaf"><</font> list2D[x].length; y<font color="#87afaf">++</font>)            <font color="#767676">// inner loop</font>
+        list2D[x][y] <font color="#87afaf">=</font> 42                          <font color="#767676">// mutate list at x,y</font>
+
+console.<font color="#ffd75f">log</font>(list2D)                                <font color="#767676">// print list</font>
+</font></pre>
+                </figure>
+                <p>In Haskell:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#767676">-- list delcaration</font>
+
+<font color="#87afaf">let</font> list2D <font color="#87afaf">=</font> <font color="#afaf5f">[[</font>0<font color="#afaf5f">,</font> 0<font color="#afaf5f">,</font> 0<font color="#afaf5f">,</font> 0<font color="#afaf5f">]</font><font color="#afaf5f">,</font> <font color="#afaf5f">[</font>0<font color="#afaf5f">,</font> 0<font color="#afaf5f">,</font> 0<font color="#afaf5f">,</font> 0<font color="#afaf5f">]</font><font color="#afaf5f">,</font> <font color="#afaf5f">[</font>0<font color="#afaf5f">,</font> 0<font color="#afaf5f">,</font> 0<font color="#afaf5f">,</font> 0<font color="#afaf5f">]]</font>
+
+print <font color="#87afaf">$</font> runST <font color="#87afaf">$</font> <font color="#87afd7">do</font>                                <font color="#767676">-- print and run state</font>
+
+  listState <font color="#87afaf"><-</font> <font color="#afaf5f">(</font>mapM <font color="#87afaf">.</font> mapM<font color="#afaf5f">)</font> newSTRef list2D      <font color="#767676">-- create list state</font>
+
+  forM_ <font color="#afaf5f">[</font>0<font color="#87afaf">..</font>length list2D<font color="#87afaf">-</font>1<font color="#afaf5f">]</font> <font color="#87afaf">$</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font>              <font color="#767676">-- outer loop</font>
+      forM_ <font color="#afaf5f">[</font>0<font color="#87afaf">..</font>length <font color="#afaf5f">(</font>list2D <font color="#87afaf">!!</font> x<font color="#afaf5f">)</font><font color="#87afaf">-</font>1<font color="#afaf5f">]</font> <font color="#87afaf">$</font> <font color="#87afaf">\</font>y <font color="#87afaf">-></font>   <font color="#767676">-- inner loop</font>
+          writeSTRef <font color="#afaf5f">(</font>listState <font color="#87afaf">!!</font> x <font color="#87afaf">!!</font> y<font color="#afaf5f">)</font> 42     <font color="#767676">-- mutate list state at x,y</font>
+
+  <font color="#afaf5f">(</font>mapM <font color="#87afaf">.</font> mapM<font color="#afaf5f">)</font> readSTRef listState               <font color="#767676">-- read (return) state</font>
+</font></pre>
+                </figure>
+                <p>Result:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">[[42,42,42,42],[42,42,42,42],[42,42,42,42]]
+</font></pre>
+                </figure>
+                <p>As we can see modifying the state of a list is a bit more complex (requires more syntax) in Haskell than in Python or JavaScript. The benefits of this additional syntax in Haskell is that the State is fully encapsulated in the State Monad which makes this computation absolutely pure.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Purity of runST is finally proven](https://www.reddit.com/r/haskell/comments/679jd3/purity_of_runst_is_finally_proven)
+">[1]</span></a></sup> This is similar to frameworks like react + redux where you modify the state in a pure manner, but natively available in Haskell and considered default for state manipulation.</p>
+                <p>The code snippets shows the similarities between the languages. Given the fact that it’s not necessary to develop an deep understanding for mathematical concepts from category theory for e.g. Functor or Monoid, then Haskell can be seen as a nice strongly typed and purely functional programming language with many similarities to scripting languages like JavaScript or Python. So one approach is to learn Haskell in an imperative, pure, functional style and simply ignore the higher concepts of the language until you are either really interested in them or you think you need it.</p>
+                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.reddit.com/r/haskell/comments/679jd3/purity_of_runst_is_finally_proven">Purity of runST is finally proven</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Programming Language Popularity </div>
+                <div class="post-subtitle"> GitHub Programming Language Popularity based on BigQuery </div>
+                <div class="post-subsubtitle"> Posted on Jul 14 2018 ~ 7 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/ranking/">#ranking</a>  <a href="/tags/programming-languages/">#programming languages</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3>
+                <p>The topic of this post is a comparison of different programming language popularity rankings and why I decided to add yet another programming language popularity index. Many different programming language popularity rankings can be found in the Internet. Three popular ones that show up on the first Google search page are:</p>
+                <ul>
+                    <li><a target="_blank" rel="noopener" href="//tiobe.com/tiobe-index/">TIOBE Programming Community Index</a></li>
+                    <li><a target="_blank" rel="noopener" href="//redmonk.com/sogrady/2016/07/20/language-rankings-6-16/">The RedMonk Programming Language Rankings</a></li>
+                    <li><a target="_blank" rel="noopener" href="//pypl.github.io/PYPL.html">The PYPL PopularitY of Programming Language Index</a></li>
+                </ul>
+                <p>It’s not easy to choose an objective indicator for a programming popularity ranking. The following table provides a small overview of existing solutions.</p>
+                <div style="overflow-x:auto;">
+                    <center>
+                        <h4 id="comparison-of-programming-popularity-rankings"><a class="markdownIt-Anchor" href="#comparison-of-programming-popularity-rankings"></a> Comparison of programming popularity rankings</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Features</th>
+                                    <th style="text-align:center">TOIBE</th>
+                                    <th style="text-align:center">RedMonk</th>
+                                    <th style="text-align:center">PYPL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Data source</td>
+                                    <td style="text-align:center">Search engines</td>
+                                    <td style="text-align:center">GitHub</td>
+                                    <td style="text-align:center">Google Trends</td>
+                                </tr>
+                                <tr>
+                                    <td>Available dataset</td>
+                                    <td style="text-align:center">5,000$<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></td>
+                                    <td style="text-align:center">GitHub Archive</td>
+                                    <td style="text-align:center">Google Trends</td>
+                                </tr>
+                                <tr>
+                                    <td>Metric</td>
+                                    <td style="text-align:center">Intransparent</td>
+                                    <td style="text-align:center">Pull Request</td>
+                                    <td style="text-align:center">Tutorial searches</td>
+                                </tr>
+                                <tr>
+                                    <td>Years covered</td>
+                                    <td style="text-align:center">Since 2001</td>
+                                    <td style="text-align:center">Since 2004</td>
+                                    <td style="text-align:center">Since 2004</td>
+                                </tr>
+                                <tr>
+                                    <td>TOP 3 in 2018</td>
+                                    <td style="text-align:center">Java, C , C++</td>
+                                    <td style="text-align:center">JavaScript, Java, Python</td>
+                                    <td style="text-align:center">Java, Python, PHP</td>
+                                </tr>
+                                <tr>
+                                    <td><br></td>
+                                    <td style="text-align:center"></td>
+                                    <td style="text-align:center"></td>
+                                    <td style="text-align:center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+                <h3 id="toibe"><a class="markdownIt-Anchor" href="#toibe"></a> TOIBE</h3>
+                <p>The major criticism of the TOIBE index is that it is actually way behind of what’s actually going on in the programming community. For example, the authors of PYPL describe the TOIBE index as lagging indicator.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Another problem is the availability of the TOIBE dataset. It’s fairly safe to assume that almost no one is willing to pay 5.000$ to be able to see how the ranking is actually build. This makes the index intransparent and hard to reproduce. Even if one were to buy the dataset it’s still a mystery why and how TOIBE choose different percentage weights for different data sources resulting in a arbitrary metric, where the ranking can be adjusted just by playing around with the parameters. Because of this we can conclude that the TOIBE Index is a slow and subjective indicator, which is in many cases the opposite of what you want. Let’s see if RedMonk can do any better.</p>
+                <img src="/images/toibe.png" onclick="window.open(this.src)">
+                <h3 id="redmonk"><a class="markdownIt-Anchor" href="#redmonk"></a> RedMonk</h3>
+                <p>The RedMonk Programming Language Ranking is published in irregular intervals. The latest release was in January 2018. According to RedMonk they use the following criteria to build their ranking:</p>
+                <ul>
+                    <li>Query languages by pull request</li>
+                    <li>Language is based on the base repository language</li>
+                    <li>Exclude forked repos</li>
+                    <li>Aggregated history to determine ranking</li>
+                </ul>
+                <p>The RedMonk ranking makes some sensible decision on how to improve the quality of the raw dataset by applying some filters (e.g. no forks) while trying to stay as neutral as possible. However they are missing features, such as historical data and a historical chart.</p>
+                <img src="/images/redmonk.png" onclick="window.open(this.src)">
+                <h3 id="pypl"><a class="markdownIt-Anchor" href="#pypl"></a> PYPL</h3>
+                <p>The PYPL PopularitY of Programming Language Index<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> is created by analyzing how often language tutorials are searched on Google. The more a language tutorial for a certain programming language is searched on Google, the more popular the language is assumed to be. Its dataset is based on Google Trends, which makes it quite transparent. The main drawback of PYPL is that it only compares the TOP 22 languages (as of July 2018) and there are no historical rankings. They only provide a historical chart.</p>
+                <img src="/images/pypl.png" onclick="window.open(this.src)">
+                <h3 id="other"><a class="markdownIt-Anchor" href="#other"></a> Other</h3>
+                <p>There are other rankings worth noting. The <a target="_blank" rel="noopener" href="https://octoverse.github.com/">octoverse</a> which is a official GitHub source and shows some additional interesting statistics about GitHub. However, their ranking only shows the top 15 programming languages and it does not offer a history, nor does it reveal any informations on how the underlying data has been aggregated. Another one is the Programming Language Popularity chart on <a target="_blank" rel="noopener" href="https://archive.is/f1ZBZ">https://archive.is/f1ZBZ</a>, which shows a bubble chart with StackOverflow (tags) / GithHub (lines changes) ratio for every language on GitHub in February 2013. It seems as though the chart didn’t received any update since then and can therefore be considered outdated.</p>
+                <h3 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h3>
+                <p>Since non of the presented approaches matches my criteria for a sensible, neutral, reproducible, forkable, up to date solution, I decided to create a page that is not based on multiple indicators and weights, but on raw data from one source with a flexibel unbiased metric. The idea to create a neutral and open source analysis of programming language popularity that are used on GitHub is nothing new. The GitHub project <a target="_blank" rel="noopener" href="http://githut.info">http://githut.info</a> provides a good solution. Unfortunately, it received its last update in 2014 and there are many unresolved issues on GitHub, hence we can consider this project as outdated and unmaintained. So I came up with a new approach <a target="_blank" rel="noopener" href="https://madnight.github.io/githut">GitHut 2.0</a> a successor of GitHut. It shows a ranking with the top 50 languages based on the last quarter. A language trend is calculated as difference from the same quarter of the year before. The percentages shown are the actual fractions of Pull Requests, Pushes, Stars and Issues, which represents the underlying metric of the ranking.</p>
+                <p>I have to admit that it’s impossible to find a data source that approximates the entire programming community, because many projects are closed source. Another consideration that comes to mind: It is not said that the developers are happy with their bread and butter language at work, for instance the Microsoft Kernel is written in C++. Should a popularity index somehow respect that the developers are free to choose the language and are not forced to do so? On the other hand there are <a target="_blank" rel="noopener" href="https://stackoverfilow.blog/2017/02/07/what-programming-languages-weekends/">developer surveys</a> where programming language that are not largely used in industry, such as Haskell, have many fans and that’s what they write their hobby projects on weekends. However, I think that my approach offers a good approximation on what is considered to be a current popular programming language choice in the developer community.</p>
+                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+                <hr class="footnotes-sep">
+                <section class="footnotes">
+                    <ol class="footnotes-list">
+                        <li id="fn1" class="footnote-item">
+                            <p><a target="_blank" rel="noopener" href="https://www.tiobe.com/tiobe-index/">TOIBE Frequently Asked Questions (FAQ)</a><br>
+                                <em>Q: I would like to have the complete data set of the TIOBE index. Is this possible?</em><br>
+                                <em>A: We spent a lot of effort to obtain all the data and keep the TIOBE index up to date. In order to compensate a bit for this, we ask a fee of 5,000 US$ for the complete data set. The data set runs from June 2001 till today</em> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+                        </li>
+                        <li id="fn2" class="footnote-item">
+                            <p><a target="_blank" rel="noopener" href="http://pypl.github.io/PYPL.html">PYPL FAQ</a><br>
+                                <em>The TIOBE Index is a lagging indicator. It counts the number of web pages with the language name. Objective-c programming has over 20 million pages on the web, [s] while C programming has only 11 million. [s] This explains why Objective-C has a high TIOBE ranking. But who is reading those Objective-C web pages ? Hardly anyone, according to Google Trends data. Objective C programming is searched 30 times less than C programming. [s] In fact, the use of programming by the TIOBE index is misleading (see next question).</em> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+                        </li>
+                        <li id="fn3" class="footnote-item">
+                            <p><a target="_blank" rel="noopener" href="http://pypl.github.io/PYPL.html">PYPL Description</a><br>
+                                <em>The PYPL PopularitY of Programming Language is an indicator based on Google Trends, reflecting the developers searches for programming language tutorial, instead of what pages are available.</em> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

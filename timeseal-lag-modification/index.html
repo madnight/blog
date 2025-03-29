@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Online Chess Clock Exploit </div>
+                <div class="post-subtitle"> Modify client side lag calculation for infinite time </div>
+                <div class="post-subsubtitle"> Posted on Jun 10 2014 ~ 5 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/timeseal/">#timeseal</a>  <a href="/tags/chess/">#chess</a>  <a href="/tags/reverse-engineering/">#reverse engineering</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <p>The following exploit works for any online chess server that use timeseal. This bug has been reported to all major chess sites and is known since many years. As for example this hack is not possible on lichess.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Lichess](https://lichess.org/qa/602/is-the-timeseal-exploit-on-other-chess-servers-a-concern-on-lichess)
+">[1]</span></a></sup> However there might still be a server out there that is using timeseal. Please contact the Administrator and ask him for a fix.</p>
+                <blockquote>
+                    <p>Timeseal is a program that has been developed to improve chess on internet. Netlag often causes players to lose valuable seconds or even minutes on their chess clocks. Transmission time is counted against you, unless the chess server can tell exactly when information is transmitted. The timeseal program acts as a relay station and keeps track of transmission times. What timeseal does is record your thinking time, so that transmission time is not counted against you. Timeseal will not prevent netlag but it makes the games fairer when lag occurs. <sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Free Internet Chess Server](http://www.freechess.org/Help/HelpFiles/timeseal.html)
+">[2]</span></a></sup></p>
+                </blockquote>
+                <img src="/images/olly.png" onclick="window.open(this.src)">
+                <p>Timeseal calculates the lag as a difference between two timestamps. Modifying the lag value can be done by adding an random offset to the timestamp calculation. The code can be hex edited (hardcoded) into the timeseal binary.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace">00401421   E8 CA0D0000      CALL timeseal.004021F0
+00401426   25 FF030000      AND EAX,3FF
+0040142B   05 01010000      ADD EAX,101
+00401430   8B15 E0A14000    MOV EDX,DWORD PTR DS:[40A1E0]
+00401436   03D0             ADD EDX,EAX
+00401438   8915 E0A14000    MOV DWORD PTR DS:[40A1E0],EDX
+0040143E   8BC2             MOV EAX,EDX
+</font></pre>
+                </figure>
+                <p>The address for the random hook is <code>timeseal.004021F0 := rand()</code> while <code>AND EAX, 3FF</code> is the asm modulo function <code>rand()%1024</code> + fixed offset hex 101. The modification offers the following unfair advantages:</p>
+                <ul>
+                    <li>Impossible to loose on time</li>
+                    <li>Always move faster than your opponent</li>
+                    <li>Seems legit, opponents may think that you are simply lagging, cause of random offset</li>
+                </ul>
+                <p>Full fledged example that hooks into the <code>ADVAPI32.dll</code> with a small window for different lag settings.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">#include </font><font color="#afaf5f">"stdafx.h"</font>
+<font color="#87afaf">#pragma </font><font color="#ffd75f">comment</font><font color="#87afaf">(lib, </font><font color="#afaf5f">"detours.lib"</font><font color="#87afaf">)</font>
+
+<font color="#87afaf">#undef UNICODE</font>
+#include &lt;cstdio>
+#include &lt;windows.h>
+#include &lt;detours.h>
+#include &lt;process.h>
+
+#include &lt;<font color="#d7875f">iostream</font>>
+#include &lt;<font color="#d7875f">string</font>>
+
+<font color="#87afd7">using</font> std::<font color="#af87af">cin</font>;
+<font color="#87afd7">using</font> std::<font color="#af87af">cout</font>;
+<font color="#87afaf">#pragma </font><font color="#ffd75f">pack</font><font color="#87afaf">(</font>1<font color="#87afaf">)</font>
+
+<font color="#d7875f">int</font> Time = 0;
+<font color="#d7875f">int</font> offset = 480;
+<font color="#d7875f">int</font> randmod = 1;
+
+<font color="#87afaf">#define </font><font color="#ffd75f">MYMENU_EXIT         </font><font color="#87afaf">(WM_APP + </font>101<font color="#87afaf">)</font>
+<font color="#87afaf">#define </font><font color="#ffd75f">MYMENU_MESSAGEBOX   </font><font color="#87afaf">(WM_APP + </font>102<font color="#87afaf">)</font>
+
+HINSTANCE  inj_hModule;
+HWND       prnt_hWnd;
+
+LRESULT CALLBACK <font color="#ffd75f">DLLWindowProc </font>(HWND, UINT, WPARAM, LPARAM);
+
+BOOL <font color="#ffd75f">RegisterDLLWindowClass</font>(<font color="#d7875f">wchar_t</font> szClassName[]) {
+    WNDCLASSEX wc;
+    wc.hInstance =  inj_hModule;
+    wc.lpszClassName = (LPCWSTR)<font color="#afaf5f">L"InjectedDLLWindowClass"</font>;
+    wc.lpszClassName = (LPCWSTR)szClassName;
+    wc.lpfnWndProc = DLLWindowProc;
+    wc.style = CS_DBLCLKS;
+    wc.cbSize = <font color="#87afaf">sizeof</font> (WNDCLASSEX);
+    wc.hIcon = <font color="#ffd75f">LoadIcon </font>(NULL, IDI_APPLICATION);
+    wc.hIconSm = <font color="#ffd75f">LoadIcon </font>(NULL, IDI_APPLICATION);
+    wc.hCursor = <font color="#ffd75f">LoadCursor </font>(NULL, IDC_ARROW);
+    wc.lpszMenuName = NULL;
+    wc.cbClsExtra = 0;
+    wc.cbWndExtra = 0;
+    wc.hbrBackground = (HBRUSH) COLOR_BACKGROUND;
+    <font color="#87afd7">if</font> (!<font color="#ffd75f">RegisterClassEx </font>(&wc)) <font color="#87afd7">return</font> 0;
+}
+
+<font color="#87afaf">#define ONE_PLUS_ZERO </font>600
+<font color="#87afaf">#define ZERO_PLUS_ONE </font>601
+<font color="#87afaf">#define MINIMUM </font>602
+<font color="#87afaf">#define BIGTIME </font>603
+<font color="#87afaf">#define TIMELOOSE </font>604
+
+HMENU <font color="#ffd75f">CreateDLLWindowMenu</font>() {
+    HMENU hMenu;
+    hMenu = <font color="#ffd75f">CreateMenu</font>();
+    HMENU hMenuPopup;
+    <font color="#87afd7">if</font>(hMenu==NULL) <font color="#87afd7">return</font> FALSE;
+    hMenuPopup = <font color="#ffd75f">CreatePopupMenu</font>();
+    <font color="#ffd75f">AppendMenu </font>(hMenuPopup, MF_STRING, MYMENU_EXIT, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"Exit"</font>));
+    <font color="#ffd75f">AppendMenu </font>(hMenu, MF_POPUP, (UINT_PTR) hMenuPopup, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"Exit"</font>));
+    hMenuPopup = <font color="#ffd75f">CreatePopupMenu</font>();
+    <font color="#ffd75f">AppendMenu </font>(hMenuPopup, MF_STRING, ONE_PLUS_ZERO, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"Preset &#39;1 0&#39;"</font>));
+    <font color="#ffd75f">AppendMenu </font>(hMenuPopup, MF_STRING, ZERO_PLUS_ONE, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"Preset 0 1"</font>));
+    <font color="#ffd75f">AppendMenu </font>(hMenuPopup, MF_STRING, MINIMUM, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"MINIMUM"</font>));
+    <font color="#ffd75f">AppendMenu </font>(hMenuPopup, MF_STRING, BIGTIME, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"BIGTIME"</font>));
+    <font color="#ffd75f">AppendMenu </font>(hMenuPopup, MF_STRING, TIMELOOSE, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"TIMELOOSE"</font>));
+    <font color="#ffd75f">AppendMenu </font>(hMenu, MF_POPUP, (UINT_PTR) hMenuPopup, <font color="#ffd75f">TEXT</font>(<font color="#afaf5f">"TimeSeal"</font>));
+    <font color="#87afd7">return</font> hMenu;
+}
+
+DWORD WINAPI <font color="#ffd75f">ThreadProc</font>( LPVOID lpParam ) {
+    MSG <font color="#d7875f">messages</font>;
+    <font color="#d7875f">wchar_t</font> *pString = <font color="#87afd7">reinterpret_cast</font><<font color="#d7875f">wchar_t</font> * > (lpParam);
+    HMENU hMenu = <font color="#ffd75f">CreateDLLWindowMenu</font>();
+    <font color="#ffd75f">RegisterDLLWindowClass</font>(<font color="#afaf5f">L"InjectedDLLWindowClass"</font>);
+    prnt_hWnd = <font color="#ffd75f">FindWindow</font>(<font color="#afaf5f">L"Window Injected Into ClassName"</font>,
+    <font color="#afaf5f">L"Window Injected Into Caption"</font>);
+    HWND hwnd = <font color="#ffd75f">CreateWindowEx </font>(0, <font color="#afaf5f">L"InjectedDLLWindowClass"</font>, pString,
+    WS_EX_PALETTEWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 400, 300,
+    prnt_hWnd, hMenu, inj_hModule, NULL );
+    <font color="#ffd75f">ShowWindow </font>(hwnd, SW_SHOWNORMAL);
+    <font color="#87afd7">while</font> (<font color="#ffd75f">GetMessage </font>(&<font color="#d7875f">messages</font>, NULL, 0, 0)) {
+        <font color="#ffd75f">TranslateMessage</font>(&<font color="#d7875f">messages</font>);
+        <font color="#ffd75f">DispatchMessage</font>(&<font color="#d7875f">messages</font>);
+    }
+    <font color="#87afd7">return</font> 1;
+}
+
+LRESULT CALLBACK <font color="#ffd75f">DLLWindowProc </font>(HWND hwnd,
+                                UINT message,
+                                WPARAM wParam,
+                                LPARAM lParam) {
+    <font color="#87afd7">switch</font> (message) {
+    <font color="#87afd7">case</font> WM_COMMAND:
+        <font color="#87afd7">switch</font>(wParam) {
+        <font color="#87afd7">case</font> MYMENU_EXIT:
+            <font color="#ffd75f">SendMessage</font>(hwnd, WM_CLOSE, 0, 0);
+            <font color="#87afd7">break</font>;
+        <font color="#87afd7">case</font> ONE_PLUS_ZERO:
+            offset = 502;
+            randmod = 1320;
+            <font color="#87afd7">break</font>;
+        <font color="#87afd7">case</font> ZERO_PLUS_ONE:
+            offset = 502;
+            randmod = 1320;
+            <font color="#87afd7">break</font>;
+        <font color="#87afd7">case</font> MINIMUM:
+            offset = 102;
+            randmod = 200;
+            <font color="#87afd7">break</font>;
+        <font color="#87afd7">case</font> BIGTIME:
+            offset = 2000;
+            randmod = 3000;
+            <font color="#87afd7">break</font>;
+        <font color="#87afd7">case</font> TIMELOOSE:
+            offset = 100000;
+            randmod = 30000;
+            <font color="#87afd7">break</font>;
+        }
+        <font color="#87afd7">break</font>;
+    <font color="#87afd7">case</font> WM_DESTROY:
+        <font color="#ffd75f">PostQuitMessage </font>(0);
+        <font color="#87afd7">break</font>;
+    <font color="#87afd7">default</font>:
+        <font color="#87afd7">return</font> <font color="#ffd75f">DefWindowProc </font>(hwnd, message, wParam, lParam);
+    }
+    <font color="#87afd7">return</font> 0;
+}
+
+<font color="#d7875f">void</font> <font color="#ffd75f">startup</font>() {
+    <font color="#ffd75f">CreateThread</font>(0, NULL, ThreadProc, (LPVOID)<font color="#afaf5f">L""</font>, NULL, NULL);
+    __asm mov eax, 0x00401400
+    __asm call eax
+    __asm mov Time, eax
+}
+
+<font color="#d7875f">int</font> __cdecl <font color="#ffd75f">Hooked_GetTimeForLag</font>() {
+    <font color="#d7875f">int</font> random = 0;
+    __asm mov eax, 0x004021F0
+    __asm call eax
+    __asm mov random, eax
+    Time = Time + (random%randmod);
+    Time = Time + offset;
+    <font color="#87afd7">return</font> Time;
+}
+
+HMODULE libraryHandle;
+<font color="#ffd75f">_declspec</font>(dllexport) BOOL WINAPI <font color="#ffd75f">GetUserNameA</font>(LPSTR input, LPDWORD buffer) {
+    <font color="#87afaf">typedef</font> <font color="#ffd75f">BOOL </font>(WINAPI* CFunction) (LPSTR input, LPDWORD buffer);
+    CFunction getUserName = (CFunction) <font color="#ffd75f">GetProcAddress</font>(libraryHandle,
+                                                       <font color="#afaf5f">"GetUserNameA"</font>);
+    <font color="#87afd7">return</font> <font color="#ffd75f">getUserName</font>(input, buffer);
+}
+
+BOOL WINAPI <font color="#ffd75f">DllMain</font>(HMODULE <font color="#87afaf">module</font>,DWORD action,LPVOID reserved) {
+    libraryHandle = <font color="#ffd75f">LoadLibraryA</font>(<font color="#afaf5f">"ADVAPI32.dll"</font>);
+    <font color="#87afd7">switch</font>(action) {
+    <font color="#87afd7">case</font> DLL_PROCESS_ATTACH: {
+            <font color="#ffd75f">DetourTransactionBegin</font>();
+            <font color="#ffd75f">DetourUpdateThread</font>(<font color="#ffd75f">GetCurrentThread</font>());
+            <font color="#ffd75f">startup</font>();
+            <font color="#ffd75f">DetourAttach</font>(&(PVOID&)GetTimeForLag, Hooked_GetTimeForLag);
+            <font color="#ffd75f">DetourTransactionCommit</font>();
+            <font color="#87afd7">break</font>;
+        }
+        <font color="#87afd7">break</font>;
+    <font color="#87afd7">case</font> DLL_THREAD_ATTACH:
+        <font color="#87afd7">break</font>;
+    }
+    <font color="#87afd7">return</font> true;
+}
+</font></pre>
+                </figure>
+                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://lichess.org/qa/602/is-the-timeseal-exploit-on-other-chess-servers-a-concern-on-lichess">Lichess</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="http://www.freechess.org/Help/HelpFiles/timeseal.html">Free Internet Chess Server</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,518 @@
+:root {
+    --mono-font: monospace, Consolas, Menlo, Monaco, "Andale Mono",
+        "Ubuntu Mono";
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+        "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+        "Helvetica Neue", sans-serif;
+
+    --accent: #1a2b55;
+    --preformatted: #dcdcdc;
+    --dark-mode-toggle-checkbox-icon: var(
+        --dark-mode-toggle-dark-icon,
+        url("/images/sun.svg")
+    );
+    --dark-mode-toggle-checkbox-icon: var(
+        --dark-mode-toggle-light-icon,
+        url("/images/moon.svg")
+    );
+
+    /*this is a svg fix for the popular dark reader extension*/
+    --darkreader-text--svg-text: #dcdcdc;
+    --svg-text: #171717;
+
+    --dark-accent: #d4d4d4;
+    --dark-bg: #191918;
+    --dark-bg--bg: #171717;
+    --dark-text--bg: #c0baaf;
+    --dark-border--bg: #2f302e;
+    --dark-bg--accent-bg: #1c1c1d;
+    --dark-details-accent-bg: #20211f;
+    --dark-bg--text: #1d1d1c;
+    --dark-text--text: #dcdcdc;
+    --dark-border--text: #6c655a;
+    --dark-text--text-light: #dcdcdc;
+    --dark-bg--border: #47474c;
+    --dark-border--border: #484846;
+    --dark-bg--accent: #1f3350;
+    --dark-text--accent: #758fa4;
+    --dark-border--accent: #2a4671;
+    --dark-text--code: #dcdcdc;
+    --dark-text--preformatted: #9d968a;
+    --dark-border--preformatted: #635d52;
+    --dark-bg--marked: #665a25;
+    --dark-bg--disabled: #232422;
+}
+
+#dark-mode-toggle-1 {
+    --dark-mode-toggle-dark-icon: url(/images/sun.svg);
+    --dark-mode-toggle-light-icon: url(/images/moon.svg);
+    --dark-mode-toggle-icon-size: 1.5rem;
+    /*--dark-mode-toggle-icon-filter: invert(100%);*/
+    margin-top: -0.2rem; /* Moves the toggle up */
+    margin-right: 0.5rem; /* Moves the toggle to the right */
+}
+
+.title-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.title-container h1 {
+    margin-right: 10px; /* Give some space between the h1 and the toggle */
+}
+
+/* Other styling remains the same */
+
+pre {
+    font-size: 0.9rem;
+    border-width: 1px;
+}
+
+.typeclass svg {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    border-top: 0px;
+    border-bottom: 0px solid;
+    margin-bottom: 0rem;
+    padding-bottom: 0.3rem;
+}
+
+hr {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: initial;
+    background: var(--light-bg--border);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+header > h2 {
+    font-style: normal;
+    margin: 0;
+    margin-top: -12px;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+/* How to prevent uneven linespacing when subscripts or superscripts are used
+on web pages  */
+sup,
+sub {
+    vertical-align: 0;
+    position: relative;
+}
+
+sup {
+    bottom: 1ex;
+}
+
+sub {
+    top: 0.8ex;
+}
+
+figure {
+    text-align: left;
+}
+
+article {
+    border: 0px;
+    padding: 0px;
+}
+
+aside {
+    background-color: var(--bg);
+    border: 0px;
+}
+
+details {
+    border: 0px solid;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.coq pre {
+    border: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+summary {
+    padding-top: 0rem;
+}
+
+details[open] > summary {
+    margin-bottom: 0px;
+}
+
+.right {
+    text-align: right;
+    margin-top: -1rem;
+}
+
+.proof {
+    padding: 1rem 2rem;
+    padding-bottom: 0.1rem;
+    margin: 0rem 0;
+    background: #f5f7ff;
+}
+
+main img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgContainer {
+    float: left;
+}
+
+nav a:hover,
+nav a.current {
+    text-decoration: none;
+    filter: none !important;
+}
+
+nav a.current:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+svg {
+    margin-left: 1px;
+}
+
+html {
+    background-color: #1c1c1b;
+}
+
+body > footer {
+    border-top: 1px solid;
+}
+
+header > nav a {
+    border: 1px solid;
+}
+
+header > nav a:visited {
+    text-decoration-color: initial;
+    border: 1px solid;
+}
+
+pre {
+    color: var(--dark-text--code);
+    background: #23272e;
+}
+
+code {
+    color: var(--text--code);
+}
+
+.code-box {
+    position: relative;
+    padding-top: 12px;
+    margin-top: -0.5rem;
+}
+
+.language-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 5px;
+    font-size: 0.9rem;
+    text-align: right; /* Aligns the text to the right */
+}
+
+aside {
+    border-color: initial;
+}
+
+button {
+    background-color: #2f302e;
+}
+
+blockquote {
+    border-left: 0.35rem solid;
+}
+
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}
+
+.post-description {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.post-meta {
+    font-size: 1rem;
+    margin: 1px;
+}
+
+.blog-item {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.blog-item a {
+    font-size: 1.2rem;
+}
+
+.button {
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.7rem 0.9rem;
+    margin: 0.5rem 0;
+    transition: 0.4s;
+}
+
+.button:hover {
+    padding: 1rem 1.2rem;
+}
+
+.post-title {
+    line-height: 3.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.posts-list .post-title {
+    line-height: 1.3;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+.post-subtitle {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    margin-top: 3px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.post-subsubtitle {
+    margin-top: 2rem;
+}
+
+.post-subtitle-tags {
+    font-style: italic;
+}
+
+.post-subtitle-tags a {
+    color: var(--accent);
+}
+
+.about-title h3 {
+    line-height: 1.3;
+    margin-bottom: 0rem;
+    margin-top: 2rem;
+    text-decoration: none;
+}
+
+.about-subtitle {
+    line-height: 1.3;
+    margin-top: 0.1rem;
+    text-decoration: none;
+}
+
+.about-hr {
+    margin-bottom: 2rem;
+}
+
+.footnotes-sep {
+    height: 0px;
+    margin: 0px;
+    margin-bottom: -2.5em;
+}
+
+#footnotes > hr {
+    height: 0px;
+    margin: 0rem;
+}
+
+#references {
+    margin-bottom: 1rem;
+}
+
+.list-post-title {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-text-light);
+}
+
+.list-post-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.list-post-subtitle-date {
+    font-size: 1.1rem;
+}
+
+.list-post-subtitle-tags {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.post-subheading {
+    line-height: 1.3;
+    margin-bottom: 0;
+    margin-top: 3px;
+    font-weight: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.notice {
+    padding: 1rem 2rem;
+    /* border: 2px solid var(--text); */
+    border-radius: 4px;
+    margin: 3rem 0;
+}
+
+.notice-red {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+}
+
+.notice-red a {
+    text-decoration: underline;
+    text-decoration-thickness: 0.15rem;
+}
+
+.notice-red a:hover {
+    text-decoration-style: underline;
+}
+
+/* Format the team banners */
+.team-banner {
+    background: var(--accent-bg);
+    border: 1px solid;
+    border-radius: 4px;
+    position: relative;
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 1rem;
+    width: 43.6%;
+    height: 400px;
+    float: left;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.center {
+    text-align: center;
+}
+
+.icon {
+    vertical-align: sub;
+    padding-right: 0.25rem;
+    display: inline-block;
+    width: 1.2em;
+    height: 1.3em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.splitscreen .left,
+.splitscreen .right {
+    width: 100%;
+    align-items: center;
+}
+
+.left {
+    align-self: flex-start;
+}
+
+.right {
+    align-self: flex-end;
+}
+
+@media (min-width: 600px) {
+    .splitscreen {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    section {
+        padding: 0rem 0rem;
+    }
+}
+
+/* Reduce nav side on mobile */
+@media only screen and (max-width: 720px) {
+    header > nav {
+        margin: 0 -2.5% 1rem -2.5%;
+    }
+    header > nav a {
+        border: 1px solid var(--border);
+        padding: 0rem 0.5rem;
+        margin: 0 2.5% 1rem 2.5%;
+        text-decoration: none;
+        line-height: 2;
+        border: 1px solid var(--dark-border--border);
+    }
+
+    body {
+        font-size: 1rem;
+    }
+
+    body > footer {
+        padding: 0rem 0rem 0rem 0rem;
+        font-size: 0.8rem;
+    }
+
+    pre {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    @media only screen and (max-width: 400px) {
+        header > nav a {
+            margin: 0 1.5% 1rem 1.5%;
+        }
+
+        .post-title {
+            font-size: 2.5rem;
+        }
+    }
+}

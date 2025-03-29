@@ -1,0 +1,614 @@
+:root {
+    --mono-font: monospace, Consolas, Menlo, Monaco, "Andale Mono",
+        "Ubuntu Mono";
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+        "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+        "Helvetica Neue", sans-serif;
+
+    --accent: #1a2b55;
+    --accent-bg: #2b2b2b;
+    --preformatted: #dcdcdc;
+
+--dark-mode-toggle-checkbox-icon: var(
+        --dark-mode-toggle-dark-icon,
+        url("/images/sun.svg")
+    );
+    --dark-mode-toggle-checkbox-icon: var(
+        --dark-mode-toggle-light-icon,
+        url("/images/moon.svg")
+    );
+
+    /*this is a svg fix for the popular dark reader extension*/
+    --darkreader-text--svg-text: #dcdcdc;
+    --svg-text: #171717;
+
+    --dark-accent: #d4d4d4;
+    --dark-bg: #191918;
+    --dark-bg--bg: #171717;
+    --dark-text--bg: #c0baaf;
+    --dark-border--bg: #2f302e;
+    --dark-bg--accent-bg: #1c1c1d;
+    --dark-details-accent-bg: #20211f;
+    --dark-bg--text: #1d1d1c;
+    --dark-text--text: #dcdcdc;
+    --dark-border--text: #6c655a;
+    --dark-text--text-light: #dcdcdc;
+    --dark-bg--border: #47474c;
+    --dark-border--border: #484846;
+    --dark-bg--accent: #1f3350;
+    --dark-text--accent: #758fa4;
+    --dark-border--accent: #2a4671;
+    --dark-text--code: #dcdcdc;
+    --dark-text--preformatted: #9d968a;
+    --dark-border--preformatted: #635d52;
+    --dark-bg--marked: #665a25;
+    --dark-bg--disabled: #232422;
+    --svg-text: #dcdcdc;
+    --darkreader-text--svg-text: #dcdcdc;
+}
+
+#dark-mode-toggle-1 {
+    --dark-mode-toggle-dark-icon: url(/images/sun.svg);
+    --dark-mode-toggle-light-icon: url(/images/moon.svg);
+    /*--dark-mode-toggle-icon-size: 2rem;*/
+    /*--dark-mode-toggle-icon-filter: invert(100%);*/
+}
+
+pre {
+    font-size: 0.9rem;
+    border-width: 1px;
+    border-color: rgb(59, 60, 58);
+}
+
+.typeclass svg {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    border-top: 0px;
+    border-bottom: 0px solid;
+    margin-bottom: 0rem;
+    padding-bottom: 0.3rem;
+}
+
+hr {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: initial;
+    background: var(--dark-bg--border);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+header > h2 {
+    font-style: normal;
+    margin: 0;
+    margin-top: -12px;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+/* How to prevent uneven linespacing when subscripts or superscripts are used
+on web pages  */
+sup,
+sub {
+    vertical-align: 0;
+    position: relative;
+}
+
+sup {
+    bottom: 1ex;
+}
+
+sub {
+    top: 0.8ex;
+}
+
+figure {
+    text-align: left;
+}
+
+article {
+    border: 0px;
+    padding: 0px;
+}
+
+aside {
+    background-color: var(--bg);
+    border: 0px;
+}
+
+details {
+    border: 0px solid;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: var(--dark-details-accent-bg);
+    border: 0px solid;
+}
+
+.coq pre {
+    border: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+summary {
+    padding-top: 0rem;
+}
+
+details[open] > summary {
+    margin-bottom: 0px;
+}
+
+.right {
+    text-align: right;
+    margin-top: -1rem;
+}
+
+.proof {
+    padding: 1rem 2rem;
+    padding-bottom: 0.1rem;
+    margin: 0rem 0;
+    background: #20211f;
+}
+
+main img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgContainer {
+    float: left;
+}
+
+nav a:hover,
+nav a.current {
+    text-decoration: none;
+    filter: none !important;
+    color: var(--dark-accent);
+    border-color: var(--dark-accent);
+    background: var(--dark-bg);
+}
+
+nav a.current:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+svg {
+    margin-left: 1px;
+}
+
+html {
+    background-color: #1c1c1b;
+}
+
+a,
+a:visited {
+    color: var(--dark-text--accent);
+}
+
+table {
+    border-color: #4d4e4b;
+}
+
+body {
+    color: var(--dark-text--text);
+    background-color: var(--dark-bg--bg);
+}
+
+body > header {
+    background-color: var(--dark-bg--accent-bg);
+    border-bottom: 1px solid var(--dark-border--border);
+}
+
+body > footer {
+    border-top: 1px solid;
+    color: var(--dark-text--text-light);
+    border-top: 1px solid var(--dark-border--border);
+}
+
+body > footer a {
+    color: var(--dark-text--text) !important;
+}
+
+header > nav a {
+    border: 1px solid;
+}
+
+header > nav a {
+    border: 1px solid;
+    color: var(--dark-text--text);
+}
+
+header > nav a:visited {
+    text-decoration-color: initial;
+    color: var(--dark-text--text);
+    border: 1px solid var(--dark-border--border);
+}
+
+header > nav a:hover {
+    color: var(--dark-text--accent);
+    border-color: var(--dark-border--accent);
+}
+
+pre {
+    color: var(--dark-text--code);
+    background: #23272e;
+}
+
+code,
+pre {
+    color: var(--dark-text--code);
+    background: #20211f;
+}
+
+.code-box {
+    position: relative;
+    padding-top: 12px;
+    margin-top: -0.5rem;
+}
+
+.language-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 5px;
+    font-size: 0.9rem;
+    text-align: right; /* Aligns the text to the right */
+}
+
+@media (prefers-color-scheme: dark) {
+    .language-label {
+        background-color: #20211f;
+        border-color: rgb(59, 60, 58);
+        border-top: 1px solid #393a38;
+        border-right: 1px solid #393a38;
+        border-left: 1px solid #393a38;
+    }
+}
+
+aside {
+    border-color: initial;
+    background-color: var(--dark-bg--bg);
+}
+
+nav a:hover,
+nav a.current {
+    background: var(--dark-bg--bg);
+    color: var(--dark-text--accent);
+    border-color: var(--dark-border--accent);
+}
+
+button {
+    background-color: #2f302e;
+    color: var(--dark-text--bg);
+}
+
+blockquote {
+    border-left: 0.35rem solid;
+    color: var(--dark-text--text-light);
+    border-left: 0.35rem solid;
+}
+
+.post-meta {
+    color: var(--dark-text--text-light);
+}
+
+.sub-heading {
+    color: var(--dark-text--text-light);
+}
+
+.float-conatiner {
+    border: 3px solid;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}
+
+.content a:visited {
+    color: #708da7;
+}
+
+.content a:link {
+    color: #708da7;
+}
+
+.content a:active {
+    color: #708da7;
+}
+
+.post-description {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.post-meta {
+    font-size: 1rem;
+    margin: 1px;
+    color: var(--text-light);
+}
+
+.blog-item {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.blog-item a {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+}
+
+.button {
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.7rem 0.9rem;
+    margin: 0.5rem 0;
+    transition: 0.4s;
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.button:hover {
+    padding: 1rem 1.2rem;
+}
+
+.post-title {
+    line-height: 3.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.posts-list .post-title {
+    line-height: 1.3;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+.post-subtitle {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    margin-top: 3px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.post-subsubtitle {
+    margin-top: 2rem;
+}
+
+.post-subtitle-tags {
+    font-style: italic;
+}
+
+.post-subtitle-tags a {
+    color: #dcdcdc;
+}
+
+.about-title h3 {
+    line-height: 1.3;
+    margin-bottom: 0rem;
+    margin-top: 2rem;
+    text-decoration: none;
+}
+
+.about-subtitle {
+    line-height: 1.3;
+    margin-top: 0.1rem;
+    text-decoration: none;
+}
+
+.about-hr {
+    margin-bottom: 2rem;
+}
+
+.footnotes-sep {
+    height: 0px;
+    margin: 0px;
+    margin-bottom: -2.5em;
+}
+
+#footnotes > hr {
+    height: 0px;
+    margin: 0rem;
+}
+
+#references {
+    margin-bottom: 1rem;
+}
+
+.list-post-title {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-text-light);
+}
+
+.list-post-title {
+    color: #dcdcdc;
+}
+
+.blog-item > a {
+    color: var(--text-light);
+}
+
+.list-post-title a {
+    color: var(--text-light);
+}
+
+.list-post-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.list-post-subtitle-date {
+    font-size: 1.1rem;
+}
+
+.list-post-subtitle-tags {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.list-post-subtitle-tags {
+    color: #dcdcdc;
+}
+
+.post-subheading {
+    line-height: 1.3;
+    margin-bottom: 0;
+    margin-top: 3px;
+    font-weight: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.notice {
+    padding: 1rem 2rem;
+    /* border: 2px solid var(--text); */
+    border-radius: 4px;
+    margin: 3rem 0;
+    background: var(--accent-bg);
+}
+
+.notice-red {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background: var(--dark-red);
+    color: #fff;
+}
+
+.notice-red a {
+    text-decoration: underline;
+    text-decoration-thickness: 0.15rem;
+    background: var(--dark-red);
+    color: #fff;
+}
+
+.notice-red a:hover {
+    text-decoration-style: underline;
+}
+
+/* Format the team banners */
+.team-banner {
+    border-radius: 4px;
+    position: relative;
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 1rem;
+    width: 43.6%;
+    height: 400px;
+    float: left;
+    background: var(--accent-bg);
+    border: 1px solid var(--border);
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--text-light);
+    border: 1px solid var(--border);
+}
+
+.center {
+    text-align: center;
+}
+
+.icon {
+    vertical-align: sub;
+    padding-right: 0.25rem;
+    display: inline-block;
+    width: 1.2em;
+    height: 1.3em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.splitscreen .left,
+.splitscreen .right {
+    width: 100%;
+    align-items: center;
+}
+
+.left {
+    align-self: flex-start;
+}
+
+.right {
+    align-self: flex-end;
+}
+
+@media (min-width: 600px) {
+    .splitscreen {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    section {
+        padding: 0rem 0rem;
+    }
+}
+
+/* Reduce nav side on mobile */
+@media only screen and (max-width: 720px) {
+    header > nav {
+        margin: 0 -2.5% 1rem -2.5%;
+    }
+    header > nav a {
+        border: 1px solid var(--border);
+        padding: 0rem 0.5rem;
+        margin: 0 2.5% 1rem 2.5%;
+        text-decoration: none;
+        line-height: 2;
+        border: 1px solid var(--dark-border--border);
+    }
+
+    body {
+        font-size: 1rem;
+    }
+
+    body > footer {
+        padding: 0rem 0rem 0rem 0rem;
+        font-size: 0.8rem;
+    }
+
+    pre {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    @media only screen and (max-width: 400px) {
+        header > nav a {
+            margin: 0 1.5% 1rem 1.5%;
+        }
+
+        .post-title {
+            font-size: 2.5rem;
+        }
+    }
+}

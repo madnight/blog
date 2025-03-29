@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Coq Tutorial </div>
+                <div class="post-subtitle"> Interactive Theorem Proving with Coq </div>
+                <div class="post-subsubtitle"> Posted on Oct 9 2023 ~ 6 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/theorem-proving/">#theorem proving</a>  <a href="/tags/proof-theory/">#proof theory</a>  <a href="/tags/coq/">#coq</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <script>
+                    MathJax = {
+                        loader:
+                        {
+                            load: ['[custom]/xypic.js'],
+                            paths:
+                            {
+                                custom: 'https://beuke.org/js'
+                            }
+                        },
+                        tex:
+                        {
+                            packages:
+                            {
+                                '[+]': ['xypic']
+                            }
+                        }
+                    };
+
+                </script>
+                <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+                <script>
+                    window.addEventListener('load', function ()
+                    {
+                        document.querySelectorAll("mjx-xypic-object").forEach((x) => (x.style.color = "var(--darkreader-text--text"));
+                        document.querySelectorAll("mjx-math > mjx-xypic > svg > g").forEach(x => x.setAttribute("stroke", "var(--darkreader-text--text"))
+                    })
+
+                </script>
+                <p>Coq is a proof management system that provides a formal language to write mathematical definitions, executable algorithms, and theorems together with an environment for semi-interactive development of machine-checked proofs. This tutorial will guide you through the process of installing Coq on Windows, Mac, and Linux, and then how to write a simple proof using coqtop. coqtop is the Read-Eval-Print Loop (REPL) for Coq. It allows you to interactively develop proofs. If you come from Haskell, you can think of Coq like GHC and coqtop like GHCi.</p>
+                <h1 id="installing-coq"><a class="markdownIt-Anchor" href="#installing-coq"></a> Installing Coq</h1>
+                <ul>
+                    <li>
+                        <p>Installing Coq on <strong>Windows</strong></p>
+                        <ul>
+                            <li>Download and run the Windows installer from the Coq website (<a target="_blank" rel="noopener" href="https://coq.inria.fr/download">https://coq.inria.fr/download</a>).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Installing Coq on <strong>Mac</strong></p>
+                        <ul>
+                            <li>The easiest way to install Coq on Mac is through Homebrew.</li>
+                            <li>You can install Coq by running: <code>brew install coq</code>.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Installing Coq on <strong>Linux</strong></p>
+                        <ul>
+                            <li>For Debian-based distributions like Ubuntu, use apt to install Coq.<figure class="highlight">
+                                    <pre><font face="monospace"><font color="#87afd7">sudo</font> apt <font color="#87afd7">install</font> coq
+</font></pre>
+                                </figure>
+                            </li>
+                            <li>For Red Hat-based distributions like Fedora, use dnf to install Coq.<figure class="highlight">
+                                    <pre><font face="monospace"><font color="#87afd7">sudo</font> dnf <font color="#87afd7">install</font> coq
+</font></pre>
+                                </figure>
+                            </li>
+                            <li>For Arch Linux-based distributions like Manjaro, use pacman to install Coq.<figure class="highlight">
+                                    <pre><font face="monospace"><font color="#87afd7">sudo</font> pacman <font color="#afaf5f">-S</font> coq
+</font></pre>
+                                </figure>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h1 id="writing-a-simple-proof-in-coq"><a class="markdownIt-Anchor" href="#writing-a-simple-proof-in-coq"></a> Writing a Simple Proof in Coq</h1>
+                <!-- If you wish to paste or write a proof without utilizing an interactive REPL, you can insert your code into a file, such as `hello_world.v`, and execute it using the command `coqc hello_world.v`. If your proofs are accurate, this command will exit with 0; otherwise, it will provide an error explaining why the proof is not yet complete. -->
+                <p>Now, we aim to prove that <strong>1 + 1 = 2</strong> using Coq.</p>
+                <ol>
+                    <li>
+                        <p>Let’s create a file named <code>hello_proof.v</code> and insert the following proposition that we seek to prove:</p>
+                        <figure class="highlight">
+                            <pre><font face="monospace"><font color="#87afaf">Proposition</font> <font color="#af87af">one_plus_one_is_two</font> <font color="#87afaf">:</font> 1 <font color="#d7875f">+</font> 1 <font color="#d7875f">=</font> 2.
+</font></pre>
+                        </figure>
+                        <p>If we attempt to compile our proof using <code>coqc hello_proof.v</code>, it will generate the following error, as expected:</p>
+                        <pre class="highlight"><code class>Error: There are pending proofs in file
+./hello_proof.v: one_plus_one_is_two.
+</code></pre>
+                        <p>That is because we have an unproven statement in our file. Now, lets try to prove this proposition interactively.</p>
+                    </li>
+                    <li>
+                        <p>Start coqtop by running <code>coqtop -load-vernac-source hello_proof.v</code> in your terminal.</p>
+                    </li>
+                    <li>
+                        <p>First, we need to enter proof mode by writing <code>Proof.</code>, pressing enter, and then writing <code>Show.</code>, followed by another enter, to view the current proof goal.</p>
+                        <pre class="highlight"><code class>Welcome to Coq 8.16.1
+
+one_plus_one_is_two < Proof.
+
+one_plus_one_is_two < Show.
+1 goal
+
+  ============================
+  1 + 1 = 2
+</code></pre>
+                        <p>This is how it looks with with <code>vim</code> (top) and <code>coqtop</code> (bottom) in <code>tmux</code>:</p>
+                        <p><img src="/images/vim-coq-top-down.png" alt></p>
+                    </li>
+                    <li>
+                        <p>We have successfully loaded our proposition into coqtop and can now attempt to prove it using tactics. The first tactic I’d like to introduce is <code>simpl</code>. The <code>simpl</code> tactic reduces complex terms to simpler forms:</p>
+                        <pre class="highlight"><code class>one_plus_one_is_two < simpl.
+1 goal
+
+  ============================
+  2 = 2
+</code></pre>
+                    </li>
+                    <li>
+                        <p>As we can see, the <code>simpl</code> tactic has reduced our term <code>1 + 1</code> on the left side by evaluating it as <code>2</code>. Now, it’s quite obvious that the term <code>2 = 2</code> is indeed true. We can solve the last goal with <code>reflexivity</code>, which is another basic tactic that solves the goal if it is a trivial equality, like in our case.</p>
+                        <pre class="highlight"><code class>one_plus_one_is_two < reflexivity.
+No more goals.
+</code></pre>
+                        <p>After that we can write <code>Qed.</code> to end our proof and finish the proof mode.</p>
+                        <pre class="highlight"><code class>one_plus_one_is_two < Qed.
+</code></pre>
+                    </li>
+                    <li>
+                        <p>We can now put all the steps together into our <code>hello_word.v</code> file:</p>
+                        <figure class="highlight">
+                            <pre><font face="monospace"><font color="#87afaf">Proposition</font> <font color="#af87af">one_plus_one_is_two</font> <font color="#87afaf">:</font> 1 <font color="#d7875f">+</font> 1 <font color="#d7875f">=</font> 2.
+<font color="#87afd7">Proof</font><font color="#87afaf">.</font>
+  <font color="#87afd7">simpl</font><font color="#87afd7">.</font>
+  <font color="#87afd7">reflexivity</font><font color="#87afd7">.</font>
+<font color="#87afd7">Qed</font><font color="#87afaf">.</font>
+</font></pre>
+                        </figure>
+                        <p>and compile the proof with <code>coqc hello_word.v</code>.</p>
+                    </li>
+                </ol>
+                <h1 id="proof-by-induction"><a class="markdownIt-Anchor" href="#proof-by-induction"></a> Proof by Induction</h1>
+                <ol>
+                    <li>
+                        <p>Let’s prove that for all natural numbers, <code>n - n = 0</code>. In Coq, we can write this as follows:</p>
+                        <figure class="highlight">
+                            <pre><font face="monospace"><font color="#87afaf">Proposition</font> <font color="#af87af">n_minus_n_equals_zero</font> <font color="#87afaf">:</font> <font color="#d7875f">forall</font> n<font color="#d7875f">,</font> n <font color="#d7875f">-</font> n <font color="#d7875f">=</font> 0.
+<font color="#87afd7">Proof</font><font color="#87afaf">.</font>
+  <font color="#87afd7">induction</font> n<font color="#87afd7">.</font>
+</font></pre>
+                        </figure>
+                        <p>This starts the proof with the induction tactic. This setups two goals, the base case and the inductive step.</p>
+                        <pre class="highlight"><code class>2 goals
+
+  ============================
+  0 - 0 = 0
+
+goal 2 is:
+ S n - S n = 0
+</code></pre>
+                    </li>
+                    <li>
+                        <p>The base case is trivial, with <code>simpl.</code> we have <code>0 = 0</code> and then just tell Coq that this is really the same <code>reflexivity.</code></p>
+                        <pre class="highlight"><code class>1 goal
+
+  n : nat
+  IHn : n - n = 0
+  ============================
+  S n - S n = 0
+</code></pre>
+                    </li>
+                    <li>
+                        <p>Now, we are left with the inductive step <code>S n - S n = 0</code>. Let’s assume the proposition holds for n, and we show it holds for n + 1. <code>simpl.</code> applies simplification, reducing the expression <code>S n - S n</code> to <code>n - n</code> by definition of subtraction in Coq. <code>rewrite IHn.</code> uses the inductive hypothesis (IHn) to replace <code>n - n</code> with 0. Lastly, <code>reflexivity.</code> asserts that <code>S n - S n</code> simplifies to 0, which is true after the rewrite. Thus, the proof demonstrates that the proposition <code>forall n, n - n = 0</code> holds true for all natural numbers n.</p>
+                        <figure class="highlight">
+                            <pre><font face="monospace"><font color="#87afaf">Proposition</font> <font color="#af87af">n_minus_n_equals_zero</font> <font color="#87afaf">:</font> <font color="#d7875f">forall</font> n<font color="#d7875f">,</font> n <font color="#d7875f">-</font> n <font color="#d7875f">=</font> 0.
+<font color="#87afd7">Proof</font><font color="#87afaf">.</font>
+  <font color="#87afd7">induction</font> n<font color="#87afd7">.</font>
+  - <font color="#87afd7">reflexivity</font><font color="#87afd7">.</font>
+  - <font color="#87afd7">simpl</font><font color="#87afd7">.</font>
+    <font color="#87afd7">rewrite</font> IHn<font color="#87afd7">.</font>
+    <font color="#87afd7">reflexivity</font><font color="#87afd7">.</font>
+<font color="#87afd7">Qed</font><font color="#87afaf">.</font>
+</font></pre>
+                        </figure>
+                    </li>
+                </ol>
+                <h1 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h1>
+                <p>You might wonder how to come up with all these different tactics. Well, you can look them up, e.g., in the sheet from Cornell University, which is helpful: <a target="_blank" rel="noopener" href="https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html">Coq Tactics Cheat Sheet</a>, or examine various examples online. It requires some trial and error with simple proofs to become more proficient in proving with Coq. I can highly recommend the <a target="_blank" rel="noopener" href="https://softwarefoundations.cis.upenn.edu/lf-current/toc.html">Software Foundations online book</a>, which can be considered as the reference framework.</p>
+                <p>After successfully installing Coq and crafting a straightforward proof using the coqtop REPL, your journey into the meticulous world of formalizing mathematical proofs and programming language semantics is just beginning. Coq offers a robust toolkit for exploring these domains further. Keep exploring, and happy proving!</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>

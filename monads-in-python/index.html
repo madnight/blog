@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about functional programming, category theory, chess, physics and linux topics">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight/dotfiles"> Dotfiles</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog about computer science and other interesting topics.</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> Monads in Python </div>
+                <div class="post-subtitle"> Functor, Applicative, Monads in Python </div>
+                <div class="post-subsubtitle"> Posted on Oct 30 2022 ~ 7 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/haskell/">#haskell</a>  <a href="/tags/functional-programming/">#functional programming</a>  <a href="/tags/monads/">#monads</a>  <a href="/tags/python/">#python</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <h1 id="motivation"><a class="markdownIt-Anchor" href="#motivation"></a> Motivation</h1>
+                <p>If you’re a programmer you are likely already using Monads quiet frequently. One popular example is Future in Java or Promise in JavaScript. You probably have seen or written code like <code>fetch(url).then(do this).then(do that)</code> or you’ve used the <code>async/await</code> syntax. You might have noticed that you cannot get a value out of the Promise. As soon as you write <code>await</code> your function has to be <code>async</code> (has to be a Promise itself). Or when you use <code>.then()</code> you cannot get the value out of the <code>then</code>. This is because the value only exist after your Promise (the computation) has be resolved, e.g. an API call has been made and the result has arrived.</p>
+                <p>In other languages like Haskell also things like Input/Output e.g. printing to the terminal or reading from a file happens to be inside a Monad, similar to the Promise in JavaScript. Because similar to JavaScript where you have to write the keyword <code>async</code> to your function definition in order to use <code>await</code>, in Haskell you have to specify the Monad type in the type annotation. For instance <code>String -> IO String</code> is a function that takes a name for an environment variable e.g. <code>$HOME</code> and gives you the contents of that variable.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[getEnv](https://hackage.haskell.org/package/base-4.17.0.0/docs/System-Environment.html#v:getEnv)
+">[1]</span></a></sup> This operation happens to be of type <code>IO String</code> and not just <code>String</code> because the contents the environment variable is dependent on your system and can change over time. But pure functions by definition always provide the same output for the same input. Therefore you get back an <code>IO String</code> which basically means that as soon as the containing IO operation has been executed you will get back the contents of the environment variable. This is actually pure, because you always get back the same IO computation given the same input.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[In what sense is the IO Monad pure?](https://stackoverflow.com/a/4066401)
+">[2]</span></a></sup> Now, if you have a function like <code>String -> String</code> then you can be sure that there will be no side effects and no IO computation involved. And most of your functions can look like that, which allows you very easy reasoning of what kind of things can happen in your program, just by reading the type definition.</p>
+                <p>In this post I want to show you how easy it is to write your own Monad instance in Phyton. I have chosen to implement a list Monad, because it provides easy intuition and has much similarities with the Haskell implementation. We start by writing a Functor and Applicative instance for list in Python.</p>
+                <h1 id="functor"><a class="markdownIt-Anchor" href="#functor"></a> Functor</h1>
+                <p>This is how Functor is defined in Haskell. Although it is named class you can think of it as an interface. This interface states that in order for something to be a Functor it has to implement the <code>fmap</code> (or <code>map</code>) function. A Functor is also often called “mappable”, because it is something we can map over like a list.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">where</font>
+  <font color="#af87af">fmap</font> <font color="#87afaf">::</font> fa <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> f b
+</font></pre>
+                </figure>
+                <p>In Python we can use type hints to implement the Functor interface for list.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">class</font> <font color="#87afaf">FunctorList</font>(List[a]):
+
+  <font color="#87afd7">def</font> <font color="#ffd75f">fmap</font>(fa, f: (a, b)) <font color="#87afaf">-></font> f[b]:
+      <font color="#87afd7">return</font> <font color="#ffd75f">FunctorList</font>([<font color="#ffd75f">f</font>(x) <font color="#87afd7">for</font> x <font color="#87afaf">in</font> fa])
+
+<font color="#ffd75f">print</font>(
+  <font color="#ffd75f">FunctorList</font>([1, 2, 3])
+    .<font color="#ffd75f">fmap</font>(<font color="#87afd7">lambda</font> x: x <font color="#87afaf">+</font> 1)
+    .<font color="#ffd75f">fmap</font>(<font color="#87afd7">lambda</font> x: <font color="#87afaf">str</font>(x))
+    .<font color="#ffd75f">fmap</font>(<font color="#87afd7">lambda</font> x: x <font color="#87afaf">+</font> <font color="#afaf5f">"0"</font>)
+)
+
+<font color="#767676"># Result: [20, 30, 40]</font>
+</font></pre>
+                </figure>
+                <p>As you can see the implementation of the list Functor is very straight forward. The <code>fmap</code> function simply takes a list <code>fa</code> and applies the function given in the second argument of <code>fmap</code> to every element of the list. As you can see we are now able to apply lambda functions to every list element and chain the results by repeated <code>fmap</code> calls. There is also a builtin function in python for <code>[f(x) for x in fa]</code> simply called <code>map</code>. The same code, using the existing implementation, in Haskell would look like: <code>(++"0") <$> (show) <$> (+ 1) <$> [1,2,3]</code>, where <code>
+                        <$>
+                    </code> stands for <code>fmap</code> as operator.</p>
+                <h1 id="applicative"><a class="markdownIt-Anchor" href="#applicative"></a> Applicative</h1>
+                <p>Next thing we are going to implement is Applicative. The interface for Applicative in Haskell looks as follows:</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">where</font>
+  <font color="#af87af">pure</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> f a
+  <font color="#afaf5f">(</font><font color="#87afaf"><*></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> f <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> f a <font color="#87afaf">-></font> f b
+</font></pre>
+                </figure>
+                <p>We have to implement two functions. The first one is very simple. Given a type <code>a</code> lets say Integer, we simply have to put it into our structure, e.g. <code>Int -> [Int]</code>. And the second function states, that given two Applicative, e.g. two lists, and one containing a list with a function, we simply apply the functions of that list to every element of the other list.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">class</font> <font color="#87afaf">ApplicativeList</font>(FunctorList):
+
+    <font color="#87afd7">def</font> <font color="#ffd75f">pure</font>(a) <font color="#87afaf">-></font> m[a]:
+        <font color="#87afd7">return</font> <font color="#ffd75f">ApplicativeList</font>(a)
+
+    <font color="#87afd7">def</font> <font color="#ffd75f">apply</font>(fs, xs) <font color="#87afaf">-></font> f[b]:
+      <font color="#87afd7">return</font> <font color="#ffd75f">ApplicativeList</font>([<font color="#ffd75f">f</font>(x) <font color="#87afd7">for</font> f <font color="#87afaf">in</font> xs <font color="#87afd7">for</font> x <font color="#87afaf">in</font> fs])
+
+<font color="#ffd75f">print</font>(
+  <font color="#ffd75f">ApplicativeList</font>([1, 2, 3])
+    .<font color="#ffd75f">apply</font>([(<font color="#87afd7">lambda</font> x: x <font color="#87afaf">+</font> 1)])
+    .<font color="#ffd75f">apply</font>([(<font color="#87afd7">lambda</font> x: <font color="#87afaf">str</font>(x))])
+    .<font color="#ffd75f">apply</font>([(<font color="#87afd7">lambda</font> x: x <font color="#87afaf">+</font> <font color="#afaf5f">"0"</font>)])
+)
+
+<font color="#767676"># Result: [20, 30, 40]</font>
+</font></pre>
+                </figure>
+                <p>This is very similar to the implementation of Applicative for lists in Haskell <code>fs <*> xs = [f x | f <- fs, x <- xs]</code> and <code>[(++"0")] <*> ([(show)] <*> ([(+ 1)] <*> [1,2,3]))</code> yields the same result.</p>
+                <h1 id="monad"><a class="markdownIt-Anchor" href="#monad"></a> Monad</h1>
+                <p>The Monad interface requires us to implement two functions. The <code>return</code> is very similar to <code>pure</code>, we just have to lift a value into the Monad, e.g. put a value into a list. The second function <code>>>=</code> also called bind, takes a function that converts an <code>a</code> to <code>m b</code> e.g. from <code>a -> [b]</code> in case of lists.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
+  <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m a
+  <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m b
+</font></pre>
+                </figure>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afd7">class</font> <font color="#87afaf">MonadList</font>(ApplicativeList):
+
+    <font color="#87afd7">def</font> <font color="#ffd75f">ret</font>(a) <font color="#87afaf">-></font> m[a]:
+        <font color="#87afd7">return</font> <font color="#ffd75f">MonadList</font>(a)
+
+    <font color="#87afd7">def</font> <font color="#ffd75f">__rshift__</font>(xs, f: (a, m[b])) <font color="#87afaf">-></font> m[b]:
+        <font color="#87afd7">return</font> <font color="#ffd75f">MonadList</font>(<font color="#ffd75f">concat</font> (<font color="#ffd75f">map</font>(f, xs)))
+
+<font color="#ffd75f">print</font>(
+  <font color="#afaf5f">"MonadList</font><font color="#afaf5f">\n</font><font color="#afaf5f">"</font>,
+  <font color="#ffd75f">MonadList</font>([1, 2, 3])
+    <font color="#87afaf">>></font> (<font color="#87afd7">lambda</font> x: [x <font color="#87afaf">+</font> 1])
+    <font color="#87afaf">>></font> (<font color="#87afd7">lambda</font> x: [<font color="#87afaf">str</font>(x)])
+    <font color="#87afaf">>></font> (<font color="#87afd7">lambda</font> x: [x <font color="#87afaf">+</font> <font color="#afaf5f">"0"</font>])
+
+<font color="#767676"># Result: [20, 30, 40]</font>
+</font></pre>
+                </figure>
+                <p>Now lets compare our Python list Monad implementation with the Haskell implementation.</p>
+                <figure class="highlight">
+                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
+  <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m a
+  return x <font color="#87afaf">=</font> <font color="#afaf5f">[</font>x<font color="#afaf5f">]</font>
+
+  <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m b
+  xs <font color="#87afaf">>>=</font> f <font color="#87afaf">=</font> concat <font color="#afaf5f">(</font>map f xs<font color="#afaf5f">)</font>
+</font></pre>
+                </figure>
+                <p>As we can see the implementation is very similar, the bind function consists of <code>concat</code> and <code>map</code>, also called <code>flatmap</code>. And this is how we can use the monadic bind function in Haskell <code>[1,2,3] >>= \x -> [(x+1)] >>= \x -> [(show x)] >>= \x -> [x ++ "0"]</code>. Here you can find the full implementation of Functor, Applicative and Monad for list in Python:<br>
+                    <a target="_blank" rel="noopener" href="https://gist.github.com/madnight/b0ae13f7908641655da688ebe7de22cb">https://gist.github.com/madnight/b0ae13f7908641655da688ebe7de22cb</a></p>
+                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.17.0.0/docs/System-Environment.html#v:getEnv">getEnv</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/4066401">In what sense is the IO Monad pure?</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>
