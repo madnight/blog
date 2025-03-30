@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/calabi%25E2%2580%2593yau-manifold/</loc>
+    
+    <lastmod>2025-03-30T18:47:21.058Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/arch-linux-archive/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -30,6 +37,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/compactification/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/category/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -51,21 +65,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/compactification/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -80,6 +80,20 @@
   
   <url>
     <loc>https://beuke.org/ekpyrotic/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/gauge-theory/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -101,13 +115,6 @@
   
   <url>
     <loc>https://beuke.org/hom-set/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -149,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/planet-nine/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -198,14 +198,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/terminal-latency/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/string-theory-origins/</loc>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -219,14 +212,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/twistor/</loc>
+    <loc>https://beuke.org/string-theory-origins/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/zen/</loc>
+    <loc>https://beuke.org/terminal-latency/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -240,6 +233,20 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/zen/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/twistor/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/about/index.html</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -247,14 +254,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/ads-cft/</loc>
+    <loc>https://beuke.org/applicative/</loc>
     
     <lastmod>2025-03-29T21:29:58.803Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/applicative/</loc>
+    <loc>https://beuke.org/ads-cft/</loc>
     
     <lastmod>2025-03-29T21:29:58.803Z</lastmod>
     
