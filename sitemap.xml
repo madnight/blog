@@ -4,26 +4,12 @@
   <url>
     <loc>https://beuke.org/calabi-yau-manifold/</loc>
     
-    <lastmod>2025-03-30T18:52:28.558Z</lastmod>
+    <lastmod>2025-03-30T18:59:34.690Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://beuke.org/arch-linux-archive/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/bspwm-missing-docs/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -37,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/compactification/</loc>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/coq-tutorial/</loc>
+    <loc>https://beuke.org/bspwm-missing-docs/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -58,6 +44,27 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/disk-latency/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/coq-tutorial/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/compactification/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -65,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/ekpyrotic/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -86,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/ekpyrotic/</loc>
+    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -100,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
+    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -108,13 +115,6 @@
   
   <url>
     <loc>https://beuke.org/hom-set/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monoid/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monoid/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -156,6 +156,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/planet-nine/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -163,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/planet-nine/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -184,21 +191,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/quantum-eraser/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -212,7 +205,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/string-theory-origins/</loc>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -220,6 +213,13 @@
   
   <url>
     <loc>https://beuke.org/terminal-latency/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/string-theory-origins/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
