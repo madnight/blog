@@ -15,7 +15,7 @@ subtitle: Six-Dimensional Ricci-Flat Spaces with Covariantly Constant Structures
 
 Calabi-Yau manifolds are special multidimensional geometric shapes that play a key role in both advanced mathematics and theoretical physics. In essence, a Calabi–Yau manifold is a space with no intrinsic curvature and a high degree of symmetry, despite its complex shape. Mathematically, these manifolds were first studied in the context of complex differential geometry, and later they gained fame for providing a possible blueprint for the "hidden" extra dimensions in string theory. They are named after mathematicians Eugenio Calabi and Shing-Tung Yau – Calabi proposed their defining properties in the 1950s, and Yau proved a crucial theorem about their existence in the 1970s. Today, Calabi–Yau spaces are known for their unique geometric features, their Ricci-flat nature (meaning they have no overall curvature), and their special holonomy (a kind of symmetry in how they twist), all of which make them essential in efforts to unify gravity with the other fundamental forces of nature.
 
-<img src="/images/calabi-yau-manifold.png" width="500">
+<img src="/images/calabi-yau-manifold.jpg" width="500">
 <center>
 Visual Slice Through a Six-Dimensional Calabi-Yau Hypersurface (3D projection)
 </center>
