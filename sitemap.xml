@@ -16,13 +16,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/branes/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -44,7 +37,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/branes/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -52,6 +45,13 @@
   
   <url>
     <loc>https://beuke.org/coq-tutorial/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -93,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
+    <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -107,14 +107,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/github-mirror/</loc>
+    <loc>https://beuke.org/hom-set/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/hom-set/</loc>
+    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monoid/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monoid/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -198,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -219,14 +212,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/string-theory-origins/</loc>
+    <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/timeseal-lag-modification/</loc>
+    <loc>https://beuke.org/twistor/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -240,7 +233,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/twistor/</loc>
+    <loc>https://beuke.org/rag/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/string-theory-origins/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
