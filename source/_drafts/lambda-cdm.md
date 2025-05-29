@@ -13,7 +13,7 @@ subtitle: The Standard Model of Cosmology
 
 
 
-<img src="/images/.jpg" width="500">
+<img src="/images/lambda-cdm.jpg" width="500">
 <center>
 </center>
 
