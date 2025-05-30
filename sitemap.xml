@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/negotiation/</loc>
-    
-    <lastmod>2025-05-20T18:05:56.535Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/calabi-yau-manifold/</loc>
     
     <lastmod>2025-03-30T18:59:34.690Z</lastmod>
@@ -86,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/ekpyrotic/</loc>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/ekpyrotic/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -107,21 +100,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/github-mirror/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -135,7 +114,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monad/</loc>
+    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -149,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -157,6 +143,13 @@
   
   <url>
     <loc>https://beuke.org/monoid/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -177,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
+    <loc>https://beuke.org/profunctor-optics/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/profunctor-optics/</loc>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -219,7 +212,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/terminal-latency/</loc>
+    <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -233,7 +226,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
+    <loc>https://beuke.org/terminal-latency/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
