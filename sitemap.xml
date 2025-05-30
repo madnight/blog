@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/lambda-cdm/</loc>
     
-    <lastmod>2025-05-30T18:08:27.317Z</lastmod>
+    <lastmod>2025-05-30T18:39:16.799Z</lastmod>
     
   </url>
   
@@ -17,13 +17,6 @@
   
   <url>
     <loc>https://beuke.org/arch-linux-archive/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/branes/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -44,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/category/</loc>
+    <loc>https://beuke.org/branes/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/compactification/</loc>
+    <loc>https://beuke.org/category/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -79,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/ekpyrotic/</loc>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/compactification/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -100,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
+    <loc>https://beuke.org/ekpyrotic/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -108,6 +101,13 @@
   
   <url>
     <loc>https://beuke.org/github-mirror/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monad/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -163,13 +163,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/profunctor-optics/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/planet-nine/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -178,6 +171,13 @@
   
   <url>
     <loc>https://beuke.org/programming-language-popularity/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/profunctor-optics/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -205,7 +205,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/string-theory-origins/</loc>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -226,7 +226,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
+    <loc>https://beuke.org/string-theory-origins/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/twistor/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -241,13 +248,6 @@
   
   <url>
     <loc>https://beuke.org/zen/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/twistor/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
