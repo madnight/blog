@@ -128,7 +128,6 @@ In conclusion, the ΛCDM model stands as a remarkably successful synthesis of ou
 [^7]: Fields, B. D., Molaro, P., & Sarkar, S. (2022). Big-Bang Nucleosynthesis (Review from Particle Data Group, update as of rpp2022). Progress of Theoretical and Experimental Physics, 2022(8), 083C01.
 [^8]: Iocco, F., Mangano, G., Miele, G., Pisanti, O., & Serpico, P. D. (2009). Primordial Nucleosynthesis: from precision cosmology to fundamental physics. Physics Reports, 472(1-6), 1–76. (arXiv:0809.0631)
 [^9]: Smoot, G. F., Bennett, C. L., Kogut, A., et al. (1992). Structure in the COBE differential microwave radiometer first-year maps. The Astrophysical Journal, 396, L1–L5.
-[^10]: Bennett, C. L., Banday, A. J., Górski, K. M., et al. (1996). Four-Year COBE DMR Cosmic Microwave Background Observations: Maps and Basic Results. The Astrophysical Journal, 464, L1–L4.
 [^11]: Bennett, C. L., Halpern, M., Hinshaw, G., et al. (2003). First-Year Wilkinson Microwave Anisotropy Probe (WMAP) Observations: Preliminary Maps and Basic Results. The Astrophysical Journal Supplement Series, 148(1), 1–27.
 [^12]: Hinshaw, G., Larson, D., Komatsu, E., et al. (2013). Nine-Year Wilkinson Microwave Anisotropy Probe (WMAP) Observations: Cosmological Parameter Results. The Astrophysical Journal Supplement Series, 208(2), 19.
 
@@ -139,4 +138,3 @@ In conclusion, the ΛCDM model stands as a remarkably successful synthesis of ou
 [^17]: Efstathiou, G., Sutherland, W. J., & Maddox, S. J. (1990). The cosmological constant and cold dark matter. *Nature*, *348*(6203), 705-707.
 [^18]: Freedman, W. L., & Turner, M. S. (2003). Measuring and understanding the Universe. *Reviews of Modern Physics*, *75*(4), 1433.
 [^19]: Bertone, G., Hooper, D., & Silk, J. (2005). Particle dark matter: Evidence, candidates and constraints. *Physics Reports*, *405*(5-6), 279-390. (arXiv:hep-ph/0404175)
-[^20]: Olive, K. A., Steigman, G., & Walker, T. P. (2000). Primordial nucleosynthesis: Theory and observations. *Physics Reports*, *333*, 389.
