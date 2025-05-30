@@ -4,7 +4,7 @@
   <url>
     <loc>https://beuke.org/lambda-cdm/</loc>
     
-    <lastmod>2025-05-30T13:54:00.867Z</lastmod>
+    <lastmod>2025-05-30T18:08:27.317Z</lastmod>
     
   </url>
   
@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/boltzmann-brains/</loc>
+    <loc>https://beuke.org/branes/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/branes/</loc>
+    <loc>https://beuke.org/boltzmann-brains/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -65,13 +65,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -79,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -93,28 +86,14 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/elm-json/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/functor/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/github-mirror/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/hom-set/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -128,7 +107,35 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/github-mirror/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/hom-set/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/metamorphosis/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -149,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/natural-transformation/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/planet-nine/</loc>
+    <loc>https://beuke.org/profunctor-optics/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/profunctor-optics/</loc>
+    <loc>https://beuke.org/planet-nine/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -191,13 +191,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/quantization/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/quantum-eraser/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -205,14 +198,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/rag/</loc>
+    <loc>https://beuke.org/quantization/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -226,7 +212,21 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/rag/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/terminal-latency/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
