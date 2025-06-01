@@ -30,14 +30,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/bspwm-missing-docs/</loc>
+    <loc>https://beuke.org/branes/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/branes/</loc>
+    <loc>https://beuke.org/bspwm-missing-docs/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -107,13 +107,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/hom-set/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/haskell-pronounceable-names/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -135,6 +128,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/hom-set/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monoid/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monoid/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -170,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/programming-language-popularity/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/profunctor-optics/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -185,6 +178,13 @@
   
   <url>
     <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/programming-language-popularity/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -212,7 +212,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/terminal-latency/</loc>
+    <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -220,6 +220,13 @@
   
   <url>
     <loc>https://beuke.org/string-theory-origins/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/terminal-latency/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -240,13 +247,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/twistor/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -261,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/ads-cft/</loc>
+    <loc>https://beuke.org/applicative/</loc>
     
     <lastmod>2025-03-29T21:29:58.803Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/applicative/</loc>
+    <loc>https://beuke.org/ads-cft/</loc>
     
     <lastmod>2025-03-29T21:29:58.803Z</lastmod>
     
