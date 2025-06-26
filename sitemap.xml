@@ -51,13 +51,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/compactification/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/coq-tutorial/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -72,7 +65,21 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/compactification/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -86,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -107,27 +114,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/metamorphosis/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/hom-set/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -135,7 +121,21 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/monad/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/metamorphosis/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -163,13 +163,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/planet-nine/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/profunctor-optics/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -177,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/planet-nine/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -191,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/quantization/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -199,6 +192,13 @@
   
   <url>
     <loc>https://beuke.org/quantum-eraser/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/quantization/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -226,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/terminal-latency/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -240,7 +233,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/zen/</loc>
+    <loc>https://beuke.org/terminal-latency/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -254,6 +247,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/zen/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/about/index.html</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -261,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/applicative/</loc>
+    <loc>https://beuke.org/ads-cft/</loc>
     
     <lastmod>2025-03-29T21:29:58.803Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/ads-cft/</loc>
+    <loc>https://beuke.org/applicative/</loc>
     
     <lastmod>2025-03-29T21:29:58.803Z</lastmod>
     
