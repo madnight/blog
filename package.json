@@ -11,7 +11,7 @@
     "deploy": "yarn build && hexo deploy"
   },
   "dependencies": {
-    "hexo": "^6.3.0",
+    "hexo": "^7.2.0",
     "hexo-browsersync": "^0.2.0",
     "hexo-deployer-git": "^0.2.0",
     "hexo-filter-asset-inline": "^1.1.1",
