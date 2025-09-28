@@ -125,7 +125,7 @@ In string theory, the fundamental entities of nature are not point-like particle
 <!--\end{document}-->
 {% endraw %}
 
-A crucial implication of this model is that all known fundamental particles that make up matter—such as quarks, electrons, and neutrinos—are confined to our 3-brane, as are the fundamental forces described by the Standard Model of physics, including electromagnetism, the weak nuclear force, and the strong nuclear force.[^4] These forces do not propagate into extra dimensions, meaning that interactions involving light and matter remain restricted to the brane. However, gravity behaves differently. Since gravity is mediated by gravitons, which are associated with closed strings, it is not confined to the brane and can instead move freely through the bulk.[^9] This property offers a potential explanation for why gravity appears significantly weaker than the other fundamental forces—some of its influence may be leaking into extra dimensions rather than being fully concentrated on our 3-brane.
+A crucial implication of this model is that all known fundamental particles that make up matter-such as quarks, electrons, and neutrinos-are confined to our 3-brane, as are the fundamental forces described by the Standard Model of physics, including electromagnetism, the weak nuclear force, and the strong nuclear force.[^4] These forces do not propagate into extra dimensions, meaning that interactions involving light and matter remain restricted to the brane. However, gravity behaves differently. Since gravity is mediated by gravitons, which are associated with closed strings, it is not confined to the brane and can instead move freely through the bulk.[^9] This property offers a potential explanation for why gravity appears significantly weaker than the other fundamental forces-some of its influence may be leaking into extra dimensions rather than being fully concentrated on our 3-brane.
 
 A key consequence of this framework is that we do not have direct access to extra dimensions except through gravitational interactions or potentially other exotic effects. If another 3-brane existed parallel to ours within the bulk, we would not be able to see it or interact with it using electromagnetic or nuclear forces, since those forces are confined to their respective branes. However, gravity, which can travel between branes, could still exert an influence, leading to gravitational interactions between parallel branes.[^10] This concept plays a crucial role in the ekpyrotic scenario, an alternative cosmological model in which the motion and eventual collision of two parallel branes provide an explanation for the Big Bang. Instead of originating from a singularity, as in the standard cosmological model, the universe in the ekpyrotic scenario emerges from a pre-existing structure in extra dimensions, where cycles of brane collisions could be responsible for cosmic evolution. If correct, this model suggests that the universe undergoes periodic contractions and expansions due to repeated brane interactions, offering an alternative to the traditional inflationary model of cosmology.[^5][^6]
 
@@ -143,31 +143,31 @@ As the branes draw closer, their interaction intensifies, causing the space betw
 
 The ekpyrotic model provides possible solutions to several challenges in standard cosmology:
 
-* The Initial Singularity Problem – In the standard Big Bang model, physics breaks down at the singularity, meaning there is no clear explanation for how the universe began. The ekpyrotic model replaces this singularity with a slow contraction phase, removing the need for an initial infinite density point.[^2]
+* The Initial Singularity Problem - In the standard Big Bang model, physics breaks down at the singularity, meaning there is no clear explanation for how the universe began. The ekpyrotic model replaces this singularity with a slow contraction phase, removing the need for an initial infinite density point.[^2]
 
-* The Horizon Problem – The cosmic microwave background (CMB) radiation is remarkably uniform across the sky, even though different regions of the universe should not have had time to interact. In standard cosmology, this is resolved using inflation, a rapid expansion phase. The ekpyrotic model provides an alternative by allowing information to spread during the slow contraction phase, naturally leading to uniformity.[^6]
+* The Horizon Problem - The cosmic microwave background (CMB) radiation is remarkably uniform across the sky, even though different regions of the universe should not have had time to interact. In standard cosmology, this is resolved using inflation, a rapid expansion phase. The ekpyrotic model provides an alternative by allowing information to spread during the slow contraction phase, naturally leading to uniformity.[^6]
 
-* The Flatness Problem – The universe appears to be very close to geometrically flat. Standard cosmology explains this by proposing inflation, which stretches the geometry of space-time. The ekpyrotic model achieves a similar result through the contraction phase, which smooths out any irregularities before the expansion begins.
+* The Flatness Problem - The universe appears to be very close to geometrically flat. Standard cosmology explains this by proposing inflation, which stretches the geometry of space-time. The ekpyrotic model achieves a similar result through the contraction phase, which smooths out any irregularities before the expansion begins.
 
-* The Origin of Cosmic Structures – The universe contains regions of higher and lower density, which later formed galaxies and other structures. These variations are thought to come from tiny quantum fluctuations. In standard cosmology, inflation stretches these fluctuations to macroscopic scales. In the ekpyrotic model, fluctuations arise during contraction and are preserved through the brane collision.
+* The Origin of Cosmic Structures - The universe contains regions of higher and lower density, which later formed galaxies and other structures. These variations are thought to come from tiny quantum fluctuations. In standard cosmology, inflation stretches these fluctuations to macroscopic scales. In the ekpyrotic model, fluctuations arise during contraction and are preserved through the brane collision.
 
 
 ### Conclusion
 
 The ekpyrotic universe model offers a different perspective on cosmic origins by replacing the Big Bang singularity with a collision between extra-dimensional branes. In this view, the universe is a three-dimensional membrane moving through a higher-dimensional space, periodically undergoing cycles of contraction, collision, and expansion.
 
-While this model has yet to be confirmed, it provides a possible answer to the question of what came before the Big Bang—suggesting that time and space may have existed forever, shaped by interactions in dimensions beyond our perception.
+While this model has yet to be confirmed, it provides a possible answer to the question of what came before the Big Bang-suggesting that time and space may have existed forever, shaped by interactions in dimensions beyond our perception.
 
 Further research, especially in gravitational wave detection and high-energy physics, may provide new insights into whether brane collisions played a role in the formation of our universe.
 
 
 ### References
 
-[^1]: Guth, A. H. (1981). *Inflationary universe: A possible solution to the horizon and flatness problems*. Physical Review D, 23(2), 347–356.
+[^1]: Guth, A. H. (1981). *Inflationary universe: A possible solution to the horizon and flatness problems*. Physical Review D, 23(2), 347-356.
 
 [^2]: Khoury, J., Ovrut, B. A., Steinhardt, P. J., & Turok, N. (2001). *The ekpyrotic universe: Colliding branes and the origin of the hot big bang*. Physical Review D, 64(12), 123522.
 
-[^3]: Randall, L., & Sundrum, R. (1999). *Large mass hierarchy from a small extra dimension*. Physical Review Letters, 83(17), 3370–3373.
+[^3]: Randall, L., & Sundrum, R. (1999). *Large mass hierarchy from a small extra dimension*. Physical Review Letters, 83(17), 3370-3373.
 
 [^4]: Polchinski, J. (1995). *Dirichlet branes and Ramond-Ramond charges*. Physical Review Letters, 75(26), 4724-4727.
 

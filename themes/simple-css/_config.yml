@@ -1,7 +1,7 @@
 navbarLinks:
     Home: /
     Github: https://github.com/madnight
-    Dotfiles: https://github.com/madnight/dotfiles
+    RSS: /atom.xml
     About: /about/
 
 favicon: /fav.png

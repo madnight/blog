@@ -17,9 +17,9 @@ In this blog post, we'll delve into the world of cosmology and examine some of t
 
 # The Big Crunch
 
-The Big Crunch is a theoretical model predicting the universe's demise, in which the universe contracts and collapses into itself, essentially reversing the Big Bang. This implosion would be caused by the gravitational force of all matter in the universe, drawing everything back together. In this scenario, all matter would eventually compress into a singularity—an infinitely dense point surrounded by a black hole, containing all matter and energy that once made up the universe, and from which nothing, including light, could escape.
+The Big Crunch is a theoretical model predicting the universe's demise, in which the universe contracts and collapses into itself, essentially reversing the Big Bang. This implosion would be caused by the gravitational force of all matter in the universe, drawing everything back together. In this scenario, all matter would eventually compress into a singularity-an infinitely dense point surrounded by a black hole, containing all matter and energy that once made up the universe, and from which nothing, including light, could escape.
 
-Evidence for the Big Crunch is rooted in the observed acceleration of the universe's expansion, believed to be driven by dark energy—a mysterious force causing the universe to expand at an increasing rate. If dark energy's influence persists, the universe could eventually expand faster than the speed of light, trapping all matter and energy, and culminating in the Big Crunch.
+Evidence for the Big Crunch is rooted in the observed acceleration of the universe's expansion, believed to be driven by dark energy-a mysterious force causing the universe to expand at an increasing rate. If dark energy's influence persists, the universe could eventually expand faster than the speed of light, trapping all matter and energy, and culminating in the Big Crunch.
 
 However, several factors could prevent the Big Crunch, such as dark energy's influence waning over time, causing the universe's expansion to slow and cease. Alternatively, if the universe contained enough matter, its gravitational force could halt the expansion and trigger contraction. However, this would require far more matter than currently observed, leaving the existence of such a vast amount of matter uncertain.
 
@@ -35,7 +35,7 @@ Despite its intriguing nature, the Big Bounce remains a speculative theory with 
 
 # The Big Rip
 
-The Big Rip is a hypothetical scenario that predicts the universe's end, originating from the concept of dark energy—a mysterious force responsible for the universe's expansion. Theories propose that dark energy could eventually become so powerful that it tears apart the very fabric of space and time, leading to the ultimate destruction of the universe.
+The Big Rip is a hypothetical scenario that predicts the universe's end, originating from the concept of dark energy-a mysterious force responsible for the universe's expansion. Theories propose that dark energy could eventually become so powerful that it tears apart the very fabric of space and time, leading to the ultimate destruction of the universe.
 
 The process of the Big Rip would start with the acceleration of the universe's expansion, as dark energy's influence intensifies and drives further acceleration. Over time, dark energy would reach a critical threshold, causing galaxies, stars, and planets to disintegrate.
 
