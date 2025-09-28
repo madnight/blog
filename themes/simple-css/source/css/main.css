@@ -551,13 +551,66 @@ blockquote {
         padding: 0.5rem 0.5rem;
     }
 
+    /* Reduce heading sizes on mobile */
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .post-title {
+        font-size: 2.0rem;
+        line-height: 2.2rem;
+    }
+
+    .posts-list .post-title {
+        font-size: 1.4rem;
+    }
+
+    .list-post-title {
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+    }
+
+    .post-subtitle {
+        font-size: 1.1rem;
+    }
+
     @media only screen and (max-width: 400px) {
         header > nav a {
             margin: 0 1.5% 1rem 1.5%;
         }
 
         .post-title {
-            font-size: 2.5rem;
+            font-size: 1.7rem;
+            line-height: 1.9rem;
+        }
+
+        .posts-list .post-title {
+            font-size: 1.2rem;
+        }
+
+        .list-post-title {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
         }
     }
 }
