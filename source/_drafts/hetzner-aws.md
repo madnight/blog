@@ -1,7 +1,7 @@
 ---
 title: K8s on Hetzner vs. AWS Fargate
 date: 2025-28-09
-tags: ["theoretical physics", "quantum gravity"]
+tags: ["AWS", "hetzner", "kubernetes", "fargate", "cloud engineering"]
 subtitle: Total Cost of Ownership analysis for IT-departments
 ---
 
@@ -17,7 +17,7 @@ The more self-management is required (blue), the more working hours you need to 
 
 A Kubernetes cluster on Hetzner is considered to fall somewhere between traditional IT and IaaS. Hetzner provides the physical servers, storage, and networking, but everything beyond that is managed by the customer. AWS ECS Fargate, on the other hand, is a PaaS solution; you only need to manage your application and its data. Please note that unless your Docker image is built entirely from scratch, you will typically need to maintain or at least support developers in updating their Dockerfile.
 
-## Cost structure and TCO Analysis
+## Cost structure and Scenarios
 
 | Category                 | Hetzner Kubernetes                                                | AWS ECS Fargate                                                      |
 | ------------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -31,9 +31,68 @@ We assume a baseline of **100k for one DevOps/Cloud Engineer per year**. This nu
 
 ![](/images/tco.png)
 
-As you can see, up to approximately 666 vCPUs, AWS Fargate is the more cost-effective option. In the range between 666 and 3,000 vCPUs, a more detailed cost analysis is necessary. For anything beyond that, Hetzner becomes the better choice.
+The choice between Hetzner Kubernetes and AWS ECS Fargate depends heavily on your team size, operational expertise, and scale. Here are three representative scenarios:
 
-## TCO calculator 
+### **Scenario 1: AWS ECS Fargate Wins** 
+*Small to Medium Applications (< 800 vCPUs)*
+
+**Example Setup:** 2 Hetzner DevOps engineers vs. 1 AWS Cloud engineer at $100k salary
+**Break-even point:** ~666 vCPUs
+**AWS advantage:** Below 666 vCPUs, significantly lower total cost
+
+**Real-world applications:**
+- **Early-stage SaaS companies** with 10-50k users running web applications, APIs, and databases
+- **Digital agencies** managing multiple client websites and applications
+- **E-commerce startups** with moderate traffic (< 1M monthly visitors)
+- **Development and staging environments** for larger companies
+- **Microservice architectures** with 10-20 small services
+
+**Why AWS wins:** The operational simplicity means you can run lean teams focused on product development rather than infrastructure management. The higher per-vCPU cost is offset by dramatically reduced staffing needs.
+
+### **Scenario 2: It's a Close Call**
+*Medium to Large Applications (800-2,500 vCPUs)*
+
+**Example Setup:** 5 Hetzner DevOps engineers vs. 3 AWS Cloud engineers at $100k salary
+**Break-even point:** ~1,333 vCPUs
+**Decision factors:** Team expertise, growth trajectory, compliance requirements
+
+**Real-world applications:**
+- **Growing SaaS platforms** with 100k-1M users experiencing rapid scaling
+- **Financial services companies** with moderate compute needs but strict compliance requirements
+- **Media companies** running content management systems with variable traffic
+- **Healthcare platforms** balancing cost with regulatory compliance
+- **Mid-size enterprises** modernizing legacy applications
+
+**Key considerations:** In this range, factors beyond pure cost become crucial—team expertise, security requirements, compliance needs, and growth predictability often determine the winner.
+
+### **Scenario 3: Hetzner Kubernetes Wins**
+*Large-scale Applications (> 2,500 vCPUs)*
+
+**Example Setup:** 8 Hetzner DevOps engineers vs. 4 AWS Cloud engineers at $100k salary
+**Break-even point:** ~2,000 vCPUs
+**Hetzner advantage:** Above 2,000 vCPUs, substantial cost savings despite larger teams
+
+**Real-world applications:**
+- **Large e-commerce platforms** (Amazon, Shopify scale) with millions of daily transactions
+- **Data processing companies** running analytics, ETL pipelines, and machine learning workloads
+- **Gaming companies** with massive multiplayer online games requiring high compute
+- **Enterprise software vendors** serving thousands of corporate clients
+- **Research institutions** running computational simulations and scientific computing
+- **Media streaming services** handling video transcoding and content delivery
+
+**Why Hetzner wins:** At scale, the infrastructure cost difference becomes so significant that even larger DevOps teams are justified. Companies at this level typically already have strong internal platform capabilities.
+
+### **Key Decision Framework**
+
+Use this framework to determine your optimal choice:
+
+- **Team Capability**: Do you have experienced DevOps engineers who can manage Kubernetes complexity?
+- **Scale Predictability**: Are your compute needs consistent and growing, or highly variable?
+- **Time to Market**: How quickly do you need to ship features vs. optimize infrastructure costs?
+- **Compliance Requirements**: Do you need specific control over your infrastructure stack?
+- **Growth Stage**: Are you optimizing for rapid iteration or operational efficiency?
+
+## Total Cost of Ownership Calculator 
 
 In order to do your own calculation, please use the TCO calculator below.
 
@@ -494,6 +553,15 @@ document.addEventListener('DOMContentLoaded', function() {
 The interactive calculator above shows the 3-year TCO compared to the average monthly vCPUs. You can adjust the staffing levels and salary to match your specific situation and immediately see how the break-even point changes.
 
 ## Conclusion
-For small to mid-sized IT-Departments, AWS Fargate usually minimizes TCO once staffing is factored in. Hetzner Kubernetes may be attractive if infrastructure cost savings are substantial and the company already has a strong DevOps team. However, the operational risk and manpower overhead are significant.
 
-AWS Fargate is generally more suitable when predictability, scalability, and reduced staffing costs are priorities. Hetzner Kubernetes is only preferable when raw infrastructure savings outweigh the additional DevOps staffing and operational risks over a multi-year horizon.
+The choice between Hetzner Kubernetes and **AWS ECS Fargate** is fundamentally about trade-offs: infrastructure cost versus operational complexity, team size versus expertise requirements, and control versus convenience.
+
+Our analysis reveals three distinct cost zones. Below approximately 800 vCPUs, **AWS ECS Fargate** typically delivers superior TCO due to its minimal operational overhead, allowing lean teams to focus on product development rather than infrastructure management. This makes it ideal for startups, digital agencies, and development environments where time-to-market and team efficiency are paramount.
+
+In the middle zone (800-2,500 vCPUs), the decision becomes more nuanced. Factors beyond pure cost—such as compliance requirements, existing team expertise, and growth predictability—often determine the optimal choice. Companies in this range should carefully evaluate their specific circumstances using the interactive calculator provided in this analysis.
+
+Above 2,000-2,500 vCPUs, Hetzner Kubernetes can deliver substantial cost savings despite requiring larger DevOps teams. However, this advantage only materializes for organizations with strong internal platform capabilities and predictable, high-volume workloads. The operational complexity of managing **Kubernetes**, **Cilium** networking, **Ceph** storage, and the broader ecosystem of 20+ supporting components requires significant expertise and ongoing maintenance.
+
+The staffing implications cannot be understated. For most organizations, especially those prioritizing predictability, scalability, and reduced operational risk, **AWS ECS Fargate** represents the more pragmatic choice. The premium for managed services is often justified by reduced complexity, faster feature delivery, and lower overall risk. Hetzner Kubernetes should primarily be considered by large-scale operations with mature platform engineering capabilities and consistent, high-volume compute requirements where the infrastructure cost differential can offset the substantial operational overhead.
+
+Ultimately, the decision should align with your organization's core competencies: if infrastructure management enhances your competitive advantage, Hetzner may be worth the investment. If it's merely a necessary cost center, AWS Fargate's operational simplicity typically delivers superior business value.
