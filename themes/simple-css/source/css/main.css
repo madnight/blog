@@ -213,6 +213,17 @@ svg {
 
 html {
     background-color: #1c1c1b;
+    /* Fix horizontal scrolling issue - prevent overflow */
+    overflow-x: hidden;
+}
+
+/* Ensure body also prevents horizontal overflow */
+body {
+    overflow-x: hidden;
+    /* Ensure all text content breaks appropriately */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 body > footer {
@@ -231,6 +242,11 @@ header > nav a:visited {
 pre {
     color: var(--dark-text--code);
     background: #23272e;
+    /* Ensure pre blocks don't cause horizontal overflow */
+    overflow-x: auto;
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 code {
@@ -267,6 +283,9 @@ blockquote {
 .float-container {
     border: 3px solid #fff;
     padding: 20px;
+    /* Fix for potential overflow */
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .float-child {
@@ -274,6 +293,9 @@ blockquote {
     float: left;
     padding: 20px;
     border: 2px solid red;
+    /* Ensure proper box-sizing */
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .post-description {
@@ -438,6 +460,20 @@ blockquote {
     width: 43.6%;
     height: 400px;
     float: left;
+    /* Ensure proper box-sizing and prevent overflow */
+    box-sizing: border-box;
+    max-width: calc(50% - 0.5rem);
+    min-width: 0;
+}
+
+/* Make team banners responsive on mobile */
+@media only screen and (max-width: 720px) {
+    .team-banner {
+        width: 100%;
+        float: none;
+        margin: 0.5rem 0;
+        max-width: 100%;
+    }
 }
 
 .sub-heading {
@@ -524,4 +560,65 @@ blockquote {
             font-size: 2.5rem;
         }
     }
+}
+
+/* Additional fixes for horizontal overflow */
+* {
+    /* Ensure all elements respect container boundaries */
+    max-width: 100%;
+}
+
+/* Specific fixes for potentially problematic elements */
+img, video, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* Ensure tables are responsive */
+table {
+    width: 100%;
+    table-layout: auto;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+}
+
+/* Fix table responsiveness on mobile */
+@media only screen and (max-width: 720px) {
+    table {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    table, thead, tbody, th, td, tr {
+        display: block;
+        white-space: normal;
+    }
+    
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+}
+
+/* Ensure long words break properly */
+p, div, span, article, section {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Fix for SVGs and other graphics */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure main content container doesn't overflow */
+main {
+    overflow-x: hidden;
+    max-width: 100%;
 }

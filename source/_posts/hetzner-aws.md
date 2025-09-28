@@ -240,6 +240,25 @@ In order to do your own calculation, please use the TCO calculator below.
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  
+  .tco-calculator {
+    padding: 15px;
+    margin: 15px 0;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tco-calculator #tcoChart {
+    width: 100% !important;
+    height: 300px !important;
+    max-width: 100%;
+  }
+  
+  .tco-calculator input[type="range"] {
+    touch-action: manipulation;
+  }
 }
 </style>
 
@@ -261,8 +280,8 @@ In order to do your own calculation, please use the TCO calculator below.
     </div>
   </div>
 
-  <div style="margin-bottom: 20px;">
-    <canvas id="tcoChart" width="800" height="400"></canvas>
+  <div style="margin-bottom: 20px; overflow-x: auto; max-width: 100%;">
+    <canvas id="tcoChart" width="800" height="400" style="max-width: 100%; height: auto;"></canvas>
   </div>
   
   <div id="intersectionPoint"></div>
@@ -348,6 +367,7 @@ function initChart() {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       interaction: {
         mode: 'index',
         intersect: false,
