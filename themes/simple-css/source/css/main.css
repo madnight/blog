@@ -95,10 +95,6 @@ hr {
     background: var(--light-bg--border);
 }
 
-h1 {
-    font-size: 2.5rem;
-}
-
 header > h2 {
     font-style: normal;
     margin: 0;
@@ -106,6 +102,19 @@ header > h2 {
     font-weight: 300;
     font-style: normal;
     font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-top: 3rem;
 }
 
 /* How to prevent uneven linespacing when subscripts or superscripts are used
@@ -303,7 +312,7 @@ blockquote {
 .post-title {
     line-height: 3.25rem;
     margin-bottom: 0.5rem;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: bold;
 }
 

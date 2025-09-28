@@ -81,8 +81,18 @@ hr {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 }
+
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+}
+
 
 header > h2 {
     font-style: normal;
@@ -376,7 +386,7 @@ blockquote {
 .post-title {
     line-height: 3.25rem;
     margin-bottom: 0.5rem;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: bold;
 }
 
