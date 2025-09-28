@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about computer science and theoretical physics.">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+
+    </script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+<header>
+    <nav>
+        <a href="/"> Home</a>
+        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        <a href="/atom.xml"> RSS</a>
+        <a href="/about/"> About</a>
+    </nav>
+    <div class="title-con">
+        <div class="title-container">
+            <h1>beuke.org</h1>
+            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+        </div>
+    </div>
+    <h2>A personal blog exploring computer science and theoretical physics</h2>
+</header>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="post-title"> K8s on Hetzner vs. AWS Fargate </div>
+                <div class="post-subtitle"> Total Cost of Ownership Analysis for IT-departments </div>
+                <div class="post-subsubtitle"> Posted on Sep 28 2025 ~ 10 min read</div>
+                <div class="post-subtitle-tags">
+                    <a href="/tags/cloud-engineering/">#cloud engineering</a>  <a href="/tags/AWS/">#AWS</a>  <a href="/tags/hetzner/">#hetzner</a>  <a href="/tags/kubernetes/">#kubernetes</a>  <a href="/tags/fargate/">#fargate</a>  </div>
+                <hr class="solid">
+            </section>
+            <div class"content">
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+                <h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1>
+                <p>This comparison evaluates self-managed Kubernetes clusters deployed on Hetzner Cloud or dedicated servers against AWS ECS Fargate as a fully managed container platform. The analysis considers the total cost of ownership (TCO) over a three-year period<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Total Cost of Ownership (TCO) Analysis Framework. *Gartner Research*. IT Cost Optimization Strategies, 2024.">[7]</span></a></sup>, factoring in infrastructure pricing, staffing needs, operational complexity, and scalability.</p>
+                <p>For simplicity, the cost calculations include only compute usage and exclude storage, bandwidth, and other components. We assume that fewer employees are needed to operate and maintain a highly managed service compared to a traditional setup, with the least operational effort required for SaaS offerings. The following illustration highlights the different levels of management.</p>
+                <p><img src="/images/managed-levels.png" alt></p>
+                <p>The more self-management is required (blue), the more working hours you need to invest in the system and the more staff you will likely require.</p>
+                <p>A Kubernetes cluster on Hetzner is considered to fall somewhere between traditional IT and IaaS. Hetzner provides the physical servers, storage, and networking, but everything beyond that is managed by the customer. AWS ECS Fargate, on the other hand, is a PaaS solution; you only need to manage your application and its data<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="AWS ECS Fargate Documentation. *Amazon Web Services*. Container Services Documentation, 2024. [https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html)">[8]</span></a></sup>. Please note that unless your Docker image is built entirely from scratch, you will typically need to maintain or at least support developers in updating their Dockerfile.</p>
+                <h2 id="cost-structure-and-scenarios"><a class="markdownIt-Anchor" href="#cost-structure-and-scenarios"></a> Cost structure and Scenarios</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Hetzner Kubernetes</th>
+                            <th>AWS ECS Fargate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>VM/Compute (monthly)</strong></td>
+                            <td>2 vCPU + 4 GB: ~$6<br>4 vCPU + 8 GB: ~$17<br>8 vCPU + 16 GB: ~$33</td>
+                            <td>2 vCPU + 4 GB: ~$55<br>4 vCPU + 8 GB: ~$110<br>8 vCPU + 16 GB: ~$210</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Staffing (annual)</strong></td>
+                            <td>5-10 DevOps engineers, ~$500k-1,000k per year</td>
+                            <td>1-3 Cloud engineers, ~$100k-300k per year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3-Year Staffing TCO</strong></td>
+                            <td>~$1.5M-3.0M</td>
+                            <td>~$300k-900k</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>In addition to cloud VMs, Hetzner also offers dedicated servers. These provide substantially more compute at a lower per-vCPU cost but demand a much higher level of self-management and therefore more staff, as they lack even basic functionality such as snapshotting, backups, automatic provisioning through a CLI, or Kubernetes plugins.</p>
+                <p>We assume a baseline of <strong>$100k for one DevOps/Cloud Engineer per year</strong><sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="DevOps Engineer Salary Guide. *Indeed*. Career Guide, 2024. [https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary](https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary)">[5]</span></a></sup>. This number can vary greatly across different countries. It’s possible to adjust the given numbers and do a recalculation with the interactive TCO calculator.</p>
+                <p><img src="/images/tco.png" alt></p>
+                <p>The choice between Hetzner Kubernetes and AWS ECS Fargate depends heavily on your team size, operational expertise, and scale. Here are three representative scenarios:</p>
+                <h3 id="scenario-1-aws-ecs-fargate-wins"><a class="markdownIt-Anchor" href="#scenario-1-aws-ecs-fargate-wins"></a> <strong>Scenario 1: AWS ECS Fargate Wins</strong></h3>
+                <p><em>Small to Medium Applications (< 700 vCPUs)</em>
+                </p>
+                <p><strong>Example Setup:</strong> 2 Hetzner DevOps engineers vs. 1 AWS Cloud engineer at $100k salary<br>
+                    <strong>Break-even point:</strong> ~700 vCPUs<br>
+                    <strong>AWS advantage:</strong> Below 700 vCPUs, significantly lower total cost</p>
+                <p><strong>Real-world applications:</strong></p>
+                <ul>
+                    <li><strong>Early-stage SaaS companies</strong> with 10-50k users running web applications, APIs, and databases</li>
+                    <li><strong>Digital agencies</strong> managing multiple client websites and applications</li>
+                    <li><strong>E-commerce startups</strong> with moderate traffic (< 1M monthly visitors)</li>
+                    <li><strong>Development and staging environments</strong> for larger companies</li>
+                    <li><strong>Microservice architectures</strong> with 10-20 small services</li>
+                </ul>
+                <p><strong>Why AWS wins:</strong> The operational simplicity means you can run lean teams focused on product development rather than infrastructure management. The higher per-vCPU cost is offset by dramatically reduced staffing needs.</p>
+                <h3 id="scenario-2-its-a-close-call"><a class="markdownIt-Anchor" href="#scenario-2-its-a-close-call"></a> <strong>Scenario 2: It’s a Close Call</strong></h3>
+                <p><em>Medium to Large Applications (700-2,500 vCPUs)</em></p>
+                <p><strong>Example Setup:</strong> 5 Hetzner DevOps engineers vs. 3 AWS Cloud engineers at $100k salary<br>
+                    <strong>Break-even point:</strong> ~1,333 vCPUs<br>
+                    <strong>Decision factors:</strong> Team expertise, growth trajectory, compliance requirements</p>
+                <p><strong>Real-world applications:</strong></p>
+                <ul>
+                    <li><strong>Growing SaaS platforms</strong> with 100k-1M users experiencing rapid scaling</li>
+                    <li><strong>Financial services companies</strong> with moderate compute needs but strict compliance requirements</li>
+                    <li><strong>Media companies</strong> running content management systems with variable traffic</li>
+                    <li><strong>Healthcare platforms</strong> balancing cost with regulatory compliance</li>
+                    <li><strong>Mid-size enterprises</strong> modernizing legacy applications</li>
+                </ul>
+                <p><strong>Key considerations:</strong> In this range, factors beyond pure cost become crucial - team expertise, security requirements, compliance needs, and growth predictability often determine the winner.</p>
+                <h3 id="scenario-3-hetzner-kubernetes-wins"><a class="markdownIt-Anchor" href="#scenario-3-hetzner-kubernetes-wins"></a> <strong>Scenario 3: Hetzner Kubernetes Wins</strong></h3>
+                <p><em>Large-scale Applications (> 2,500 vCPUs)</em></p>
+                <p><strong>Example Setup:</strong> 8 Hetzner DevOps engineers vs. 4 AWS Cloud engineers at $100k salary<br>
+                    <strong>Break-even point:</strong> ~2,000 vCPUs<br>
+                    <strong>Hetzner advantage:</strong> Above 2,000 vCPUs, substantial cost savings despite larger teams</p>
+                <p><strong>Real-world applications:</strong></p>
+                <ul>
+                    <li><strong>Large e-commerce platforms</strong> (Amazon, Shopify scale) with millions of daily transactions</li>
+                    <li><strong>Data processing companies</strong> running analytics, ETL pipelines, and machine learning workloads</li>
+                    <li><strong>Gaming companies</strong> with massive multiplayer online games requiring high compute</li>
+                    <li><strong>Enterprise software vendors</strong> serving thousands of corporate clients</li>
+                    <li><strong>Research institutions</strong> running computational simulations and scientific computing</li>
+                    <li><strong>Media streaming services</strong> handling video transcoding and content delivery</li>
+                </ul>
+                <p><strong>Why Hetzner wins:</strong> At scale, the infrastructure cost difference becomes so significant that even larger DevOps teams are justified. Companies at this level typically already have strong internal platform capabilities.</p>
+                <h2 id="total-cost-of-ownership-calculator"><a class="markdownIt-Anchor" href="#total-cost-of-ownership-calculator"></a> Total Cost of Ownership Calculator</h2>
+                <p>In order to do your own calculation, please use the TCO calculator below.</p>
+                <style>
+                    .tco-calculator {
+                        --bg-light: #f8f9fa;
+                        --bg-dark: #2d3748;
+                        --border-light: #dee2e6;
+                        --border-dark: #4a5568;
+                        --text-light: #495057;
+                        --text-dark: #e2e8f0;
+                        --info-bg-light: #e3f2fd;
+                        --info-bg-dark: #2a4365;
+                        --canvas-bg-light: #ffffff;
+                        --canvas-bg-dark: #1a202c;
+                        background: var(--bg-light);
+                        border: 1px solid var(--border-light);
+                        border-radius: 8px;
+                        padding: 20px;
+                        margin: 20px 0;
+                        transition: background-color 0.3s ease, border-color 0.3s ease;
+                    }
+
+                    .tco-calculator.dark-mode {
+                        background: var(--bg-dark);
+                        border-color: var(--border-dark);
+                    }
+
+                    .tco-calculator label {
+                        font-weight: bold;
+                        display: block;
+                        margin-bottom: 5px;
+                        color: var(--text-light);
+                        transition: color 0.3s ease;
+                    }
+
+                    .tco-calculator.dark-mode label {
+                        color: var(--text-dark);
+                    }
+
+                    .tco-calculator input[type="range"] {
+                        width: 100%;
+                        margin: 0;
+                        padding: 10px 0;
+                        accent-color: #4ecdc4;
+                        height: 6px;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        border-radius: 3px;
+                        background: white;
+                        outline: none;
+                    }
+
+                    .tco-calculator.dark-mode input[type="range"] {
+                        background: #4a5568;
+                    }
+
+                    .tco-calculator input[type="range"]::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 50%;
+                        background: #4ecdc4;
+                        cursor: pointer;
+                    }
+
+                    .tco-calculator.dark-mode input[type="range"]::-webkit-slider-thumb {
+                        background: #66d9d1;
+                    }
+
+                    .tco-calculator input[type="range"]::-moz-range-thumb {
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 50%;
+                        background: #4ecdc4;
+                        cursor: pointer;
+                        border: none;
+                    }
+
+                    .tco-calculator.dark-mode input[type="range"]::-moz-range-thumb {
+                        background: #66d9d1;
+                    }
+
+                    .tco-calculator #tcoChart {
+                        max-width: 100%;
+                        background: var(--canvas-bg-light);
+                        border-radius: 4px;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .tco-calculator.dark-mode #tcoChart {
+                        background: var(--canvas-bg-dark);
+                    }
+
+                    .tco-calculator #intersectionPoint {
+                        text-align: center;
+                        padding: 12px;
+                        background: var(--info-bg-light);
+                        border-radius: 4px;
+                        font-weight: bold;
+                        color: var(--text-light);
+                        transition: background-color 0.3s ease, color 0.3s ease;
+                        min-height: 20px;
+                        margin-top: 10px;
+                        font-size: 16px;
+                    }
+
+                    .tco-calculator.dark-mode #intersectionPoint {
+                        background: var(--info-bg-dark);
+                        color: var(--text-dark);
+                    }
+
+                    .tco-grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        gap: 25px;
+                        margin-bottom: 20px;
+                        align-items: start;
+                    }
+
+                    .tco-grid>div {
+                        display: flex;
+                        flex-direction: column;
+                        min-height: 80px;
+                    }
+
+                    .tco-grid label {
+                        margin-bottom: 8px;
+                        min-height: 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        line-height: 1.2;
+                    }
+
+                    .tco-grid label span {
+                        font-weight: normal;
+                        color: var(--text-light);
+                        margin-left: 8px;
+                        min-width: 50px;
+                        text-align: right;
+                        font-family: 'Courier New', monospace;
+                        font-variant-numeric: tabular-nums;
+                    }
+
+                    .tco-calculator.dark-mode .tco-grid label span {
+                        color: var(--text-dark);
+                    }
+
+                    @media (max-width: 768px) {
+                        .tco-grid {
+                            grid-template-columns: 1fr;
+                            gap: 20px;
+                        }
+                    }
+
+                </style>
+                <div class="tco-calculator" id="tcoCalculator">
+                    <div class="tco-grid">
+                        <div>
+                            <label for="hetznerStaff">Hetzner DevOps Engineers: <span id="hetznerStaffValue">7</span></label>
+                            <input type="range" id="hetznerStaff" min="1" max="15" value="7">
+                        </div>
+                        <div>
+                            <label for="awsStaff">AWS Cloud Engineers: <span id="awsStaffValue">2</span></label>
+                            <input type="range" id="awsStaff" min="1" max="10" value="2">
+                        </div>
+                        <div>
+                            <label for="engineerSalary">Engineer Salary (USD): <span id="salaryValue">$100k</span></label>
+                            <input type="range" id="engineerSalary" min="10000" max="500000" value="100000" step="5000">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <canvas id="tcoChart" width="800" height="400"></canvas>
+                    </div>
+                    <div id="intersectionPoint"></div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
+                <script>
+                    let tcoChart;
+                    let isDarkMode = false;
+                    // Dark mode detection and handling
+                    function checkDarkMode()
+                    {
+                        // Check if dark-mode-toggle is present and has dark mode enabled
+                        const darkModeToggle = document.querySelector('dark-mode-toggle');
+                        if (darkModeToggle)
+                        {
+                            isDarkMode = darkModeToggle.mode === 'dark';
+                        }
+                        else
+                        {
+                            // Fallback to prefers-color-scheme
+                            isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                        }
+                        // Apply dark mode class to calculator
+                        const calculator = document.getElementById('tcoCalculator');
+                        if (isDarkMode)
+                        {
+                            calculator.classList.add('dark-mode');
+                        }
+                        else
+                        {
+                            calculator.classList.remove('dark-mode');
+                        }
+                        return isDarkMode;
+                    }
+
+                    function getChartColors()
+                    {
+                        const dark = checkDarkMode();
+                        return {
+                            gridColor: dark ? '#4a5568' : '#e2e8f0',
+                            textColor: dark ? '#e2e8f0' : '#495057',
+                            backgroundColor: dark ? '#1a202c' : '#ffffff',
+                            hetznerColor: dark ? '#ff8a8a' : '#ff6b6b',
+                            awsColor: dark ? '#66d9d1' : '#4ecdc4'
+                        };
+                    }
+
+                    function initChart()
+                    {
+                        const ctx = document.getElementById('tcoChart').getContext('2d');
+                        const colors = getChartColors();
+                        tcoChart = new Chart(ctx,
+                        {
+                            type: 'line',
+                            data:
+                            {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: 'Hetzner Kubernetes',
+                                        data: [],
+                                        borderColor: colors.hetznerColor,
+                                        backgroundColor: `${colors.hetznerColor}20`,
+                                        borderWidth: 3,
+                                        fill: false,
+                                        tension: 0.4,
+                                        pointRadius: 0,
+                                        pointHoverRadius: 6,
+                                        pointHoverBackgroundColor: colors.hetznerColor,
+                                        pointHoverBorderColor: colors.hetznerColor,
+                                        pointHoverBorderWidth: 2
+        },
+                                    {
+                                        label: 'AWS ECS Fargate',
+                                        data: [],
+                                        borderColor: colors.awsColor,
+                                        backgroundColor: `${colors.awsColor}20`,
+                                        borderWidth: 3,
+                                        fill: false,
+                                        tension: 0.4,
+                                        pointRadius: 0,
+                                        pointHoverRadius: 6,
+                                        pointHoverBackgroundColor: colors.awsColor,
+                                        pointHoverBorderColor: colors.awsColor,
+                                        pointHoverBorderWidth: 2
+        }
+      ]
+                            },
+                            options:
+                            {
+                                responsive: true,
+                                interaction:
+                                {
+                                    mode: 'index',
+                                    intersect: false,
+                                },
+                                plugins:
+                                {
+                                    title:
+                                    {
+                                        display: true,
+                                        text: '3-Year TCO vs Average vCPUs: Hetzner Kubernetes vs AWS ECS Fargate',
+                                        color: colors.textColor,
+                                        font:
+                                        {
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    },
+                                    legend:
+                                    {
+                                        display: true,
+                                        labels:
+                                        {
+                                            color: colors.textColor,
+                                            usePointStyle: true,
+                                            padding: 20
+                                        }
+                                    }
+                                },
+                                scales:
+                                {
+                                    x:
+                                    {
+                                        title:
+                                        {
+                                            display: true,
+                                            text: 'Average vCPUs used (monthly)',
+                                            color: colors.textColor
+                                        },
+                                        ticks:
+                                        {
+                                            color: colors.textColor
+                                        },
+                                        grid:
+                                        {
+                                            color: colors.gridColor
+                                        }
+                                    },
+                                    y:
+                                    {
+                                        title:
+                                        {
+                                            display: true,
+                                            text: 'TCO over 3 years (Million USD)',
+                                            color: colors.textColor
+                                        },
+                                        ticks:
+                                        {
+                                            color: colors.textColor
+                                        },
+                                        grid:
+                                        {
+                                            color: colors.gridColor
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    function updateChartTheme()
+                    {
+                        if (!tcoChart) return;
+                        const colors = getChartColors();
+                        // Update dataset colors
+                        tcoChart.data.datasets[0].borderColor = colors.hetznerColor;
+                        tcoChart.data.datasets[0].backgroundColor = `${colors.hetznerColor}20`;
+                        tcoChart.data.datasets[0].pointHoverBackgroundColor = colors.hetznerColor;
+                        tcoChart.data.datasets[0].pointHoverBorderColor = colors.hetznerColor;
+                        tcoChart.data.datasets[1].borderColor = colors.awsColor;
+                        tcoChart.data.datasets[1].backgroundColor = `${colors.awsColor}20`;
+                        tcoChart.data.datasets[1].pointHoverBackgroundColor = colors.awsColor;
+                        tcoChart.data.datasets[1].pointHoverBorderColor = colors.awsColor;
+                        // Update chart options colors
+                        tcoChart.options.plugins.title.color = colors.textColor;
+                        tcoChart.options.plugins.legend.labels.color = colors.textColor;
+                        tcoChart.options.scales.x.title.color = colors.textColor;
+                        tcoChart.options.scales.x.ticks.color = colors.textColor;
+                        tcoChart.options.scales.x.grid.color = colors.gridColor;
+                        tcoChart.options.scales.y.title.color = colors.textColor;
+                        tcoChart.options.scales.y.ticks.color = colors.textColor;
+                        tcoChart.options.scales.y.grid.color = colors.gridColor;
+                        tcoChart.update('none'); // Update without animation
+                    }
+
+                    function calculateTCO()
+                    {
+                        const hetznerStaff = parseInt(document.getElementById('hetznerStaff').value);
+                        const awsStaff = parseInt(document.getElementById('awsStaff').value);
+                        const engineerSalary = parseInt(document.getElementById('engineerSalary').value);
+                        const maxVCPU = 5000; // Fixed at 5,000 vCPUs
+                        // Constants
+                        const years = 3;
+                        const hetznerPerVCPUMonth = 2;
+                        const awsPerVCPUMonth = 27;
+                        // Generate vCPU range
+                        const vcpuPoints = [];
+                        const step = Math.max(1, Math.floor(maxVCPU / 100));
+                        for (let i = 0; i <= maxVCPU; i += step)
+                        {
+                            vcpuPoints.push(i);
+                        }
+                        // Calculate TCO curves
+                        const hetznerData = vcpuPoints.map(v => (years * hetznerStaff * engineerSalary + 36 * hetznerPerVCPUMonth * v) / 1e6);
+                        const awsData = vcpuPoints.map(v => (years * awsStaff * engineerSalary + 36 * awsPerVCPUMonth * v) / 1e6);
+                        // Calculate intersection point (break-even)
+                        const staffCostDiff = years * (hetznerStaff - awsStaff) * engineerSalary;
+                        const vcpuCostDiff = 36 * (awsPerVCPUMonth - hetznerPerVCPUMonth);
+                        const intersectionVCPU = staffCostDiff / vcpuCostDiff;
+                        // Update chart
+                        tcoChart.data.labels = vcpuPoints;
+                        tcoChart.data.datasets[0].data = hetznerData;
+                        tcoChart.data.datasets[1].data = awsData;
+                        tcoChart.update();
+                        // Display intersection point
+                        const intersectionDisplay = document.getElementById('intersectionPoint');
+                        if (intersectionDisplay)
+                        {
+                            if (intersectionVCPU > 0)
+                            {
+                                intersectionDisplay.textContent = `Break-even point: ${Math.round(intersectionVCPU)} vCPUs`;
+                                intersectionDisplay.style.display = 'block';
+                            }
+                            else
+                            {
+                                intersectionDisplay.textContent = '';
+                                intersectionDisplay.style.display = 'none';
+                            }
+                        }
+                    }
+
+                    function enforceStaffConstraints(changedSlider)
+                    {
+                        const hetznerSlider = document.getElementById('hetznerStaff');
+                        const awsSlider = document.getElementById('awsStaff');
+                        const hetznerValue = parseInt(hetznerSlider.value);
+                        const awsValue = parseInt(awsSlider.value);
+                        if (changedSlider === 'hetzner')
+                        {
+                            // If Hetzner < AWS, reduce AWS to match Hetzner
+                            if (hetznerValue < awsValue)
+                            {
+                                awsSlider.value = hetznerValue;
+                            }
+                        }
+                        else if (changedSlider === 'aws')
+                        {
+                            // If AWS > Hetzner, increase Hetzner to match AWS (maximum 15)
+                            if (awsValue > hetznerValue)
+                            {
+                                hetznerSlider.value = Math.min(15, awsValue);
+                            }
+                        }
+                    }
+
+                    function formatSalary(salary)
+                    {
+                        if (salary >= 1000)
+                        {
+                            return `$${Math.round(salary / 1000)}k`;
+                        }
+                        else
+                        {
+                            return `$${salary}`;
+                        }
+                    }
+
+                    function updateLabels()
+                    {
+                        const hetznerStaff = document.getElementById('hetznerStaff').value;
+                        const awsStaff = document.getElementById('awsStaff').value;
+                        const salary = parseInt(document.getElementById('engineerSalary').value);
+                        document.getElementById('hetznerStaffValue').textContent = hetznerStaff;
+                        document.getElementById('awsStaffValue').textContent = awsStaff;
+                        document.getElementById('salaryValue').textContent = formatSalary(salary);
+                    }
+                    // Initialize when page loads
+                    document.addEventListener('DOMContentLoaded', function ()
+                    {
+                        // Check initial dark mode state
+                        checkDarkMode();
+                        // Initialize chart
+                        initChart();
+                        updateLabels();
+                        calculateTCO();
+                        // Add event listeners to sliders with constraints
+                        document.getElementById('hetznerStaff').addEventListener('input', function ()
+                        {
+                            enforceStaffConstraints('hetzner');
+                            updateLabels();
+                            calculateTCO();
+                        });
+                        document.getElementById('awsStaff').addEventListener('input', function ()
+                        {
+                            enforceStaffConstraints('aws');
+                            updateLabels();
+                            calculateTCO();
+                        });
+                        document.getElementById('engineerSalary').addEventListener('input', function ()
+                        {
+                            updateLabels();
+                            calculateTCO();
+                        });
+                        // Listen for dark mode toggle changes
+                        document.addEventListener('colorschemechange', function (e)
+                        {
+                            updateChartTheme();
+                        });
+                        // Fallback: listen for system dark mode changes if no toggle is present
+                        if (!document.querySelector('dark-mode-toggle'))
+                        {
+                            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function ()
+                            {
+                                updateChartTheme();
+                            });
+                        }
+                    });
+
+                </script>
+                <p>The interactive calculator above shows the 3-year TCO compared to the average monthly vCPUs. You can adjust the staffing levels and salary to match your specific situation and immediately see how the break-even point changes.</p>
+                <h2 id="operational-complexity"><a class="markdownIt-Anchor" href="#operational-complexity"></a> Operational Complexity</h2>
+                <p>To understand why the staffing ratios differ so dramatically, consider what each approach entails. <strong>AWS ECS Fargate</strong> requires defining task definitions, configuring basic networking (<strong>VPC</strong>, <strong>subnets</strong>, <strong>security groups</strong>), and connecting services to load balancers - typically manageable by 1-3 cloud engineers using tools like <strong>Terraform</strong>. The complexity is largely abstracted away by AWS.</p>
+                <p>Hetzner Kubernetes, in contrast, demands building a production-grade platform from the ground up. Teams must orchestrate server provisioning, install and configure Kubernetes itself (<strong>kubeadm</strong>, <strong>Cluster API</strong>), then deploy approximately 20+ critical<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Kubernetes Production Best Practices. *Cloud Native Computing Foundation (CNCF)*. Kubernetes Documentation, 2024. [https://kubernetes.io/docs/setup/production-environment/](https://kubernetes.io/docs/setup/production-environment/)">[6]</span></a></sup> supporting systems: networking solutions (<strong>Calico</strong>, <strong>Cilium</strong>), DNS resolution (<strong>CoreDNS</strong>), monitoring stack (<strong>Prometheus</strong>, <strong>Grafana</strong>), ingress controllers (<strong>NGINX</strong>, <strong>Traefik</strong>), certificate management (<strong>cert-manager</strong>), backup systems (<strong>Velero</strong>), GitOps tools (<strong>Argo CD</strong>, <strong>Flux</strong>), storage integration (<strong>CSI drivers</strong>, <strong>Ceph</strong>), security frameworks (<strong>RBAC</strong>, <strong>Falco</strong>), and service mesh options (<strong>Istio</strong>, <strong>Linkerd</strong>). Each component requires expertise in configuration, integration, updates, and troubleshooting.</p>
+                <p>This operational complexity difference - managing a complete platform ecosystem versus consuming managed services - explains why Hetzner typically requires more engineers compared to AWS. The learning curve alone can span months or years, particularly for complex distributed systems like <strong>Ceph</strong> storage clusters<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Ceph Storage Cluster Administration Guide. *Red Hat Ceph Storage*. Documentation, 2024. [https://docs.ceph.com/en/latest/](https://docs.ceph.com/en/latest/)
+">[9]</span></a></sup>.</p>
+                <h2 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h2>
+                <p>The choice between Hetzner Kubernetes and <strong>AWS ECS Fargate</strong> is fundamentally about trade-offs: infrastructure cost versus operational complexity, team size versus expertise requirements, and control versus convenience.</p>
+                <p>Our analysis reveals three distinct cost zones. Below approximately 700 vCPUs, <strong>AWS ECS Fargate</strong> typically delivers superior TCO due to its minimal operational overhead, allowing lean teams to focus on product development rather than infrastructure management. This makes it ideal for startups, digital agencies, and development environments where time-to-market and team efficiency are paramount.</p>
+                <p>In the middle zone (700-2,500 vCPUs), the decision becomes more nuanced. Factors beyond pure cost - such as compliance requirements, existing team expertise, and growth predictability - often determine the optimal choice. Companies in this range should carefully evaluate their specific circumstances using the interactive calculator provided in this analysis.</p>
+                <p>Above 2,000-2,500 vCPUs, Hetzner Kubernetes can deliver substantial cost savings despite requiring larger DevOps teams. However, this advantage only materializes for organizations with strong internal platform capabilities and predictable, high-volume workloads.</p>
+                <p>For most organizations, especially those prioritizing predictability, scalability, and reduced operational risk, <strong>AWS ECS Fargate</strong> represents the more pragmatic choice. The premium for managed services is often justified by reduced complexity, faster feature delivery, and lower overall risk. Hetzner Kubernetes should primarily be considered by large-scale operations with mature platform engineering capabilities and consistent, high-volume compute requirements where the infrastructure cost differential can offset the substantial operational overhead.</p>
+                <p>Ultimately, the decision should align with your organization’s core competencies: if infrastructure management enhances your competitive advantage, Hetzner may be worth the investment. If it’s merely a necessary cost center, AWS Fargate’s operational simplicity typically delivers superior business value.</p>
+                <h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
+                <div id="footnotes">
+                    <hr>
+                    <div id="footnotelist">
+                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
+                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hetzner Cloud Pricing. <em>Hetzner Cloud</em>. Accessed September 2025. <a target="_blank" rel="noopener" href="https://www.hetzner.com/cloud">https://www.hetzner.com/cloud</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">AWS Fargate Pricing. <em>Amazon Web Services</em>. Accessed September 2025. <a target="_blank" rel="noopener" href="https://aws.amazon.com/fargate/pricing/">https://aws.amazon.com/fargate/pricing/</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">DevOps Engineer Salary Survey 2024. <em>Stack Overflow</em>. Annual Developer Survey, 2024. <a target="_blank" rel="noopener" href="https://survey.stackoverflow.co/2024/">https://survey.stackoverflow.co/2024/</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Technology Salary Guide 2026. <em>Robert Half</em>. Technology and IT Compensation Trends, 2026. <a target="_blank" rel="noopener" href="https://www.roberthalf.com/us/en/insights/salary-guide/technology">https://www.roberthalf.com/us/en/insights/salary-guide/technology</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">DevOps Engineer Salary Guide. <em>Indeed</em>. Career Guide, 2024. <a target="_blank" rel="noopener" href="https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary">https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Kubernetes Production Best Practices. <em>Cloud Native Computing Foundation (CNCF)</em>. Kubernetes Documentation, 2024. <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/setup/production-environment/">https://kubernetes.io/docs/setup/production-environment/</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Total Cost of Ownership (TCO) Analysis Framework. <em>Gartner Research</em>. IT Cost Optimization Strategies, 2024.<a href="#fnref:7" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">AWS ECS Fargate Documentation. <em>Amazon Web Services</em>. Container Services Documentation, 2024. <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html">https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li>
+                            <li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Ceph Storage Cluster Administration Guide. <em>Red Hat Ceph Storage</em>. Documentation, 2024. <a target="_blank" rel="noopener" href="https://docs.ceph.com/en/latest/">https://docs.ceph.com/en/latest/</a><a href="#fnref:9" rev="footnote"> ↩</a></span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+        <p>
+            <a href="/atom.xml">
+                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
+                </svg>Source</a>
+        </p>
+    </footer>
+</body>
+
+</html>
