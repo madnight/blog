@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/hetzner-aws/</loc>
+    
+    <lastmod>2025-09-28T18:50:04.461Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/ads-cft/</loc>
     
     <lastmod>2025-09-28T18:40:30.563Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://beuke.org/profunctor-optics/</loc>
     
     <lastmod>2025-09-28T18:40:30.176Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/hetzner-aws/</loc>
-    
-    <lastmod>2025-09-28T18:26:47.249Z</lastmod>
     
   </url>
   
@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/bspwm-missing-docs/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/category/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -128,7 +121,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/coq-tutorial/</loc>
+    <loc>https://beuke.org/bspwm-missing-docs/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -136,6 +129,13 @@
   
   <url>
     <loc>https://beuke.org/disk-latency/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/coq-tutorial/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -163,13 +163,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/github-mirror/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -184,6 +177,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/github-mirror/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/hom-set/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monad/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -240,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
+    <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
