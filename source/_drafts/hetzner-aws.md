@@ -22,23 +22,23 @@ A Kubernetes cluster on Hetzner is considered to fall somewhere between traditio
 | Category                 | Hetzner Kubernetes                                                | AWS ECS Fargate                                                      |
 | ------------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
 | **VM/Compute (monthly)** | 2 vCPU + 4 GB: ~$6<br>4 vCPU + 8 GB: ~$17<br>8 vCPU + 16 GB: ~$33 | 2 vCPU + 4 GB: ~$55<br>4 vCPU + 8 GB: ~$110<br>8 vCPU + 16 GB: ~$210 |
-| **Staffing (annual)**    | 5–10 DevOps engineers, ~$500k–1,000k per year                     | 1–3 Cloud engineers, ~$100k–300k per year                            |
-| **3-Year Staffing TCO**  | ~$1.5M–3.0M                                                       | ~$300k–900k                                                          |
+| **Staffing (annual)**    | 5-10 DevOps engineers, ~$500k-1,000k per year                     | 1-3 Cloud engineers, ~$100k-300k per year                            |
+| **3-Year Staffing TCO**  | ~$1.5M-3.0M                                                       | ~$300k-900k                                                          |
 
 In addition to cloud VMs, Hetzner also offers dedicated servers. These provide substantially more compute at a lower per-vCPU cost but demand a much higher level of self-management and therefore more staff, as they lack even basic functionality such as snapshotting, backups, automatic provisioning through a CLI, or Kubernetes plugins.
 
-We assume a baseline of **100k for one DevOps/Cloud Engineer per year**. This number can vary greatly across different countries. It's possible to adjust the given numbers and do a recalculation with the interactive TCO calculator.
+We assume a baseline of **$100k for one DevOps/Cloud Engineer per year**. This number can vary greatly across different countries. It's possible to adjust the given numbers and do a recalculation with the interactive TCO calculator.
 
 ![](/images/tco.png)
 
 The choice between Hetzner Kubernetes and AWS ECS Fargate depends heavily on your team size, operational expertise, and scale. Here are three representative scenarios:
 
 ### **Scenario 1: AWS ECS Fargate Wins** 
-*Small to Medium Applications (< 800 vCPUs)*
+*Small to Medium Applications (< 700 vCPUs)*
 
 **Example Setup:** 2 Hetzner DevOps engineers vs. 1 AWS Cloud engineer at $100k salary
-**Break-even point:** ~666 vCPUs
-**AWS advantage:** Below 666 vCPUs, significantly lower total cost
+**Break-even point:** ~700 vCPUs
+**AWS advantage:** Below 700 vCPUs, significantly lower total cost
 
 **Real-world applications:**
 - **Early-stage SaaS companies** with 10-50k users running web applications, APIs, and databases
@@ -50,7 +50,7 @@ The choice between Hetzner Kubernetes and AWS ECS Fargate depends heavily on you
 **Why AWS wins:** The operational simplicity means you can run lean teams focused on product development rather than infrastructure management. The higher per-vCPU cost is offset by dramatically reduced staffing needs.
 
 ### **Scenario 2: It's a Close Call**
-*Medium to Large Applications (800-2,500 vCPUs)*
+*Medium to Large Applications (700-2,500 vCPUs)*
 
 **Example Setup:** 5 Hetzner DevOps engineers vs. 3 AWS Cloud engineers at $100k salary
 **Break-even point:** ~1,333 vCPUs
@@ -63,7 +63,7 @@ The choice between Hetzner Kubernetes and AWS ECS Fargate depends heavily on you
 - **Healthcare platforms** balancing cost with regulatory compliance
 - **Mid-size enterprises** modernizing legacy applications
 
-**Key considerations:** In this range, factors beyond pure cost become crucial—team expertise, security requirements, compliance needs, and growth predictability often determine the winner.
+**Key considerations:** In this range, factors beyond pure cost become crucial - team expertise, security requirements, compliance needs, and growth predictability often determine the winner.
 
 ### **Scenario 3: Hetzner Kubernetes Wins**
 *Large-scale Applications (> 2,500 vCPUs)*
@@ -81,16 +81,6 @@ The choice between Hetzner Kubernetes and AWS ECS Fargate depends heavily on you
 - **Media streaming services** handling video transcoding and content delivery
 
 **Why Hetzner wins:** At scale, the infrastructure cost difference becomes so significant that even larger DevOps teams are justified. Companies at this level typically already have strong internal platform capabilities.
-
-### **Key Decision Framework**
-
-Use this framework to determine your optimal choice:
-
-- **Team Capability**: Do you have experienced DevOps engineers who can manage Kubernetes complexity?
-- **Scale Predictability**: Are your compute needs consistent and growing, or highly variable?
-- **Time to Market**: How quickly do you need to ship features vs. optimize infrastructure costs?
-- **Compliance Requirements**: Do you need specific control over your infrastructure stack?
-- **Growth Stage**: Are you optimizing for rapid iteration or operational efficiency?
 
 ## Total Cost of Ownership Calculator 
 
@@ -123,16 +113,6 @@ In order to do your own calculation, please use the TCO calculator below.
   border-color: var(--border-dark);
 }
 
-.tco-calculator h4 {
-  color: var(--text-light);
-  margin-top: 0;
-  transition: color 0.3s ease;
-}
-
-.tco-calculator.dark-mode h4 {
-  color: var(--text-dark);
-}
-
 .tco-calculator label {
   font-weight: bold;
   display: block;
@@ -147,7 +127,8 @@ In order to do your own calculation, please use the TCO calculator below.
 
 .tco-calculator input[type="range"] {
   width: 100%;
-  margin-bottom: 10px;
+  margin: 0;
+  padding: 10px 0;
   accent-color: #4ecdc4;
   height: 6px;
   -webkit-appearance: none;
@@ -155,6 +136,10 @@ In order to do your own calculation, please use the TCO calculator below.
   border-radius: 3px;
   background: #ddd;
   outline: none;
+}
+
+.tco-calculator.dark-mode input[type="range"] {
+  background: #4a5568;
 }
 
 .tco-calculator input[type="range"]::-webkit-slider-thumb {
@@ -167,6 +152,10 @@ In order to do your own calculation, please use the TCO calculator below.
   cursor: pointer;
 }
 
+.tco-calculator.dark-mode input[type="range"]::-webkit-slider-thumb {
+  background: #66d9d1;
+}
+
 .tco-calculator input[type="range"]::-moz-range-thumb {
   height: 20px;
   width: 20px;
@@ -174,6 +163,10 @@ In order to do your own calculation, please use the TCO calculator below.
   background: #4ecdc4;
   cursor: pointer;
   border: none;
+}
+
+.tco-calculator.dark-mode input[type="range"]::-moz-range-thumb {
+  background: #66d9d1;
 }
 
 .tco-calculator #tcoChart {
@@ -210,19 +203,36 @@ In order to do your own calculation, please use the TCO calculator below.
   grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;
   margin-bottom: 20px;
-  align-items: end;
+  align-items: start;
 }
 
 .tco-grid > div {
   display: flex;
   flex-direction: column;
+  min-height: 80px;
 }
 
 .tco-grid label {
   margin-bottom: 8px;
-  min-height: 20px;
+  min-height: 24px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  line-height: 1.2;
+}
+
+.tco-grid label span {
+  font-weight: normal;
+  color: var(--text-light);
+  margin-left: 8px;
+  min-width: 50px;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tco-calculator.dark-mode .tco-grid label span {
+  color: var(--text-dark);
 }
 
 @media (max-width: 768px) {
@@ -233,9 +243,7 @@ In order to do your own calculation, please use the TCO calculator below.
 }
 </style>
 
-<div class="tco-calculator" id="tcoCalculator">
-  <h4>Interactive TCO Calculator</h4>
-  
+<div class="tco-calculator" id="tcoCalculator">  
   <div class="tco-grid">
     <div>
       <label for="hetznerStaff">Hetzner DevOps Engineers: <span id="hetznerStaffValue">7</span></label>
@@ -248,7 +256,7 @@ In order to do your own calculation, please use the TCO calculator below.
     </div>
     
     <div>
-      <label for="engineerSalary">Engineer Salary (USD): <span id="salaryValue">$100,000</span></label>
+      <label for="engineerSalary">Engineer Salary (USD): <span id="salaryValue">$100k</span></label>
       <input type="range" id="engineerSalary" min="10000" max="500000" value="100000" step="5000">
     </div>
   </div>
@@ -260,7 +268,7 @@ In order to do your own calculation, please use the TCO calculator below.
   <div id="intersectionPoint"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
 <script>
 let tcoChart;
 let isDarkMode = false;
@@ -462,13 +470,10 @@ function calculateTCO() {
   
   // Display intersection point
   const intersectionDisplay = document.getElementById('intersectionPoint');
-  console.log(`Hetzner: ${hetznerStaff}, AWS: ${awsStaff}, Salary: ${engineerSalary}`);
-  console.log(`Intersection calculation: staffCostDiff=${staffCostDiff}, vcpuCostDiff=${vcpuCostDiff}, intersectionVCPU=${intersectionVCPU}`);
-  console.log('Element found:', intersectionDisplay ? 'Yes' : 'No');
   
   if (intersectionDisplay) {
     if (intersectionVCPU > 0) {
-      intersectionDisplay.textContent = `Break-even point: ${intersectionVCPU.toFixed(1)} vCPUs`;
+      intersectionDisplay.textContent = `Break-even point: ${Math.round(intersectionVCPU)} vCPUs`;
       intersectionDisplay.style.display = 'block';
     } else {
       intersectionDisplay.textContent = '';
@@ -496,6 +501,14 @@ function enforceStaffConstraints(changedSlider) {
   }
 }
 
+function formatSalary(salary) {
+  if (salary >= 1000) {
+    return `$${Math.round(salary / 1000)}k`;
+  } else {
+    return `$${salary}`;
+  }
+}
+
 function updateLabels() {
   const hetznerStaff = document.getElementById('hetznerStaff').value;
   const awsStaff = document.getElementById('awsStaff').value;
@@ -503,7 +516,7 @@ function updateLabels() {
   
   document.getElementById('hetznerStaffValue').textContent = hetznerStaff;
   document.getElementById('awsStaffValue').textContent = awsStaff;
-  document.getElementById('salaryValue').textContent = `$${salary.toLocaleString()}`;
+  document.getElementById('salaryValue').textContent = formatSalary(salary);
 }
 
 // Initialize when page loads
@@ -536,7 +549,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Listen for dark mode toggle changes
   document.addEventListener('colorschemechange', function(e) {
-    console.log(`Color scheme changed to ${e.detail.colorScheme}`);
     updateChartTheme();
   });
   
@@ -552,16 +564,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 The interactive calculator above shows the 3-year TCO compared to the average monthly vCPUs. You can adjust the staffing levels and salary to match your specific situation and immediately see how the break-even point changes.
 
+## Operational Complexity
+
+To understand why the staffing ratios differ so dramatically, consider what each approach entails. **AWS ECS Fargate** requires defining task definitions, configuring basic networking (**VPC**, **subnets**, **security groups**), and connecting services to load balancers - typically manageable by 1-3 cloud engineers using tools like **Terraform**. The complexity is largely abstracted away by AWS.
+
+Hetzner Kubernetes, in contrast, demands building a production-grade platform from the ground up. Teams must orchestrate server provisioning, install and configure Kubernetes itself (**kubeadm**, **Cluster API**), then deploy approximately 20+ critical supporting systems: networking solutions (**Calico**, **Cilium**), DNS resolution (**CoreDNS**), monitoring stack (**Prometheus**, **Grafana**), ingress controllers (**NGINX**, **Traefik**), certificate management (**cert-manager**), backup systems (**Velero**), GitOps tools (**Argo CD**, **Flux**), storage integration (**CSI drivers**, **Ceph**), security frameworks (**RBAC**, **Falco**), and service mesh options (**Istio**, **Linkerd**). Each component requires expertise in configuration, integration, updates, and troubleshooting.
+
+This operational complexity difference - managing a complete platform ecosystem versus consuming managed services - explains why Hetzner typically requires more engineers compared to AWS. The learning curve alone can span months or years, particularly for complex distributed systems like **Ceph** storage clusters.
+
 ## Conclusion
 
 The choice between Hetzner Kubernetes and **AWS ECS Fargate** is fundamentally about trade-offs: infrastructure cost versus operational complexity, team size versus expertise requirements, and control versus convenience.
 
-Our analysis reveals three distinct cost zones. Below approximately 800 vCPUs, **AWS ECS Fargate** typically delivers superior TCO due to its minimal operational overhead, allowing lean teams to focus on product development rather than infrastructure management. This makes it ideal for startups, digital agencies, and development environments where time-to-market and team efficiency are paramount.
+Our analysis reveals three distinct cost zones. Below approximately 700 vCPUs, **AWS ECS Fargate** typically delivers superior TCO due to its minimal operational overhead, allowing lean teams to focus on product development rather than infrastructure management. This makes it ideal for startups, digital agencies, and development environments where time-to-market and team efficiency are paramount.
 
-In the middle zone (800-2,500 vCPUs), the decision becomes more nuanced. Factors beyond pure cost—such as compliance requirements, existing team expertise, and growth predictability—often determine the optimal choice. Companies in this range should carefully evaluate their specific circumstances using the interactive calculator provided in this analysis.
+In the middle zone (700-2,500 vCPUs), the decision becomes more nuanced. Factors beyond pure cost - such as compliance requirements, existing team expertise, and growth predictability - often determine the optimal choice. Companies in this range should carefully evaluate their specific circumstances using the interactive calculator provided in this analysis.
 
-Above 2,000-2,500 vCPUs, Hetzner Kubernetes can deliver substantial cost savings despite requiring larger DevOps teams. However, this advantage only materializes for organizations with strong internal platform capabilities and predictable, high-volume workloads. The operational complexity of managing **Kubernetes**, **Cilium** networking, **Ceph** storage, and the broader ecosystem of 20+ supporting components requires significant expertise and ongoing maintenance.
+Above 2,000-2,500 vCPUs, Hetzner Kubernetes can deliver substantial cost savings despite requiring larger DevOps teams. However, this advantage only materializes for organizations with strong internal platform capabilities and predictable, high-volume workloads.
 
-The staffing implications cannot be understated. For most organizations, especially those prioritizing predictability, scalability, and reduced operational risk, **AWS ECS Fargate** represents the more pragmatic choice. The premium for managed services is often justified by reduced complexity, faster feature delivery, and lower overall risk. Hetzner Kubernetes should primarily be considered by large-scale operations with mature platform engineering capabilities and consistent, high-volume compute requirements where the infrastructure cost differential can offset the substantial operational overhead.
+For most organizations, especially those prioritizing predictability, scalability, and reduced operational risk, **AWS ECS Fargate** represents the more pragmatic choice. The premium for managed services is often justified by reduced complexity, faster feature delivery, and lower overall risk. Hetzner Kubernetes should primarily be considered by large-scale operations with mature platform engineering capabilities and consistent, high-volume compute requirements where the infrastructure cost differential can offset the substantial operational overhead.
 
 Ultimately, the decision should align with your organization's core competencies: if infrastructure management enhances your competitive advantage, Hetzner may be worth the investment. If it's merely a necessary cost center, AWS Fargate's operational simplicity typically delivers superior business value.
