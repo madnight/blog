@@ -575,33 +575,38 @@ img, video, iframe, embed, object {
     box-sizing: border-box;
 }
 
-/* Ensure tables are responsive */
-table {
-    width: 100%;
-    table-layout: auto;
+/* Table container for horizontal scrolling - improves existing manual wrappers */
+div[style*="overflow-x:auto"], 
+.table-wrapper {
     overflow-x: auto;
-    display: block;
-    white-space: nowrap;
+    margin: 1rem 0;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
 }
 
-/* Fix table responsiveness on mobile */
-@media only screen and (max-width: 720px) {
-    table {
-        font-size: 0.9rem;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    
-    table, thead, tbody, th, td, tr {
-        display: block;
-        white-space: normal;
-    }
-    
-    tr {
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-    }
+/* Ensure tables in wrappers maintain proper display */
+div[style*="overflow-x:auto"] table,
+.table-wrapper table,
+.auto-table-wrapper table {
+    border-collapse: collapse;
+    margin: 0;
+}
+
+/* Auto-wrapped tables styling */
+.auto-table-wrapper {
+    overflow-x: auto;
+    margin: 1rem 0;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+}
+
+.auto-table-wrapper table {
+    margin: 0;
+    width: 100%;
 }
 
 /* Ensure long words break properly */

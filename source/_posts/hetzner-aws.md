@@ -375,10 +375,10 @@ function initChart() {
       plugins: {
         title: {
           display: true,
-          text: '3-Year TCO vs Average vCPUs: Hetzner Kubernetes vs AWS ECS Fargate',
+          text: '3-Year TCO Hetzner vs AWS',
           color: colors.textColor,
           font: {
-            size: 14,
+            size: 16,
             weight: 'bold'
           }
         },
