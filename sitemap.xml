@@ -163,6 +163,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/gauge-theory/</loc>
+    
+    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://beuke.org/github-mirror/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -177,13 +184,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/gauge-theory/</loc>
-    
-    <lastmod>2025-03-29T21:29:58.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://beuke.org/hom-set/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monad/</loc>
+    <loc>https://beuke.org/monads-in-python/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/monads-in-python/</loc>
+    <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
@@ -240,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
+    <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29T21:29:58.804Z</lastmod>
     
