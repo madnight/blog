@@ -608,20 +608,20 @@ Ultimately, the decision should align with your organization's core competencies
 
 ### References
 
-[^1]: Hetzner Cloud Pricing. *Hetzner Cloud*. Accessed September 2025. [https://www.hetzner.com/cloud](https://www.hetzner.com/cloud)
+[^1]: [Hetzner Cloud Pricing](https://www.hetzner.com/cloud). *Hetzner Cloud*. Accessed September 2025.
 
-[^2]: AWS Fargate Pricing. *Amazon Web Services*. Accessed September 2025. [https://aws.amazon.com/fargate/pricing/](https://aws.amazon.com/fargate/pricing/)
+[^2]: [AWS Fargate Pricing](https://aws.amazon.com/fargate/pricing/). *Amazon Web Services*. Accessed September 2025.
 
-[^3]: DevOps Engineer Salary Survey 2024. *Stack Overflow*. Annual Developer Survey, 2024. [https://survey.stackoverflow.co/2024/](https://survey.stackoverflow.co/2024/)
+[^3]: [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/). *Stack Overflow*. Annual Developer Survey, 2024.
 
-[^4]: Technology Salary Guide 2026. *Robert Half*. Technology and IT Compensation Trends, 2026. [https://www.roberthalf.com/us/en/insights/salary-guide/technology](https://www.roberthalf.com/us/en/insights/salary-guide/technology)
+[^4]: [Robert Half Technology Salary Guide](https://www.roberthalf.com/us/en/insights/salary-guide/technology). *Robert Half*. Technology and IT Compensation Trends, 2026.
 
-[^5]: DevOps Engineer Salary Guide. *Indeed*. Career Guide, 2024. [https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary](https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary)
+[^5]: [Indeed DevOps Engineer Salary Guide](https://www.indeed.com/career-advice/pay-salary/devops-engineer-salary). *Indeed*. Career Guide, 2024.
 
-[^6]: Kubernetes Production Best Practices. *Cloud Native Computing Foundation (CNCF)*. Kubernetes Documentation, 2024. [https://kubernetes.io/docs/setup/production-environment/](https://kubernetes.io/docs/setup/production-environment/)
+[^6]: [Kubernetes Production Environment Documentation](https://kubernetes.io/docs/setup/production-environment/). *Cloud Native Computing Foundation (CNCF)*. Kubernetes Documentation, 2024.
 
 [^7]: Total Cost of Ownership (TCO) Analysis Framework. *Gartner Research*. IT Cost Optimization Strategies, 2024.
 
-[^8]: AWS ECS Fargate Documentation. *Amazon Web Services*. Container Services Documentation, 2024. [https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html)
+[^8]: [AWS ECS Fargate Documentation](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html). *Amazon Web Services*. Container Services Documentation, 2024.
 
-[^9]: Ceph Storage Cluster Administration Guide. *Red Hat Ceph Storage*. Documentation, 2024. [https://docs.ceph.com/en/latest/](https://docs.ceph.com/en/latest/)
+[^9]: [Ceph Documentation](https://docs.ceph.com/en/latest/). *Red Hat Ceph Storage*. Documentation, 2024.
