@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
@@ -40,325 +39,325 @@
             //- fix for single quotes in pre blocks
             document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
         });
-
     </script>
     <script defer src="/js/table-wrapper.js"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
-<header>
+
+
+    <header>
     <nav>
+        
         <a href="/"> Home</a>
-        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
         <a href="/atom.xml"> RSS</a>
+        
         <a href="/about/"> About</a>
+        
     </nav>
-    <div class="title-con">
-        <div class="title-container">
-            <h1>beuke.org</h1>
-            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
-        </div>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
     </div>
+</div>
     <h2>A personal blog exploring computer science and theoretical physics</h2>
 </header>
 
-<body>
-    <main>
-        <article>
-            <section>
-                <div class="post-title"> Pronounceable Haskell Operators </div>
-                <div class="post-subtitle"> Pronounceable Names for Common Haskell Operators </div>
-                <div class="post-subsubtitle"> Posted on Aug 14 2018 ~ 2 min read</div>
-                <div class="post-subtitle-tags">
-                    <a href="/tags/haskell/">#haskell</a>  <a href="/tags/functional-programming/">#functional programming</a>  <a href="/tags/operators/">#operators</a>  </div>
-                <hr class="solid">
-            </section>
-            <div class"content">
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-                <p>(Just a) small collection of Haskell operators with some funny names for them. Haskell tutorials and discussions can sometimes be very dry, so lets “Put the fun back into computing” (distrowatch).</p>
-                <br>
-                <h2 id="tie-fighter"><a class="markdownIt-Anchor" href="#tie-fighter"></a> TIE fighter <*>
-                </h2>
-                <br>
-                <img style="width: 300px; float: left;" src="https://upload.wikimedia.org/wikipedia/en/d/d9/TIEfighter.jpg">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
-                        <td>Sequential application.</td>
-                    </tr>
-                </table>
-                <p><strong>Definition:</strong><br>
-                    <code>(<*>) :: f (a -> b) -> f a -> f b</code><br>
-                    <code>(<*>) = liftA2 id</code></p>
-                <p><strong>Example:</strong></p>
-                <div style="width: 400px;">
-                    <figure class="highlight">
-                        <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">[(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font> <font color="#87afaf"><*></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
-<font color="#afaf5f">[</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
-</font></pre>
-                    </figure>
-                    <p><strong>Other names: ap, apply</strong></p>
-                </div>
-                <p><br><br></p>
-                <h2 id="wedge-shaped-imperial-star-destroyer"><a class="markdownIt-Anchor" href="#wedge-shaped-imperial-star-destroyer"></a> Wedge-shaped Imperial Star Destroyer <|>
-                </h2>
-                <br>
-                <img style="width: 300px; float: left;" src="/images/imperial.jpg">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
-                        <td>Associative binary operation.</td>
-                    </tr>
-                </table>
-                <p><strong>Definition:</strong><br>
-                    <code>(<|>) :: f a -> f a -> f a</code><br>
-                    <code>(<|>) = (++)</code></p>
-                <p><strong>Example:</strong></p>
-                <div style="width: 100%;">
-                    <figure class="highlight">
-                        <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf"><|></font> <font color="#afaf5f">[</font>4<font color="#afaf5f">,</font>5<font color="#afaf5f">]</font>
-<font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>5<font color="#afaf5f">]</font>
-</font></pre>
-                    </figure>
-                </div>
-                <p><strong>Other names: or, alternative</strong></p>
-                <p><br> <br></p>
-                <h2 id="tie-bomber"><a class="markdownIt-Anchor" href="#tie-bomber"></a> TIE bomber <**>
-                </h2>
-                <br>
-                <img style="width: 300px; float: left;" src="/images/tie-bomber.jpg">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
-                        <td>A variant of <*> with arguments reversed.</*>
-                        </td>
-                    </tr>
-                </table>
-                <p><strong>Definition:</strong><br>
-                    <code>(<**>) :: f a -> f (a -> b) -> f b</code><br>
-                    <code>(<**>) = liftA2 (\a f -> f a)</code></p>
-                <p><strong>Example:</strong></p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf"><**></font> <font color="#afaf5f">[(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font>
-<font color="#afaf5f">[</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
-</font></pre>
-                </figure>
-                <p><br> <br></p>
-                <h2 id="right-fish"><a class="markdownIt-Anchor" href="#right-fish"></a> Right fish >=></h2>
-                <img style="width: 300px; float: left;" src="/images/right-fish.gif">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-62--61--62-">Control.Monad</a></td>
-                        <td>Left-to-right Kleisli composition of monads. </td>
-                    </tr>
-                </table>
-                <p><strong>Definition:</strong><br>
-                    <code>(>=>) :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)</code><br>
-                    <code>f >=> g = \x -> f x >>= g</code></p>
-                <p><strong>Example:</strong></p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>2 <font color="#87afaf">+</font><font color="#afaf5f">))</font> <font color="#87afaf">>=></font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>3 <font color="#87afaf">*</font><font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
-12
-</font></pre>
-                </figure>
-                <p><br> <br></p>
-                <h2 id="left-fish"><a class="markdownIt-Anchor" href="#left-fish"></a> Left fish</h2>
-                <img style="width: 300px; float: left;" src="/images/left-fish.gif">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-60--61--60-">Control.Monad</a></td>
-                        <td>(>=>), with arguments flipped.</td>
-                    </tr>
-                </table>
-                <p><code>(<=<) :: Monad m=> (b -> m c) -> (a -> m b) -> (a -> m c)</code><br>
-                    <code>(<=<)=flip (>=>)</code></p>
-                <p><strong>Example:</strong></p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>2 <font color="#87afaf">+</font><font color="#afaf5f">))</font> <font color="#87afaf"><=<</font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>3 <font color="#87afaf">*</font><font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
-8
-</font></pre>
-                </figure>
-                <p><br> <br></p>
-                <h2 id="right-pipe"><a class="markdownIt-Anchor" href="#right-pipe"></a> Right pipe >>></h2>
-                <img style="width: 300px; float: left;" src="/images/r-pipe.jpg">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Category.html#v:-62--62--62-">Control.Category</a></td>
-                        <td>Left-to-right composition.</td>
-                    </tr>
-                </table>
-                <p><code>(>>>) :: cat a b -> cat b c -> cat a c</code><br>
-                    <code>f >>> g = g . f</code></p>
-                <p><strong>Example:</strong></p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">((</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#87afaf">>>></font> <font color="#afaf5f">(</font><font color="#87afaf">+</font>3<font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
-7
-</font></pre>
-                </figure>
-                <p><br> <br></p>
-                <h2 id="left-pipe"><a class="markdownIt-Anchor" href="#left-pipe"></a> Left pipe .</h2>
-                <img style="width: 300px; float: left;" src="/images/l-pipe.jpg">
-                <table width="400px">
-                    <tr>
-                        <th>Package</th>
-                        <th>Module</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
-                        <td><a target="_blank" rel="noopener" href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Prelude.html#v:-46-">Prelude</a></td>
-                        <td>Right-to-left composition.</td>
-                    </tr>
-                </table>
-                <p><strong>Definition:</strong><br>
-                    <code>(.) :: (b -> c) -> (a -> b) -> a -> c</code><br>
-                    <code>(.) f g = \x -> f (g x)</code></p>
-                <p><strong>Example:</strong></p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">((</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#87afaf">.</font> <font color="#afaf5f">(</font><font color="#87afaf">+</font>3<font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
-10
-</font></pre>
-                </figure>
-                <p><br> <br></p>
-                <h1 id="operators-and-shenanigans-without-funny-names-yet"><a class="markdownIt-Anchor" href="#operators-and-shenanigans-without-funny-names-yet"></a> Operators and shenanigans without funny names, yet</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Notation</th>
-                            <th>Signature</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>>>=</td>
-                            <td>(>>=) :: Monad m => m a -> (a -> m b) -> m b</td>
-                            <td>bind</td>
-                        </tr>
-                        <tr>
-                            <td>>></td>
-                            <td>(>>) :: Monad m => m a -> m b -> m b</td>
-                            <td>then</td>
-                        </tr>
-                        <tr>
-                            <td>-></td>
-                            <td></td>
-                            <td>to</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <-< /td>
-                            <td></td>
-                            <td>bind</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <$>
-                            </td>
-                            <td>(<$>) :: Functor f => (a -> b) -> f a -> f b</td>
-                            <td>fmap</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <$< /td>
-                            <td>(<$) :: Functor f=> a -> f b -> f a</td>
-                            <td>map-replace by</td>
-                        </tr>
-                        <tr>
-                            <td>!!</td>
-                            <td>(!!) :: [a] -> Int -> a</td>
-                            <td>index</td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td></td>
-                            <td>strict</td>
-                        </tr>
-                        <tr>
-                            <td>++</td>
-                            <td>(++) :: [a] -> [a] -> [a]</td>
-                            <td>concat</td>
-                        </tr>
-                        <tr>
-                            <td>[]</td>
-                            <td>([]) :: [a]</td>
-                            <td>empty list</td>
-                        </tr>
-                        <tr>
-                            <td>:</td>
-                            <td>(😃 :: a -> [a] -> [a]</td>
-                            <td>cons</td>
-                        </tr>
-                        <tr>
-                            <td>::</td>
-                            <td></td>
-                            <td>of type</td>
-                        </tr>
-                        <tr>
-                            <td>|</td>
-                            <td>lambda</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>@</td>
-                            <td></td>
-                            <td>as</td>
-                        </tr>
-                        <tr>
-                            <td>~</td>
-                            <td></td>
-                            <td>lazy</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
-        <p>
-            <a href="/atom.xml">
-                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
-                </svg>Source</a>
-        </p>
-    </footer>
-</body>
 
+    <body>
+    <main>
+            <article>
+    <section>
+        <div class="post-title"> Pronounceable Haskell Operators </div>
+        <div class="post-subtitle"> Pronounceable Names for Common Haskell Operators </div>
+        <div class="post-subsubtitle"> Posted on
+        Aug 14 2018 ~
+        2 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/haskell/">#haskell</a> 
+        
+        <a href="/tags/functional-programming/">#functional programming</a> 
+        
+        <a href="/tags/operators/">#operators</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>(Just a) small collection of Haskell operators with some funny names for them. Haskell tutorials and discussions can sometimes be very dry, so lets “Put the fun back into computing” (distrowatch).</p>
+<br>
+<h2 id="tie-fighter"><a class="markdownIt-Anchor" href="#tie-fighter"></a> TIE fighter <*></h2>
+<br>
+<img style="width: 300px; float: left;" src="https://upload.wikimedia.org/wikipedia/en/d/d9/TIEfighter.jpg">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
+    <td>Sequential application.</td>
+  </tr>
+</table>
+<p><strong>Definition:</strong><br>
+<code>(<*>) :: f (a -> b) -> f a -> f b</code><br>
+<code>(<*>) = liftA2 id</code></p>
+<p><strong>Example:</strong></p>
+<div style="width: 400px;">
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">[(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font> <font color="#87afaf"><*></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
+<font color="#afaf5f">[</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
+</font></pre></figure>
+<p><strong>Other names: ap, apply</strong></p>
+</div>
+<p><br><br></p>
+<h2 id="wedge-shaped-imperial-star-destroyer"><a class="markdownIt-Anchor" href="#wedge-shaped-imperial-star-destroyer"></a> Wedge-shaped Imperial Star Destroyer <|></h2>
+<br>
+<img style="width: 300px; float: left;" src="/images/imperial.jpg">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
+    <td>Associative binary operation.</td>
+  </tr>
+</table>
+<p><strong>Definition:</strong><br>
+<code>(<|>) :: f a -> f a -> f a</code><br>
+<code>(<|>) = (++)</code></p>
+<p><strong>Example:</strong></p>
+<div style="width: 100%;">
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf"><|></font> <font color="#afaf5f">[</font>4<font color="#afaf5f">,</font>5<font color="#afaf5f">]</font>
+<font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>5<font color="#afaf5f">]</font>
+</font></pre></figure>
+</div>
+<p><strong>Other names: or, alternative</strong></p>
+<p><br> <br></p>
+<h2 id="tie-bomber"><a class="markdownIt-Anchor" href="#tie-bomber"></a> TIE bomber <**></h2>
+<br>
+<img style="width: 300px; float: left;" src="/images/tie-bomber.jpg">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Applicative.html#v:-60--42--62-">Control.Applicative</a></td>
+    <td>A variant of <*> with arguments reversed.</*></td>
+  </tr>
+</table>
+<p><strong>Definition:</strong><br>
+<code>(<**>) :: f a -> f (a -> b) -> f b</code><br>
+<code>(<**>) = liftA2 (\a f -> f a)</code></p>
+<p><strong>Example:</strong></p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf"><**></font> <font color="#afaf5f">[(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font>
+<font color="#afaf5f">[</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
+</font></pre></figure>
+<p><br> <br></p>
+<h2 id="right-fish"><a class="markdownIt-Anchor" href="#right-fish"></a> Right fish >=></h2>
+<img style="width: 300px; float: left;" src="/images/right-fish.gif">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-62--61--62-">Control.Monad</a></td>
+    <td>Left-to-right Kleisli composition of monads.
+    </td>
+  </tr>
+</table>
+<p><strong>Definition:</strong><br>
+<code>(>=>)       :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)</code><br>
+<code>f >=> g     = \x -> f x >>= g</code></p>
+<p><strong>Example:</strong></p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>2 <font color="#87afaf">+</font><font color="#afaf5f">))</font> <font color="#87afaf">>=></font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>3 <font color="#87afaf">*</font><font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
+12
+</font></pre></figure>
+<p><br> <br></p>
+<h2 id="left-fish"><a class="markdownIt-Anchor" href="#left-fish"></a> Left fish</h2>
+<img style="width: 300px; float: left;" src="/images/left-fish.gif">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Monad.html#v:-60--61--60-">Control.Monad</a></td>
+    <td>(>=>), with arguments flipped.</td>
+  </tr>
+</table>
+<p><code>(<=<)       :: Monad m => (b -> m c) -> (a -> m b) -> (a -> m c)</code><br>
+<code>(<=<)       = flip (>=>)</code></p>
+<p><strong>Example:</strong></p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>2 <font color="#87afaf">+</font><font color="#afaf5f">))</font> <font color="#87afaf"><=<</font> <font color="#afaf5f">(</font>pure <font color="#87afaf">.</font> <font color="#afaf5f">(</font>3 <font color="#87afaf">*</font><font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
+8
+</font></pre></figure>
+<p><br> <br></p>
+<h2 id="right-pipe"><a class="markdownIt-Anchor" href="#right-pipe"></a> Right pipe >>></h2>
+<img style="width: 300px; float: left;" src="/images/r-pipe.jpg">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Category.html#v:-62--62--62-">Control.Category</a></td>
+    <td>Left-to-right composition.</td>
+  </tr>
+</table>
+<p><code>(>>>) :: cat a b -> cat b c -> cat a c</code><br>
+<code>f >>> g = g . f</code></p>
+<p><strong>Example:</strong></p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">((</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#87afaf">>>></font> <font color="#afaf5f">(</font><font color="#87afaf">+</font>3<font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
+7
+</font></pre></figure>
+<p><br> <br></p>
+<h2 id="left-pipe"><a class="markdownIt-Anchor" href="#left-pipe"></a> Left pipe .</h2>
+<img style="width: 300px; float: left;" src="/images/l-pipe.jpg">
+<table width="400px">
+  <tr>
+    <th>Package</th>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://hackage.haskell.org/package/base-4.11.1.0">base</a></td>
+    <td><a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Prelude.html#v:-46-">Prelude</a></td>
+    <td>Right-to-left composition.</td>
+  </tr>
+</table>
+<p><strong>Definition:</strong><br>
+<code>(.) :: (b -> c) -> (a -> b) -> a -> c</code><br>
+<code>(.) f g = \x -> f (g x)</code></p>
+<p><strong>Example:</strong></p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">></font> <font color="#afaf5f">((</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#87afaf">.</font> <font color="#afaf5f">(</font><font color="#87afaf">+</font>3<font color="#afaf5f">))</font> <font color="#87afaf">$</font> 2
+10
+</font></pre></figure>
+<p><br> <br></p>
+<h1 id="operators-and-shenanigans-without-funny-names-yet"><a class="markdownIt-Anchor" href="#operators-and-shenanigans-without-funny-names-yet"></a> Operators and shenanigans without funny names, yet</h1>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Signature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>>>=</td>
+<td>(>>=) :: Monad m => m a -> (a -> m b) -> m b</td>
+<td>bind</td>
+</tr>
+<tr>
+<td>>></td>
+<td>(>>) :: Monad m => m a -> m b -> m b</td>
+<td>then</td>
+</tr>
+<tr>
+<td>-></td>
+<td></td>
+<td>to</td>
+</tr>
+<tr>
+<td><-</td>
+<td></td>
+<td>bind</td>
+</tr>
+<tr>
+<td><$></td>
+<td>(<$>) :: Functor f => (a -> b) -> f a -> f b</td>
+<td>fmap</td>
+</tr>
+<tr>
+<td><$</td>
+<td>(<$) :: Functor f => a -> f b -> f a</td>
+<td>map-replace by</td>
+</tr>
+<tr>
+<td>!!</td>
+<td>(!!) :: [a] -> Int -> a</td>
+<td>index</td>
+</tr>
+<tr>
+<td>!</td>
+<td></td>
+<td>strict</td>
+</tr>
+<tr>
+<td>++</td>
+<td>(++) :: [a] -> [a] -> [a]</td>
+<td>concat</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>([]) :: [a]</td>
+<td>empty list</td>
+</tr>
+<tr>
+<td>:</td>
+<td>(😃 :: a -> [a] -> [a]</td>
+<td>cons</td>
+</tr>
+<tr>
+<td>::</td>
+<td></td>
+<td>of type</td>
+</tr>
+<tr>
+<td>|</td>
+<td>lambda</td>
+<td></td>
+</tr>
+<tr>
+<td>@</td>
+<td></td>
+<td>as</td>
+</tr>
+<tr>
+<td>~</td>
+<td></td>
+<td>lazy</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+</article>
+
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
 </html>

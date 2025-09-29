@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
@@ -40,63 +39,86 @@
             //- fix for single quotes in pre blocks
             document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
         });
-
     </script>
     <script defer src="/js/table-wrapper.js"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
-<header>
+
+
+    <header>
     <nav>
+        
         <a href="/"> Home</a>
-        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
         <a href="/atom.xml"> RSS</a>
+        
         <a href="/about/"> About</a>
+        
     </nav>
-    <div class="title-con">
-        <div class="title-container">
-            <h1>beuke.org</h1>
-            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
-        </div>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
     </div>
+</div>
     <h2>A personal blog exploring computer science and theoretical physics</h2>
 </header>
 
-<body>
-    <main>
-        <article>
-            <section>
-                <div class="post-title"> The Missing Docs of Bspwm </div>
-                <div class="post-subtitle"> Bspwm as undocumented i3-gaps alternative </div>
-                <div class="post-subsubtitle"> Posted on Jun 23 2017 ~ 4 min read</div>
-                <div class="post-subtitle-tags">
-                    <a href="/tags/linux/">#linux</a>  <a href="/tags/bspwm/">#bspwm</a>  <a href="/tags/wm/">#wm</a>  <a href="/tags/ricing/">#ricing</a>  </div>
-                <hr class="solid">
-            </section>
-            <div class"content">
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-                <h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1>
-                <p>Although this post is about bspwm <ins>(b</ins>inary <ins>s</ins>pace <ins>p</ins>artitioning <ins>w</ins>indow <ins>m</ins>anager), lets start with <a target="_blank" rel="noopener" href="https://i3wm.org/">i3</a> and why I don’t use it, beside its excellent documentation. i3 is a tiling window window manager, started at as fork of <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/wmii">wmii</a>, written by <a target="_blank" rel="noopener" href="https://github.com/stapelberg">Micheal Stapelberg</a>. One popular feature of most tiling window managers, are visual gaps between application windows. The main problem of users who like gaps, is that i3 is lacking the gaps feature. Is this really a thing? Well just compare the <a target="_blank" rel="noopener" href="https://github.com/stapelberg/i3">i3 repository</a> with the <a target="_blank" rel="noopener" href="https://github.com/Airblader/i3">i3-gaps</a> fork. This fork only contains the missing gaps feature. Its hard to find a comparable fork on GitHub, that have such a major impact on the community, just by adding a tiny feature. Another indicator is the subreddit <a target="_blank" rel="noopener" href="https://www.reddit.com/r/unixporn/">/r/unixporn</a> with 64k subscribers. Many so called <em>nixers</em> and <em>ricers</em>, that are people who customize their Linux distribution, prefer the i3-gaps variant over stock i3. This leads to the simple question, why is the gaps feature not part of stock i3?</p>
-                <img src="/images/gaps.jpg" onclick="window.open(this.src)">
-                <p>The answer to that question is quiet simple. The creator and maintainer of i3 thinks that gaps are don’t serve any purpose<sup>[citation needed]</sup>. The reason why many people think otherwise vary, some people like the visual separation of their applications, others simply like the fancy look and some have a specific use case in mind. However, it seems that it is not possible to convince Michael to merge the i3-gaps fork maintained by <a target="_blank" rel="noopener" href="https://github.com/Airblader/">Airblader</a>.</p>
-                <p>Now the final conclusion could be, use i3-gaps and be happy with a fork of the most popular and well documented tiling window manager. But i3-gaps has its own problems. First of all it is not official supported, there might be bugs, there might be a problem with the gaps, there might be a missing gaps feature. Bspwm allows for a very fine granulated control over the gaps. They can be set dynamically and each gap (north, east, south, west) can be controlled individually. This can be useful, for instance if you want to have a permanent visual conky on one side of your screen. Not so with i3-gaps, its not supported and Airblader currently has no time to implement it, fair enough. - Lets switch to the second most popular tiling window manager bspwm with native gaps support.</p>
-                <h1 id="the-missing-docs"><a class="markdownIt-Anchor" href="#the-missing-docs"></a> The Missing Docs</h1>
-                <p><a target="_blank" rel="noopener" href="https://github.com/baskerville/bspwm">Bspwm</a> is a great alternative to i3-gaps, but unfortunately it lacks documentation. Not only that, the commands change over time, so that every guide and documentation will become outdated sooner or later. This leads to confusion about outdated bspwm configuration syntax, floating around all over the Internet and forcing to constantly update the own set of config, to handle breaking changes. There is a relatively small bspwm Arch Linux Wiki page, that describes some basic features, the <code>README.md</code> on GitHub and a manpage. Having a manpage is a big plus, but is insufficient without further documentation. The man page is there to describe the command line parameters, but there’s no introduction, no guide, no tutorial and no workflow. Airblader provides some basic config examples, but without description or context.</p>
-                <img src="/images/slant-bspwm-i3.jpg" onclick="window.open(this.src)">
-                <img src="/images/slant-bspwm-bad-docs.jpg" onclick="window.open(this.src)">
-                <p>Bspwm could be much more popular (see Slant screenshot above), if it would provide a good documentation, be it a set of markdown files, a PDF or a website. Therefore I decided to start a simple <a target="_blank" rel="noopener" href="https://madnight.github.io/bspwm/">documentation website for bswpm</a>, that is auto generated from the few available official resources. The advantage of this approach is, that in case of changes, the documentation page can be simply regenerated and therefore always stays up to date. Furthermore I added a <a target="_blank" rel="noopener" href="https://github.com/baskerville/bspwm/issues/645">corresponding GitHub Issue</a> that addresses this issue.</p>
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
-        <p>
-            <a href="/atom.xml">
-                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
-                </svg>Source</a>
-        </p>
-    </footer>
-</body>
 
+    <body>
+    <main>
+            <article>
+    <section>
+        <div class="post-title"> The Missing Docs of Bspwm </div>
+        <div class="post-subtitle"> Bspwm as undocumented i3-gaps alternative </div>
+        <div class="post-subsubtitle"> Posted on
+        Jun 23 2017 ~
+        4 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/linux/">#linux</a> 
+        
+        <a href="/tags/bspwm/">#bspwm</a> 
+        
+        <a href="/tags/wm/">#wm</a> 
+        
+        <a href="/tags/ricing/">#ricing</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1>
+<p>Although this post is about bspwm <ins>(b</ins>inary <ins>s</ins>pace <ins>p</ins>artitioning <ins>w</ins>indow <ins>m</ins>anager), lets start with <a href="https://i3wm.org/">i3</a> and why I don’t use it, beside its excellent documentation. i3 is a tiling window window manager, started at as fork of <a href="https://wiki.archlinux.org/index.php/wmii">wmii</a>, written by <a href="https://github.com/stapelberg">Micheal Stapelberg</a>. One popular feature of most tiling window managers, are visual gaps between application windows. The main problem of users who like gaps, is that i3 is lacking the gaps feature. Is this really a thing? Well just compare the <a href="https://github.com/stapelberg/i3">i3 repository</a> with the <a href="https://github.com/Airblader/i3">i3-gaps</a> fork. This fork only contains the missing gaps feature. Its hard to find a comparable fork on GitHub, that have such a major impact on the community, just by adding a tiny feature. Another indicator is the subreddit <a href="https://www.reddit.com/r/unixporn/">/r/unixporn</a> with 64k subscribers. Many so called <em>nixers</em> and <em>ricers</em>, that are people who customize their Linux distribution, prefer the i3-gaps variant over stock i3. This leads to the simple question, why is the gaps feature not part of stock i3?</p>
+<img src="/images/gaps.jpg" onclick="window.open(this.src)">
+<p>The answer to that question is quiet simple. The creator and maintainer of i3 thinks that gaps are don’t serve any purpose<sup>[citation needed]</sup>. The reason why many people think otherwise vary, some people like the visual separation of their applications, others simply like the fancy look and some have a specific use case in mind. However, it seems that it is not possible to convince Michael to merge the i3-gaps fork maintained by <a href="https://github.com/Airblader/">Airblader</a>.</p>
+<p>Now the final conclusion could be, use i3-gaps and be happy with a fork of the most popular and well documented tiling window manager. But i3-gaps has its own problems. First of all it is not official supported, there might be bugs, there might be a problem with the gaps, there might be a missing gaps feature. Bspwm allows for a very fine granulated control over the gaps. They can be set dynamically and each gap (north, east, south, west) can be controlled individually. This can be useful, for instance if you want to have a permanent visual conky on one side of your screen. Not so with i3-gaps, its not supported and Airblader currently has no time to implement it, fair enough. - Lets switch to the second most popular tiling window manager bspwm with native gaps support.</p>
+<h1 id="the-missing-docs"><a class="markdownIt-Anchor" href="#the-missing-docs"></a> The Missing Docs</h1>
+<p><a href="https://github.com/baskerville/bspwm">Bspwm</a> is a great alternative to i3-gaps, but unfortunately it lacks documentation. Not only that, the commands change over time, so that every guide and documentation will become outdated sooner or later. This leads to confusion about outdated bspwm configuration syntax, floating around all over the Internet and forcing to constantly update the own set of config, to handle breaking changes. There is a relatively small bspwm Arch Linux Wiki page, that describes some basic features, the <code>README.md</code> on GitHub and a manpage. Having a manpage is a big plus, but is insufficient without further documentation. The man page is there to describe the command line parameters, but there’s no introduction, no guide, no tutorial and no workflow. Airblader provides some basic config examples, but without description or context.</p>
+<img src="/images/slant-bspwm-i3.jpg" onclick="window.open(this.src)">
+<img src="/images/slant-bspwm-bad-docs.jpg" onclick="window.open(this.src)">
+<p>Bspwm could be much more popular (see Slant screenshot above), if it would provide a good documentation, be it a set of markdown files, a PDF or a website. Therefore I decided to start a simple <a href="https://madnight.github.io/bspwm/">documentation website for bswpm</a>, that is auto generated from the few available official resources. The advantage of this approach is, that in case of changes, the documentation page can be simply regenerated and therefore always stays up to date. Furthermore I added a <a href="https://github.com/baskerville/bspwm/issues/645">corresponding GitHub Issue</a> that addresses this issue.</p>
+
+    </div>
+</article>
+
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
 </html>

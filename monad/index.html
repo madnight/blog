@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
@@ -40,66 +39,77 @@
             //- fix for single quotes in pre blocks
             document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
         });
-
     </script>
     <script defer src="/js/table-wrapper.js"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
-<header>
+
+
+    <header>
     <nav>
+        
         <a href="/"> Home</a>
-        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
         <a href="/atom.xml"> RSS</a>
+        
         <a href="/about/"> About</a>
+        
     </nav>
-    <div class="title-con">
-        <div class="title-container">
-            <h1>beuke.org</h1>
-            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
-        </div>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
     </div>
+</div>
     <h2>A personal blog exploring computer science and theoretical physics</h2>
 </header>
 
-<body>
-    <main>
-        <article>
-            <section>
-                <div class="post-title"> Monad </div>
-                <div class="post-subtitle"> A Monoid in the Category of Endofunctors </div>
-                <div class="post-subsubtitle"> Posted on Jul 25 2023 ~ 6 min read</div>
-                <div class="post-subtitle-tags">
-                    <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/monads/">#monads</a>  <a href="/tags/abstract-algebra/">#abstract algebra</a>  </div>
-                <hr class="solid">
-            </section>
-            <div class"content">
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-                <script>
-                    MathJax = {
-                        loader:
-                        {
-                            load: ['[custom]/xypic.js'],
-                            paths:
-                            {
-                                custom: 'https://beuke.org/js'
-                            }
-                        },
-                        tex:
-                        {
-                            packages:
-                            {
-                                '[+]': ['xypic']
-                            }
-                        }
-                    };
 
-                </script>
-                <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
-                <script id="dark-toggle" src="/js/dark-toggle.js"></script>
-                <br>
-                <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
-                <div class="typeclass">
-                    <svg width="630pt" height="260pt" viewBox="0.00 0.00 630.25 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <body>
+    <main>
+            <article>
+    <section>
+        <div class="post-title"> Monad </div>
+        <div class="post-subtitle"> A Monoid in the Category of Endofunctors </div>
+        <div class="post-subsubtitle"> Posted on
+        Jul 25 2023 ~
+        6 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/category-theory/">#category theory</a> 
+        
+        <a href="/tags/abstract-algebra/">#abstract algebra</a> 
+        
+        <a href="/tags/monads/">#monads</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+<script>
+  MathJax = {
+    loader: {
+      load: ['[custom]/xypic.js'],
+      paths: {custom: 'https://beuke.org/js'}
+    },
+    tex: {
+      packages: {'[+]': ['xypic']}
+    }
+  };
+</script>
+
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+<script id="dark-toggle" src="/js/dark-toggle.js"></script>
+
+
+<br>
+<!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
+<div class="typeclass">
+<svg width="630pt" height="260pt" viewBox="0.00 0.00 630.25 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <!-- Functor -->
 <g id="node1" class="node">
@@ -340,361 +350,155 @@
 </g>
 </svg>
 
-                </div>
-                <br>
-                <p>A Monad is a triple <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mo stretchy="false">(</mo>
-                                        <mi>T</mi>
-                                        <mo separator="true">,</mo>
-                                        <mi>η</mi>
-                                        <mo separator="true">,</mo>
-                                        <mi>μ</mi>
-                                        <mo stretchy="false">)</mo>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">(T, \eta, \mu)</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">μ</span><span class="mclose">)</span></span></span></span> where:</p>
-                <ul>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>T</mi>
-                                            <mo>:</mo>
-                                            <mi mathvariant="script">C</mi>
-                                            <mo>→</mo>
-                                            <mi mathvariant="script">C</mi>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">T: \mathcal{C} \rightarrow \mathcal{C}</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> is an endofunctor</li>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>η</mi>
-                                            <mo>:</mo>
-                                            <msub>
-                                                <mn>1</mn>
-                                                <mi mathvariant="script">C</mi>
-                                            </msub>
-                                            <mo>→</mo>
-                                            <mi>T</mi>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\eta: 1_\mathcal{C} \rightarrow T</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> is a natural transformation (the unit)</li>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>μ</mi>
-                                            <mo>:</mo>
-                                            <mi>T</mi>
-                                            <mi>T</mi>
-                                            <mo>→</mo>
-                                            <mi>T</mi>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\mu: TT \rightarrow T</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> is another natural transformation (the multiplication)</li>
-                </ul>
-                <p>These must satisfy the following coherence conditions, known as the Monad laws:</p>
-                <ul>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>μ</mi>
-                                            <mo>∘</mo>
-                                            <mi>T</mi>
-                                            <mi>μ</mi>
-                                            <mo>=</mo>
-                                            <mi>μ</mi>
-                                            <mo>∘</mo>
-                                            <mi>μ</mi>
-                                            <mi>T</mi>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\mu \circ T\mu = \mu \circ \mu T</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> (associativity)</li>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>μ</mi>
-                                            <mo>∘</mo>
-                                            <mi>T</mi>
-                                            <mi>η</mi>
-                                            <mo>=</mo>
-                                            <mi>μ</mi>
-                                            <mo>∘</mo>
-                                            <mi>η</mi>
-                                            <mi>T</mi>
-                                            <mo>=</mo>
-                                            <msub>
-                                                <mn>1</mn>
-                                                <mi>T</mi>
-                                            </msub>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\mu \circ T\eta = \mu \circ \eta T = 1_T</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (left and right identity)</li>
-                </ul>
-                <p>This means that for any object <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>A</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">A</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi mathvariant="script">C</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span>, we have:</p>
-                <ul>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <msub>
-                                                <mi>μ</mi>
-                                                <mi>A</mi>
-                                            </msub>
-                                            <mo>∘</mo>
-                                            <mi>T</mi>
-                                            <mo stretchy="false">(</mo>
-                                            <msub>
-                                                <mi>μ</mi>
-                                                <mi>A</mi>
-                                            </msub>
-                                            <mo stretchy="false">)</mo>
-                                            <mo>=</mo>
-                                            <msub>
-                                                <mi>μ</mi>
-                                                <mi>A</mi>
-                                            </msub>
-                                            <mo>∘</mo>
-                                            <msub>
-                                                <mi>μ</mi>
-                                                <mrow>
-                                                    <mi>T</mi>
-                                                    <mo stretchy="false">(</mo>
-                                                    <mi>A</mi>
-                                                    <mo stretchy="false">)</mo>
-                                                </mrow>
-                                            </msub>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\mu_A \circ T(\mu_A) = \mu_A \circ \mu_{T(A)}</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">A</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span> (associativity)</li>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <msub>
-                                                <mi>μ</mi>
-                                                <mi>A</mi>
-                                            </msub>
-                                            <mo>∘</mo>
-                                            <mi>T</mi>
-                                            <mo stretchy="false">(</mo>
-                                            <msub>
-                                                <mi>η</mi>
-                                                <mi>A</mi>
-                                            </msub>
-                                            <mo stretchy="false">)</mo>
-                                            <mo>=</mo>
-                                            <msub>
-                                                <mi>μ</mi>
-                                                <mi>A</mi>
-                                            </msub>
-                                            <mo>∘</mo>
-                                            <msub>
-                                                <mi>η</mi>
-                                                <mrow>
-                                                    <mi>T</mi>
-                                                    <mo stretchy="false">(</mo>
-                                                    <mi>A</mi>
-                                                    <mo stretchy="false">)</mo>
-                                                </mrow>
-                                            </msub>
-                                            <mo>=</mo>
-                                            <mi>i</mi>
-                                            <msub>
-                                                <mi>d</mi>
-                                                <mrow>
-                                                    <mi>T</mi>
-                                                    <mo stretchy="false">(</mo>
-                                                    <mi>A</mi>
-                                                    <mo stretchy="false">)</mo>
-                                                </mrow>
-                                            </msub>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\mu_A \circ T(\eta_A) = \mu_A \circ \eta_{T(A)} = id_{T(A)}</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">A</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04964em;vertical-align:-0.3551999999999999em;"></span><span class="mord mathnormal">i</span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">A</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span> (left and right unit laws)</li>
-                </ul>
-                <p>We can rephrase these conditions using the subsequent commutative diagrams:</p>
-                <div class="splitscreen">
-                    <div class="left"> \begin{xy} \xymatrix{ TTT \ar[d]_{\mu T} \ar[r]^{T\mu} & TT \ar[d]^{\mu} \\ TT \ar[r]_{\mu} & T } \end{xy} </div>
-                    <div class="right"> \begin{xy} \xymatrix{ T \ar[d]_{\eta T} \ar[r]^{T\eta} \ar@{=}[dr] & TT \ar[d]^{\mu} \\ TT \ar[r]_{\mu} & T } \end{xy} </div>
-                </div>
-                <p>We can also write down the natural transformations in terms of their components. For each object <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>A</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">A</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi mathvariant="script">C</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mathcal{C}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span>, the unit is a morphism <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <msub>
-                                            <mi>η</mi>
-                                            <mi>A</mi>
-                                        </msub>
-                                        <mo>:</mo>
-                                        <mi>A</mi>
-                                        <mo>→</mo>
-                                        <mi>T</mi>
-                                        <mi>A</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\eta_{A} : A \rightarrow T A</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">A</span></span></span></span>, and the multiplication is a morphism <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <msub>
-                                            <mi>μ</mi>
-                                            <mi>A</mi>
-                                        </msub>
-                                        <mo>:</mo>
-                                        <mi>T</mi>
-                                        <mo stretchy="false">(</mo>
-                                        <mi>T</mi>
-                                        <mi>A</mi>
-                                        <mo stretchy="false">)</mo>
-                                        <mo>→</mo>
-                                        <mi>T</mi>
-                                        <mi>A</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mu_{A} : T(T A) \rightarrow T A</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">A</span></span></span></span>, such that the following diagrams commute:</p>
-                <div class="splitscreen">
-                    <div class="left"> \begin{xy} \xymatrix{ T(T(TA)) \ar[d]_{\mu TA} \ar[r]^{T\mu{(A)}} & T(TA) \ar[d]^{\mu{A}} \\ T(TA) \ar[r]_{\mu{A}} & TA } \end{xy} </div>
-                    <div class="right"> \begin{xy} \xymatrix{ TA \ar[d]_{\eta TA} \ar[r]^{T\eta{(A)}} \ar@{=}[dr] & T(TA) \ar[d]^{\mu{A}} \\ T(TA) \ar[r]_{\mu{A}} & TA } \end{xy} </div>
-                </div>
-                <p>An application of this concept is that monads provide a way to express computations (in terms of morphisms) that include additional structure or side-effects (captured by the endofunctor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>T</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">T</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>) in such a way that these computations can be chained together (via the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>μ</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mu</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span> natural transformation) and lifted over the monadic structure (via the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>η</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\eta</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span> natural transformation), and they do so in a way that is consistent (respecting the associativity and unit laws).</p>
-                <h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
-                <p>The Monad, by definition, requires us to implement two functions: the unit, which is called return in Haskell, where we just have to lift a value into the Monad (e.g., put a value into a list), and the multiplication <code>join</code>.</p>
-                <p>Haskell Definition of Monad (Interface)</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
+</div>
+<br>
+<p>A Monad is a triple <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>T</mi><mo separator="true">,</mo><mi>η</mi><mo separator="true">,</mo><mi>μ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(T, \eta, \mu)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">μ</span><span class="mclose">)</span></span></span></span> where:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:</mo><mi mathvariant="script">C</mi><mo>→</mo><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">T: \mathcal{C} \rightarrow \mathcal{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> is an endofunctor</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>:</mo><msub><mn>1</mn><mi mathvariant="script">C</mi></msub><mo>→</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">\eta: 1_\mathcal{C} \rightarrow T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> is a natural transformation (the unit)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>:</mo><mi>T</mi><mi>T</mi><mo>→</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">\mu: TT \rightarrow T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> is another natural transformation (the multiplication)</li>
+</ul>
+<p>These must satisfy the following coherence conditions, known as the Monad laws:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>∘</mo><mi>T</mi><mi>μ</mi><mo>=</mo><mi>μ</mi><mo>∘</mo><mi>μ</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">\mu \circ T\mu = \mu \circ \mu T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> (associativity)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>∘</mo><mi>T</mi><mi>η</mi><mo>=</mo><mi>μ</mi><mo>∘</mo><mi>η</mi><mi>T</mi><mo>=</mo><msub><mn>1</mn><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">\mu \circ T\eta = \mu \circ \eta T = 1_T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (left and right identity)</li>
+</ul>
+<p>This means that for any object <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">\mathcal{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span>, we have:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>A</mi></msub><mo>∘</mo><mi>T</mi><mo stretchy="false">(</mo><msub><mi>μ</mi><mi>A</mi></msub><mo stretchy="false">)</mo><mo>=</mo><msub><mi>μ</mi><mi>A</mi></msub><mo>∘</mo><msub><mi>μ</mi><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">\mu_A \circ T(\mu_A) = \mu_A \circ \mu_{T(A)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">A</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span> (associativity)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>A</mi></msub><mo>∘</mo><mi>T</mi><mo stretchy="false">(</mo><msub><mi>η</mi><mi>A</mi></msub><mo stretchy="false">)</mo><mo>=</mo><msub><mi>μ</mi><mi>A</mi></msub><mo>∘</mo><msub><mi>η</mi><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo></mrow></msub><mo>=</mo><mi>i</mi><msub><mi>d</mi><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">\mu_A \circ T(\eta_A) = \mu_A \circ \eta_{T(A)} = id_{T(A)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∘</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">A</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04964em;vertical-align:-0.3551999999999999em;"></span><span class="mord mathnormal">i</span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">A</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span> (left and right unit laws)</li>
+</ul>
+<p>We can rephrase these conditions using the subsequent commutative diagrams:</p>
+
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  TTT \ar[d]_{\mu T} \ar[r]^{T\mu} & TT \ar[d]^{\mu} \\
+  TT \ar[r]_{\mu} & T
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  T \ar[d]_{\eta T} \ar[r]^{T\eta} \ar@{=}[dr] & TT \ar[d]^{\mu} \\
+  TT \ar[r]_{\mu} & T
+}
+\end{xy}
+  </div>
+</div>
+
+<p>We can also write down the natural transformations in terms of their components. For each object <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">\mathcal{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span>, the unit is a morphism <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>η</mi><mi>A</mi></msub><mo>:</mo><mi>A</mi><mo>→</mo><mi>T</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">\eta_{A} : A \rightarrow T A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">A</span></span></span></span>, and the multiplication is a morphism <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>A</mi></msub><mo>:</mo><mi>T</mi><mo stretchy="false">(</mo><mi>T</mi><mi>A</mi><mo stretchy="false">)</mo><mo>→</mo><mi>T</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">\mu_{A} : T(T A) \rightarrow T A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">A</span></span></span></span>, such that the following diagrams commute:</p>
+
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  T(T(TA)) \ar[d]_{\mu TA} \ar[r]^{T\mu{(A)}} & T(TA) \ar[d]^{\mu{A}} \\
+  T(TA) \ar[r]_{\mu{A}} & TA
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  TA \ar[d]_{\eta TA} \ar[r]^{T\eta{(A)}} \ar@{=}[dr] & T(TA) \ar[d]^{\mu{A}} \\
+  T(TA) \ar[r]_{\mu{A}} & TA
+}
+\end{xy}
+  </div>
+</div>
+
+<p>An application of this concept is that monads provide a way to express computations (in terms of morphisms) that include additional structure or side-effects (captured by the endofunctor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>) in such a way that these computations can be chained together (via the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span> natural transformation) and lifted over the monadic structure (via the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span> natural transformation), and they do so in a way that is consistent (respecting the associativity and unit laws).</p>
+<h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
+<p>The Monad, by definition, requires us to implement two functions: the unit, which is called return in Haskell, where we just have to lift a value into the Monad (e.g., put a value into a list), and the multiplication <code>join</code>.</p>
+<p>Haskell Definition of Monad (Interface)</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
   <font color="#767676">--   ηx : A -> T A (unit)</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m a
 
   <font color="#767676">--   μx : T (T A) -> T A (multiplication)</font>
   <font color="#af87af">join</font>   <font color="#87afaf">::</font> m <font color="#afaf5f">(</font>m a<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m a
-</font></pre>
-                </figure>
-                <p>These have to obey the Monad laws:</p>
-                <!-- * $\text{join . join }$== $\text{join . fmap join}$  (associativity) -->
-                <!-- * $\text{join . return }$= $\text{id}$ = $\text{join . fmap return}$  (left and right idenity) -->
-                <!-- * `join . return  = id = join . fmap return` (left and right identiy) -->
-                <!-- * `join . join == join . fmap join`  (associativity) -->
-                <figure class="highlight">
-                    <pre><font face="monospace">join <font color="#87afaf">.</font> join <font color="#87afaf">==</font> join <font color="#87afaf">.</font> fmap join           <font color="#767676">-- associativity</font>
+</font></pre></figure>
+<p>These have to obey the Monad laws:</p>
+<!-- * $\text{join . join }$== $\text{join . fmap join}$  (associativity) -->
+<!-- * $\text{join . return }$= $\text{id}$ = $\text{join . fmap return}$  (left and right idenity) -->
+<!-- * `join . return  = id = join . fmap return` (left and right identiy) -->
+<!-- * `join . join == join . fmap join`  (associativity) -->
+<figure class="highlight"><pre><font face="monospace">join <font color="#87afaf">.</font> join <font color="#87afaf">==</font> join <font color="#87afaf">.</font> fmap join           <font color="#767676">-- associativity</font>
 join <font color="#87afaf">.</font> return <font color="#87afaf">==</font> id <font color="#87afaf">==</font> join <font color="#87afaf">.</font> fmap return <font color="#767676">-- left and right identiy</font>
-</font></pre>
-                </figure>
-                <p>We can now draw the commutative diagram for the Haskell definition of Monad:</p>
-                <div class="splitscreen">
-                    <div class="left"> \begin{xy} \xymatrix{ \text{m(m(m a))} \ar[d]_{\text{fmap join}} \ar[r]^{\text{join}} & \text{m(m a)} \ar[d]^{\text{join}} \\ \text{m(m a)} \ar[r]_{\text{join}} & \text{m a} } \end{xy} </div>
-                    <div class="right"> \begin{xy} \xymatrix{ \text{m a} \ar[d]_{\text{fmap return}} \ar[r]^{\text{return}} \ar@{=}[dr] & \text{m(m a)} \ar[d]^{\text{join}} \\ \text{m(m a)} \ar[r]_{\text{join}} & \text{m a} } \end{xy} </div>
-                </div>
-                <p>The definition of a monad given here is equivalent to the one we typically use in Haskell.</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
+</font></pre></figure>
+<p>We can now draw the commutative diagram for the Haskell definition of Monad:</p>
+
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  \text{m(m(m a))} \ar[d]_{\text{fmap join}} \ar[r]^{\text{join}} & \text{m(m a)} \ar[d]^{\text{join}} \\
+  \text{m(m a)} \ar[r]_{\text{join}} & \text{m a}
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  \text{m a} \ar[d]_{\text{fmap return}} \ar[r]^{\text{return}} \ar@{=}[dr] & \text{m(m a)} \ar[d]^{\text{join}} \\
+  \text{m(m a)} \ar[r]_{\text{join}} & \text{m a}
+}
+\end{xy}
+  </div>
+</div>
+
+<p>The definition of a monad given here is equivalent to the one we typically use in Haskell.</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Monad</font> m <font color="#87afaf">where</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> m a
    <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> m a <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> m b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> m b
-</font></pre>
-                </figure>
-                <p>We can easily define <code>>>=</code> with <code>join</code> and <code>fmap</code>.</p>
-                <figure class="highlight">
-                    <pre><font face="monospace">a <font color="#87afaf">>>=</font> f <font color="#87afaf">=</font> join <font color="#afaf5f">(</font>fmap f a<font color="#afaf5f">)</font>
-</font></pre>
-                </figure>
-                <p>This operation is called bind (or is sometimes refered to as flatMap). The bind function can be used if you need to operate on the lifted value before collapsing. We can also translate the other way around and define <code>join</code> in terms of <code>>>=</code> and <code>id</code>:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace">join a <font color="#87afaf">=</font> a <font color="#87afaf">>>=</font> id
-</font></pre>
-                </figure>
-                <p>Hence <code>join</code> is bind applied to the identity function. These two constructions are reverse to each other and they translate the monad laws correctly. Now we lets have a look at some concrete examples (instances of Monad).</p>
-                <p>An Instance of Monad, the List Monad</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
+</font></pre></figure>
+<p>We can easily define <code>>>=</code> with <code>join</code> and <code>fmap</code>.</p>
+<figure class="highlight"><pre><font face="monospace">a <font color="#87afaf">>>=</font> f <font color="#87afaf">=</font> join <font color="#afaf5f">(</font>fmap f a<font color="#afaf5f">)</font>
+</font></pre></figure>
+<p>This operation is called bind (or is sometimes refered to as flatMap). The bind function can be used if you need to operate on the lifted value before collapsing. We can also translate the other way around and define <code>join</code> in terms of <code>>>=</code> and <code>id</code>:</p>
+<figure class="highlight"><pre><font face="monospace">join a <font color="#87afaf">=</font> a <font color="#87afaf">>>=</font> id
+</font></pre></figure>
+<p>Hence <code>join</code> is bind applied to the identity function. These two constructions are reverse to each other and they translate the monad laws correctly. Now we lets have a look at some concrete examples (instances of Monad).</p>
+<p>An Instance of Monad, the List Monad</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> <font color="#afaf5f">[</font>a<font color="#afaf5f">]</font>
   return x <font color="#87afaf">=</font> <font color="#afaf5f">[</font>x<font color="#afaf5f">]</font>
 
   <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#afaf5f">[</font>a<font color="#afaf5f">]</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> <font color="#afaf5f">[</font>b<font color="#afaf5f">])</font> <font color="#87afaf">-></font> <font color="#afaf5f">[</font>b<font color="#afaf5f">]</font>
   xs <font color="#87afaf">>>=</font> f <font color="#87afaf">=</font> concat <font color="#afaf5f">(</font>map f xs<font color="#afaf5f">)</font>
-</font></pre>
-                </figure>
-                <!--  -->
-                <!-- <div class="splitscreen"> -->
-                <!--   <div class="left"> -->
-                <!-- \begin{xy} -->
-                <!-- \xymatrix{ -->
-                <!--   \texttt{m a} \ar[d]_{\texttt{fmap return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{m (m a)} \ar[d]^{\texttt{join}} \\ -->
-                <!--   \texttt{m (m a)} \ar[r]_{\texttt{join}} & \texttt{m a} -->
-                <!-- } -->
-                <!-- \end{xy} -->
-                <!--  -->
-                <!--   </div> -->
-                <!--   <div class="right"> -->
-                <!--  -->
-                <!-- \begin{xy} -->
-                <!-- \xymatrix{ -->
-                <!--   \texttt{[]} \ar[d]_{\texttt{return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{[[]]} \ar[d]^{\texttt{concat}} \\ -->
-                <!--   \texttt{[[]]} \ar[r]_{\texttt{concat}} & \texttt{[]} -->
-                <!-- } -->
-                <!-- \end{xy} -->
-                <!--   </div> -->
-                <!-- </div> -->
-                <!--  -->
-                <!-- You may encounter various names for *concat*, such as *flatten* or *flatMap* and *bind* in case we combine concat with map as in the list implementation of >>=. We can lift values into the structure or increase the nested level of the structure by one with *return* and we can reduce one level of the structure with *concat*. -->
-                <p>Another Instance, the Maybe Monad</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
+</font></pre></figure>
+<!--  -->
+<!-- <div class="splitscreen"> -->
+<!--   <div class="left"> -->
+<!-- \begin{xy} -->
+<!-- \xymatrix{ -->
+<!--   \texttt{m a} \ar[d]_{\texttt{fmap return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{m (m a)} \ar[d]^{\texttt{join}} \\ -->
+<!--   \texttt{m (m a)} \ar[r]_{\texttt{join}} & \texttt{m a} -->
+<!-- } -->
+<!-- \end{xy} -->
+
+<!--  -->
+<!--   </div> -->
+<!--   <div class="right"> -->
+<!--  -->
+<!-- \begin{xy} -->
+<!-- \xymatrix{ -->
+<!--   \texttt{[]} \ar[d]_{\texttt{return}} \ar[r]^{\texttt{return}} \ar@{=}[dr] & \texttt{[[]]} \ar[d]^{\texttt{concat}} \\ -->
+<!--   \texttt{[[]]} \ar[r]_{\texttt{concat}} & \texttt{[]} -->
+<!-- } -->
+<!-- \end{xy} -->
+<!--   </div> -->
+<!-- </div> -->
+<!--  -->
+<!-- You may encounter various names for *concat*, such as *flatten* or *flatMap* and *bind* in case we combine concat with map as in the list implementation of >>=. We can lift values into the structure or increase the nested level of the structure by one with *return* and we can reduce one level of the structure with *concat*. -->
+<p>Another Instance, the Maybe Monad</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Monad</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
   <font color="#af87af">return</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> <font color="#d7875f">Maybe</font> a
   return x  <font color="#87afaf">=</font> <font color="#d7875f">Just</font> x
 
@@ -702,11 +506,9 @@ join <font color="#87afaf">.</font> return <font color="#87afaf">==</font> i
   <font color="#afaf5f">(</font><font color="#87afaf">>>=</font><font color="#afaf5f">)</font> m g <font color="#87afaf">=</font> <font color="#87afd7">case</font> m <font color="#87afd7">of</font>
                  <font color="#d7875f">Nothing</font> <font color="#87afaf">-></font> <font color="#d7875f">Nothing</font>
                  <font color="#d7875f">Just</font> x  <font color="#87afaf">-></font> g x
-</font></pre>
-                </figure>
-                <p>All of the above is already implemented in the standard Haskell library, so you can simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>
-                <figure class="highlight">
-                    <pre><font face="monospace">ghci<font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> <font color="#afaf5f">[</font>x<font color="#afaf5f">,</font> x<font color="#87afaf">*</font>2<font color="#afaf5f">]</font>
+</font></pre></figure>
+<p>All of the above is already implemented in the standard Haskell library, so you can simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>
+<figure class="highlight"><pre><font face="monospace">ghci<font color="#87afaf">></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font> <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> <font color="#afaf5f">[</font>x<font color="#afaf5f">,</font> x<font color="#87afaf">*</font>2<font color="#afaf5f">]</font>
 <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>3<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
 
 ghci<font color="#87afaf">></font> <font color="#d7875f">Just</font> 3 <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>x <font color="#87afaf">-></font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>x<font color="#87afaf">*</font>2<font color="#afaf5f">)</font>
@@ -716,33 +518,26 @@ ghci<font color="#87afaf">></font> <font color="#d7875f">Just</font> 3 <font 
 ghci<font color="#87afaf">></font> getLine <font color="#87afaf">>>=</font> <font color="#87afaf">\</font>line <font color="#87afaf">-></font> putStrLn <font color="#afaf5f">(</font><font color="#afaf5f">"You said: "</font> <font color="#87afaf">++</font> line <font color="#87afaf">++</font> <font color="#afaf5f">"!"</font><font color="#afaf5f">)</font>
 <font color="#d7875f">Hi</font>
 <font color="#d7875f">You</font> said<font color="#87afaf">:</font> <font color="#d7875f">Hi</font><font color="#87afaf">!</font>
-</font></pre>
-                </figure>
-                <h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
-                <div id="footnotes">
-                    <hr>
-                    <div id="footnotelist">
-                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
-                            <li id="fn:0"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">0.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">The diagram displayed at the top of this post is a modified version of Brent Yorgey's <a target="_blank" rel="noopener" href="https://wiki.haskell.org/File:Typeclassopedia-diagram.png">Typeclassopedia diagram</a><a href="#fnref:0" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/monad#definition">Monad in ncatlab</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1912.10642.pdf">Notes on Category Theory by Paolo Perrone</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://wiki.haskell.org/Category_theory/Monads">Category theory/Monads</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
-        <p>
-            <a href="/atom.xml">
-                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
-                </svg>Source</a>
-        </p>
-    </footer>
-</body>
+</font></pre></figure>
+<h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:0"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">0.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">The diagram displayed at the top of this post is a modified version of Brent Yorgey's <a href="https://wiki.haskell.org/File:Typeclassopedia-diagram.png">Typeclassopedia diagram</a><a href="#fnref:0" rev="footnote"> ↩</a></span></li><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://ncatlab.org/nlab/show/monad#definition">Monad in ncatlab</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://arxiv.org/pdf/1912.10642.pdf">Notes on Category Theory by Paolo Perrone</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://wiki.haskell.org/Category_theory/Monads">Category theory/Monads</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+</article>
 
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
 </html>

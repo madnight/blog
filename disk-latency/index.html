@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
@@ -40,47 +39,62 @@
             //- fix for single quotes in pre blocks
             document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
         });
-
     </script>
     <script defer src="/js/table-wrapper.js"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
-<header>
+
+
+    <header>
     <nav>
+        
         <a href="/"> Home</a>
-        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
         <a href="/atom.xml"> RSS</a>
+        
         <a href="/about/"> About</a>
+        
     </nav>
-    <div class="title-con">
-        <div class="title-container">
-            <h1>beuke.org</h1>
-            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
-        </div>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
     </div>
+</div>
     <h2>A personal blog exploring computer science and theoretical physics</h2>
 </header>
 
-<body>
+
+    <body>
     <main>
-        <article>
-            <section>
-                <div class="post-title"> Disk Latency </div>
-                <div class="post-subtitle"> Measuring Disk Latency with ioping </div>
-                <div class="post-subsubtitle"> Posted on Mar 8 2021 ~ 5 min read</div>
-                <div class="post-subtitle-tags">
-                    <a href="/tags/storage/">#storage</a>  <a href="/tags/performance/">#performance</a>  <a href="/tags/benchmark/">#benchmark</a>  </div>
-                <hr class="solid">
-            </section>
-            <div class"content">
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-                <p>There are different kind of performance indicators for disks. The most commonly known is probably throughput. When you use a USB stick you will immediately notice if it’s USB 2.0 or 3.x in case of a GiB sized data transfer. Another important performance indicator for storage is IOPS. IOPS is the number of I/O operations that the disk can handle per second. For example, a typical 7200U SATA HDD has about 75 IOPS, while a Samsung SSD 850 PRO has about 100k IOPS<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Samsung SSD 850 PRO Specifications](https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/850pro/)
+            <article>
+    <section>
+        <div class="post-title"> Disk Latency </div>
+        <div class="post-subtitle"> Measuring Disk Latency with ioping </div>
+        <div class="post-subsubtitle"> Posted on
+        Mar 8 2021 ~
+        5 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/storage/">#storage</a> 
+        
+        <a href="/tags/performance/">#performance</a> 
+        
+        <a href="/tags/benchmark/">#benchmark</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>There are different kind of performance indicators for disks. The most commonly known is probably throughput. When you use a USB stick you will immediately notice if it’s USB 2.0 or 3.x in case of a GiB sized data transfer. Another important performance indicator for storage is IOPS. IOPS is the number of I/O operations that the disk can handle per second. For example, a typical 7200U SATA HDD has about 75 IOPS, while a Samsung SSD 850 PRO has about 100k IOPS<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Samsung SSD 850 PRO Specifications](https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/850pro/)
 ">[1]</span></a></sup>. You’ve probably noticed a significant performance boost after replacing your HDD with a SSD for your operating system.</p>
-                <p>To reach the maximum IOPS and throughput limits, the applications have to issue I/O requests with enough parallelism. If they don’t, well then disk latency becomes the bottleneck. Disk latency is the amount of time it takes to process a I/O transaction. It can be measured with a tool called ioping, which works very much like the ping tool for hosts.</p>
-                <h1 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h1>
-                <p>ioping is available for common Linux distributions and BSD.</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#767676"># Ubuntu/Debian</font>
+<p>To reach the maximum IOPS and throughput limits, the applications have to issue I/O requests with enough parallelism. If they don’t, well then disk latency becomes the bottleneck. Disk latency is the amount of time it takes to process a I/O transaction. It can be measured with a tool called ioping, which works very much like the ping tool for hosts.</p>
+<h1 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h1>
+<p>ioping is available for common Linux distributions and BSD.</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#767676"># Ubuntu/Debian</font>
 apt<font color="#87afaf">-</font>get install ioping
 
 <font color="#767676"># Arch</font>
@@ -94,13 +108,11 @@ brew install ioping
 
 <font color="#767676"># FreeBSD</font>
 pkg install ioping
-</font></pre>
-                </figure>
-                <p>If you are running on Windows you can download <a target="_blank" rel="noopener" href="https://github.com/koct9i/ioping/releases/download/v1.2/ioping-1.2-win32.zip">ioping-1.2-win32.zip</a> then unzip and run the ioping executable. In case your OS is not listed you can try to build ioping from source see: <a target="_blank" rel="noopener" href="https://github.com/koct9i/ioping">https://github.com/koct9i/ioping</a></p>
-                <h1 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h1>
-                <p>If you know how ping works, then you already know how to use ioping, just write the command and give it a directory path as argument. Here you can see an example run for the current directory:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace">ioping .
+</font></pre></figure>
+<p>If you are running on Windows you can download <a href="https://github.com/koct9i/ioping/releases/download/v1.2/ioping-1.2-win32.zip">ioping-1.2-win32.zip</a> then unzip and run the ioping executable. In case your OS is not listed you can try to build ioping from source see: <a href="https://github.com/koct9i/ioping">https://github.com/koct9i/ioping</a></p>
+<h1 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h1>
+<p>If you know how ping works, then you already know how to use ioping, just write the command and give it a directory path as argument. Here you can see an example run for the current directory:</p>
+<figure class="highlight"><pre><font face="monospace">ioping .
 4 KiB <<< . (ext4 /dev/dm-0 107.8 GiB): request=1 time=282.6 us (warmup)
 4 KiB <<< . (ext4 /dev/dm-0 107.8 GiB): request=2 time=855.6 us
 4 KiB <<< . (ext4 /dev/dm-0 107.8 GiB): request=3 time=871.1 us
@@ -112,96 +124,75 @@ pkg install ioping
 5 requests completed in 3.98 ms, 20 KiB read, 1.26 k iops, 4.91 MiB/s
 generated 6 requests in 5.20 s, 24 KiB, 1 iops, 4.62 KiB/s
 min/avg/max/mdev = 747.8 us / 795.7 us / 871.1 us / 55.5 us
-</font></pre>
-                </figure>
-                <p>As we can see the average response time for my SSD is about 800 us (0.8 ms), which results in 1260 sequential IOPS. Even though the SSD could achieve something like 100k IOPS in parallel, it can do only a little more than 1k IOPS on sequential request.</p>
-                <h1 id="results"><a class="markdownIt-Anchor" href="#results"></a> Results</h1>
-                <p>It’s also possible to ping RAM in case it’s mounted on <code>/tmp</code>, which is the default case under many linux distributions. If you want to ping the memory 10 times run <code>ioping -c 10 /tmp</code>. I did that for RAM and some other devices and collected the results in the following table:</p>
-                <div style="overflow-x:auto;">
-                    <center>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Device</th>
-                                    <th style="text-align:center">Latency</th>
-                                    <th style="text-align:center">IOPS</th>
-                                    <th style="text-align:center">Note</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>RAM</td>
-                                    <td style="text-align:center">22 us</td>
-                                    <td style="text-align:center">48000</td>
-                                    <td style="text-align:center">DDR3 1600MHz (PC3L 12800S)</td>
-                                </tr>
-                                <tr>
-                                    <td>SSD</td>
-                                    <td style="text-align:center">796 us</td>
-                                    <td style="text-align:center">1240</td>
-                                    <td style="text-align:center">TOSHIBA THNSNJ12</td>
-                                </tr>
-                                <tr>
-                                    <td>iSCSI</td>
-                                    <td style="text-align:center">1.5 ms</td>
-                                    <td style="text-align:center">649</td>
-                                    <td style="text-align:center">Hetzner Cloud Storage (Ceph block device)</td>
-                                </tr>
-                                <tr>
-                                    <td>HDD</td>
-                                    <td style="text-align:center">14 ms</td>
-                                    <td style="text-align:center">73</td>
-                                    <td style="text-align:center">HGST HTS725050A7</td>
-                                </tr>
-                                <tr>
-                                    <td>SSHFS</td>
-                                    <td style="text-align:center">26 ms</td>
-                                    <td style="text-align:center">40</td>
-                                    <td style="text-align:center">Hetzner VPS (20 ms network ping)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </center>
-                </div>
-                <p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>t</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">t</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span>, whereas <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>t</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">t</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> is latency in seconds.</p>
-                <p>We can conclude that I/O latency plays an important role for many applications, because I/O operations often happen to be sequential. This is similar to the importance of single-thread performance in a multi-core CPU architecture. While it is good to have many cores available, the single-thread performance of each core is still very relevant for the overall CPU speed in practice. The reason for that is that many applications runs single-threaded, like all coreutils except for sort<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Decoded: GNU coreutils](http://maizure.org/projects/decoded-gnu-coreutils/)">[2]</span></a></sup>, and can only utilize one core at a time.</p>
-                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
-                <div id="footnotes">
-                    <hr>
-                    <div id="footnotelist">
-                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
-                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/850pro/">Samsung SSD 850 PRO Specifications</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="http://maizure.org/projects/decoded-gnu-coreutils/">Decoded: GNU coreutils</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
-        <p>
-            <a href="/atom.xml">
-                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
-                </svg>Source</a>
-        </p>
-    </footer>
-</body>
+</font></pre></figure>
+<p>As we can see the average response time for my SSD is about 800 us (0.8 ms), which results in 1260 sequential IOPS. Even though the SSD could achieve something like 100k IOPS in parallel, it can do only a little more than 1k IOPS on sequential request.</p>
+<h1 id="results"><a class="markdownIt-Anchor" href="#results"></a> Results</h1>
+<p>It’s also possible to ping RAM in case it’s mounted on <code>/tmp</code>, which is the default case under many linux distributions. If you want to ping the memory 10 times run <code>ioping -c 10 /tmp</code>. I did that for RAM and some other devices and collected the results in the following table:</p>
+<div style="overflow-x:auto;"><center>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th style="text-align:center">Latency</th>
+<th style="text-align:center">IOPS</th>
+<th style="text-align:center">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAM</td>
+<td style="text-align:center">22 us</td>
+<td style="text-align:center">48000</td>
+<td style="text-align:center">DDR3 1600MHz (PC3L 12800S)</td>
+</tr>
+<tr>
+<td>SSD</td>
+<td style="text-align:center">796 us</td>
+<td style="text-align:center">1240</td>
+<td style="text-align:center">TOSHIBA THNSNJ12</td>
+</tr>
+<tr>
+<td>iSCSI</td>
+<td style="text-align:center">1.5 ms</td>
+<td style="text-align:center">649</td>
+<td style="text-align:center">Hetzner Cloud Storage (Ceph block device)</td>
+</tr>
+<tr>
+<td>HDD</td>
+<td style="text-align:center">14 ms</td>
+<td style="text-align:center">73</td>
+<td style="text-align:center">HGST HTS725050A7</td>
+</tr>
+<tr>
+<td>SSHFS</td>
+<td style="text-align:center">26 ms</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">Hetzner VPS (20 ms network ping)</td>
+</tr>
+</tbody>
+</table>
+</center></div>
+<p>As we can see a fast SSD over network mount can easily beat a local HDD. The I/O latency for Hetzner Cloud Storage is about 1.5 ms. This tells us that their SSD based Ceph cluster must be in the same data center as the VPS, that makes sense. A mount over ssh with sshfs reveals that sshfs itself adds about 6 ms of latency on top of the network latency. Although the drive itself is a SSD, the network latency turns it into a very slow filesystem mount with about half the performance of a local HDD. It is possible to calculate sequential IOPS, since it follows from the latency with IOPS = 1/<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span>, whereas <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> is latency in seconds.</p>
+<p>We can conclude that I/O latency plays an important role for many applications, because I/O operations often happen to be sequential. This is similar to the importance of single-thread performance in a multi-core CPU architecture. While it is good to have many cores available, the single-thread performance of each core is still very relevant for the overall CPU speed in practice. The reason for that is that many applications runs single-threaded, like all coreutils except for sort<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Decoded: GNU coreutils](http://maizure.org/projects/decoded-gnu-coreutils/)">[2]</span></a></sup>, and can only utilize one core at a time.</p>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/850pro/">Samsung SSD 850 PRO Specifications</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://maizure.org/projects/decoded-gnu-coreutils/">Decoded: GNU coreutils</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+</article>
 
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
 </html>

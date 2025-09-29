@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
@@ -40,83 +39,91 @@
             //- fix for single quotes in pre blocks
             document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
         });
-
     </script>
     <script defer src="/js/table-wrapper.js"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
-<header>
+
+
+    <header>
     <nav>
+        
         <a href="/"> Home</a>
-        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
         <a href="/atom.xml"> RSS</a>
+        
         <a href="/about/"> About</a>
+        
     </nav>
-    <div class="title-con">
-        <div class="title-container">
-            <h1>beuke.org</h1>
-            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
-        </div>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
     </div>
+</div>
     <h2>A personal blog exploring computer science and theoretical physics</h2>
 </header>
 
-<body>
+
+    <body>
     <main>
-        <article>
-            <section>
-                <div class="post-title"> Applicative </div>
-                <div class="post-subtitle"> A Strong Lax Monoidal Functor </div>
-                <div class="post-subsubtitle"> Posted on Sep 8 2023 ~ 8 min read</div>
-                <div class="post-subtitle-tags">
-                    <a href="/tags/category-theory/">#category theory</a>  <a href="/tags/haskell/">#haskell</a>  </div>
-                <hr class="solid">
-            </section>
-            <div class"content">
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-                <script>
-                    MathJax = {
-                        loader:
-                        {
-                            load: ['[custom]/xypic.js'],
-                            paths:
-                            {
-                                custom: 'https://beuke.org/js'
-                            }
-                        },
-                        tex:
-                        {
-                            packages:
-                            {
-                                '[+]': ['xypic']
-                            }
-                        }
-                    };
+            <article>
+    <section>
+        <div class="post-title"> Applicative </div>
+        <div class="post-subtitle"> A Strong Lax Monoidal Functor </div>
+        <div class="post-subsubtitle"> Posted on
+        Sep 8 2023 ~
+        8 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/category-theory/">#category theory</a> 
+        
+        <a href="/tags/haskell/">#haskell</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+<script>
+  MathJax = {
+    loader: {
+      load: ['[custom]/xypic.js'],
+      paths: {custom: 'https://beuke.org/js'}
+    },
+    tex: {
+      packages: {'[+]': ['xypic']}
+    }
+  };
+</script>
 
-                </script>
-                <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
-                <script id="dark-toggle" src="/js/dark-toggle.js"></script>
-                <style>
-                    @media only screen and (max-width: 400px) {
-                        mjx-math {
-                            font-size: 0.9rem !important;
-                        }
-                    }
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-chtml-full.js"></script>
+<script id="dark-toggle" src="/js/dark-toggle.js"></script>
 
-                </style>
-                <!-- <aside> -->
-                <!--  -->
-                <!--   <dark-mode-toggle -->
-                <!--     id="dark-mode-toggle-1" -->
-                <!--     appearance="switch" -->
-                <!--     dark="Dark" -->
-                <!--     light="Light" -->
-                <!--     remember="Remember this" -->
-                <!--   ></dark-mode-toggle> -->
-                <!--  -->
-                <br>
-                <div class="typeclass">
-                    <svg width="623pt" height="260pt" viewBox="0.00 0.00 623.25 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>
+  @media only screen and (max-width: 400px) {
+    mjx-math {
+        font-size: 0.9rem !important;
+    }
+  }
+</style>
+
+<!-- <aside> -->
+<!--  -->
+<!--   <dark-mode-toggle -->
+<!--     id="dark-mode-toggle-1" -->
+<!--     appearance="switch" -->
+<!--     dark="Dark" -->
+<!--     light="Light" -->
+<!--     remember="Remember this" -->
+<!--   ></dark-mode-toggle> -->
+<!--  -->
+<br>
+<div class="typeclass">
+<svg width="623pt" height="260pt" viewBox="0.00 0.00 623.25 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <!-- Functor -->
 <g id="node1" class="node">
@@ -357,477 +364,329 @@
 </g>
 </svg>
 
-                </div>
-                <br>
-                <!-- <object type="image/svg+xml" data="/images/applicative.svg"></object> -->
-                <!-- <use xlink:href="/images/applicative.svg"></use> -->
-                <!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
-                <!-- <br> -->
-                <p>An applicative, in category theory, is a lax monoidal <a href="/functor">functor</a> with tensorial strength. In the following, we will present the definition as an endofunctor, since the concept has its origin in the context of functional programming where every functor is an endofunctor.</p>
-                <p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mo stretchy="false">(</mo>
-                                        <mi mathvariant="script">C</mi>
-                                        <mo separator="true">,</mo>
-                                        <mo>⊗</mo>
-                                        <mo separator="true">,</mo>
-                                        <msub>
-                                            <mn>1</mn>
-                                            <mi mathvariant="script">C</mi>
-                                        </msub>
-                                        <mo stretchy="false">)</mo>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">(\mathcal{C}, \otimes, 1_{\mathcal{C}})</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">⊗</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> be a monoidal category. A lax monoidal endofunctor is a functor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi>F</mi>
-                                        <mo>:</mo>
-                                        <mi mathvariant="script">C</mi>
-                                        <mo>→</mo>
-                                        <mi mathvariant="script">C</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">F : \mathcal{C} \rightarrow \mathcal{C}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> together with two coherence maps:</p>
-                <ul>
-                    <li>
-                        <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                        <semantics>
-                                            <mrow>
-                                                <mi>η</mi>
-                                                <mo>:</mo>
-                                                <msub>
-                                                    <mn>1</mn>
-                                                    <mi mathvariant="script">C</mi>
-                                                </msub>
-                                                <mo>→</mo>
-                                                <mi>F</mi>
-                                                <mo stretchy="false">(</mo>
-                                                <msub>
-                                                    <mn>1</mn>
-                                                    <mi mathvariant="script">C</mi>
-                                                </msub>
-                                                <mo stretchy="false">)</mo>
-                                            </mrow>
-                                            <annotation encoding="application/x-tex">\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})</annotation>
-                                        </semantics>
-                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> (the unit morphism)</p>
-                    </li>
-                    <li>
-                        <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                        <semantics>
-                                            <mrow>
-                                                <msub>
-                                                    <mi>ϕ</mi>
-                                                    <mrow>
-                                                        <mi>A</mi>
-                                                        <mo separator="true">,</mo>
-                                                        <mi>B</mi>
-                                                    </mrow>
-                                                </msub>
-                                                <mo>:</mo>
-                                                <mi>F</mi>
-                                                <mi>A</mi>
-                                                <mo>⊗</mo>
-                                                <mi>F</mi>
-                                                <mi>B</mi>
-                                                <mo>→</mo>
-                                                <mi>F</mi>
-                                                <mo stretchy="false">(</mo>
-                                                <mi>A</mi>
-                                                <mo>⊗</mo>
-                                                <mi>B</mi>
-                                                <mo stretchy="false">)</mo>
-                                            </mrow>
-                                            <annotation encoding="application/x-tex">\phi_{A,B} : FA \otimes FB \rightarrow F(A \otimes B)</annotation>
-                                        </semantics>
-                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> (a <a href="/natural-transformation">natural transformation</a>)</p>
-                    </li>
-                </ul>
-                <p>such that the following diagrams commute:</p> \begin{xy} \xymatrix{ (FA\ \otimes\ FB)\ \otimes\ FC \ar[r]^{\alpha} \ar[d]_{\phi_{A,B}\ \otimes\ FC} & FA\ \otimes\ (FB\ \otimes\ FC) \ar[d]^{FA\ \otimes\ \phi_{B,C}} \\ F(A\ \otimes\ B)\ \otimes\ FC \ar[d]_{\phi_{A\ \otimes\ B,C}} & FA\ \otimes\ F(B\ \otimes\ C) \ar[d]^{\phi_{A,B\ \otimes\ C}} \\ F((A\ \otimes\ B)\ \otimes\ C) \ar[r]_{F_{\alpha}} & F(A\ \otimes\ (B\ \otimes\ C)) \\ } \end{xy} <div class="splitscreen">
-                    <div class="left"> \begin{xy} \xymatrix{ FA\ \otimes\ 1_{\mathcal{C}}\ar[d]_{\rho} \ar[r]^{FA\ \otimes\ \eta\ \ \ \ \ } & FA\ \otimes\ F(1_{\mathcal{C}}) \ar[d]^{\phi_{A,1_{\mathcal{C}}}} \\ FA & F(A\ \otimes\ 1_{\mathcal{C}}) \ar[l]_{F_{\rho}} } \end{xy} </div>
-                    <div class="right"> \begin{xy} \xymatrix{ 1_{\mathcal{C}}\ \otimes\ FB\ar[d]_{\lambda} \ar[r]^{\eta\ \otimes\ FB\ \ \ \ } & F(1_{\mathcal{C}})\ \otimes\ F\ B \ar[d]^{\phi_{1_{\mathcal{C},B}}} \\ FB & F(1_{\mathcal{C}}\ \otimes\ B) \ar[l]_{{F_{\lambda}}} } \end{xy} </div>
-                </div>
-                <p>The natural transformations:</p>
-                <ul>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>α</mi>
-                                            <mo>:</mo>
-                                            <mo stretchy="false">(</mo>
-                                            <mi>A</mi>
-                                            <mo>⊗</mo>
-                                            <mi>B</mi>
-                                            <mo stretchy="false">)</mo>
-                                            <mo>⊗</mo>
-                                            <mi>C</mi>
-                                            <mtext> </mtext>
-                                            <mo>→</mo>
-                                            <mi>A</mi>
-                                            <mo>⊗</mo>
-                                            <mo stretchy="false">(</mo>
-                                            <mi>B</mi>
-                                            <mo>⊗</mo>
-                                            <mi>C</mi>
-                                            <mo stretchy="false">)</mo>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\alpha : (A \otimes B) \otimes C\ \rightarrow A \otimes (B \otimes C)</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> (associativity)</li>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>ρ</mi>
-                                            <mo>:</mo>
-                                            <mi>A</mi>
-                                            <mo>⊗</mo>
-                                            <msub>
-                                                <mn>1</mn>
-                                                <mi mathvariant="script">C</mi>
-                                            </msub>
-                                            <mo>→</mo>
-                                            <mi>A</mi>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\rho : A \otimes 1_{\mathcal{C}} \rightarrow A</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> (right identity)</li>
-                    <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                    <semantics>
-                                        <mrow>
-                                            <mi>λ</mi>
-                                            <mo>:</mo>
-                                            <msub>
-                                                <mn>1</mn>
-                                                <mi mathvariant="script">C</mi>
-                                            </msub>
-                                            <mo>⊗</mo>
-                                            <mi>A</mi>
-                                            <mo>→</mo>
-                                            <mi>A</mi>
-                                        </mrow>
-                                        <annotation encoding="application/x-tex">\lambda : 1_{\mathcal{C}} \otimes A \rightarrow A</annotation>
-                                    </semantics>
-                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> (left identity)</li>
-                </ul>
-                <p>are part of the monoidal structure on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi mathvariant="script">C</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">{\mathcal {C}}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span></span>.</p>
-                <p>Applicative functors are a relatively new concept. They were first introduced in 2008 by Conor McBride and Ross Paterson in their paper <em>Applicative programming with effects</em>.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="McBride, Conor; Paterson, Ross (2008-01-01). *Applicative programming with effects* ([pdf](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf)). Journal of Functional Programming. 18 (1): 1–13. [doi:10.1017/S0956796807006326](https://doi.org/10.1017/S0956796807006326)
-">[1]</span></a></sup> In functional programming where every functor is an endofunctor and every functor applied to the monoidal category <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi mathvariant="bold">S</mi>
-                                        <mi mathvariant="bold">e</mi>
-                                        <mi mathvariant="bold">t</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mathbf{Set}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span>, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi mathvariant="bold">S</mi>
-                                        <mi mathvariant="bold">e</mi>
-                                        <mi mathvariant="bold">t</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mathbf{Set}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span> being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <semantics>
-                                    <mrow>
-                                        <mi mathvariant="bold">S</mi>
-                                        <mi mathvariant="bold">e</mi>
-                                        <mi mathvariant="bold">t</mi>
-                                    </mrow>
-                                    <annotation encoding="application/x-tex">\mathbf{Set}</annotation>
-                                </semantics>
-                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span> functors, this coherent association is automatically provided.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Rivas, E., & Jaskelioff, M. (2014). Notions of Computation as Monoids. CoRR, abs/1406.4823. [https://arxiv.org/abs/1406.4823](https://arxiv.org/pdf/1406.4823.pdf)
+</div>
+<br>
+<!-- <object type="image/svg+xml" data="/images/applicative.svg"></object> -->
+<!-- <use xlink:href="/images/applicative.svg"></use> -->
+<!-- The source as dot is next to image. Compile with: dot -Tsvg typeclasses.dot -o typeclasses.svg -->
+<!-- <br> -->
+<p>An applicative, in category theory, is a lax monoidal <a href="/functor">functor</a> with tensorial strength. In the following, we will present the definition as an endofunctor, since the concept has its origin in the context of functional programming where every functor is an endofunctor.</p>
+<p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi mathvariant="script">C</mi><mo separator="true">,</mo><mo>⊗</mo><mo separator="true">,</mo><msub><mn>1</mn><mi mathvariant="script">C</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\mathcal{C}, \otimes, 1_{\mathcal{C}})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">⊗</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> be a monoidal category. A lax monoidal endofunctor is a functor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mi mathvariant="script">C</mi><mo>→</mo><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">F : \mathcal{C} \rightarrow \mathcal{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span> together with two coherence maps:</p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>:</mo><msub><mn>1</mn><mi mathvariant="script">C</mi></msub><mo>→</mo><mi>F</mi><mo stretchy="false">(</mo><msub><mn>1</mn><mi mathvariant="script">C</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\eta : 1_{\mathcal{C}} \rightarrow F(1_{\mathcal{C}})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> (the unit morphism)</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ϕ</mi><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi></mrow></msub><mo>:</mo><mi>F</mi><mi>A</mi><mo>⊗</mo><mi>F</mi><mi>B</mi><mo>→</mo><mi>F</mi><mo stretchy="false">(</mo><mi>A</mi><mo>⊗</mo><mi>B</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\phi_{A,B} : FA \otimes FB \rightarrow F(A \otimes B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> (a <a href="/natural-transformation">natural transformation</a>)</p>
+</li>
+</ul>
+<p>such that the following diagrams commute:</p>
+
+\begin{xy}
+\xymatrix{
+(FA\ \otimes\ FB)\ \otimes\ FC \ar[r]^{\alpha} \ar[d]_{\phi_{A,B}\ \otimes\ FC} & FA\ \otimes\ (FB\ \otimes\ FC) \ar[d]^{FA\ \otimes\ \phi_{B,C}} \\
+F(A\ \otimes\ B)\ \otimes\ FC \ar[d]_{\phi_{A\ \otimes\ B,C}} & FA\ \otimes\ F(B\ \otimes\ C) \ar[d]^{\phi_{A,B\ \otimes\ C}} \\
+F((A\ \otimes\ B)\ \otimes\ C) \ar[r]_{F_{\alpha}} & F(A\ \otimes\ (B\ \otimes\ C)) \\
+}
+\end{xy}
+
+
+<div class="splitscreen">
+  <div class="left">
+\begin{xy}
+\xymatrix{
+  FA\ \otimes\ 1_{\mathcal{C}}\ar[d]_{\rho} \ar[r]^{FA\ \otimes\ \eta\ \ \ \ \ } & FA\ \otimes\ F(1_{\mathcal{C}}) \ar[d]^{\phi_{A,1_{\mathcal{C}}}} \\
+  FA & F(A\ \otimes\ 1_{\mathcal{C}}) \ar[l]_{F_{\rho}}
+}
+\end{xy}
+  </div>
+
+  <div class="right">
+\begin{xy}
+\xymatrix{
+  1_{\mathcal{C}}\ \otimes\ FB\ar[d]_{\lambda} \ar[r]^{\eta\ \otimes\ FB\ \ \ \ } & F(1_{\mathcal{C}})\ \otimes\ F\ B \ar[d]^{\phi_{1_{\mathcal{C},B}}} \\
+  FB & F(1_{\mathcal{C}}\ \otimes\ B) \ar[l]_{{F_{\lambda}}}
+}
+\end{xy}
+  </div>
+</div>
+
+<p>The natural transformations:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>:</mo><mo stretchy="false">(</mo><mi>A</mi><mo>⊗</mo><mi>B</mi><mo stretchy="false">)</mo><mo>⊗</mo><mi>C</mi><mtext> </mtext><mo>→</mo><mi>A</mi><mo>⊗</mo><mo stretchy="false">(</mo><mi>B</mi><mo>⊗</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha : (A \otimes B) \otimes C\ \rightarrow A \otimes (B \otimes C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> (associativity)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>:</mo><mi>A</mi><mo>⊗</mo><msub><mn>1</mn><mi mathvariant="script">C</mi></msub><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\rho : A \otimes 1_{\mathcal{C}} \rightarrow A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> (right identity)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>:</mo><msub><mn>1</mn><mi mathvariant="script">C</mi></msub><mo>⊗</mo><mi>A</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\lambda : 1_{\mathcal{C}} \otimes A \rightarrow A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.05834em;">C</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> (left identity)</li>
+</ul>
+<p>are part of the monoidal structure on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">{\mathcal {C}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span></span>.</p>
+<p>Applicative functors are a relatively new concept. They were first introduced in 2008 by Conor McBride and Ross Paterson in their paper <em>Applicative programming with effects</em>.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="McBride, Conor; Paterson, Ross (2008-01-01). *Applicative programming with effects* ([pdf](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf)). Journal of Functional Programming. 18 (1): 1–13. [doi:10.1017/S0956796807006326](https://doi.org/10.1017/S0956796807006326)
+">[1]</span></a></sup> In functional programming where every functor is an endofunctor and every functor applied to the monoidal category <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi></mrow><annotation encoding="application/x-tex">\mathbf{Set}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span>, with the tensor product replaced by cartesian product, inherently possesses a unique strength, resulting in every functor within <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi></mrow><annotation encoding="application/x-tex">\mathbf{Set}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span> being strong. In simpler terms, a strong lax monoidal functor is just a lax monoidal functor that also has the property of being a strong functor, and its strength coherently associates with the monoidal structure. When we apply this in the context of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi></mrow><annotation encoding="application/x-tex">\mathbf{Set}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">S</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span></span></span></span></span> functors, this coherent association is automatically provided.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Rivas, E., & Jaskelioff, M. (2014). Notions of Computation as Monoids. CoRR, abs/1406.4823. [https://arxiv.org/abs/1406.4823](https://arxiv.org/pdf/1406.4823.pdf)
 ">[2]</span></a></sup></p>
-                <h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
-                <p>The Applicative typeclass in Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called Monoidal that reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between <code>bind</code> and <code>>>=</code>, as discussed in my post on <a href="/monad">monads</a>. Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.</p>
-                <p>Haskell Definition of Monoidal (Interface)</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">=></font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">where</font>
+<h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
+<p>The Applicative typeclass in Haskell looks slightly different then our definition of a lax monidal functor. However there is another typeclass in Haskell called Monoidal that reflects our definition. Moreover, there is a equivalence between the two typeclasses Applicative and Monoidal. This parallels our previous demonstration of the interchangeability between <code>bind</code> and <code>>>=</code>, as discussed in my post on <a href="/monad">monads</a>. Let me first introduce the typeclass Monoidal and then we show that this is equivalent to Applicative.</p>
+<p>Haskell Definition of Monoidal (Interface)</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">=></font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">where</font>
   <font color="#af87af">unit</font> <font color="#87afaf">::</font> f <font color="#afaf5f">()</font>
   <font color="#afaf5f">(</font><font color="#87afaf">**</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> f a  <font color="#87afaf">-></font> f b  <font color="#87afaf">-></font> f <font color="#afaf5f">(</font>a<font color="#afaf5f">,</font> b<font color="#afaf5f">)</font>
-</font></pre>
-                </figure>
-                <p>Please note that <code>fa -> fb -> f(a, b)</code> is actually the curried version of<br>
-                    <code>(f a, f b) -> f (a, b)</code></p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#af87af">curry</font> <font color="#87afaf">::</font> <font color="#afaf5f">((</font>a<font color="#afaf5f">,</font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> a <font color="#87afaf">-></font> b <font color="#87afaf">-></font> c
+</font></pre></figure>
+<p>Please note that <code>fa -> fb -> f(a, b)</code> is actually the curried version of<br>
+<code>(f a, f b) -> f (a, b)</code></p>
+<figure class="highlight"><pre><font face="monospace"><font color="#af87af">curry</font> <font color="#87afaf">::</font> <font color="#afaf5f">((</font>a<font color="#afaf5f">,</font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> a <font color="#87afaf">-></font> b <font color="#87afaf">-></font> c
 curry f x y <font color="#87afaf">=</font> f <font color="#afaf5f">(</font>x<font color="#afaf5f">,</font> y<font color="#afaf5f">)</font>
 
 <font color="#af87af">uncurry</font> <font color="#87afaf">::</font> <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b <font color="#87afaf">-></font> c<font color="#afaf5f">)</font> <font color="#87afaf">-></font> <font color="#afaf5f">(</font>a<font color="#afaf5f">,</font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> c
 uncurry f p <font color="#87afaf">=</font>  f <font color="#afaf5f">(</font>fst p<font color="#afaf5f">)</font> <font color="#afaf5f">(</font>snd p<font color="#afaf5f">)</font>
-</font></pre>
-                </figure>
-                <p>Haskell comes with <code>curry</code> and <code>uncurry</code> as part of its standard library, which together form an isomorphism.</p> \begin{xy} \xymatrix@C-=1cm{ \texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}} && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}} \end{xy}
-                <!-- \mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D} -->
-                <p>Hence we can also phrase Monoidal this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">=></font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">where</font>
+</font></pre></figure>
+<p>Haskell comes with <code>curry</code> and <code>uncurry</code> as part of its standard library, which together form an isomorphism.</p>
+
+\begin{xy}
+\xymatrix@C-=1cm{
+\texttt{(a, b) -> c} \ar@/^1.5pc/[rr]^{\texttt{curry}}  && \texttt{a -> b -> c} \ar@/^1.5pc/[ll]^{\texttt{uncurry}}}
+\end{xy}
+
+<!-- \mathcal{C} \rtwocell<5>^{F}_{G}{\alpha} & \mathcal{D} -->
+<p>Hence we can also phrase Monoidal this way, and it aligns seamlessly with our categorical definition of a strong lax monoidal functor:</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Functor</font> f <font color="#87afaf">=></font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">where</font>
 <font color="#767676">-- η     : 1  -> F(1) (unit)</font>
   <font color="#af87af">unit</font> <font color="#87afaf">::</font> <font color="#afaf5f">()</font> <font color="#87afaf">-></font> f <font color="#afaf5f">()</font>
 <font color="#767676">-- ϕx,y  : F(A) ⊗ F(B) -> F(A ⊗ B)</font>
   <font color="#afaf5f">(</font><font color="#87afaf">**</font><font color="#87afaf"></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#afaf5f">(</font>f a<font color="#afaf5f">,</font> f b<font color="#afaf5f">)</font>   <font color="#87afaf">-></font> f <font color="#afaf5f">(</font>a<font color="#afaf5f">,</font> b<font color="#afaf5f">)</font>
-</font></pre>
-                </figure>
-                <p>We have the usual monoidal laws (pseudocode):</p>
-                <!-- -- It's not possible to define laws in Haskell (pseudocode) -->
-                <figure class="highlight">
-                    <pre><font face="monospace">unit <font color="#87afaf">**</font> v <font color="#87afaf">==</font> v <font color="#87afaf">==</font> v <font color="#87afaf">**</font> unit    <font color="#767676">-- Left and Right Identity</font>
+</font></pre></figure>
+<p>We have the usual monoidal laws (pseudocode):</p>
+<!-- -- It's not possible to define laws in Haskell (pseudocode) -->
+<figure class="highlight"><pre><font face="monospace">unit <font color="#87afaf">**</font> v <font color="#87afaf">==</font> v <font color="#87afaf">==</font> v <font color="#87afaf">**</font> unit    <font color="#767676">-- Left and Right Identity</font>
 u <font color="#87afaf">**</font> <font color="#afaf5f">(</font>v <font color="#87afaf">**</font> w<font color="#afaf5f">)</font> <font color="#87afaf">==</font> <font color="#afaf5f">(</font>u <font color="#87afaf">**</font> v<font color="#afaf5f">)</font> <font color="#87afaf">**</font> w <font color="#767676">-- Associativity</font>
-</font></pre>
-                </figure>
-                <p>Now that we have established the definition of Monoidal lets have a look at the equivalent Applicative definition in Haskell.</p>
-                <p>Haskell Definition of Applicative (Interface)</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">where</font>
+</font></pre></figure>
+<p>Now that we have established the definition of Monoidal lets have a look at the equivalent Applicative definition in Haskell.</p>
+<p>Haskell Definition of Applicative (Interface)</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">class</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">where</font>
   <font color="#af87af">pure</font> <font color="#87afaf">::</font> a <font color="#87afaf">-></font> f a
   <font color="#afaf5f">(</font><font color="#87afaf"><*></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> f <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> f a <font color="#87afaf">-></font> f b
-</font></pre>
-                </figure>
-                <p>This is how to recover Applicative in terms of Monoidal:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#af87af">pure</font> <font color="#87afaf">::</font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">=></font> a <font color="#87afaf">-></font> f a
+</font></pre></figure>
+<p>This is how to recover Applicative in terms of Monoidal:</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#af87af">pure</font> <font color="#87afaf">::</font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">=></font> a <font color="#87afaf">-></font> f a
 pure x  <font color="#87afaf">=</font> fmap <font color="#afaf5f">(</font>const x<font color="#afaf5f">)</font> unit
 
 <font color="#afaf5f">(</font><font color="#87afaf"><*></font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#d7875f">Monoidal</font> f <font color="#87afaf">=></font> f <font color="#afaf5f">(</font>a <font color="#87afaf">-></font> b<font color="#afaf5f">)</font> <font color="#87afaf">-></font> f a <font color="#87afaf">-></font> f b
 f <font color="#87afaf"><*></font> g <font color="#87afaf">=</font> fmap uncurry <font color="#afaf5f">(</font><font color="#87afaf">$</font><font color="#afaf5f">)</font> <font color="#afaf5f">(</font>f <font color="#87afaf">**</font> g<font color="#afaf5f">)</font>
-</font></pre>
-                </figure>
-                <p>And this is the reverse direction, Monoidal in terms of Applicative:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#af87af">unit</font> <font color="#87afaf">::</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">=></font> f <font color="#afaf5f">()</font>
+</font></pre></figure>
+<p>And this is the reverse direction, Monoidal in terms of Applicative:</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#af87af">unit</font> <font color="#87afaf">::</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">=></font> f <font color="#afaf5f">()</font>
 unit   <font color="#87afaf">=</font> pure <font color="#afaf5f">()</font>
 
 <font color="#afaf5f">(</font><font color="#87afaf">**</font><font color="#afaf5f">)</font> <font color="#87afaf">::</font> <font color="#d7875f">Applicative</font> f <font color="#87afaf">=></font> f a <font color="#87afaf">-></font> f b  <font color="#87afaf">-></font> f <font color="#afaf5f">(</font>a<font color="#afaf5f">,</font> b<font color="#afaf5f">)</font>
 f <font color="#87afaf">**</font> g <font color="#87afaf">=</font> fmap <font color="#afaf5f">(</font><font color="#afaf5f">,</font><font color="#afaf5f">)</font> f <font color="#87afaf"><*></font> g
-</font></pre>
-                </figure>
-                <p>We’ve now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/62959880">proof</a> in Coq.</p>
-                <p>Though the compiler does not enforce it, a proper instance of Applicative should comply with the applicative laws:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace">pure id <font color="#87afaf"><*></font> a <font color="#87afaf">=</font> a                              <font color="#767676">-- identity</font>
+</font></pre></figure>
+<p>We’ve now formulated a two-way translation between Applicative and Monoidal, illustrating that they are isomorphic. This equality between Applicative and Monoidal can also be shown in a computer-checked <a href="https://stackoverflow.com/a/62959880">proof</a> in Coq.</p>
+<p>Though the compiler does not enforce it, a proper instance of Applicative should comply with the applicative laws:</p>
+<figure class="highlight"><pre><font face="monospace">pure id <font color="#87afaf"><*></font> a <font color="#87afaf">=</font> a                              <font color="#767676">-- identity</font>
 pure <font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font> <font color="#87afaf"><*></font> a <font color="#87afaf"><*></font> b <font color="#87afaf"><*></font> c <font color="#87afaf">=</font> a <font color="#87afaf"><*></font> <font color="#afaf5f">(</font>b <font color="#87afaf"><*></font> c<font color="#afaf5f">)</font>   <font color="#767676">-- composition</font>
 pure f <font color="#87afaf"><*></font> pure a <font color="#87afaf">=</font> pure <font color="#afaf5f">(</font>f a<font color="#afaf5f">)</font>                 <font color="#767676">-- homomorphism</font>
 a <font color="#87afaf"><*></font> pure b <font color="#87afaf">=</font> pure <font color="#afaf5f">(</font><font color="#87afaf">$</font> b<font color="#afaf5f">)</font> <font color="#87afaf"><*></font> a                <font color="#767676">-- interchange</font>
-</font></pre>
-                </figure>
-                <p>Now, lets have a look at some instances of Applicative.</p>
-                <!-- Require Import Coq.Program.Basics. -->
-                <!-- Require Import Coq.Init.Datatypes. -->
-                <!-- Require Import Coq.Init.Notations. -->
-                <!-- Notation "f ∘ g" := (compose f g). -->
-                <!-- Class Functor (F: Type -> Type) : Type := -->
-                <!--   { fmap : forall {x} {y}, (x->y) -> (F x->F y) -->
-                <!--   ; fmap_id : forall x, @fmap x x id = id -->
-                <!--   ; fmap_compose : forall {x} {y} {z} (f: y->z) (g: x->y) -->
-                <!--                      , fmap (f∘g) = fmap f ∘ fmap g -->
-                <!--   }. -->
-                <!-- Lemma fmap_twice {F} `{Functor F} {x} {y} {z} (f: y->z) (g: x->y) (xs: F x) -->
-                <!--                      : fmap (f∘g) xs = fmap f (fmap g xs). -->
-                <!-- Proof. -->
-                <!--   rewrite fmap_compose. now compute. -->
-                <!-- Qed. -->
-                <!-- Definition parallel {a} {b} {c} {d} (f: a->c) (g: b->d) -->
-                <!--   : (a*b) -> (c*d) := fun xy => match xy with -->
-                <!--                                 | (x,y) => (f x, g y) -->
-                <!--                                 end. -->
-                <!-- Notation "f *** g" := (parallel f g) (at level 40, left associativity). -->
-                <!-- Definition rassoc {a} {b} {c} : ((a*b)*c) -> (a*(b*c)) -->
-                <!--     := fun xyz => match xyz with | ((x,y),z) => (x,(y,z)) end. -->
-                <!-- Definition tt_ {a} (x:a) := (tt, x). -->
-                <!-- Definition _tt {a} (x:a) := (x, tt). -->
-                <!-- Class Monoidal F `{Functor F} : Type := -->
-                <!--   { funit : F unit -->
-                <!--   ; fzip : forall {a} {b}, F a -> F b -> F (a*b) -->
-                <!--   ; left_identity : forall {a} (v: F a) -->
-                <!--            , fzip funit v = fmap tt_ v -->
-                <!--   ; right_identity : forall {a} (v: F a) -->
-                <!--            , fzip v funit = fmap _tt v -->
-                <!--   ; associativity : forall {a} {b} {c} (u: F a) (v: F b) (w: F c) -->
-                <!--            , fzip u (fzip v w) = fmap rassoc (fzip (fzip u v) w) -->
-                <!--   ; naturality : forall {a} {b} {c} {d} -->
-                <!--                         (g: a->c) (h: b->d) (u: F a) (v: F b) -->
-                <!--            , fmap (g***h) (fzip u v) = fzip (fmap g u) (fmap h v) -->
-                <!--   }. -->
-                <!-- Notation "u ** v" := (fzip u v) (at level 40, left associativity). -->
-                <!-- Lemma naturalityL {F} `{Monoidal F} {a} {b} {c} -->
-                <!--                            (f: a->c) (u: F a) (v: F b) -->
-                <!--            : fmap (f***id) (fzip u v) = fzip (fmap f u) v. -->
-                <!-- Proof. -->
-                <!--   assert (v = fmap id v) as ->. { now rewrite fmap_id. } -->
-                <!--   rewrite <- naturality. -->
-                <!--   assert (v = fmap id v) as <-. { now rewrite fmap_id. } -->
-                <!--   now trivial. -->
-                <!-- Qed. -->
-                <!-- Lemma naturalityR {F} `{Monoidal F} {a} {b} {c} -->
-                <!--                            (f: b->c) (u: F a) (v: F b) -->
-                <!--            : fmap (id***f) (fzip u v) = fzip u (fmap f v). -->
-                <!-- Proof. -->
-                <!--   assert (u = fmap id u) as ->. { now rewrite fmap_id. } -->
-                <!--   rewrite <- naturality. -->
-                <!--   assert (u = fmap id u) as <-. { now rewrite fmap_id. } -->
-                <!--   now trivial. -->
-                <!-- Qed. -->
-                <!-- Definition to {a} {b} (y: a) (f: a->b) := f y. -->
-                <!-- Class Applicative F `{Functor F} : Type := -->
-                <!--   { pure : forall {a}, a -> F a -->
-                <!--   ; app : forall {a} {b}, F (a->b) -> F a -> F b -->
-                <!--   ; identity : forall {a} (v: F a) -->
-                <!--               , app (pure id) v = v -->
-                <!--   ; homomorphism : forall {a} {b} (f: a->b) (x: a) -->
-                <!--               , app (pure f) (pure x) = pure (f x) -->
-                <!--   ; interchange : forall {a} {b} (u: F (a->b)) (y: a) -->
-                <!--               , app u (pure y) = app (pure (to y)) u -->
-                <!--   ; composition : forall {a} {b} {c} -->
-                <!--                          (u: F (b->c)) (v: F (a->b)) (w: F a) -->
-                <!--               , app u (app v w) = app (app (app (pure compose) u) v) w -->
-                <!--   ; appFtor : forall {a} {b} (g: a->b) (x: F a) -->
-                <!--               , fmap g x = app (pure g) x -->
-                <!--   }. -->
-                <!-- Notation "fs <*> xs" := (app fs xs) (at level 40, left associativity). -->
-                <!-- Require Import Coq.Program.Tactics. -->
-                <!-- Require Import Coq.Logic.FunctionalExtensionality. -->
-                <!-- Definition apl {a} {b} (fx: (a->b)*a) -->
-                <!--    := match fx with |(f,x) => f x end. -->
-                <!-- Program Instance MonoidalIsApplicative {F} `{Monoidal F} -->
-                <!--     : Applicative F -->
-                <!--   := { pure := fun {a} (x: a) => fmap (const x) funit -->
-                <!--      ; app := fun {a} {b} (fs: F (a->b)) (xs: F a) -->
-                <!--               => fmap apl (fzip fs xs) }. -->
-                <!-- Next Obligation. (* identity *) -->
-                <!--   rewrite <- naturalityL. -->
-                <!--   rewrite -> left_identity. -->
-                <!--   repeat (rewrite <- fmap_twice). -->
-                <!--   rewrite -> fmap_id. -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* homomorphism *) -->
-                <!--   rewrite <- naturality. -->
-                <!--   rewrite -> left_identity. -->
-                <!--   repeat (rewrite <- fmap_twice). -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* interchange *) -->
-                <!--   rewrite <- naturalityL. -->
-                <!--   rewrite <- naturalityR. -->
-                <!--   repeat (rewrite <- fmap_twice). -->
-                <!--   rewrite -> right_identity. -->
-                <!--   rewrite -> left_identity. -->
-                <!--   repeat (rewrite <- fmap_twice). -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* composition *) -->
-                <!--   rewrite <- naturalityR. -->
-                <!--   rewrite -> associativity. -->
-                <!--   repeat (rewrite <- naturalityL). -->
-                <!--   rewrite -> left_identity. -->
-                <!--   repeat (rewrite <- naturalityL). -->
-                <!--   repeat (rewrite <- fmap_twice). -->
-                <!--   f_equal.                      (*    This part is just about *) -->
-                <!--   unfold compose.                 (*  convincing Coq that two  *) -->
-                <!--   apply functional_extensionality. (* functions are equal, it  *) -->
-                <!--   intro x.                         (* has nothing to do with   *) -->
-                <!--   destruct x as ((btc, atb), a0). (*  applicative or monoidal  *) -->
-                <!--   now compute.                  (*    functors, specifically. *) -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* appFtor *) -->
-                <!--   rewrite <- naturalityL. -->
-                <!--   rewrite -> left_identity. -->
-                <!--   repeat (rewrite <- fmap_twice). -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Lemma fmapPure {F} `{Applicative F} {a} {b} -->
-                <!--         (f: a->b) (x: a) : fmap f (pure x: F a) = pure (f x). -->
-                <!-- Proof. -->
-                <!--   rewrite -> appFtor. -->
-                <!--   now apply homomorphism. -->
-                <!-- Qed. -->
-                <!-- Lemma fmapBracket {F} `{Applicative F} {a} {b} {c} {d} -->
-                <!--       (f: c->d) (g: a->b->c) (xs: F a) (ys: F b) -->
-                <!--      : fmap f (fmap g xs<*>ys) = fmap (fun x y => f (g x y)) xs <*> ys. -->
-                <!-- Proof. -->
-                <!--   repeat (rewrite -> appFtor). -->
-                <!--   rewrite -> composition. -->
-                <!--   rewrite -> homomorphism. -->
-                <!--   rewrite -> composition. -->
-                <!--   repeat (rewrite -> homomorphism). -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Lemma fmap_both {F} `{Applicative F} {a} {b} {c} {d} -->
-                <!--       (f: a->c->d) (g: b->c) (xs: F a) (ys: F b) -->
-                <!--      : fmap f xs <*> fmap g ys = fmap (fun x y => f x (g y)) xs <*> ys. -->
-                <!-- Proof. -->
-                <!--   repeat (rewrite -> appFtor). -->
-                <!--   rewrite -> composition. -->
-                <!--   repeat (rewrite <- appFtor). -->
-                <!--   rewrite <- fmap_twice. -->
-                <!--   rewrite -> interchange. -->
-                <!--   rewrite -> appFtor. -->
-                <!--   rewrite -> composition. -->
-                <!--   repeat (rewrite -> homomorphism). -->
-                <!--   rewrite <- appFtor. -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Definition tup {a} {b} (x:a) (y:b) : (a*b) := (x,y). -->
-                <!-- Program Instance ApplicativeIsMonoidal {F} `{Applicative F} -->
-                <!--     : Monoidal F -->
-                <!--   := { funit := pure tt -->
-                <!--      ; fzip := fun {a} {b} (u: F a) (v: F b) -->
-                <!--                    => fmap tup u <*> v }. -->
-                <!-- Next Obligation. (* left_identity *) -->
-                <!--   repeat (rewrite -> appFtor). -->
-                <!--   rewrite -> homomorphism. -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* right_identity *) -->
-                <!--   repeat (rewrite -> appFtor). -->
-                <!--   rewrite -> interchange. -->
-                <!--   rewrite -> composition. -->
-                <!--   repeat (rewrite -> homomorphism). -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* associativity *) -->
-                <!--   repeat (rewrite -> fmapBracket). -->
-                <!--   rewrite -> composition. -->
-                <!--   repeat (rewrite <- appFtor). -->
-                <!--   rewrite <- fmap_twice. -->
-                <!--   rewrite -> fmap_both. -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Next Obligation. (* naturality *) -->
-                <!--   rewrite -> fmap_both. -->
-                <!--   rewrite <- fmap_twice. -->
-                <!--   rewrite -> fmapBracket. -->
-                <!--   now compute. -->
-                <!-- Qed. -->
-                <!-- Compiled with Coq 8.9.1. -->
-                <!-- ``` -->
-                <!-- -- pure id <*> v == v == v <*> pure id -- Left and Right Identity -->
-                <!-- -- u <*> (v <*> w) = pure (.) <*> u <*> v <*> w --- Composition. -->
-                <!-- ``` -->
-                <!-- The following condition must always hold: -->
-                <!-- <figure class="highlight"><pre><font face="monospace">&#xA0;<font color="#87afaf">--&gt;</font>
+</font></pre></figure>
+<p>Now, lets have a look at some instances of Applicative.</p>
+<!-- Require Import Coq.Program.Basics. -->
+<!-- Require Import Coq.Init.Datatypes. -->
+<!-- Require Import Coq.Init.Notations. -->
+<!-- Notation "f ∘ g" := (compose f g). -->
+<!-- Class Functor (F: Type -> Type) : Type := -->
+<!--   { fmap : forall {x} {y}, (x->y) -> (F x->F y) -->
+<!--   ; fmap_id : forall x, @fmap x x id = id -->
+<!--   ; fmap_compose : forall {x} {y} {z} (f: y->z) (g: x->y) -->
+<!--                      , fmap (f∘g) = fmap f ∘ fmap g -->
+<!--   }. -->
+<!-- Lemma fmap_twice {F} `{Functor F} {x} {y} {z} (f: y->z) (g: x->y) (xs: F x) -->
+<!--                      : fmap (f∘g) xs = fmap f (fmap g xs). -->
+<!-- Proof. -->
+<!--   rewrite fmap_compose. now compute. -->
+<!-- Qed. -->
+<!-- Definition parallel {a} {b} {c} {d} (f: a->c) (g: b->d) -->
+<!--   : (a*b) -> (c*d) := fun xy => match xy with -->
+<!--                                 | (x,y) => (f x, g y) -->
+<!--                                 end. -->
+<!-- Notation "f *** g" := (parallel f g) (at level 40, left associativity). -->
+<!-- Definition rassoc {a} {b} {c} : ((a*b)*c) -> (a*(b*c)) -->
+<!--     := fun xyz => match xyz with | ((x,y),z) => (x,(y,z)) end. -->
+<!-- Definition tt_ {a} (x:a) := (tt, x). -->
+<!-- Definition _tt {a} (x:a) := (x, tt). -->
+<!-- Class Monoidal F `{Functor F} : Type := -->
+<!--   { funit : F unit -->
+<!--   ; fzip : forall {a} {b}, F a -> F b -> F (a*b) -->
+<!--   ; left_identity : forall {a} (v: F a) -->
+<!--            , fzip funit v = fmap tt_ v -->
+<!--   ; right_identity : forall {a} (v: F a) -->
+<!--            , fzip v funit = fmap _tt v -->
+<!--   ; associativity : forall {a} {b} {c} (u: F a) (v: F b) (w: F c) -->
+<!--            , fzip u (fzip v w) = fmap rassoc (fzip (fzip u v) w) -->
+<!--   ; naturality : forall {a} {b} {c} {d} -->
+<!--                         (g: a->c) (h: b->d) (u: F a) (v: F b) -->
+<!--            , fmap (g***h) (fzip u v) = fzip (fmap g u) (fmap h v) -->
+<!--   }. -->
+<!-- Notation "u ** v" := (fzip u v) (at level 40, left associativity). -->
+<!-- Lemma naturalityL {F} `{Monoidal F} {a} {b} {c} -->
+<!--                            (f: a->c) (u: F a) (v: F b) -->
+<!--            : fmap (f***id) (fzip u v) = fzip (fmap f u) v. -->
+<!-- Proof. -->
+<!--   assert (v = fmap id v) as ->. { now rewrite fmap_id. } -->
+<!--   rewrite <- naturality. -->
+<!--   assert (v = fmap id v) as <-. { now rewrite fmap_id. } -->
+<!--   now trivial. -->
+<!-- Qed. -->
+<!-- Lemma naturalityR {F} `{Monoidal F} {a} {b} {c} -->
+<!--                            (f: b->c) (u: F a) (v: F b) -->
+<!--            : fmap (id***f) (fzip u v) = fzip u (fmap f v). -->
+<!-- Proof. -->
+<!--   assert (u = fmap id u) as ->. { now rewrite fmap_id. } -->
+<!--   rewrite <- naturality. -->
+<!--   assert (u = fmap id u) as <-. { now rewrite fmap_id. } -->
+<!--   now trivial. -->
+<!-- Qed. -->
+<!-- Definition to {a} {b} (y: a) (f: a->b) := f y. -->
+<!-- Class Applicative F `{Functor F} : Type := -->
+<!--   { pure : forall {a}, a -> F a -->
+<!--   ; app : forall {a} {b}, F (a->b) -> F a -> F b -->
+<!--   ; identity : forall {a} (v: F a) -->
+<!--               , app (pure id) v = v -->
+<!--   ; homomorphism : forall {a} {b} (f: a->b) (x: a) -->
+<!--               , app (pure f) (pure x) = pure (f x) -->
+<!--   ; interchange : forall {a} {b} (u: F (a->b)) (y: a) -->
+<!--               , app u (pure y) = app (pure (to y)) u -->
+<!--   ; composition : forall {a} {b} {c} -->
+<!--                          (u: F (b->c)) (v: F (a->b)) (w: F a) -->
+<!--               , app u (app v w) = app (app (app (pure compose) u) v) w -->
+<!--   ; appFtor : forall {a} {b} (g: a->b) (x: F a) -->
+<!--               , fmap g x = app (pure g) x -->
+<!--   }. -->
+<!-- Notation "fs <*> xs" := (app fs xs) (at level 40, left associativity). -->
+<!-- Require Import Coq.Program.Tactics. -->
+<!-- Require Import Coq.Logic.FunctionalExtensionality. -->
+<!-- Definition apl {a} {b} (fx: (a->b)*a) -->
+<!--    := match fx with |(f,x) => f x end. -->
+<!-- Program Instance MonoidalIsApplicative {F} `{Monoidal F} -->
+<!--     : Applicative F -->
+<!--   := { pure := fun {a} (x: a) => fmap (const x) funit -->
+<!--      ; app := fun {a} {b} (fs: F (a->b)) (xs: F a) -->
+<!--               => fmap apl (fzip fs xs) }. -->
+<!-- Next Obligation. (* identity *) -->
+<!--   rewrite <- naturalityL. -->
+<!--   rewrite -> left_identity. -->
+<!--   repeat (rewrite <- fmap_twice). -->
+<!--   rewrite -> fmap_id. -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Next Obligation. (* homomorphism *) -->
+<!--   rewrite <- naturality. -->
+<!--   rewrite -> left_identity. -->
+<!--   repeat (rewrite <- fmap_twice). -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Next Obligation. (* interchange *) -->
+<!--   rewrite <- naturalityL. -->
+<!--   rewrite <- naturalityR. -->
+<!--   repeat (rewrite <- fmap_twice). -->
+<!--   rewrite -> right_identity. -->
+<!--   rewrite -> left_identity. -->
+<!--   repeat (rewrite <- fmap_twice). -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Next Obligation. (* composition *) -->
+<!--   rewrite <- naturalityR. -->
+<!--   rewrite -> associativity. -->
+<!--   repeat (rewrite <- naturalityL). -->
+<!--   rewrite -> left_identity. -->
+<!--   repeat (rewrite <- naturalityL). -->
+<!--   repeat (rewrite <- fmap_twice). -->
+<!--   f_equal.                      (*    This part is just about *) -->
+<!--   unfold compose.                 (*  convincing Coq that two  *) -->
+<!--   apply functional_extensionality. (* functions are equal, it  *) -->
+<!--   intro x.                         (* has nothing to do with   *) -->
+<!--   destruct x as ((btc, atb), a0). (*  applicative or monoidal  *) -->
+<!--   now compute.                  (*    functors, specifically. *) -->
+<!-- Qed. -->
+<!-- Next Obligation. (* appFtor *) -->
+<!--   rewrite <- naturalityL. -->
+<!--   rewrite -> left_identity. -->
+<!--   repeat (rewrite <- fmap_twice). -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Lemma fmapPure {F} `{Applicative F} {a} {b} -->
+<!--         (f: a->b) (x: a) : fmap f (pure x: F a) = pure (f x). -->
+<!-- Proof. -->
+<!--   rewrite -> appFtor. -->
+<!--   now apply homomorphism. -->
+<!-- Qed. -->
+<!-- Lemma fmapBracket {F} `{Applicative F} {a} {b} {c} {d} -->
+<!--       (f: c->d) (g: a->b->c) (xs: F a) (ys: F b) -->
+<!--      : fmap f (fmap g xs<*>ys) = fmap (fun x y => f (g x y)) xs <*> ys. -->
+<!-- Proof. -->
+<!--   repeat (rewrite -> appFtor). -->
+<!--   rewrite -> composition. -->
+<!--   rewrite -> homomorphism. -->
+<!--   rewrite -> composition. -->
+<!--   repeat (rewrite -> homomorphism). -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Lemma fmap_both {F} `{Applicative F} {a} {b} {c} {d} -->
+<!--       (f: a->c->d) (g: b->c) (xs: F a) (ys: F b) -->
+<!--      : fmap f xs <*> fmap g ys = fmap (fun x y => f x (g y)) xs <*> ys. -->
+<!-- Proof. -->
+<!--   repeat (rewrite -> appFtor). -->
+<!--   rewrite -> composition. -->
+<!--   repeat (rewrite <- appFtor). -->
+<!--   rewrite <- fmap_twice. -->
+<!--   rewrite -> interchange. -->
+<!--   rewrite -> appFtor. -->
+<!--   rewrite -> composition. -->
+<!--   repeat (rewrite -> homomorphism). -->
+<!--   rewrite <- appFtor. -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Definition tup {a} {b} (x:a) (y:b) : (a*b) := (x,y). -->
+<!-- Program Instance ApplicativeIsMonoidal {F} `{Applicative F} -->
+<!--     : Monoidal F -->
+<!--   := { funit := pure tt -->
+<!--      ; fzip := fun {a} {b} (u: F a) (v: F b) -->
+<!--                    => fmap tup u <*> v }. -->
+<!-- Next Obligation. (* left_identity *) -->
+<!--   repeat (rewrite -> appFtor). -->
+<!--   rewrite -> homomorphism. -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Next Obligation. (* right_identity *) -->
+<!--   repeat (rewrite -> appFtor). -->
+<!--   rewrite -> interchange. -->
+<!--   rewrite -> composition. -->
+<!--   repeat (rewrite -> homomorphism). -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Next Obligation. (* associativity *) -->
+<!--   repeat (rewrite -> fmapBracket). -->
+<!--   rewrite -> composition. -->
+<!--   repeat (rewrite <- appFtor). -->
+<!--   rewrite <- fmap_twice. -->
+<!--   rewrite -> fmap_both. -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Next Obligation. (* naturality *) -->
+<!--   rewrite -> fmap_both. -->
+<!--   rewrite <- fmap_twice. -->
+<!--   rewrite -> fmapBracket. -->
+<!--   now compute. -->
+<!-- Qed. -->
+<!-- Compiled with Coq 8.9.1. -->
+<!-- ``` -->
+<!-- -- pure id <*> v == v == v <*> pure id -- Left and Right Identity -->
+<!-- -- u <*> (v <*> w) = pure (.) <*> u <*> v <*> w --- Composition. -->
+<!-- ``` -->
+<!-- The following condition must always hold: -->
+<!-- <figure class="highlight"><pre><font face="monospace">&#xA0;<font color="#87afaf">--&gt;</font>
 <font color="#87afaf">&lt;!--</font>&#xA0;pure id&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;v&#xA0;<font color="#87afaf">=</font>&#xA0;v&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<font color="#767676">-- Identity --&gt;</font>
 <font color="#87afaf">&lt;!--</font>&#xA0;pure f&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;pure x&#xA0;<font color="#87afaf">=</font>&#xA0;pure&#xA0;<font color="#afaf5f">(</font>f x<font color="#afaf5f">)</font>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<font color="#767676">-- Homomorphism --&gt;</font>
 <font color="#87afaf">&lt;!--</font>&#xA0;u&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;pure y&#xA0;<font color="#87afaf">=</font>&#xA0;pure&#xA0;<font color="#afaf5f">(</font><font color="#87afaf">$</font>&#xA0;y<font color="#afaf5f">)</font>&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;u&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<font color="#767676">-- Interchange --&gt;</font>
 <font color="#87afaf">&lt;!--</font>&#xA0;pure&#xA0;<font color="#afaf5f">(</font><font color="#87afaf">.</font><font color="#afaf5f">)</font>&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;u&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;v&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;w&#xA0;<font color="#87afaf">=</font>&#xA0;u&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;<font color="#afaf5f">(</font>v&#xA0;<font color="#87afaf">&lt;*&gt;</font>&#xA0;w<font color="#afaf5f">)</font>&#xA0;<font color="#767676">-- Composition --&gt;</font>
 <font color="#87afaf">&lt;!--</font>&#xA0;
 </font></pre></figure> -->
-                <p>An Instance of Applicative, the List Applicative</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Functor</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
+<p>An Instance of Applicative, the List Applicative</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Functor</font> <font color="#afaf5f">[]</font> <font color="#87afaf">where</font>
  <font color="#767676">-- pure :: a -> [a]</font>
     pure x    <font color="#87afaf">=</font> <font color="#afaf5f">[</font>x<font color="#afaf5f">]</font>
 
@@ -836,22 +695,18 @@ a <font color="#87afaf"><*></font> pure b <font color="#87afaf">=</font> pur
  <font color="#767676">-- Thats a list comprehension that generates a new list</font>
  <font color="#767676">-- by applying the function f to each element in the list</font>
  <font color="#767676">-- xs for every function f in the list fs.</font>
-</font></pre>
-                </figure>
-                <p>Another Instance, the Maybe Functor</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Applicative</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
+</font></pre></figure>
+<p>Another Instance, the Maybe Functor</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#87afaf">instance</font> <font color="#d7875f">Applicative</font> <font color="#d7875f">Maybe</font> <font color="#87afaf">where</font>
  <font color="#767676">-- pure :: a -> Maybe a</font>
     pure x                <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>x<font color="#afaf5f">)</font>
 
  <font color="#767676">-- (<*>) :: Maybe (a -> b) -> Maybe a -> Maybe b</font>
     <font color="#afaf5f">(</font><font color="#d7875f">Just</font> f<font color="#afaf5f">)</font> <font color="#87afaf"><*></font> <font color="#afaf5f">(</font><font color="#d7875f">Just</font> x<font color="#afaf5f">)</font> <font color="#87afaf">=</font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font>f x<font color="#afaf5f">)</font>
     <font color="#87afaf">_</font>        <font color="#87afaf"><*></font> <font color="#87afaf">_</font>        <font color="#87afaf">=</font> <font color="#d7875f">Nothing</font>
-</font></pre>
-                </figure>
-                <p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>
-                <figure class="highlight">
-                    <pre><font face="monospace">ghci<font color="#87afaf">></font> <font color="#afaf5f">[(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font> <font color="#87afaf"><*></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
+</font></pre></figure>
+<p>All of the above is already implemented in the standard Haskell library, so you can also simply open an interactive Haskell interpreter (ghci) and test the following examples.</p>
+<figure class="highlight"><pre><font face="monospace">ghci<font color="#87afaf">></font> <font color="#afaf5f">[(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font> <font color="#87afaf"><*></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
 <font color="#afaf5f">[</font>2<font color="#afaf5f">,</font>4<font color="#afaf5f">,</font>6<font color="#afaf5f">]</font>
 
 ghci<font color="#87afaf">></font> <font color="#afaf5f">[(</font><font color="#87afaf">+</font>1<font color="#afaf5f">)</font><font color="#afaf5f">,</font><font color="#afaf5f">(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)]</font> <font color="#87afaf"><*></font> <font color="#afaf5f">[</font>1<font color="#afaf5f">,</font>2<font color="#afaf5f">,</font>3<font color="#afaf5f">]</font>
@@ -862,32 +717,26 @@ ghci<font color="#87afaf">></font> <font color="#d7875f">Just</font> <font col
 
 ghci<font color="#87afaf">></font> <font color="#d7875f">Just</font> <font color="#afaf5f">(</font><font color="#87afaf">*</font>2<font color="#afaf5f">)</font> <font color="#87afaf"><*></font> <font color="#d7875f">Nothing</font>
 <font color="#d7875f">Nothing</font>
-</font></pre>
-                </figure>
-                <h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
-                <div id="footnotes">
-                    <hr>
-                    <div id="footnotelist">
-                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
-                            <li id="fn:0"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">0.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">The diagram displayed at the top of this post is a modified version of Brent Yorgey's <a target="_blank" rel="noopener" href="https://wiki.haskell.org/File:Typeclassopedia-diagram.png">Typeclassopedia diagram</a><a href="#fnref:0" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">McBride, Conor; Paterson, Ross (2008-01-01). <em>Applicative programming with effects</em> (<a target="_blank" rel="noopener" href="http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf">pdf</a>). Journal of Functional Programming. 18 (1): 1–13. <a target="_blank" rel="noopener" href="https://doi.org/10.1017/S0956796807006326">doi:10.1017/S0956796807006326</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Rivas, E., & Jaskelioff, M. (2014). Notions of Computation as Monoids. CoRR, abs/1406.4823. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1406.4823.pdf">https://arxiv.org/abs/1406.4823</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
-        <p>
-            <a href="/atom.xml">
-                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
-                </svg>Source</a>
-        </p>
-    </footer>
-</body>
+</font></pre></figure>
+<h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:0"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">0.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">The diagram displayed at the top of this post is a modified version of Brent Yorgey's <a href="https://wiki.haskell.org/File:Typeclassopedia-diagram.png">Typeclassopedia diagram</a><a href="#fnref:0" rev="footnote"> ↩</a></span></li><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">McBride, Conor; Paterson, Ross (2008-01-01). <em>Applicative programming with effects</em> (<a href="http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf">pdf</a>). Journal of Functional Programming. 18 (1): 1–13. <a href="https://doi.org/10.1017/S0956796807006326">doi:10.1017/S0956796807006326</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Rivas, E., & Jaskelioff, M. (2014). Notions of Computation as Monoids. CoRR, abs/1406.4823. <a href="https://arxiv.org/pdf/1406.4823.pdf">https://arxiv.org/abs/1406.4823</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+</article>
 
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
 </html>

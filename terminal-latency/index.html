@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
@@ -40,214 +39,219 @@
             //- fix for single quotes in pre blocks
             document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
         });
-
     </script>
     <script defer src="/js/table-wrapper.js"></script>
     <meta name="generator" content="Hexo 6.3.0">
 </head>
-<header>
+
+
+    <header>
     <nav>
+        
         <a href="/"> Home</a>
-        <a target="_blank" rel="noopener" href="https://github.com/madnight"> Github</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
         <a href="/atom.xml"> RSS</a>
+        
         <a href="/about/"> About</a>
+        
     </nav>
-    <div class="title-con">
-        <div class="title-container">
-            <h1>beuke.org</h1>
-            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
-        </div>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
     </div>
+</div>
     <h2>A personal blog exploring computer science and theoretical physics</h2>
 </header>
 
-<body>
+
+    <body>
     <main>
-        <article>
-            <section>
-                <div class="post-title"> Terminal Latency </div>
-                <div class="post-subtitle"> Measuring Terminal Latency with Typometer </div>
-                <div class="post-subsubtitle"> Posted on Mar 16 2024 ~ 9 min read</div>
-                <div class="post-subtitle-tags">
-                    <a href="/tags/benchmark/">#benchmark</a>  <a href="/tags/terminal/">#terminal</a>  <a href="/tags/latency/">#latency</a>  </div>
-                <hr class="solid">
-            </section>
-            <div class"content">
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-                <style>
-                    td,
-                    th {
-                        border: 0px;
-                    }
+            <article>
+    <section>
+        <div class="post-title"> Terminal Latency </div>
+        <div class="post-subtitle"> Measuring Terminal Latency with Typometer </div>
+        <div class="post-subsubtitle"> Posted on
+        Mar 16 2024 ~
+        9 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/benchmark/">#benchmark</a> 
+        
+        <a href="/tags/terminal/">#terminal</a> 
+        
+        <a href="/tags/latency/">#latency</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><style>
+td, th {
+ border: 0px;
+}
 
-                    html,
-                    body {
-                        overflow-x: hidden;
-                    }
-
-                    @media (max-width: 600px) {
-
-                        table,
-                        th,
-                        td {
-                            font-size: 0.9em;
-                            /* Smaller font size on mobile devices */
-                        }
-                    }
-
-                </style>
-                <h1 id="motivation"><a class="markdownIt-Anchor" href="#motivation"></a> Motivation</h1>
-                <p>I’ve been a long-time user of Xterm. I tried to switch to other terminal emulators several times because of Xterm’s broken Unicode support, especially regarding glyphs/emojis and multi-font substitution. These glyphs are part of many modern CLI tools and are often printed as blank squares in Xterm. More recently, I attempted to switch again, but every time I try, I’m discouraged by the additional latency added during typing. I’m not a super-fast typist. I average about 80 WPM for normal text with bursts for common terminal commands of up to 120 WPM. The text appears in the terminal, of course, but not as quickly as I would like. There is a noticeable delay, especially when comparing something like Xterm to xfce4-terminal. I’ve placed some hope in the recent development of GPU-accelerated terminals, e.g., wezterm, but it still felt as slow as xfce4-terminals. When I read the benchmarks, they often show how fast it can print a gigabyte text file to stdout, but honestly, this is something I’m not so interested in for everyday use. I found some other interesting benchmarks regarding terminal latency, but there were always some terminal emulators missing for which I would like to know the result, or the results were slightly outdated.</p>
-                <h1 id="benchmark"><a class="markdownIt-Anchor" href="#benchmark"></a> Benchmark</h1>
-                <p>For the benchmark, I used Typometer<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Typometer GitHub](https://github.com/pavelfatin/typometer)
+html, body {
+  overflow-x: hidden;
+}
+@media (max-width: 600px) {
+      table, th, td {
+          font-size: 0.9em;  /* Smaller font size on mobile devices */
+      }
+}
+</style>
+<h1 id="motivation"><a class="markdownIt-Anchor" href="#motivation"></a> Motivation</h1>
+<p>I’ve been a long-time user of Xterm. I tried to switch to other terminal emulators several times because of Xterm’s broken Unicode support, especially regarding glyphs/emojis and multi-font substitution. These glyphs are part of many modern CLI tools and are often printed as blank squares in Xterm. More recently, I attempted to switch again, but every time I try, I’m discouraged by the additional latency added during typing. I’m not a super-fast typist. I average about 80 WPM for normal text with bursts for common terminal commands of up to 120 WPM. The text appears in the terminal, of course, but not as quickly as I would like. There is a noticeable delay, especially when comparing something like Xterm to xfce4-terminal. I’ve placed some hope in the recent development of GPU-accelerated terminals, e.g., wezterm, but it still felt as slow as xfce4-terminals. When I read the benchmarks, they often show how fast it can print a gigabyte text file to stdout, but honestly, this is something I’m not so interested in for everyday use. I found some other interesting benchmarks regarding terminal latency, but there were always some terminal emulators missing for which I would like to know the result, or the results were slightly outdated.</p>
+<h1 id="benchmark"><a class="markdownIt-Anchor" href="#benchmark"></a> Benchmark</h1>
+<p>For the benchmark, I used Typometer<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Typometer GitHub](https://github.com/pavelfatin/typometer)
 ">[1]</span></a></sup>, a tool designed to measure and analyze the latency of various applications that have text input. The test does not include keyboard latency or display latency, as Typometer emulates the keystrokes in software, and the screen capture is also in software, not via a physical camera in front of the screen. Hence, you can expect additional latency from the hardware, and these measurements represent only the latency that originates from the software stack. All versions should be either the latest stable version available via Arch Linux at the time of writing or the latest master commit. All tests were conducted on the same machine, a T14 Gen 1 (AMD Ryzen 7 PRO 4750U) with Arch Linux and Xorg (21.1.11-1).</p>
-                <h1 id="results"><a class="markdownIt-Anchor" href="#results"></a> Results</h1>
-                <center> xterm (389-1) </center>
-                <p><img src="/images/xterm.jpg" alt="xterm-"></p>
-                <center> alacritty (0.13.1-1) </center>
-                <p><img src="/images/alacritty.jpg" alt="xterm-"></p>
-                <center> kitty-tuned (0.31.0-1) </center>
-                <p><img src="/images/kitty-tuned.jpg" alt="xterm-"></p>
-                <center> zutty (0.14-2) </center>
-                <p><img src="/images/zutty.jpg" alt="xterm-"></p>
-                <center> st (master 95f22c5) </center>
-                <p><img src="/images/st.jpg" alt="xterm-"></p>
-                <center> urxvt (9.31-4) </center>
-                <p><img src="/images/urxvt.jpg" alt="xterm-"></p>
-                <center> konsole (24.02.0-1) </center>
-                <p><img src="/images/konsole.jpg" alt="xterm-"></p>
-                <center> kitty (0.31.0-1) </center>
-                <p><img src="/images/kitty.jpg" alt="xterm-"></p>
-                <center> wezterm (20230712.072601) </center>
-                <p><img src="/images/wezterm.jpg" alt="xterm-"></p>
-                <center> gnome-terminal (3.50.1-1) </center>
-                <p><img src="/images/gnome-terminal.jpg" alt="xterm-"></p>
-                <center> xfce4-terminal (1.1.1-2)</center>
-                <p><img src="/images/xfce4-terminal.jpg" alt="xterm-"></p>
-                <center> terminator (2.1.3-3) </center>
-                <p><img src="/images/terminator.jpg" alt="xterm-"></p>
-                <center> tilix (1.9.6-3) </center>
-                <p><img src="/images/tilix.jpg" alt="xterm-"></p>
-                <center> hyper (v3.4.1) </center>
-                <p><img src="/images/hyper.jpg" alt="xterm-"></p>
-                <div style="overflow-x:auto;">
-                    <center>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Terminal Emulator</th>
-                                    <th style="text-align:center">Min</th>
-                                    <th style="text-align:center">Max</th>
-                                    <th style="text-align:center">Avg</th>
-                                    <th style="text-align:center">Stddev</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>xterm (389-1)</td>
-                                    <td style="text-align:center">2.8</td>
-                                    <td style="text-align:center">9.8</td>
-                                    <td style="text-align:center"><b>5.3</b></td>
-                                    <td style="text-align:center">1.1</td>
-                                </tr>
-                                <tr>
-                                    <td>alacritty (0.13.1-1)</td>
-                                    <td style="text-align:center">5.2</td>
-                                    <td style="text-align:center">17.8</td>
-                                    <td style="text-align:center"><b>6.9</b></td>
-                                    <td style="text-align:center">1.8</td>
-                                </tr>
-                                <tr>
-                                    <td>kitty-tuned (0.31.0-1)</td>
-                                    <td style="text-align:center">8.1</td>
-                                    <td style="text-align:center">16.3</td>
-                                    <td style="text-align:center"><b>10.7</b></td>
-                                    <td style="text-align:center">1.4</td>
-                                </tr>
-                                <tr>
-                                    <td>zutty (0.14-2)</td>
-                                    <td style="text-align:center">7.4</td>
-                                    <td style="text-align:center">16.4</td>
-                                    <td style="text-align:center"><b>11.2</b></td>
-                                    <td style="text-align:center">1.6</td>
-                                </tr>
-                                <tr>
-                                    <td>st (master 95f22c5)</td>
-                                    <td style="text-align:center">11.4</td>
-                                    <td style="text-align:center">17.9</td>
-                                    <td style="text-align:center"><b>14.2</b></td>
-                                    <td style="text-align:center">1.2</td>
-                                </tr>
-                                <tr>
-                                    <td>urxvt (9.31-4)</td>
-                                    <td style="text-align:center">18.4</td>
-                                    <td style="text-align:center">22.7</td>
-                                    <td style="text-align:center"><b>20.4</b></td>
-                                    <td style="text-align:center">0.8</td>
-                                </tr>
-                                <tr>
-                                    <td>konsole (24.02.0-1)</td>
-                                    <td style="text-align:center">16.4</td>
-                                    <td style="text-align:center">26.8</td>
-                                    <td style="text-align:center"><b>20.7</b></td>
-                                    <td style="text-align:center">2.2</td>
-                                </tr>
-                                <tr>
-                                    <td>kitty (0.31.0-1)</td>
-                                    <td style="text-align:center">11.5</td>
-                                    <td style="text-align:center">34.4</td>
-                                    <td style="text-align:center"><b>23.8 </b></td>
-                                    <td style="text-align:center">2.6</td>
-                                </tr>
-                                <tr>
-                                    <td>wezterm (20230712.072601)</td>
-                                    <td style="text-align:center">11.3</td>
-                                    <td style="text-align:center">40.9</td>
-                                    <td style="text-align:center"><b>26.1</b></td>
-                                    <td style="text-align:center">7.2</td>
-                                </tr>
-                                <tr>
-                                    <td>gnome-terminal (3.50.1-1)</td>
-                                    <td style="text-align:center">29.0</td>
-                                    <td style="text-align:center">32.3</td>
-                                    <td style="text-align:center"><b>30.2</b></td>
-                                    <td style="text-align:center">0.8</td>
-                                </tr>
-                                <tr>
-                                    <td>xfce4-terminal (1.1.1-2)</td>
-                                    <td style="text-align:center">28.0</td>
-                                    <td style="text-align:center">36.1</td>
-                                    <td style="text-align:center"><b>30.2</b></td>
-                                    <td style="text-align:center">1.1</td>
-                                </tr>
-                                <tr>
-                                    <td>terminator (2.1.3-3)</td>
-                                    <td style="text-align:center">28.7</td>
-                                    <td style="text-align:center">48.0</td>
-                                    <td style="text-align:center"><b>30.5</b></td>
-                                    <td style="text-align:center">2.0</td>
-                                </tr>
-                                <tr>
-                                    <td>tilix (1.9.6-3)</td>
-                                    <td style="text-align:center">28.6</td>
-                                    <td style="text-align:center">69.7</td>
-                                    <td style="text-align:center"><b>31.0</b></td>
-                                    <td style="text-align:center">4.4</td>
-                                </tr>
-                                <tr>
-                                    <td>hyper (v3.4.1)</td>
-                                    <td style="text-align:center">28.1</td>
-                                    <td style="text-align:center">58.9</td>
-                                    <td style="text-align:center"><b>39.8</b></td>
-                                    <td style="text-align:center">5.7</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </center>
-                </div>
-                <p>Xterm yields the best results, and Hyper (a web-based terminal) has the worst results. This has met my expectations and matched the results from other blog posts. Hyper, with about 40ms latency, is not as bad as I thought. However, anything with more than 20ms I consider a noticeable delay, and everything below 10ms is fast enough for my needs. I find it quite interesting that kitty can be tuned to be more than twice as fast in terms latency. For kitty tuned I used the following settings:</p>
-                <figure class="highlight">
-                    <pre><font face="monospace"><font color="#767676"># 150 FPS</font>
+<h1 id="results"><a class="markdownIt-Anchor" href="#results"></a> Results</h1>
+ <center> xterm (389-1) </center> 
+<p><img src="/images/xterm.jpg" alt="xterm-"></p>
+ <center> alacritty (0.13.1-1) </center> 
+<p><img src="/images/alacritty.jpg" alt="xterm-"></p>
+ <center> kitty-tuned (0.31.0-1) </center> 
+<p><img src="/images/kitty-tuned.jpg" alt="xterm-"></p>
+ <center> zutty (0.14-2) </center> 
+<p><img src="/images/zutty.jpg" alt="xterm-"></p>
+ <center> st (master 95f22c5) </center> 
+<p><img src="/images/st.jpg" alt="xterm-"></p>
+ <center> urxvt (9.31-4) </center> 
+<p><img src="/images/urxvt.jpg" alt="xterm-"></p>
+ <center> konsole (24.02.0-1) </center> 
+<p><img src="/images/konsole.jpg" alt="xterm-"></p>
+ <center> kitty (0.31.0-1) </center> 
+<p><img src="/images/kitty.jpg" alt="xterm-"></p>
+ <center> wezterm (20230712.072601) </center> 
+<p><img src="/images/wezterm.jpg" alt="xterm-"></p>
+ <center> gnome-terminal (3.50.1-1) </center> 
+<p><img src="/images/gnome-terminal.jpg" alt="xterm-"></p>
+ <center> xfce4-terminal (1.1.1-2)</center> 
+<p><img src="/images/xfce4-terminal.jpg" alt="xterm-"></p>
+ <center> terminator (2.1.3-3) </center> 
+<p><img src="/images/terminator.jpg" alt="xterm-"></p>
+ <center> tilix (1.9.6-3) </center> 
+<p><img src="/images/tilix.jpg" alt="xterm-"></p>
+ <center> hyper (v3.4.1) </center> 
+<p><img src="/images/hyper.jpg" alt="xterm-"></p>
+<div style="overflow-x:auto;"><center>
+<table>
+<thead>
+<tr>
+<th>Terminal Emulator</th>
+<th style="text-align:center">Min</th>
+<th style="text-align:center">Max</th>
+<th style="text-align:center">Avg</th>
+<th style="text-align:center">Stddev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xterm (389-1)</td>
+<td style="text-align:center">2.8</td>
+<td style="text-align:center">9.8</td>
+<td style="text-align:center"><b>5.3</b></td>
+<td style="text-align:center">1.1</td>
+</tr>
+<tr>
+<td>alacritty (0.13.1-1)</td>
+<td style="text-align:center">5.2</td>
+<td style="text-align:center">17.8</td>
+<td style="text-align:center"><b>6.9</b></td>
+<td style="text-align:center">1.8</td>
+</tr>
+<tr>
+<td>kitty-tuned (0.31.0-1)</td>
+<td style="text-align:center">8.1</td>
+<td style="text-align:center">16.3</td>
+<td style="text-align:center"><b>10.7</b></td>
+<td style="text-align:center">1.4</td>
+</tr>
+<tr>
+<td>zutty (0.14-2)</td>
+<td style="text-align:center">7.4</td>
+<td style="text-align:center">16.4</td>
+<td style="text-align:center"><b>11.2</b></td>
+<td style="text-align:center">1.6</td>
+</tr>
+<tr>
+<td>st (master 95f22c5)</td>
+<td style="text-align:center">11.4</td>
+<td style="text-align:center">17.9</td>
+<td style="text-align:center"><b>14.2</b></td>
+<td style="text-align:center">1.2</td>
+</tr>
+<tr>
+<td>urxvt (9.31-4)</td>
+<td style="text-align:center">18.4</td>
+<td style="text-align:center">22.7</td>
+<td style="text-align:center"><b>20.4</b></td>
+<td style="text-align:center">0.8</td>
+</tr>
+<tr>
+<td>konsole (24.02.0-1)</td>
+<td style="text-align:center">16.4</td>
+<td style="text-align:center">26.8</td>
+<td style="text-align:center"><b>20.7</b></td>
+<td style="text-align:center">2.2</td>
+</tr>
+<tr>
+<td>kitty (0.31.0-1)</td>
+<td style="text-align:center">11.5</td>
+<td style="text-align:center">34.4</td>
+<td style="text-align:center"><b>23.8 </b></td>
+<td style="text-align:center">2.6</td>
+</tr>
+<tr>
+<td>wezterm (20230712.072601)</td>
+<td style="text-align:center">11.3</td>
+<td style="text-align:center">40.9</td>
+<td style="text-align:center"><b>26.1</b></td>
+<td style="text-align:center">7.2</td>
+</tr>
+<tr>
+<td>gnome-terminal (3.50.1-1)</td>
+<td style="text-align:center">29.0</td>
+<td style="text-align:center">32.3</td>
+<td style="text-align:center"><b>30.2</b></td>
+<td style="text-align:center">0.8</td>
+</tr>
+<tr>
+<td>xfce4-terminal (1.1.1-2)</td>
+<td style="text-align:center">28.0</td>
+<td style="text-align:center">36.1</td>
+<td style="text-align:center"><b>30.2</b></td>
+<td style="text-align:center">1.1</td>
+</tr>
+<tr>
+<td>terminator (2.1.3-3)</td>
+<td style="text-align:center">28.7</td>
+<td style="text-align:center">48.0</td>
+<td style="text-align:center"><b>30.5</b></td>
+<td style="text-align:center">2.0</td>
+</tr>
+<tr>
+<td>tilix (1.9.6-3)</td>
+<td style="text-align:center">28.6</td>
+<td style="text-align:center">69.7</td>
+<td style="text-align:center"><b>31.0</b></td>
+<td style="text-align:center">4.4</td>
+</tr>
+<tr>
+<td>hyper (v3.4.1)</td>
+<td style="text-align:center">28.1</td>
+<td style="text-align:center">58.9</td>
+<td style="text-align:center"><b>39.8</b></td>
+<td style="text-align:center">5.7</td>
+</tr>
+</tbody>
+</table>
+</center></div>
+<p>Xterm yields the best results, and Hyper (a web-based terminal) has the worst results. This has met my expectations and matched the results from other blog posts. Hyper, with about 40ms latency, is not as bad as I thought. However, anything with more than 20ms I consider a noticeable delay, and everything below 10ms is fast enough for my needs. I find it quite interesting that kitty can be tuned to be more than twice as fast in terms latency. For kitty tuned I used the following settings:</p>
+<figure class="highlight"><pre><font face="monospace"><font color="#767676"># 150 FPS</font>
 repaint_delay 8
 
 <font color="#767676"># Remove artificial input delay</font>
@@ -255,137 +259,127 @@ input_delay 0
 
 <font color="#767676"># turn off vsync</font>
 sync_to_monitor no
-</font></pre>
-                </figure>
-                <p>I gathered these settings from another blog post about terminal latency<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Measuring terminal latency](https://www.lkhrs.com/blog/2022/07/terminal-latency/)
+</font></pre></figure>
+<p>I gathered these settings from another blog post about terminal latency<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Measuring terminal latency](https://www.lkhrs.com/blog/2022/07/terminal-latency/)
 ">[2]</span></a></sup>, which is worth reading. Please note that the results in this blog post are not comparable with the results shown here because the author used a camera to measure the latency, which also includes the latency of the monitor.</p>
-                <p>I’ve also tested the following applications:</p>
-                <div style="overflow-x:auto;">
-                    <center>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Application</th>
-                                    <th style="text-align:center">Min</th>
-                                    <th style="text-align:center">Max</th>
-                                    <th style="text-align:center">Avg</th>
-                                    <th style="text-align:center">Stddev</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>gvim (9.1.0000-1)</td>
-                                    <td style="text-align:center">4.3</td>
-                                    <td style="text-align:center">31.7</td>
-                                    <td style="text-align:center"><b>8.0</b></td>
-                                    <td style="text-align:center">5.4</td>
-                                </tr>
-                                <tr>
-                                    <td>alacritty+tmux+neovim (0.13.1-1+3.3_a-7+0.9.5-2)</td>
-                                    <td style="text-align:center">5.4</td>
-                                    <td style="text-align:center">12.9</td>
-                                    <td style="text-align:center"><b>8.3</b></td>
-                                    <td style="text-align:center">1.4</td>
-                                </tr>
-                                <tr>
-                                    <td>chromium (120.0.6099.216-1)</td>
-                                    <td style="text-align:center">9.1</td>
-                                    <td style="text-align:center">28.6</td>
-                                    <td style="text-align:center"><b>19.6</b></td>
-                                    <td style="text-align:center">6.2</td>
-                                </tr>
-                                <tr>
-                                    <td>firefox (121.0.1-1)</td>
-                                    <td style="text-align:center">10.3</td>
-                                    <td style="text-align:center">28.3</td>
-                                    <td style="text-align:center"><b>24.1</b></td>
-                                    <td style="text-align:center">2.5</td>
-                                </tr>
-                                <tr>
-                                    <td>Visual Studio Code (1.87.2-1)</td>
-                                    <td style="text-align:center">26.3</td>
-                                    <td style="text-align:center">36.7</td>
-                                    <td style="text-align:center"><b>31.2</b></td>
-                                    <td style="text-align:center">3.3</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </center>
-                </div>
-                <p>As we can see, the latency for Neovim inside tmux inside Alacritty (8.3 ms) is not much higher than just Alacritty (6.9 ms). Hence, tmux and Neovim add only about 1.4 milliseconds of latency, which is quite acceptable. We can also see that the latency of an HTML text area in Chromium or Firefox is more than double the Alacritty latency. So, if you often write in applications like Teams, then there is probably not much you can do about it, other than accept about 20 milliseconds of delay for typing. And you are also out of luck in terms of latency if your favorite code editor of choice is Visual Studio Code, as this editor clocks in with a 31.2 ms delay before any hardware latency considerations.</p>
-                <h1 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h1>
-                <p>I’m quite satisfied with the results, especially now that I have found a decent alternative to Xterm, which has only 1.7 ms more latency - Alacritty. I’ve seen benchmarks in the past that measured higher values for Alacritty. Hence, I think the terminal latency has improved over time due to complaints on GitHub<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Improve input latency ](https://github.com/alacritty/alacritty/issues/673)
+<p>I’ve also tested the following applications:</p>
+<div style="overflow-x:auto;"><center>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th style="text-align:center">Min</th>
+<th style="text-align:center">Max</th>
+<th style="text-align:center">Avg</th>
+<th style="text-align:center">Stddev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gvim (9.1.0000-1)</td>
+<td style="text-align:center">4.3</td>
+<td style="text-align:center">31.7</td>
+<td style="text-align:center"><b>8.0</b></td>
+<td style="text-align:center">5.4</td>
+</tr>
+<tr>
+<td>alacritty+tmux+neovim (0.13.1-1+3.3_a-7+0.9.5-2)</td>
+<td style="text-align:center">5.4</td>
+<td style="text-align:center">12.9</td>
+<td style="text-align:center"><b>8.3</b></td>
+<td style="text-align:center">1.4</td>
+</tr>
+<tr>
+<td>chromium (120.0.6099.216-1)</td>
+<td style="text-align:center">9.1</td>
+<td style="text-align:center">28.6</td>
+<td style="text-align:center"><b>19.6</b></td>
+<td style="text-align:center">6.2</td>
+</tr>
+<tr>
+<td>firefox (121.0.1-1)</td>
+<td style="text-align:center">10.3</td>
+<td style="text-align:center">28.3</td>
+<td style="text-align:center"><b>24.1</b></td>
+<td style="text-align:center">2.5</td>
+</tr>
+<tr>
+<td>Visual Studio Code (1.87.2-1)</td>
+<td style="text-align:center">26.3</td>
+<td style="text-align:center">36.7</td>
+<td style="text-align:center"><b>31.2</b></td>
+<td style="text-align:center">3.3</td>
+</tr>
+</tbody>
+</table>
+</center></div>
+<p>As we can see, the latency for Neovim inside tmux inside Alacritty (8.3 ms) is not much higher than just Alacritty (6.9 ms). Hence, tmux and Neovim add only about 1.4 milliseconds of latency, which is quite acceptable. We can also see that the latency of an HTML text area in Chromium or Firefox is more than double the Alacritty latency. So, if you often write in applications like Teams, then there is probably not much you can do about it, other than accept about 20 milliseconds of delay for typing. And you are also out of luck in terms of latency if your favorite code editor of choice is Visual Studio Code, as this editor clocks in with a 31.2 ms delay before any hardware latency considerations.</p>
+<h1 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h1>
+<p>I’m quite satisfied with the results, especially now that I have found a decent alternative to Xterm, which has only 1.7 ms more latency - Alacritty. I’ve seen benchmarks in the past that measured higher values for Alacritty. Hence, I think the terminal latency has improved over time due to complaints on GitHub<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Improve input latency ](https://github.com/alacritty/alacritty/issues/673)
 ">[3]</span></a></sup> that caught some attention from the maintainers (there’s also my thumbs up on that issue). For now, I will migrate my configs from Xterm to Alacritty and report back in the form of another blog post in case there are any issues.</p>
-                <h3 id="update-march-17-2024"><a class="markdownIt-Anchor" href="#update-march-17-2024"></a> Update: March 17, 2024</h3>
-                <p>One of the contributors<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[st Contributor](https://github.com/avih)
+<h3 id="update-march-17-2024"><a class="markdownIt-Anchor" href="#update-march-17-2024"></a> Update: March 17, 2024</h3>
+<p>One of the contributors<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[st Contributor](https://github.com/avih)
 ">[4]</span></a></sup> to the st terminal emulator reached out to me and mentioned the possibility of configuring and recompiling st for lower latency. One might ask why the latency settings are not zero altogether for the smallest possible delay. Here’s the answer by avih:</p>
-                <blockquote> Generally speaking, there's a tradeoff between latency and throughput/flicker. <p>The smaller the latency, the worse the throughput is (e.g. in cat huge.txt) because the terminal has to render more frequently, and the more flicker-prone it becomes, for instance when the terminal updates the screen before the application completed its “output batch” - which then requires another screen update once the output batch is complete, e.g. when holding page-down in auto-repeat in vim or less.</p>
-                    <p>This behavior is not unique to st, but what is unique to st is that it’s configurable, and can be adaptive.</p>
-                    <p>By default it’s adaptive between 8 and 32 ms, and tries to draw as soon as possible after the application-output batch completes, i.e. the terminal input becomes idle.</p>
-                </blockquote>
-                <p>In response to this blog post, the default minlatency setting of st has now changed from 8 milliseconds to 2 to offer a smaller default latency for all users. I’ve chosen to rerun the tests, of course. Here are the new results:</p>
-                <center> st (master f20e169) </center>
-                <p><img src="/images/st-f20e169.jpg" alt="xterm-"></p>
-                <center> st-tuned (custom f20e169) </center>
-                <p><img src="/images/st-tuned.jpg" alt="xterm-"></p>
-                <div style="overflow-x:auto;">
-                    <center>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Terminal Emulator</th>
-                                    <th style="text-align:center">Min</th>
-                                    <th style="text-align:center">Max</th>
-                                    <th style="text-align:center">Avg</th>
-                                    <th style="text-align:center">Stddev</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>st (master f20e169)</td>
-                                    <td style="text-align:center">4.5</td>
-                                    <td style="text-align:center">10.4</td>
-                                    <td style="text-align:center"><b>6.2</b></td>
-                                    <td style="text-align:center">1.0</td>
-                                </tr>
-                                <tr>
-                                    <td>st (custom f20e169)</td>
-                                    <td style="text-align:center">2.2</td>
-                                    <td style="text-align:center">20.6</td>
-                                    <td style="text-align:center"><b>5.2</b></td>
-                                    <td style="text-align:center">2.1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </center>
-                </div>
-                <p>With the new commits, the master branch of st is now placed second, behind xterm and before Alacritty. However, if we custom-tune the settings for the lowest latency possible I chose <code>minlatency = 0</code> and <code>maxlatency = 1</code> then we have a new winner. Applying this custom tuning results in an average latency of <b>5.2</b> ms, which is 0.1 ms lower than xterm, and that’s with having a much more sane terminal without legacy cruft.</p>
-                <h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
-                <div id="footnotes">
-                    <hr>
-                    <div id="footnotelist">
-                        <ol style="list-style: none; padding-left: 0; margin-left: 40px">
-                            <li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://github.com/pavelfatin/typometer">Typometer GitHub</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.lkhrs.com/blog/2022/07/terminal-latency/">Measuring terminal latency</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://github.com/alacritty/alacritty/issues/673">Improve input latency </a><a href="#fnref:3" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://github.com/avih">st Contributor</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li>
-                            <li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://git.suckless.org/st/commit/f20e169a20f3ee761f7e09714f1d4c10916cf4c6.html">Lower default latency in st</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>This blog was made with <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://simplecss.org">Simple.css</a>.<br> Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
-        <p>
-            <a href="/atom.xml">
-                <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)" /></svg>RSS Feed</a> • <a target="_blank" rel="noopener" href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor" />
-                </svg>Source</a>
-        </p>
-    </footer>
-</body>
+<blockquote>
+Generally speaking, there's a tradeoff between latency and throughput/flicker.
+<p>The smaller the latency, the worse the throughput is (e.g. in cat huge.txt) because the terminal has to render more frequently, and the more flicker-prone it becomes, for instance when the terminal updates the screen before the application completed its “output batch” - which then requires another screen update once the output batch is complete, e.g. when holding page-down in auto-repeat in vim or less.</p>
+<p>This behavior is not unique to st, but what is unique to st is that it’s configurable, and can be adaptive.</p>
+<p>By default it’s adaptive between 8 and 32 ms, and tries to draw as soon as possible after the application-output batch completes, i.e. the terminal input becomes idle.</p>
+</blockquote>
+<p>In response to this blog post, the default minlatency setting of st has now changed from 8 milliseconds to 2 to offer a smaller default latency for all users. I’ve chosen to rerun the tests, of course. Here are the new results:</p>
+ <center> st (master f20e169) </center> 
+<p><img src="/images/st-f20e169.jpg" alt="xterm-"></p>
+ <center> st-tuned (custom f20e169) </center> 
+<p><img src="/images/st-tuned.jpg" alt="xterm-"></p>
+<div style="overflow-x:auto;"><center>
+<table>
+<thead>
+<tr>
+<th>Terminal Emulator</th>
+<th style="text-align:center">Min</th>
+<th style="text-align:center">Max</th>
+<th style="text-align:center">Avg</th>
+<th style="text-align:center">Stddev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>st (master f20e169)</td>
+<td style="text-align:center">4.5</td>
+<td style="text-align:center">10.4</td>
+<td style="text-align:center"><b>6.2</b></td>
+<td style="text-align:center">1.0</td>
+</tr>
+<tr>
+<td>st (custom f20e169)</td>
+<td style="text-align:center">2.2</td>
+<td style="text-align:center">20.6</td>
+<td style="text-align:center"><b>5.2</b></td>
+<td style="text-align:center">2.1</td>
+</tr>
+</tbody>
+</table>
+</center></div>
+<p>With the new commits, the master branch of st is now placed second, behind xterm and before Alacritty. However, if we custom-tune the settings for the lowest latency possible I chose <code>minlatency = 0</code> and <code>maxlatency = 1</code> then we have a new winner. Applying this custom tuning results in an average latency of <b>5.2</b> ms, which is 0.1 ms lower than xterm, and that’s with having a much more sane terminal without legacy cruft.</p>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/pavelfatin/typometer">Typometer GitHub</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.lkhrs.com/blog/2022/07/terminal-latency/">Measuring terminal latency</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/alacritty/alacritty/issues/673">Improve input latency </a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/avih">st Contributor</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://git.suckless.org/st/commit/f20e169a20f3ee761f7e09714f1d4c10916cf4c6.html">Lower default latency in st</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+</article>
 
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
 </html>
