@@ -893,36 +893,54 @@ main {
     margin-top: 2rem;
 }
 
-.category-item, .tag-item {
+.page-title-separator {
+    font-size: 2.0rem;
+    font-weight: bold;
     margin-bottom: 2rem;
-    padding: 1rem;
-    border-left: 3px solid var(--text-light);
+    text-align: left;
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.5rem;
+}
+
+.category-item, .tag-item {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
 }
 
 .category-item h3, .tag-item h3 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+    color: white;
+}
+
+.category-item h3 a, .tag-item h3 a {
+    color: white;
 }
 
 .category-item p, .tag-item p {
-    margin: 0.5rem 0;
-    color: var(--text-light);
+    margin: 0.25rem 0;
+    color: white;
     font-size: 0.9rem;
 }
 
 .category-posts, .tag-posts {
     list-style: none;
     padding-left: 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .category-posts li, .tag-posts li {
-    margin-bottom: 0.5rem;
-    padding: 0.25rem 0;
+    margin-bottom: 0.25rem;
+    padding: 0.1rem 0;
+}
+
+.category-posts a, .tag-posts a {
+    color: white;
 }
 
 .post-date {
-    color: var(--text-light);
+    color: white;
     font-size: 0.85rem;
     margin-right: 1rem;
 }
