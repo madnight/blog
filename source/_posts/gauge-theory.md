@@ -3,6 +3,8 @@ title: Gauge Theory
 date: 2025-03-23
 tags: ["theoretical physics", "quantum field theory", "quantum mechanics"]
 subtitle: Describing Nature's Forces Through Invariant Transformations
+categories:
+  - Theoretical Physics
 ---
 
 

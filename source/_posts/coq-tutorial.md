@@ -3,6 +3,8 @@ title: Coq Tutorial
 date: 2023-10-09
 tags: ["theorem proving", "proof theory", "coq"]
 subtitle: Interactive Theorem Proving with Coq
+categories:
+  - Computer Science
 mathjax: true
 ---
 {% raw %}

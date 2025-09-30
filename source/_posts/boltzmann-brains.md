@@ -3,6 +3,8 @@ title: Boltzmann Brains
 date: 2023-04-01
 tags: ["thought experiment", "cosmology", "theoretical physics"]
 subtitle: The Ultimate Fate of the Universe
+categories:
+  - Theoretical Physics
 ---
 
 # Introduction

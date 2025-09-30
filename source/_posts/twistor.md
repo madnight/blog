@@ -3,6 +3,8 @@ title: Twistor Theory
 date: 2025-03-12
 tags: ["theoretical physics", "quantum gravity"]
 subtitle: A Geometric Framework for Space-Time and Quantum Physics
+categories:
+  - Theoretical Physics
 ---
   <audio controls>
     <source src="/audio/twistor.mp3" type="audio/mpeg">

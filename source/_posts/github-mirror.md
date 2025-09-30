@@ -3,6 +3,8 @@ title: Create a GitHub Mirror
 date: 2016-12-25
 tags: ["github", "bash", "programming"]
 subtitle: Provide easy access to external repos via GitHub
+categories:
+  - Computer Science
 ---
 
 # Motivation

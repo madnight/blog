@@ -3,6 +3,8 @@ title: Origins of String Theory
 date: 2025-03-18
 tags: ["theoretical physics", "string theory", "quantum gravity"]
 subtitle: The Invention and Evolution of String Theory
+categories:
+  - Theoretical Physics
 ---
 
 

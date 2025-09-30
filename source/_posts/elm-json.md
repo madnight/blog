@@ -3,6 +3,8 @@ title: JSON Parsing in ELM
 date: 2017-01-14
 tags: ["elm", "json", "functional programming"]
 subtitle: JSON parsing in a purely functional web language
+categories:
+  - Computer Science
 ---
 
 # Immutable State of the Art

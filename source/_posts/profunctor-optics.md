@@ -3,6 +3,8 @@ title: Profunctor Optics
 date: 2025-03-29
 tags: ["category theory"]
 subtitle: Monoidal Structures for Modular Access Patterns
+categories:
+  - Computer Science
 ---
 
   <audio controls>

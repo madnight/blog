@@ -3,6 +3,8 @@ title: Category
 date: 2023-10-02
 tags: ["category theory", "haskell"]
 subtitle: Collection of Objects Linked by Arrows
+categories:
+  - Computer Science
 mathjax: true
 ---
 

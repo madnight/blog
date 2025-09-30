@@ -3,6 +3,8 @@ title: Functor
 date: 2023-08-30
 tags: ["category theory", "haskell"]
 subtitle: A Homomorphism of Categories
+categories:
+  - Computer Science
 mathjax: true
 ---
 

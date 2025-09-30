@@ -3,6 +3,8 @@ title: AdS/CFT Correspondence
 date: 2025-03-08
 tags: ["theoretical physics", "string theory"]
 subtitle: A Non-Perturbative Formulation of String Theory
+categories:
+  - Theoretical Physics
 ---
 
   <audio controls>

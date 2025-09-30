@@ -3,6 +3,8 @@ title: Pure Imperative Haskell
 date: 2018-08-27
 tags: ["haskell", "imperative", "functional programming"]
 subtitle: Pure Imperative Code Examples in Haskell
+categories:
+  - Computer Science
 ---
 
 It's often said that simple things which matter in the real world are quite hard to write in Haskell. And indeed it requires more syntax to program in an imperative mutating style in Haskell when compared to Python or JavaScript.

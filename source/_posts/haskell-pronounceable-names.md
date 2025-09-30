@@ -3,6 +3,8 @@ title: Pronounceable Haskell Operators
 date: 2018-08-14
 tags: ["haskell", "functional programming", "operators"]
 subtitle: Pronounceable Names for Common Haskell Operators
+categories:
+  - Computer Science
 ---
 
 (Just a) small collection of Haskell operators with some funny names for them. Haskell tutorials and discussions can sometimes be very dry, so lets "Put the fun back into computing" (distrowatch).

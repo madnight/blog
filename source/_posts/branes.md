@@ -3,6 +3,8 @@ title: D-Branes
 date: 2025-03-02
 tags: ["theoretical physics", "string theory", "cosmology"]
 subtitle: Dirichlet Membranes in String Theory
+categories:
+  - Theoretical Physics
 ---
 
 <style>

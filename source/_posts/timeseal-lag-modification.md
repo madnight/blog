@@ -3,6 +3,8 @@ title: Online Chess Clock Exploit
 date: 2014-06-10
 tags: ["timeseal", "chess", "reverse engineering"]
 subtitle: Modify client side lag calculation for infinite time
+categories:
+  - Computer Science
 ---
 
 The following exploit works for any online chess server that use timeseal. This bug has been reported to all major chess sites and is known since many years. As for example this hack is not possible on lichess.[^1] However there might still be a server out there that is using timeseal. Please contact the Administrator and ask him for a fix.

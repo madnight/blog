@@ -3,6 +3,8 @@ title: Delayed-Choice Quantum Eraser
 date: 2025-03-05
 tags: ["theoretical physics", "quantum mechancis", "philosophy"]
 subtitle: Illusion of Retrocausality in Quantum Mechanics
+categories:
+  - Theoretical Physics
 ---
 
 <style>

@@ -3,6 +3,8 @@ title: Monads in Python
 date: 2022-10-30
 tags: ["python", "haskell", "monads", "functional programming"]
 subtitle: Functor, Applicative, Monads in Python
+categories:
+  - Computer Science
 ---
 
 # Motivation

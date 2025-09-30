@@ -3,6 +3,8 @@ title: Semigroup
 date: 2023-08-29
 tags: ["category theory", "abstract algebra", "haskell"]
 subtitle: An Associative Magma
+categories:
+  - Computer Science
 mathjax: true
 ---
 

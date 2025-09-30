@@ -3,6 +3,8 @@ title: Natural Transformation
 date: 2023-09-12
 tags: ["category theory", "haskell"]
 subtitle: A Morphism of Functors
+categories:
+  - Computer Science
 mathjax: true
 ---
 {% raw %}

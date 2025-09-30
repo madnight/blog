@@ -3,6 +3,8 @@ title: Terminal Latency
 date: 2024-03-16
 tags: ["terminal", "latency", "benchmark"]
 subtitle: Measuring Terminal Latency with Typometer
+categories:
+  - Computer Science
 ---
 
 <style>

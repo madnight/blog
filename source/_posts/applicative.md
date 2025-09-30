@@ -3,6 +3,8 @@ title: Applicative
 date: 2023-09-08
 tags: ["category theory", "haskell"]
 subtitle: A Strong Lax Monoidal Functor
+categories:
+  - Computer Science
 mathjax: true
 ---
 {% raw %}

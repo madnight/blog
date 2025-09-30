@@ -3,6 +3,8 @@ title: Disk Latency
 date: 2021-03-08
 tags: ["storage", "performance", "benchmark"]
 subtitle: Measuring Disk Latency with ioping
+categories:
+  - Computer Science
 ---
 
 There are different kind of performance indicators for disks. The most commonly known is probably throughput. When you use a USB stick you will immediately notice if it's USB 2.0 or 3.x in case of a GiB sized data transfer. Another important performance indicator for storage is IOPS. IOPS is the number of I/O operations that the disk can handle per second. For example, a typical 7200U SATA HDD has about 75 IOPS, while a Samsung SSD 850 PRO has about 100k IOPS[^1]. You've probably noticed a significant performance boost after replacing your HDD with a SSD for your operating system.

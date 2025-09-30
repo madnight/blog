@@ -3,6 +3,8 @@ title: Compactification
 date: 2025-03-15
 tags: ["theoretical physics", "string theory", "quantum gravity"]
 subtitle: Hidden Higher-Dimensional Geometry of Spacetime
+categories:
+  - Theoretical Physics
 ---
 
   <audio controls>

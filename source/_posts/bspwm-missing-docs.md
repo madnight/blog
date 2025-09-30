@@ -3,6 +3,8 @@ title: The Missing Docs of Bspwm
 date: 2017-06-23
 tags: ["bspwm", "wm", "linux", "ricing"]
 subtitle: Bspwm as undocumented i3-gaps alternative
+categories:
+  - Computer Science
 ---
 
 # Introduction

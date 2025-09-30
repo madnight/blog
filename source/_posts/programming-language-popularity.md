@@ -3,6 +3,8 @@ title: Programming Language Popularity
 date: 2018-07-14
 tags: ["ranking", "programming languages"]
 subtitle: GitHub Programming Language Popularity based on BigQuery
+categories:
+  - Computer Science
 ---
 
 ### Introduction

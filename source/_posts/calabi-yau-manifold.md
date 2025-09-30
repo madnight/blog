@@ -3,6 +3,8 @@ title: Calabi-Yau Manifold
 date: 2025-03-30
 tags: ["theoretical physics", "string theory", "quantum gravity"]
 subtitle: Six-Dimensional Ricci-Flat Spaces with Covariantly Constant Structures
+categories:
+  - Theoretical Physics
 ---
 
 

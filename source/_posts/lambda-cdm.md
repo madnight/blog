@@ -3,6 +3,8 @@ title: ΛCDM
 date: 2025-05-30
 tags: ["theoretical physics", "cosmology"]
 subtitle: The Standard Model of Cosmology
+categories:
+  - Theoretical Physics
 ---
 
 

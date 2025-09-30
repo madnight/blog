@@ -3,6 +3,8 @@ title: Quantization
 date: 2023-04-06
 tags: ["artificial intelligence", "GPT", "LLM"]
 subtitle: A Key Technique for GPT Model Compression and Efficiency
+categories:
+  - Computer Science
 ---
 <aside>
 <img src="/images/lama.png" width="250" onclick="window.open(this.src)">

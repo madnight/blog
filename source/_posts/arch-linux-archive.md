@@ -3,6 +3,8 @@ title: Arch Linux Versioned
 date: 2021-06-21
 tags: ["arch", "linux", "upgrades"]
 subtitle: Arch Linux Date-Based Versioned Upgrades
+categories:
+  - Computer Science
 ---
 
 Have you ever been in the situation that you just wanted to install a single new package, but pacman couldn't find it, because your local package database is outdated? If so then you usually have two options. Perform a full system upgrade with `pacman -Syu`[^1] and a potential reboot in case of a new kernel or do a partial upgrade. Upgrade your local package database and only install the package plus all it's dependencies in the newest version. The problem is that partial upgrades are unsupported[^2]. Therefore, sooner than later, you might end up with a broken installation (missing .so files, wrong glibc version, kernel does not boot...). This might not be a big deal for a seasoned Archer. All you have to do is to arch-chroot from a live USB stick (some might have a Arch Linux Live USB stick always plugged in just in case) and fix the system. But this is at least time consuming and maybe a bit annoying. However, there's a third, lesser known option.
