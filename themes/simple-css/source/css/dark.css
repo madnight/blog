@@ -598,6 +598,11 @@ blockquote {
     section {
         padding: 0rem 0rem;
     }
+    
+    /* Add top padding to page title separators on mobile */
+    .page-title-separator {
+        padding-top: 1.5rem;
+    }
 }
 
 /* Reduce nav side on mobile */

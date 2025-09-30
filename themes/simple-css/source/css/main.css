@@ -521,6 +521,11 @@ blockquote {
     section {
         padding: 0rem 0rem;
     }
+    
+    /* Add top padding to page title separators on mobile */
+    .page-title-separator {
+        padding-top: 1.5rem;
+    }
 }
 
 /* Reduce nav side on mobile */
@@ -810,16 +815,16 @@ main {
 .category-item h3, .tag-item h3 {
     margin-top: 0;
     margin-bottom: 0.25rem;
-    color: white;
+    color: var(--text);
 }
 
 .category-item h3 a, .tag-item h3 a {
-    color: white;
+    color: var(--text);
 }
 
 .category-item p, .tag-item p {
     margin: 0.25rem 0;
-    color: white;
+    color: var(--text-light);
     font-size: 0.9rem;
 }
 
@@ -835,11 +840,11 @@ main {
 }
 
 .category-posts a, .tag-posts a {
-    color: white;
+    color: var(--text);
 }
 
 .post-date {
-    color: white;
+    color: var(--text-light);
     font-size: 0.85rem;
     margin-right: 1rem;
 }
