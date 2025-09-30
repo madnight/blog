@@ -7,14 +7,22 @@
 <% } %>
 
 <div class="archive-posts">
-    <% page.posts.each(function(post){ %>
-        <div class="archive-post-item">
-            <span class="archive-date"><%= date(post.date, 'MMM DD, YYYY') %></span>
-            <a href="<%- config.root %><%- post.path %>"><%= post.title %></a>
+    <% 
+    var currentYear = null;
+    page.posts.each(function(post){ 
+        var postYear = date(post.date, 'YYYY');
+        if (currentYear !== postYear) {
+            currentYear = postYear;
+    %>
+        <div class="archive-year-separator"><%= postYear %></div>
+    <% } %>
+        <div class="blog-item">
+            <a href="<%- config.root %><%- post.path %>"><div class="list-post-title"><%= post.title %></div></a>
             <% if (post.subtitle) { %>
-                <div class="archive-subtitle"><%= post.subtitle %></div>
+                <div class="list-post-subtitle"><%= post.subtitle %></div>
             <% } %>
-            <div class="archive-tags">
+            <div class="list-post-subtitle-date">Posted on <%= date(post.date, 'MMM DD YYYY') %> ~ <%= post.reading_time || 'X' %> min read</div>
+            <div class="list-post-subtitle-tags">
                 <% if (post.tags && post.tags.data && post.tags.data.length > 0) { %>
                     <% post.tags.data.forEach(function(tag, index){ %>
                         <a href="<%- config.root %>tags/<%= tag.slug %>/">#<%= tag.name %></a><% if (index < post.tags.data.length - 1) { %>&nbsp;<% } %>

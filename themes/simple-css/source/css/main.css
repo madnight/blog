@@ -614,6 +614,17 @@ blockquote {
         margin-bottom: 1.5rem;
     }
 
+    /* Mobile year separator */
+    .archive-year-separator {
+        font-size: 1.6rem;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .archive-year-separator:first-child {
+        margin-top: 1.5rem;
+    }
+
     /* Mobile footer margin */
     body>footer {
         margin-top: 1rem;
@@ -685,6 +696,17 @@ blockquote {
         .blog-item {
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
+        }
+
+        /* Mobile year separator for smaller screens */
+        .archive-year-separator {
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .archive-year-separator:first-child {
+            margin-top: 1rem;
         }
 
         /* Mobile footer margin for smaller screens */
@@ -802,4 +824,21 @@ main {
     color: var(--text-light);
     font-size: 0.85rem;
     margin-right: 1rem;
+}
+
+/* Archive page styling - now uses homepage classes */
+
+.archive-year-separator {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.archive-year-separator:first-child {
+    margin-top: 2rem;
 }

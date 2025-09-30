@@ -3,6 +3,8 @@ title: Zen
 date: 2024-10-26
 tags: [""]
 subtitle: ""
+categories:
+  - Other
 ---
 
 I have compiled a few lessons from Zen teachings that I gathered from various sources and want to share with you.

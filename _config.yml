@@ -86,6 +86,12 @@ archive_generator:
     monthly: false
     daily: false
 
+tag_generator:
+    per_page: 100
+
+category_generator:
+    per_page: 100
+
 stylus:
   compress: true
 
