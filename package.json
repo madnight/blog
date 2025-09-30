@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "rm -rf public && hexo clean && hexo generate --draft && hexo server --draft",
     "build": "rm -rf public && hexo clean && hexo generate && hexo generate",
+    "gen": "hexo generate && hexo generate",
     "deploy": "npm run build && hexo deploy"
   },
   "dependencies": {

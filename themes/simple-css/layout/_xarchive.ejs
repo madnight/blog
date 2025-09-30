@@ -1,0 +1,11 @@
+<% page.posts.each(function(post){ %>
+      <!-- <a href="<%- config.root %><%= post.path %>"> <div class="list-post-title"><%= post.title %></div></a> -->
+      <!-- <div class="list-post-subtitle"><%= post.subtitle %></div> -->
+<%= full_date(post.date, "MM/DD/YYYY") %> - <a href="<%- config.root %><%= post.path %>"> <%= post.title %></a>
+<div class="list-post-subtitle-tags">
+<!-- <% post.tags.each(function(tag){ %> -->
+ <!-- <a href="<%= config.root + tag.path %>">#<%= tag.name %></a>&nbsp; -->
+<!-- <% }); %> -->
+</div>
+  </div>
+<% }); %>

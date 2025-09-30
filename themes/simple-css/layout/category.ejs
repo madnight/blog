@@ -1,0 +1,22 @@
+<h2>Categories</h2>
+
+<div class="categories-list">
+    <% site.categories.each(function(category) { %>
+        <div class="category-item">
+            <h3><a href="<%- config.root %><%- category.path %>"><%= category.name %></a></h3>
+            <p><%= category.posts.length %> <%= category.posts.length === 1 ? 'post' : 'posts' %></p>
+            
+            <ul class="category-posts">
+                <% category.posts.sort('date', -1).limit(5).each(function(post) { %>
+                    <li>
+                        <span class="post-date"><%= date(post.date, 'MMM DD, YYYY') %></span>
+                        <a href="<%- config.root %><%- post.path %>"><%= post.title %></a>
+                    </li>
+                <% }) %>
+                <% if (category.posts.length > 5) { %>
+                    <li><a href="<%- config.root %><%- category.path %>">View all <%= category.posts.length %> posts...</a></li>
+                <% } %>
+            </ul>
+        </div>
+    <% }) %>
+</div>

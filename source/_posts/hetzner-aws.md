@@ -4,9 +4,7 @@ date: 2025-09-28
 tags: ["AWS", "hetzner", "kubernetes", "fargate", "cloud engineering"]
 subtitle: Total Cost of Ownership Analysis for IT-departments
 categories:
-  - [Sports, Baseball]
-  - [MLB, American League, Boston Red Sox]
-  - Rivalries
+  - [Cloud Engineering, Kubernetes]
 ---
 
 # Introduction

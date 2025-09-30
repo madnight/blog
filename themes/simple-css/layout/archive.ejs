@@ -1,0 +1,26 @@
+<% if (is_category()) { %>
+    <h2>Category: <%= page.category %></h2>
+<% } else if (is_tag()) { %>
+    <h2>Tag: <%= page.tag %></h2>
+<% } else { %>
+    <h2>Archives</h2>
+<% } %>
+
+<div class="archive-posts">
+    <% page.posts.each(function(post){ %>
+        <div class="archive-post-item">
+            <span class="archive-date"><%= date(post.date, 'MMM DD, YYYY') %></span>
+            <a href="<%- config.root %><%- post.path %>"><%= post.title %></a>
+            <% if (post.subtitle) { %>
+                <div class="archive-subtitle"><%= post.subtitle %></div>
+            <% } %>
+            <div class="archive-tags">
+                <% if (post.tags && post.tags.data && post.tags.data.length > 0) { %>
+                    <% post.tags.data.forEach(function(tag, index){ %>
+                        <a href="<%- config.root %>tags/<%= tag.slug %>/">#<%= tag.name %></a><% if (index < post.tags.data.length - 1) { %>&nbsp;<% } %>
+                    <% }); %>
+                <% } %>
+            </div>
+        </div>
+    <% }); %>
+</div>
