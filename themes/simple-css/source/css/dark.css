@@ -681,6 +681,22 @@ blockquote {
         font-size: 0.9rem;
     }
 
+    /* Mobile blog item spacing */
+    .blog-item {
+        margin-top: 0rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Mobile header padding */
+    body>header {
+        padding: 0 .5rem 1rem .5rem;
+    }
+
+    /* Mobile header nav margin */
+    header > nav {
+        margin: 0 -2.5% -1rem -2.5%;
+    }
+
     @media only screen and (max-width: 400px) {
         header > nav a {
             margin: 0 1.5% 1rem 1.5%;
@@ -732,6 +748,22 @@ blockquote {
         /* Mobile header h2 size for smaller screens */
         header > h2 {
             font-size: 0.9rem;
+        }
+
+        /* Mobile blog item spacing for smaller screens */
+        .blog-item {
+            margin-top: 0rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Mobile header padding for smaller screens */
+        body>header {
+            padding: 0 .5rem 1rem .5rem;
+        }
+
+        /* Mobile header nav margin for smaller screens */
+        header > nav {
+            margin: 0 -2.5% -1rem -2.5%;
         }
     }
 }
