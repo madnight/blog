@@ -69,47 +69,50 @@
 
     <body>
     <main>
-            <div class="about-title">
-    <h3>About Fabian Beuke</h3>
-</div>
-<div class="about-hr"><hr></div>
-<aside>
-    <a href="https://beuke.org/"><img src="/images/fabian_beuke.jpg" width="260"></a>
-</aside>
-<p>I'm a cloud engineer with a master degree in computer science. I'm interested in distributed computing, category theory and theoretical physics.</p>
-Some quotes I like:
-<ul>
-    <li>There are two hard problems in computer science: cache invalidation, naming things, and off-by-one errors. - Phil Karlton</li>
-    <li>Everything should be made as simple as possible, but no simpler. - Albert Einstein</li>
-    <li>But can it run Crysis?</li>
-    <li>Attachment leads to jealousy. The shadow of greed that is. Train yourself to let go of everything you fear to lose. - Yoda</li>
-    <div id="random-quotes"></div>
-</ul>
-<h3>Contact</h3>
-<ul>
-    <li>E-Mail <a href="mailto:mail@beuke.org">mail@beuke.org</a></li>
-    <li>LinkedIn <a href="https://de.linkedin.com/in/fabian-beuke">@FabianBeuke</a></li>
-    <li>GitHub: <a href="https://github.com/madnight">madnight</a></li>
-    <li>Languages: English, German</li>
-</ul>
+            
+    <!-- Default about page content -->
+    <div class="about-title">
+        <h3>About Fabian Beuke</h3>
+    </div>
+    <div class="about-hr"><hr></div>
+    <aside>
+        <a href="https://beuke.org/"><img src="/images/fabian_beuke.jpg" width="260"></a>
+    </aside>
+    <p>I'm a cloud engineer with a master degree in computer science. I'm interested in distributed computing, category theory and theoretical physics.</p>
+    Some quotes I like:
+    <ul>
+        <li>There are two hard problems in computer science: cache invalidation, naming things, and off-by-one errors. - Phil Karlton</li>
+        <li>Everything should be made as simple as possible, but no simpler. - Albert Einstein</li>
+        <li>But can it run Crysis?</li>
+        <li>Attachment leads to jealousy. The shadow of greed that is. Train yourself to let go of everything you fear to lose. - Yoda</li>
+        <div id="random-quotes"></div>
+    </ul>
+    <h3>Contact</h3>
+    <ul>
+        <li>E-Mail <a href="mailto:mail@beuke.org">mail@beuke.org</a></li>
+        <li>LinkedIn <a href="https://de.linkedin.com/in/fabian-beuke">@FabianBeuke</a></li>
+        <li>GitHub: <a href="https://github.com/madnight">madnight</a></li>
+        <li>Languages: English, German</li>
+    </ul>
 
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  const quotes = [
-    "It always takes longer than you expect, even when you take into account Hofstadter's Law. - Hofstadter's Law",
-      "Adding human resources to a late software development project makes it later. - Brooks' Law",
-      "The best way to get the right answer on the Internet is not to ask a question, it's to post the wrong answer. - Cunningham's Law",
-      "A complex system that works is invariably found to have evolved from a simple system that worked. A complex system designed from scratch never works and cannot be patched up to make it work. You have to start over with a working simple system. - Gall's Law",
-"We tend to overestimate the effect of a technology in the short run and underestimate the effect in the long run. - Amara's Law",
-      "With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviours of your system will be depended on by somebody. - Hyrum's Law",
-      "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. - Kernighan's Law",
-      "Anything that can go wrong will go wrong. - Murphy's Law",
-  ];
-  const quoteElement = document.getElementById('random-quotes');
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  quoteElement.innerHTML = `<li>${quotes[randomIndex]}</li>`;
-});
-</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const quotes = [
+        "It always takes longer than you expect, even when you take into account Hofstadter's Law. - Hofstadter's Law",
+          "Adding human resources to a late software development project makes it later. - Brooks' Law",
+          "The best way to get the right answer on the Internet is not to ask a question, it's to post the wrong answer. - Cunningham's Law",
+          "A complex system that works is invariably found to have evolved from a simple system that worked. A complex system designed from scratch never works and cannot be patched up to make it work. You have to start over with a working simple system. - Gall's Law",
+    "We tend to overestimate the effect of a technology in the short run and underestimate the effect in the long run. - Amara's Law",
+          "With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviours of your system will be depended on by somebody. - Hyrum's Law",
+          "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. - Kernighan's Law",
+          "Anything that can go wrong will go wrong. - Murphy's Law",
+      ];
+      const quoteElement = document.getElementById('random-quotes');
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.innerHTML = `<li>${quotes[randomIndex]}</li>`;
+    });
+    </script>
+
 
     </main>
         <footer>

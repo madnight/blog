@@ -681,11 +681,6 @@ blockquote {
         font-size: 0.9rem;
     }
 
-    /* Mobile blog item spacing */
-    .blog-item {
-        margin-top: 0rem;
-        margin-bottom: 2rem;
-    }
 
     /* Mobile header padding */
     body>header {
@@ -695,6 +690,27 @@ blockquote {
     /* Mobile header nav margin */
     header > nav {
         margin: 0 -2.5% -1rem -2.5%;
+    }
+
+    /* Mobile main padding */
+    main {
+        padding-top: 0rem;
+    }
+
+    /* Mobile blog item margins */
+    .blog-item {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Mobile footer margin */
+    body>footer {
+        margin-top: 1rem;
+    }
+
+    /* Mobile title font size */
+    .title-container h1 {
+        font-size: 2rem;
     }
 
     @media only screen and (max-width: 400px) {
@@ -750,11 +766,6 @@ blockquote {
             font-size: 0.9rem;
         }
 
-        /* Mobile blog item spacing for smaller screens */
-        .blog-item {
-            margin-top: 0rem;
-            margin-bottom: 2rem;
-        }
 
         /* Mobile header padding for smaller screens */
         body>header {
@@ -764,6 +775,27 @@ blockquote {
         /* Mobile header nav margin for smaller screens */
         header > nav {
             margin: 0 -2.5% -1rem -2.5%;
+        }
+
+        /* Mobile main padding for smaller screens */
+        main {
+            padding-top: 0rem;
+        }
+
+        /* Mobile blog item margins for smaller screens */
+        .blog-item {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile footer margin for smaller screens */
+        body>footer {
+            margin-top: 1rem;
+        }
+
+        /* Mobile title font size for smaller screens */
+        .title-container h1 {
+            font-size: 2rem;
         }
     }
 }
@@ -832,4 +864,43 @@ svg {
 main {
     overflow-x: hidden;
     max-width: 100%;
+}
+
+/* Category and tag page styling */
+.categories-list, .tags-list {
+    margin-top: 2rem;
+}
+
+.category-item, .tag-item {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 3px solid var(--text-light);
+}
+
+.category-item h3, .tag-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.category-item p, .tag-item p {
+    margin: 0.5rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.category-posts, .tag-posts {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.category-posts li, .tag-posts li {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.post-date {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-right: 1rem;
 }
