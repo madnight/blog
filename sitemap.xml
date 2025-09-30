@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/categories/index.html</loc>
+    
+    <lastmod>2025-09-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/hetzner-aws/</loc>
     
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2025-09-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -155,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/coq-tutorial/</loc>
+    <loc>https://beuke.org/category/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -164,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/category/</loc>
+    <loc>https://beuke.org/coq-tutorial/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -209,15 +218,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
-    
-    <lastmod>2025-03-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/gauge-theory/</loc>
     
     <lastmod>2025-03-29</lastmod>
@@ -236,7 +236,25 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/haskell-pronounceable-names/</loc>
+    
+    <lastmod>2025-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/hom-set/</loc>
+    
+    <lastmod>2025-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monoid/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -255,15 +273,6 @@
   
   <url>
     <loc>https://beuke.org/monads-in-python/</loc>
-    
-    <lastmod>2025-03-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/monoid/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -326,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/timeseal-lag-modification/</loc>
+    <loc>https://beuke.org/terminal-latency/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -335,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/terminal-latency/</loc>
+    <loc>https://beuke.org/timeseal-lag-modification/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -380,21 +389,14 @@
 
   
   <url>
-    <loc>https://beuke.org/tags/arch/</loc>
+    <loc>https://beuke.org/tags/category-theory/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/linux/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/upgrades/</loc>
+    <loc>https://beuke.org/tags/haskell/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -415,14 +417,21 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/category-theory/</loc>
+    <loc>https://beuke.org/tags/arch/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/haskell/</loc>
+    <loc>https://beuke.org/tags/linux/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/upgrades/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -541,13 +550,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/big-bang/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/elm/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -569,7 +571,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/operators/</loc>
+    <loc>https://beuke.org/tags/big-bang/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -611,6 +613,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/operators/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/AWS/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -646,20 +655,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/abstract-algebra/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/monads/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/kafka/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -675,6 +670,20 @@
   
   <url>
     <loc>https://beuke.org/tags/analysis/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/abstract-algebra/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/monads/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -758,6 +767,20 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/terminal/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/latency/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/timeseal/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -778,20 +801,48 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://beuke.org/tags/terminal/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/latency/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
+  
+  <url>
+    <loc>https://beuke.org/categories/Sports/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/categories/Sports/Baseball/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/categories/MLB/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/categories/MLB/American-League/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/categories/MLB/American-League/Boston-Red-Sox/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/categories/Rivalries/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
