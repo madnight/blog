@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/coq-tutorial/</loc>
+    <loc>https://beuke.org/disk-latency/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/disk-latency/</loc>
+    <loc>https://beuke.org/coq-tutorial/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -254,15 +254,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/monoid/</loc>
-    
-    <lastmod>2025-03-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/monad/</loc>
     
     <lastmod>2025-03-29</lastmod>
@@ -273,6 +264,15 @@
   
   <url>
     <loc>https://beuke.org/monads-in-python/</loc>
+    
+    <lastmod>2025-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/monoid/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -317,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
+    <loc>https://beuke.org/semigroup/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -326,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/semigroup/</loc>
+    <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-03-29</lastmod>
     
@@ -389,20 +389,6 @@
 
   
   <url>
-    <loc>https://beuke.org/tags/category-theory/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/haskell/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/theoretical-physics/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -411,6 +397,20 @@
   
   <url>
     <loc>https://beuke.org/tags/string-theory/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/category-theory/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/haskell/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -480,27 +480,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/theorem-proving/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/proof-theory/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/coq/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/storage/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -516,6 +495,27 @@
   
   <url>
     <loc>https://beuke.org/tags/benchmark/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/theorem-proving/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/proof-theory/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/coq/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -550,6 +550,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/big-bang/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/elm/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -565,13 +572,6 @@
   
   <url>
     <loc>https://beuke.org/tags/functional-programming/</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/big-bang/</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
