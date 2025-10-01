@@ -648,8 +648,9 @@ blockquote {
 
         .list-post-subtitle {
             font-size: 0.9rem;
-            line-height: 1rem;
-            margin-top: 0.2rem;
+            line-height: 1.1rem;
+            margin-top: 0.3rem;
+            margin-bottom: 0.1rem;
         }
 
         .post-title {
