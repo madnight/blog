@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about computer science and theoretical physics.">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+    </script>
+    <script defer src="/js/table-wrapper.js"></script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+
+
+    <header>
+    <nav>
+        
+        <a href="/"> Home</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
+        <a href="/archive/"> Archive</a>
+        
+        <a href="/about/"> About</a>
+        
+    </nav>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+    </div>
+</div>
+    <h2>A personal blog exploring computer science and theoretical physics</h2>
+</header>
+
+
+    <body>
+    <main>
+            <article>
+    <section>
+        <div class="post-title"> Tesla vs. Waymo </div>
+        <div class="post-subtitle"> Two different approaches to full self-driving </div>
+        <div class="post-subsubtitle"> Posted on
+        Oct 1 2025 ~
+        15 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/artificial-intelligence/">#artificial intelligence</a> 
+        
+        <a href="/tags/tesla/">#tesla</a> 
+        
+        <a href="/tags/waymo/">#waymo</a> 
+        
+        <a href="/tags/autonomous-driving/">#autonomous driving</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1>
+<p>Waymo and Tesla represent distinct approaches to autonomous driving technology. Waymo operates driverless robotaxi fleets in select metros using sensor fusion with HD maps and city-specific safety cases, providing commercial service without human drivers in Phoenix, San Francisco, and Los Angeles. Tesla sells Full Self‑Driving (Supervised), a driver assistance system that operates nationwide with a vision‑only, end‑to‑end stack but requires constant human oversight. Waymo’s deployment model emphasizes geographically limited areas with full autonomy, while Tesla distributes supervised capabilities across hundreds of thousands of customer vehicles. The companies differ in their use of sensors, maps, validation methods, and strategies for scaling autonomous transportation.</p>
+<h2 id="vehicles-hardware-and-software"><a class="markdownIt-Anchor" href="#vehicles-hardware-and-software"></a> Vehicles, Hardware, and Software</h2>
+<p>Waymo’s current commercial fleet is built primarily on the Jaguar I‑PACE EV and uses its 5th- and 6th-gen “Waymo Driver” hardware. The stack fuses 360‑degree lidar, radar, and multiple cameras with onboard compute and HD maps. The 6th-gen refresh, announced in 2024 and paired with a purpose‑built Zeekr robotaxi platform, emphasizes lower sensor cost and efficiency for reduced per‑mile cost.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Google Help. (2024). How our cars drive - Waymo Help. https://support.google.com/waymo/answer/9190838?hl=en
+">[1]</span></a></sup></p>
+<figure>
+  <img src="/images/waymo.jpg" alt="Waymo autonomous vehicle">
+  <figcaption>Waymo's robotaxi with integrated lidar, radar, and camera sensor suite</figcaption>
+</figure>
+<p>Tesla’s production vehicles run a “Tesla Vision” stack that eliminates radar and ultrasonics on most models for a pure camera suite feeding an onboard FSD computer. FSD v12 uses end‑to‑end neural networks that map video directly to driving controls, replacing most handcrafted planning code. Think apprentice driver that learns by watching millions of examples rather than following an explicit rulebook. The system uses standard navigation maps for routing but avoids city‑specific HD maps.<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Tesla. (2024). Tesla Vision Update: Replacing Ultrasonic Sensors with Tesla Vision. https://www.tesla.com/support/transitioning-tesla-vision
+">[3]</span></a></sup></p>
+<figure>
+  <img src="/images/tesla.jpg" alt="Tesla vehicle">
+  <figcaption>Tesla vehicle with camera-only perception for Full Self-Driving (Supervised)</figcaption>
+</figure>
+<h2 id="fundamental-approaches"><a class="markdownIt-Anchor" href="#fundamental-approaches"></a> Fundamental Approaches</h2>
+<p>Waymo depends on HD maps as a strong prior before localizing and reasoning about dynamic actors. Tesla avoids HD maps, aiming for generalization from perception alone.<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2020). The Waymo Driver Handbook: How our highly-detailed maps help unlock new capabilities. https://waymo.com/blog/2020/09/the-waymo-driver-handbook-mapping/
+">[4]</span></a></sup> Waymo’s lidar, radar, and camera fusion provides redundancy across weather and lighting conditions and precise range estimation. Tesla relies on multi‑camera vision and learned depth and occupancy estimation, arguing that vision captures the full richness of roadway cues and that additional sensors add cost and complexity without sufficient benefit.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Google Help. (2024). How our cars drive - Waymo Help. https://support.google.com/waymo/answer/9190838?hl=en
+">[1]</span></a></sup></p>
+<p>Both companies train large neural models. Waymo supplements real‑world miles with extensive simulation to rehearse edge cases and validate updates. Tesla relies on fleet data under supervision and broad over‑the‑air updates. Validation differs: Waymo certifies city by city with safety cases; Tesla iterates at continental scale.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2021). Simulation City: Introducing Waymo's most advanced simulation system. https://waymo.com/blog/2021/07/simulation-city/
+">[2]</span></a></sup></p>
+<h2 id="chronology-of-key-milestones"><a class="markdownIt-Anchor" href="#chronology-of-key-milestones"></a> Chronology of Key Milestones</h2>
+<h3 id="waymo"><a class="markdownIt-Anchor" href="#waymo"></a> Waymo</h3>
+<ul>
+<li><strong>2009 to 2016</strong>: Google self‑driving project initiates; Waymo spun out of Google in 2016. Early demonstrations include a 2015 public road ride with no human driver for a legally blind rider, signaling driverless readiness in controlled contexts.<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2016). On the road with self-driving car user number one. https://waymo.com/blog/2016/12/on-road-with-self-driving-car-user/
+">[5]</span></a></sup></li>
+<li><strong>2018</strong>: Launch of Waymo One in metro Phoenix as a commercial robotaxi service with trained safety operators and limited rider base.<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2018). Waymo One: The next step on our self-driving journey. https://waymo.com/blog/2018/12/waymo-one-next-step-on-our-self-driving/
+">[6]</span></a></sup></li>
+<li><strong>2020</strong>: Opening of fully driverless rides to the public in parts of Phoenix, beginning driverless commercial service.<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2020). Waymo is opening its fully driverless service to the general public in Phoenix. https://waymo.com/blog/2020/10/waymo-is-opening-its-fully-driverless-service-in-phoenix/
+">[7]</span></a></sup></li>
+<li><strong>2023 to 2024</strong>: California CPUC grants Waymo authority for 24/7 paid driverless service in San Francisco, later approving expansion into parts of Los Angeles and San Mateo County. Waymo begins opening San Francisco access broadly to the public.<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="California Public Utilities Commission. (2023). CPUC Approves Permits for Cruise and Waymo To Charge Fares for Passenger Service in SF. https://www.cpuc.ca.gov/news-and-updates/all-news/cpuc-approves-permits-for-cruise-and-waymo-to-charge-fares-for-passenger-service-in-sf-2023
+">[8]</span></a></sup></li>
+<li><strong>2024 to 2025</strong>: Hardware refresh announced; the company retires Chrysler Pacifica vans in favor of all‑electric Jaguars. Waymo expands service areas in Phoenix and Los Angeles and initiates access via Uber in Austin and Atlanta.<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2024). Meet the 6th-generation Waymo Driver: Optimized for costs, designed to scale. https://waymo.com/blog/2024/08/meet-the-6th-generation-waymo-driver/
+">[9]</span></a></sup></li>
+</ul>
+<h3 id="tesla"><a class="markdownIt-Anchor" href="#tesla"></a> Tesla</h3>
+<ul>
+<li><strong>2016 to 2017</strong>: Elon Musk announces Tesla will demonstrate coast‑to‑coast autonomous drive by late 2017.<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="TechCrunch. (2016). Musk targeting coast-to-coast test drive of fully self-driving Tesla by late 2017. https://techcrunch.com/2016/10/19/musk-targeting-coast-to-coast-test-drive-of-fully-self-driving-tesla-by-late-2017/
+">[10]</span></a></sup></li>
+<li><strong>2019</strong>: At “Autonomy Day,” Musk predicts over 1 million Tesla robotaxis on roads by 2020.<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Business Insider. (2019). Elon Musk Said Tesla Will Have 1 Million Robo-Taxis Next Year. https://www.businessinsider.com/tesla-robo-taxis-elon-musk-pt-barnum-circus-2019-4
+">[11]</span></a></sup></li>
+<li><strong>2020</strong>: Limited release of FSD “Beta” for supervised use on city streets begins.<sup id="fnref:12"><a href="#fn:12" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="TechCrunch. (2020). After release of Tesla's 'Full Self-Driving' beta, Elon Musk promises roughly $2,000 price hike. https://techcrunch.com/2020/10/22/after-release-of-teslas-full-self-driving-beta-elon-musk-promises-roughly-2000-price-hike/
+">[12]</span></a></sup></li>
+<li><strong>2022</strong>: Wide availability of FSD Beta across North America, with Tesla citing roughly 400,000 participating vehicles.<sup id="fnref:13"><a href="#fn:13" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="InsideEVs. (2022). Tesla's FSD Beta Now Active In 400,000 Cars In US And Canada. https://insideevs.com/news/633328/tesla-fsd-beta-now-active-to-400000-cars-us-canada/
+">[13]</span></a></sup></li>
+<li><strong>2023</strong>: NHTSA directs a safety recall of FSD Beta behaviors, prompting over‑the‑air remedial changes.</li>
+<li><strong>2024</strong>: Tesla rolled out an end‑to‑end neural architecture in FSD v12 and rebranded to “FSD (Supervised).” A 30‑day trial was offered to U.S. owners to boost exposure.<sup id="fnref:14"><a href="#fn:14" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="The Verge. (2024). Tesla finally releases (sort of) its neural network Full Self-Driving feature. https://www.theverge.com/2024/1/22/24046879/tesla-finally-releases-sort-of-its-neural-network-full-self-driving-feature
+">[14]</span></a></sup></li>
+</ul>
+<h2 id="public-claims-vs-delivered-functionality"><a class="markdownIt-Anchor" href="#public-claims-vs-delivered-functionality"></a> Public Claims vs Delivered Functionality</h2>
+<p>Musk’s major public timelines have repeatedly been more aggressive than realized deployments. The 2016 promise of a coast‑to‑coast autonomous trip by 2017 and the 2019 forecast of over 1 million robotaxis by 2020 remain unmet. Tesla, however, has delivered a supervised driver assistance product with iterative capability increases and a national footprint. These features remain Level 2, subject to recalls and regulatory review when safety risks were identified. Tesla dropped the “Beta” label in 2024 in favor of “Supervised” to better reflect required driver oversight.<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="TechCrunch. (2016). Musk targeting coast-to-coast test drive of fully self-driving Tesla by late 2017. https://techcrunch.com/2016/10/19/musk-targeting-coast-to-coast-test-drive-of-fully-self-driving-tesla-by-late-2017/
+">[10]</span></a></sup></p>
+<p>The gap between claims and delivery has major consequences for consumer expectations and policy debates. California DMV’s false‑advertising complaint against Tesla regarding Autopilot and FSD marketing survived an early dismissal attempt in 2024, indicating regulators’ interest in how automation capabilities are described to the public.<sup id="fnref:15"><a href="#fn:15" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Reuters. (2024). Tesla must face California's false-marketing claims concerning Autopilot. https://www.reuters.com/legal/tesla-must-face-californias-false-marketing-claims-concerning-autopilot-2024-06-10/
+">[15]</span></a></sup></p>
+<h2 id="where-they-operate-today"><a class="markdownIt-Anchor" href="#where-they-operate-today"></a> Where They Operate Today</h2>
+<p>Waymo operates paid, driverless rides in defined parts of Phoenix metro, San Francisco, and Los Angeles, with service sizes published in updates. In Phoenix, Waymo reported approximately 315 square miles of service area by mid‑2024. In 2024 to 2025, San Francisco service opened broadly and Los Angeles coverage expanded. Waymo also began offering rides via Uber in limited zones of Austin and Atlanta as it seeds future markets. Reuters reported that Waymo is completing more than 1 million paid rides per month across its network.<sup id="fnref:16"><a href="#fn:16" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2024). Largest Autonomous Ride-Hail Territory in US Now Even Larger. https://waymo.com/blog/2024/06/largest-autonomous-ride-hail-territory-in-us-now-even-larger/
+">[16]</span></a></sup></p>
+<p>Tesla’s supervised system provides city‑street driving features to customer cars broadly across the United States and Canada. In March 2024 Tesla offered a 30‑day trial in the U.S., and independent reporting and Tesla communications have consistently put the North American user base around 400,000 vehicles since early 2023.<sup id="fnref:17"><a href="#fn:17" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Reuters. (2024). Tesla offers U.S. customers a month's trial of its driver-assist technology. https://www.reuters.com/business/autos-transportation/tesla-give-one-month-driver-assist-technology-trial-customers-2024-03-26/
+">[17]</span></a></sup></p>
+<h2 id="regulatory-technological-and-practical-limits"><a class="markdownIt-Anchor" href="#regulatory-technological-and-practical-limits"></a> Regulatory, Technological, and Practical Limits</h2>
+<p>Waymo’s model emphasizes geofenced deployments with progressive regulatory approvals, including CPUC decisions for fare collection and service expansion. The company has issued voluntary software recalls after low‑severity incidents, including collisions with stationary barriers and a bicyclist strike in San Francisco that produced minor injuries.<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="California Public Utilities Commission. (2023). CPUC Approves Permits for Cruise and Waymo To Charge Fares for Passenger Service in SF. https://www.cpuc.ca.gov/news-and-updates/all-news/cpuc-approves-permits-for-cruise-and-waymo-to-charge-fares-for-passenger-service-in-sf-2023
+">[8]</span></a></sup></p>
+<p>California disengagement reporting provides one public window into developmental performance. DMV’s program requires companies testing in the state to report miles and disengagements annually, although the relevance of these metrics to driverless service remains debated. DMV reports show Waymo logged millions of California miles while steadily reducing disengagements as it moved toward rider‑only operations. The DMV maintains the official reports and mileage datasets for each year.<sup id="fnref:18"><a href="#fn:18" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="California DMV. (2024). Disengagement Reports. https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/disengagement-reports/
+">[18]</span></a></sup></p>
+<p>Tesla’s system is treated as Level 2 driver assistance in the U.S., which means it must keep an engaged human supervisor at all times. NHTSA’s 2023 recall aimed to mitigate specific risky behaviors in FSD Beta, and NHTSA continues oversight of Autopilot and FSD through defect investigations and standing crash reporting orders. In 2024 Tesla renamed the product to FSD (Supervised) and began a national trial to increase adoption.<sup id="fnref:19"><a href="#fn:19" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="NHTSA. (2022). Additional Information Regarding EA22002 Investigation. https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf
+">[19]</span></a></sup></p>
+<p>Waymo’s sensor‑fusion and HD maps reduce ambiguity but impose higher per‑vehicle cost and the operational overhead of mapping and certifying each expansion. Tesla’s vision‑only generalization reduces dependency on prior mapping and custom sensors, facilitating wide distribution across customer cars, but places greater burden on perception to handle edge cases in adverse conditions. A Reuters analysis characterized Tesla’s move to end‑to‑end “black box” models as high potential reward with notable verification and transparency challenges for safety assurance and regulators.<sup id="fnref:20"><a href="#fn:20" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Reuters. (2024). Tesla gambles on 'black box' AI tech for robotaxis. https://www.reuters.com/technology/tesla-gambles-black-box-ai-tech-robotaxis-2024-10-10/
+">[20]</span></a></sup></p>
+<h2 id="key-concepts"><a class="markdownIt-Anchor" href="#key-concepts"></a> Key Concepts</h2>
+<ul>
+<li>
+<p><strong>End‑to‑end neural network</strong>: Instead of a pipeline of separate modules with explicit rules, the system learns to go from video to steering and pedals in one learned model, <em>similar to how a human learns to drive by feel from experience rather than consulting a stepwise checklist</em>. This is Tesla’s stated approach in FSD v12.<sup id="fnref:14"><a href="#fn:14" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="The Verge. (2024). Tesla finally releases (sort of) its neural network Full Self-Driving feature. https://www.theverge.com/2024/1/22/24046879/tesla-finally-releases-sort-of-its-neural-network-full-self-driving-feature
+">[14]</span></a></sup></p>
+</li>
+<li>
+<p><strong>HD map</strong>: A machine‑readable atlas containing detailed lane geometry, curb positions, and traffic signal locations, which lets the autonomy system know the expected layout before it sees it, <em>much like a pilot’s approach plate</em>. Waymo localizes to this map for context and consistency.<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2020). The Waymo Driver Handbook: How our highly-detailed maps help unlock new capabilities. https://waymo.com/blog/2020/09/the-waymo-driver-handbook-mapping/
+">[4]</span></a></sup></p>
+</li>
+<li>
+<p><strong>Simulation</strong>: A synthetic driving world that can replay real incidents and generate variations to probe rare hazards, <em>comparable to a flight simulator’s stress drills</em>. Waymo uses Simulation City and Carcraft to test software changes comprehensively before release.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Waymo. (2021). Simulation City: Introducing Waymo's most advanced simulation system. https://waymo.com/blog/2021/07/simulation-city/
+">[2]</span></a></sup></p>
+</li>
+<li>
+<p><strong>Disengagement</strong>: A handover from the automated system to a human or a remote operator during testing. Disengagement rates provide one lens on developmental maturity, though they are sensitive to test policies and not directly comparable across companies or to driverless service performance. California’s DMV publishes these reports annually.<sup id="fnref:18"><a href="#fn:18" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="California DMV. (2024). Disengagement Reports. https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/disengagement-reports/
+">[18]</span></a></sup></p>
+</li>
+</ul>
+<h2 id="outlook"><a class="markdownIt-Anchor" href="#outlook"></a> Outlook</h2>
+<p>Waymo today operates true driverless robotaxi fleets at commercial scale in selected U.S. cities, reporting over 1 million monthly rides across Phoenix, San Francisco, and Los Angeles.<sup id="fnref:21"><a href="#fn:21" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Reuters. (2025). Waymo launches corporate robotaxi accounts to court business travel. https://www.reuters.com/business/autos-transportation/waymo-launches-corporate-robotaxi-accounts-court-business-travel-2025-09-24/
+">[21]</span></a></sup> The company’s conservative, sensor‑heavy approach yields fully driverless service once established, though expansion remains slower due to the capital intensity of HD mapping, obtaining local permits, and building safety cases for each new metro. Near-term plans focus on densifying service in existing cities and expanding through partnerships such as Uber integration in Austin and Atlanta.</p>
+<p>Tesla offers FSD (Supervised) to hundreds of thousands of private owners.<sup id="fnref:17"><a href="#fn:17" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Reuters. (2024). Tesla offers U.S. customers a month's trial of its driver-assist technology. https://www.reuters.com/business/autos-transportation/tesla-give-one-month-driver-assist-technology-trial-customers-2024-03-26/
+">[17]</span></a></sup> The company aims to transition to unsupervised operation through larger end‑to‑end models trained on fleet video, likely starting with narrow geofenced domains. The key hurdles are regulatory acceptance of vision‑only, “black box” models without sensor redundancy, plus demonstrating robust performance in adverse conditions. While Tesla’s approach scales quickly in coverage, it remains supervised with required human oversight.</p>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Google Help. (2024). How our cars drive - Waymo Help. https://support.google.com/waymo/answer/9190838?hl=en<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2021). Simulation City: Introducing Waymo's most advanced simulation system. https://waymo.com/blog/2021/07/simulation-city/<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Tesla. (2024). Tesla Vision Update: Replacing Ultrasonic Sensors with Tesla Vision. https://www.tesla.com/support/transitioning-tesla-vision<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2020). The Waymo Driver Handbook: How our highly-detailed maps help unlock new capabilities. https://waymo.com/blog/2020/09/the-waymo-driver-handbook-mapping/<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2016). On the road with self-driving car user number one. https://waymo.com/blog/2016/12/on-road-with-self-driving-car-user/<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2018). Waymo One: The next step on our self-driving journey. https://waymo.com/blog/2018/12/waymo-one-next-step-on-our-self-driving/<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2020). Waymo is opening its fully driverless service to the general public in Phoenix. https://waymo.com/blog/2020/10/waymo-is-opening-its-fully-driverless-service-in-phoenix/<a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">California Public Utilities Commission. (2023). CPUC Approves Permits for Cruise and Waymo To Charge Fares for Passenger Service in SF. https://www.cpuc.ca.gov/news-and-updates/all-news/cpuc-approves-permits-for-cruise-and-waymo-to-charge-fares-for-passenger-service-in-sf-2023<a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2024). Meet the 6th-generation Waymo Driver: Optimized for costs, designed to scale. https://waymo.com/blog/2024/08/meet-the-6th-generation-waymo-driver/<a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">TechCrunch. (2016). Musk targeting coast-to-coast test drive of fully self-driving Tesla by late 2017. https://techcrunch.com/2016/10/19/musk-targeting-coast-to-coast-test-drive-of-fully-self-driving-tesla-by-late-2017/<a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Business Insider. (2019). Elon Musk Said Tesla Will Have 1 Million Robo-Taxis Next Year. https://www.businessinsider.com/tesla-robo-taxis-elon-musk-pt-barnum-circus-2019-4<a href="#fnref:11" rev="footnote"> ↩</a></span></li><li id="fn:12"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">12.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">TechCrunch. (2020). After release of Tesla's 'Full Self-Driving' beta, Elon Musk promises roughly $2,000 price hike. https://techcrunch.com/2020/10/22/after-release-of-teslas-full-self-driving-beta-elon-musk-promises-roughly-2000-price-hike/<a href="#fnref:12" rev="footnote"> ↩</a></span></li><li id="fn:13"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">13.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">InsideEVs. (2022). Tesla's FSD Beta Now Active In 400,000 Cars In US And Canada. https://insideevs.com/news/633328/tesla-fsd-beta-now-active-to-400000-cars-us-canada/<a href="#fnref:13" rev="footnote"> ↩</a></span></li><li id="fn:14"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">14.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">The Verge. (2024). Tesla finally releases (sort of) its neural network Full Self-Driving feature. https://www.theverge.com/2024/1/22/24046879/tesla-finally-releases-sort-of-its-neural-network-full-self-driving-feature<a href="#fnref:14" rev="footnote"> ↩</a></span></li><li id="fn:15"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">15.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Reuters. (2024). Tesla must face California's false-marketing claims concerning Autopilot. https://www.reuters.com/legal/tesla-must-face-californias-false-marketing-claims-concerning-autopilot-2024-06-10/<a href="#fnref:15" rev="footnote"> ↩</a></span></li><li id="fn:16"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">16.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2024). Largest Autonomous Ride-Hail Territory in US Now Even Larger. https://waymo.com/blog/2024/06/largest-autonomous-ride-hail-territory-in-us-now-even-larger/<a href="#fnref:16" rev="footnote"> ↩</a></span></li><li id="fn:17"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">17.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Reuters. (2024). Tesla offers U.S. customers a month's trial of its driver-assist technology. https://www.reuters.com/business/autos-transportation/tesla-give-one-month-driver-assist-technology-trial-customers-2024-03-26/<a href="#fnref:17" rev="footnote"> ↩</a></span></li><li id="fn:18"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">18.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">California DMV. (2024). Disengagement Reports. https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/disengagement-reports/<a href="#fnref:18" rev="footnote"> ↩</a></span></li><li id="fn:19"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">19.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">NHTSA. (2022). Additional Information Regarding EA22002 Investigation. https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf<a href="#fnref:19" rev="footnote"> ↩</a></span></li><li id="fn:20"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">20.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Reuters. (2024). Tesla gambles on 'black box' AI tech for robotaxis. https://www.reuters.com/technology/tesla-gambles-black-box-ai-tech-robotaxis-2024-10-10/<a href="#fnref:20" rev="footnote"> ↩</a></span></li><li id="fn:21"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">21.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Reuters. (2025). Waymo launches corporate robotaxi accounts to court business travel. https://www.reuters.com/business/autos-transportation/waymo-launches-corporate-robotaxi-accounts-court-business-travel-2025-09-24/<a href="#fnref:21" rev="footnote"> ↩</a></span></li><li id="fn:22"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">22.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Waymo. (2024). Voluntary recall of our previous software. https://waymo.com/blog/2024/02/voluntary-recall-of-our-previous-software/<a href="#fnref:22" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+</article>
+
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
+</html>
