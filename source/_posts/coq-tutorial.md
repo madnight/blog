@@ -72,10 +72,10 @@ Now, we aim to prove that **1 + 1 = 2** using Coq.
 
    If we attempt to compile our proof using `coqc hello_proof.v`, it will generate the following error, as expected:
 
-   ```
+   {% vimhl text %}
    Error: There are pending proofs in file
    ./hello_proof.v: one_plus_one_is_two.
-   ```
+   {% endvimhl %}
 
    That is because we have an unproven statement in our file. Now, lets try to prove this proposition interactively.
 
@@ -83,7 +83,7 @@ Now, we aim to prove that **1 + 1 = 2** using Coq.
 
 3. First, we need to enter proof mode by writing `Proof.`, pressing enter, and then writing `Show.`, followed by another enter, to view the current proof goal.
 
-   ```
+   {% vimhl text %}
    Welcome to Coq 8.16.1
 
    one_plus_one_is_two < Proof.
@@ -93,32 +93,32 @@ Now, we aim to prove that **1 + 1 = 2** using Coq.
 
      ============================
      1 + 1 = 2
-   ```
+   {% endvimhl %}
    This is how it looks with with `vim` (top) and `coqtop` (bottom) in `tmux`:
 
    ![](/images/vim-coq-top-down.png)
 
 4. We have successfully loaded our proposition into coqtop and can now attempt to prove it using tactics. The first tactic I'd like to introduce is `simpl`. The `simpl` tactic reduces complex terms to simpler forms:
 
-   ```
+   {% vimhl text %}
    one_plus_one_is_two < simpl.
    1 goal
 
      ============================
      2 = 2
-   ```
+   {% endvimhl %}
 
 5. As we can see, the `simpl` tactic has reduced our term `1 + 1` on the left side by evaluating it as `2`. Now, it's quite obvious that the term `2 = 2` is indeed true. We can solve the last goal with `reflexivity`, which is another basic tactic that solves the goal if it is a trivial equality, like in our case.
 
-   ```
+   {% vimhl text %}
    one_plus_one_is_two < reflexivity.
    No more goals.
-   ```
+   {% endvimhl %}
 
    After that we can write `Qed.` to end our proof and finish the proof mode.
-   ```
+   {% vimhl text %}
    one_plus_one_is_two < Qed.
-   ```
+   {% endvimhl %}
 
 6. We can now put all the steps together into our `hello_word.v` file:
 
@@ -145,7 +145,7 @@ Now, we aim to prove that **1 + 1 = 2** using Coq.
 
      This starts the proof with the induction tactic. This setups two goals, the base case and the inductive step.
 
-    ```
+    {% vimhl text %}
     2 goals
 
       ============================
@@ -153,18 +153,18 @@ Now, we aim to prove that **1 + 1 = 2** using Coq.
 
     goal 2 is:
      S n - S n = 0
-    ```
+    {% endvimhl %}
 
 2. The base case is trivial, with `simpl.` we have `0 = 0` and then just tell Coq that this is really the same `reflexivity.`
 
-    ```
+    {% vimhl text %}
     1 goal
 
       n : nat
       IHn : n - n = 0
       ============================
       S n - S n = 0
-    ```
+    {% endvimhl %}
 
 3. Now, we are left with the inductive step `S n - S n = 0`. Let's assume the proposition holds for n, and we show it holds for n + 1. `simpl.` applies simplification, reducing the expression `S n - S n` to `n - n` by definition of subtraction in Coq. `rewrite IHn.` uses the inductive hypothesis (IHn) to replace `n - n` with 0. Lastly, `reflexivity.` asserts that `S n - S n` simplifies to 0, which is true after the rewrite. Thus, the proof demonstrates that the proposition `forall n, n - n = 0` holds true for all natural numbers n.
 

@@ -59,10 +59,10 @@ such that the following [diagram commutes](https://en.wikipedia.org/wiki/Commuta
 {% endraw %}
 
 This can be translated to [Hask](https://wiki.haskell.org/Hask), the category with Haskell types as objects and functions as morphisms. The previous morphisms $f,h$ are now functions:
-```
+{% vimhl text %}
 f :: b -> d
 h :: c -> a
-```
+{% endvimhl %}
 
 and $\text{Hom}(A,B) = a \rightarrow b$, such that:
 
