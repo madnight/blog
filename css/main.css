@@ -137,6 +137,14 @@ figure {
     text-align: left;
 }
 
+figcaption {
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-light);
+}
+
 article {
     border: 0px;
     padding: 0px;
@@ -638,6 +646,11 @@ blockquote {
     /* Mobile title font size */
     .title-container h1 {
         font-size: 2rem;
+    }
+
+    /* Mobile figcaption size */
+    figcaption {
+        font-size: 0.9rem;
     }
 
     @media only screen and (max-width: 400px) {

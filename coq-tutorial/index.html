@@ -151,7 +151,9 @@ window.addEventListener('load', function() {
 <figure class="highlight"><pre><font face="monospace"><font color="#87afaf">Proposition</font> <font color="#af87af">one_plus_one_is_two</font> <font color="#87afaf">:</font> 1 <font color="#d7875f">+</font> 1 <font color="#d7875f">=</font> 2.
 </font></pre></figure>
 <p>If we attempt to compile our proof using <code>coqc hello_proof.v</code>, it will generate the following error, as expected:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: There are pending proofs in file</span><br><span class="line">./hello_proof.v: one_plus_one_is_two.</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><pre><font face="monospace">Error: There are pending proofs in file
+./hello_proof.v: one_plus_one_is_two.
+</font></pre></figure>
 <p>That is because we have an unproven statement in our file. Now, lets try to prove this proposition interactively.</p>
 </li>
 <li>
@@ -159,19 +161,36 @@ window.addEventListener('load', function() {
 </li>
 <li>
 <p>First, we need to enter proof mode by writing <code>Proof.</code>, pressing enter, and then writing <code>Show.</code>, followed by another enter, to view the current proof goal.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Welcome to Coq 8.16.1</span><br><span class="line"></span><br><span class="line">one_plus_one_is_two < Proof.</span><br><span class="line"></span><br><span class="line">one_plus_one_is_two < Show.</span><br><span class="line">1 goal</span><br><span class="line"></span><br><span class="line">  ============================</span><br><span class="line">  1 + 1 = 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><pre><font face="monospace">Welcome to Coq 8.16.1
+
+one_plus_one_is_two < Proof.
+
+one_plus_one_is_two < Show.
+1 goal
+
+  ============================
+  1 + 1 = 2
+</font></pre></figure>
 <p>This is how it looks with with <code>vim</code> (top) and <code>coqtop</code> (bottom) in <code>tmux</code>:</p>
 <p><img src="/images/vim-coq-top-down.png" alt></p>
 </li>
 <li>
 <p>We have successfully loaded our proposition into coqtop and can now attempt to prove it using tactics. The first tactic I’d like to introduce is <code>simpl</code>. The <code>simpl</code> tactic reduces complex terms to simpler forms:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">one_plus_one_is_two < simpl.</span><br><span class="line">1 goal</span><br><span class="line"></span><br><span class="line">  ============================</span><br><span class="line">  2 = 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><pre><font face="monospace">one_plus_one_is_two < simpl.
+1 goal
+
+  ============================
+  2 = 2
+</font></pre></figure>
 </li>
 <li>
 <p>As we can see, the <code>simpl</code> tactic has reduced our term <code>1 + 1</code> on the left side by evaluating it as <code>2</code>. Now, it’s quite obvious that the term <code>2 = 2</code> is indeed true. We can solve the last goal with <code>reflexivity</code>, which is another basic tactic that solves the goal if it is a trivial equality, like in our case.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">one_plus_one_is_two < reflexivity.</span><br><span class="line">No more goals.</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><pre><font face="monospace">one_plus_one_is_two < reflexivity.
+No more goals.
+</font></pre></figure>
 <p>After that we can write <code>Qed.</code> to end our proof and finish the proof mode.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">one_plus_one_is_two < Qed.</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><pre><font face="monospace">one_plus_one_is_two < Qed.
+</font></pre></figure>
 </li>
 <li>
 <p>We can now put all the steps together into our <code>hello_word.v</code> file:</p>
@@ -193,11 +212,24 @@ window.addEventListener('load', function() {
   <font color="#87afd7">induction</font> n<font color="#87afd7">.</font>
 </font></pre></figure>
 <p>This starts the proof with the induction tactic. This setups two goals, the base case and the inductive step.</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2 goals</span><br><span class="line"></span><br><span class="line">  ============================</span><br><span class="line">  0 - 0 = 0</span><br><span class="line"></span><br><span class="line">goal 2 is:</span><br><span class="line"> S n - S n = 0</span><br></pre></td></tr></table></figure>
+ <figure class="highlight"><pre><font face="monospace">2 goals
+
+  ============================
+  0 - 0 = 0
+
+goal 2 is:
+ S n - S n = 0
+</font></pre></figure>
 </li>
 <li>
 <p>The base case is trivial, with <code>simpl.</code> we have <code>0 = 0</code> and then just tell Coq that this is really the same <code>reflexivity.</code></p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 goal</span><br><span class="line"></span><br><span class="line">  n : nat</span><br><span class="line">  IHn : n - n = 0</span><br><span class="line">  ============================</span><br><span class="line">  S n - S n = 0</span><br></pre></td></tr></table></figure>
+ <figure class="highlight"><pre><font face="monospace">1 goal
+
+  n : nat
+  IHn : n - n = 0
+  ============================
+  S n - S n = 0
+</font></pre></figure>
 </li>
 <li>
 <p>Now, we are left with the inductive step <code>S n - S n = 0</code>. Let’s assume the proposition holds for n, and we show it holds for n + 1. <code>simpl.</code> applies simplification, reducing the expression <code>S n - S n</code> to <code>n - n</code> by definition of subtraction in Coq. <code>rewrite IHn.</code> uses the inductive hypothesis (IHn) to replace <code>n - n</code> with 0. Lastly, <code>reflexivity.</code> asserts that <code>S n - S n</code> simplifies to 0, which is true after the rewrite. Thus, the proof demonstrates that the proposition <code>forall n, n - n = 0</code> holds true for all natural numbers n.</p>
