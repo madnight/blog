@@ -1,7 +1,7 @@
 navbarLinks:
     Home: /
     Github: https://github.com/madnight
-    Archive: /tags/
+    Archive: /archive/
     About: /about/
 
 favicon: /fav.png
