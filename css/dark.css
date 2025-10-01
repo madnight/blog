@@ -608,12 +608,12 @@ blockquote {
 /* Reduce nav side on mobile */
 @media only screen and (max-width: 720px) {
     header > nav {
-        margin: 0 -1% 1rem -1%;
+        margin: 0 -1% 1rem 2.5%;
     }
     header > nav a {
         border: 1px solid var(--border);
         padding: 0rem 0.3rem;
-        margin: 0 1% 1rem 1%;
+        margin: 0 1% 1rem 2.5%;
         text-decoration: none;
         line-height: 2;
         border: 1px solid var(--dark-border--border);
@@ -731,7 +731,7 @@ blockquote {
 
     @media only screen and (max-width: 400px) {
         header > nav a {
-            margin: 0 0.5% 1rem 0.5%;
+            margin: 0 0.5% 1rem 3.5%;
             padding: 0rem 0.2rem;
         }
 
