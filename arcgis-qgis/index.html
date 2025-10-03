@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+    <meta name="author" content="Fabian Beuke">
+    <link href="/fav.png" as="image" onload="this.rel='shortcut icon'" sizes="45x48">
+    <noscript>
+        <link rel="shortcut icon" sizes="45x48" href="/fav.png">
+    </noscript>
+    <link rel="icon" href="/fav.png" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="icon" href="/fav.png">
+    </noscript>
+    <title>beuke.org</title>
+    <meta name="description" content="A personal blog about computer science and theoretical physics.">
+    <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="alternate" type="application/rss+xml" title="beuke.org" href="/atom.xml">
+    </noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style">
+    <link rel="stylesheet" href="/css/simple.css/simple.min.css" as="style">
+    <link rel="stylesheet" href="/css/main.css" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="none" onload="if(media!='all')media='all'">
+    <noscript>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <!--<script src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle-stylesheets-loader.js"></script>-->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script defer type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event)
+        {
+            //- fix for single quotes in pre blocks
+            document.body.innerHTML = document.body.innerHTML.replaceAll('', '\'');
+        });
+    </script>
+    <script defer src="/js/table-wrapper.js"></script>
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+
+
+    <header>
+    <nav>
+        
+        <a href="/"> Home</a>
+        
+        <a href="https://github.com/madnight"> Github</a>
+        
+        <a href="/archive/"> Archive</a>
+        
+        <a href="/about/"> About</a>
+        
+    </nav>
+<div class="title-con">
+    <div class="title-container">
+        <h1>beuke.org</h1>
+        <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle"></dark-mode-toggle>
+    </div>
+</div>
+    <h2>A personal blog exploring computer science and theoretical physics</h2>
+</header>
+
+
+    <body>
+    <main>
+            <article>
+    <section>
+        <div class="post-title"> ArcGIS Enterprise vs. QGIS </div>
+        <div class="post-subtitle"> GIS infrastructure solutions for enterprise environments </div>
+        <div class="post-subsubtitle"> Posted on
+        Oct 3 2025 ~
+        23 min read</div>
+        <div class="post-subtitle-tags">
+        
+        <a href="/tags/GIS/">#GIS</a> 
+        
+        <a href="/tags/ArcGIS/">#ArcGIS</a> 
+        
+        <a href="/tags/QGIS/">#QGIS</a> 
+        
+        </div>
+        
+        <hr class="solid">
+    </section>
+    <div class"content">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>A geographic information system links feature attributes (the what) to locations (the where), stores them in structured data models, and exposes operations for spatial query and analysis. Typical workflows combine a spatial database for persistence, an analysis engine for operations such as overlay, buffering, or raster algebra, and rendering pipelines for cartography and interactive maps. A concrete analogy is a library catalog with a floor plan: the catalog holds descriptions, the floor plan holds locations, and GIS tools answer questions such as “which items are within three shelves of the exit” by combining both. Standard definitions emphasize the integration of storage, management, analysis, and visualization, sometimes backed by spatial databases but not strictly dependent on them.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Wikipedia, “Geographic information system,” https://en.wikipedia.org/wiki/Geographic_Information_System<br>
+">[1]</a></sup></p>
+<!--![](/images/gis.jpg)-->
+<h2 id="enterprise-architectures-and-functional-scope"><a class="markdownIt-Anchor" href="#enterprise-architectures-and-functional-scope"></a> Enterprise architectures and functional scope</h2>
+<p>ArcGIS Enterprise is an on‑premises Web GIS that combines four core components into a base deployment: ArcGIS Server for hosting web services, Portal for ArcGIS for content management and sharing, ArcGIS Data Store for managed data persistence, and ArcGIS Web Adaptor for fronting services with an organization’s web server and identity provider. The base pattern typically includes a hosting server site, a portal, relational and tile cache data stores, and two web adaptor instances. Upgrades beyond the Builder pattern are performed per component.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Enterprise, “What is ArcGIS Enterprise?” https://enterprise.arcgis.com/en/get-started/11.1/windows/what-is-arcgis-enterprise-.htm<br>
+">[2]</a></sup> Server roles can be specialized or scaled out. For example, Image Server enables distributed raster analytics for large imagery workloads, and GeoAnalytics Server distributes big‑data vector analysis across nodes. Administrators can publish geoprocessing services so that processing runs on the server rather than client machines. These capabilities are exposed as REST endpoints and, when enabled, as OGC services such as WMS, WFS, WMTS, and WCS.<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Image Server, “Configure and deploy raster analytics,” https://enterprise.arcgis.com/en/image/latest/raster-analytics/configure-and-deploy-arcgis-enterprise-for-raster-analytics.htm<br>
+">[3]</a></sup></p>
+<p>QGIS is primarily a desktop application, but it also provides QGIS Server, which renders and serves QGIS projects over standard OGC protocols. QGIS Server implements WMS 1.1.1 and 1.3.0, WFS 1.0.0 and 1.1.0, WCS 1.0.0 and 1.1.1, WMTS 1.0.0, and OGC API Features. In practice, organizations combine QGIS with open components such as PostGIS for multi‑user spatial storage and analysis and web frameworks for portals or clients. Processing at scale is commonly delegated to the database (for example, SQL and spatial indexes in PostGIS) and to libraries such as GDAL, SAGA, or GRASS via QGIS’s Processing framework.<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="QGIS Documentation, “Services,” https://docs.qgis.org/latest/en/docs/server_manual/services.html<br>
+">[4]</a></sup> QGIS Server is service‑oriented rather than an all‑in‑one Web GIS. There is no native portal or identity store equivalent to Portal for ArcGIS. When web‑based analytics are required, organizations typically script server‑side jobs or adopt open WPS implementations that call QGIS Processing algorithms, acknowledging that WPS is not a built‑in QGIS Server capability.<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="QGIS Documentation, “QGIS Server Guide/Manual,” https://docs.qgis.org/latest/en/docs/server_manual/index.html<br>
+">[5]</a></sup></p>
+<p>Both ecosystems publish and consume OGC services, but they differ in defaults and emphasis. ArcGIS Server can enable OGC capabilities on map and image services and consume OGC layers in ArcGIS Pro and the portal, with caveats around authentication schemes. QGIS Server is designed to be OGC‑first and QGIS Desktop consumes a broad set of OGC services, including transactional WFS.<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Server, “WMS services,” https://enterprise.arcgis.com/en/server/latest/publish-services/linux/wms-services.htm<br>
+">[6]</a></sup> Interoperation between the two is common. QGIS Desktop connects to ArcGIS REST Feature Services for reading and, where permissions allow, editing; users add these via the ArcGIS Server REST data source dialogue. Conversely, ArcGIS Pro can consume QGIS‑published OGC services as layers.<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="BAS Geospatial Guides, “Loading Esri Feature Layers in QGIS,” https://guides.geospatial.bas.ac.uk/using-mapping-data-services/bas-mapping-services/loading-esri-feature-layers-in-qgis<br>
+">[7]</a></sup></p>
+<h2 id="historical-and-institutional-context"><a class="markdownIt-Anchor" href="#historical-and-institutional-context"></a> Historical and institutional context</h2>
+<p>Esri, founded in 1969, built a broad commercial GIS portfolio that culminated in the ArcGIS suite, with ArcGIS Enterprise formalized as the on‑premises Web GIS. The desktop lineage transitioned from ArcMap to ArcGIS Pro, with ArcMap in mature support and retirement scheduled for March 1, 2026. The vendor provides lifecycle and upgrade policies that underpin long‑term institutional adoption.<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Esri Support, “ArcMap Life Cycle,” https://support.esri.com/en-us/products/arcmap/life-cycle<br>
+">[8]</a></sup></p>
+<p>QGIS began in 2002, joined the OSGeo ecosystem, and is released under the GNU GPL. Governance is community‑based, development is distributed, and the project maintains rapid release cycles across Windows, macOS, and Linux. The institutional model relies on volunteer contributions, sustaining members, and third‑party support providers rather than a single vendor.<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Wikipedia, “QGIS,” https://en.wikipedia.org/wiki/QGIS<br>
+">[9]</a></sup></p>
+<h2 id="complexity-usability-and-administrative-overhead"><a class="markdownIt-Anchor" href="#complexity-usability-and-administrative-overhead"></a> Complexity, usability, and administrative overhead</h2>
+<p>The componentized design of ArcGIS Enterprise brings granularity and control, but it increases the number of moving parts to install, secure, upgrade, and monitor. Esri’s own deployment and upgrade guidance reflects this, distinguishing Builder‑based in‑place upgrades from component‑by‑component procedures for other topologies. Administrator reports on Esri Community frequently describe upgrade edge cases that require troubleshooting across services, web adaptors, and data stores, such as shared instance behavior changes or datastore issues observed after mid‑version upgrades. Patches and reliability updates often resolve these issues, but the troubleshooting itself is an administrative cost.<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Enterprise, “Upgrade ArcGIS Enterprise,” https://enterprise.arcgis.com/en/get-started/11.4/windows/upgrade-arcgis-enterprise.htm<br>
+">[10]</a></sup> ArcGIS Enterprise surfaces extensive levers for security and integration at the web tier via the Web Adaptor, which simplifies single sign‑on and reverse proxy patterns but adds operational tasks around certificates, CORS, and web server configuration. Esri maintains “common problems and solutions” pages for both Server and Portal that enumerate expected administrative friction points.<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Web Adaptor, “Use ArcGIS Web Adaptor with portal,” https://enterprise.arcgis.com/en/web-adaptor/latest/install/iis/about-arcgis-web-adaptor-portal-htm.htm<br>
+">[11]</a></sup></p>
+<p>QGIS Desktop is straightforward to install and runs on Windows, macOS, and Linux. Enterprise deployments require assembling components such as PostGIS, QGIS Server, and a web client, each with its own configuration and lifecycle. Administrators rely heavily on the QGIS Server manual for service enablement and on database administration for multi‑user editing, performance, and backups. Integration of external processing providers in QGIS’s Processing framework can introduce version alignment tasks across SAGA, GRASS, and GDAL, but the setup remains modular.<sup id="fnref:12"><a href="#fn:12" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="QGIS, “Download,” https://qgis.org/download/<br>
+">[12]</a></sup> ArcGIS Pro offers a modern desktop client tightly integrated with Enterprise user licensing. It is Windows‑only, which can be a constraint in Linux‑centric environments unless virtualization is used. QGIS runs natively on Windows, macOS, and Linux and offers a plugin‑centric interface that is highly configurable. Platform breadth often reduces friction for heterogeneous fleets.<sup id="fnref:13"><a href="#fn:13" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Pro, “ArcGIS Pro 3.5 system requirements,” https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-system-requirements.htm<br>
+">[13]</a></sup></p>
+<h2 id="licensing-and-pricing-models"><a class="markdownIt-Anchor" href="#licensing-and-pricing-models"></a> Licensing and pricing models</h2>
+<p>ArcGIS has moved toward named user licensing across Online and Enterprise. User types and user‑type extensions define entitlements for clients and web apps; administrators import license files to the Enterprise portal for ArcGIS Pro and extensions. Pricing is published for ArcGIS Online user types, while ArcGIS Enterprise pricing is quote‑based and exposed through regional stores and sales. The model scales with users and optional extensions, which affects total cost of ownership.<sup id="fnref:14"><a href="#fn:14" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Esri, “User Types to License ArcGIS,” https://www.esri.com/en-us/arcgis/products/user-types/overview<br>
+">[14]</a></sup></p>
+<p>QGIS is licensed under the GNU GPL and is free to use, modify, and distribute. There are no per‑seat or per‑server charges. Organizations that need commercial support usually contract with consultancies or service providers, but this is optional and independent of software licensing.<sup id="fnref:15"><a href="#fn:15" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="QGIS Documentation, “Complying with Licenses,” https://docs.qgis.org/latest/en/docs/about/license/index.html<br>
+">[15]</a></sup></p>
+<h2 id="data-formats-standards-and-extensibility"><a class="markdownIt-Anchor" href="#data-formats-standards-and-extensibility"></a> Data formats, standards, and extensibility</h2>
+<p>ArcGIS optimizes for Esri geodatabases, including the File Geodatabase format. Esri publishes a File Geodatabase API to permit third‑party access, and GDAL supports both an open driver and a driver that depends on Esri’s API. The shapefile format remains widely interoperable but has well‑documented limitations such as 10‑character field names and 255 fields, which can require schema adjustments during export. Advanced functionality in ArcGIS Pro is segmented into paid extensions, for example Spatial Analyst, 3D Analyst, and Network Analyst, which are licensed per user in Enterprise.<sup id="fnref:16"><a href="#fn:16" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Pro, “File geodatabases,” https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/manage-file-gdb/file-geodatabases.htm<br>
+">[16]</a></sup></p>
+<p>QGIS relies on GDAL/OGR and PROJ, which gives immediate support for a wide range of vector and raster formats and coordinate systems. It emphasizes open standards such as GeoPackage for single‑file, multi‑layer storage and integrates PostGIS for enterprise‑grade SQL, indexing, and server‑side analysis. Extensibility is plugin‑centric and open by design, with Processing providers that bridge to SAGA and GRASS and a large catalog of Python plugins. Many specialized capabilities are implemented as community plugins rather than licensed extensions.<sup id="fnref:17"><a href="#fn:17" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="GDAL, “GDAL documentation,” https://gdal.org/<br>
+">[17]</a></sup></p>
+<h2 id="serverside-processing-and-webbased-analytics"><a class="markdownIt-Anchor" href="#serverside-processing-and-webbased-analytics"></a> Server‑side processing and web‑based analytics</h2>
+<p>ArcGIS geoprocessing services allow administrators to publish models and scripts as server‑hosted tools. GeoAnalytics Server distributes vector and tabular analysis across a cluster, while Image Server provides distributed raster analysis. These services are invoked via REST and can be embedded in web applications or automated pipelines. For organizations, the architectural implication is clear: heavy computation can be centralized and scaled independently of client workstations.<sup id="fnref:18"><a href="#fn:18" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Pro, “Geoprocessing services,” https://pro.arcgis.com/en/pro-app/3.3/help/analysis/geoprocessing/share-analysis/what-is-a-geoprocessing-service.htm<br>
+">[18]</a></sup></p>
+<p>QGIS Server focuses on map and feature services. It does not ship with a web processing service. When web processing is required, teams commonly push work into PostGIS (SQL functions and spatial indexes), call GDAL utilities in batch, or deploy community WPS bridges that expose QGIS Processing algorithms. The result is a flexible pipeline, but one that must be assembled and operated explicitly.<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="QGIS Documentation, “QGIS Server Guide/Manual,” https://docs.qgis.org/latest/en/docs/server_manual/index.html<br>
+">[5]</a></sup></p>
+<h2 id="legacy-dependencies-and-openness"><a class="markdownIt-Anchor" href="#legacy-dependencies-and-openness"></a> Legacy dependencies and openness</h2>
+<p>ArcGIS’s strength in enterprise geodatabases and its long history means many institutions have archives in Esri formats and scripted workflows tied to the ArcGIS model. The retirement of ArcMap and migration to ArcGIS Pro underscore the lifecycle management that organizations must plan for when they depend on vendor‑specific clients. QGIS, built around open formats and GPL licensing, tends to minimize lock‑in by default, especially when GeoPackage and PostGIS are adopted as primary stores. Interoperability is not absolute in either direction, but QGIS’s emphasis on OGC protocols and open storage reduces format conversion risks.<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Esri Support, “ArcMap Life Cycle,” https://support.esri.com/en-us/products/arcmap/life-cycle<br>
+">[8]</a></sup></p>
+<h2 id="reported-complexity-and-integration-challenges"><a class="markdownIt-Anchor" href="#reported-complexity-and-integration-challenges"></a> Reported complexity and integration challenges</h2>
+<p>Administrator reports on Esri Community highlight practical friction during upgrades and patching, for example shared instance behavior changes after minor version upgrades, web adaptor service interactions, or datastore migrations that necessitate rollback. Esri publishes troubleshooting pages for common installation and portal issues, and guidance stresses testing in non‑production environments, aligning with standard change‑management practice. The trade‑off is familiar to enterprise software teams: comprehensive capability with a corresponding surface area to configure, monitor, and patch.<sup id="fnref:19"><a href="#fn:19" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Esri Community, “Upgrade from 11.3 to 11.4 broke shared instances,” https://community.esri.com/t5/arcgis-enterprise-questions/upgrade-from-11-3-to-11-4-broke-shared-instances/td-p/1563438<br>
+">[19]</a></sup> From an integration standpoint, ArcGIS Web Adaptor enables integration with corporate identity providers and reverse proxies, but it introduces dependencies on web server configuration, SSL, and CORS settings. OGC service consumption in the portal has authentication constraints that administrators must account for when federating external services.<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Web Adaptor, “Use ArcGIS Web Adaptor with portal,” https://enterprise.arcgis.com/en/web-adaptor/latest/install/iis/about-arcgis-web-adaptor-portal-htm.htm<br>
+">[11]</a></sup></p>
+<p>Enterprises deploying QGIS Server report few vendor‑specific upgrade constraints, but they must operate and secure the surrounding stack themselves. The main complexities involve Linux web server setup, enabling WMS/WFS/WCS correctly, and ensuring version alignment across external Processing providers. In practice, the administrative workload maps to standard Linux service management rather than product‑specific upgrade choreography.<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="QGIS Documentation, “QGIS Server Guide/Manual,” https://docs.qgis.org/latest/en/docs/server_manual/index.html<br>
+">[5]</a></sup></p>
+<h2 id="cost-and-procurement-implications"><a class="markdownIt-Anchor" href="#cost-and-procurement-implications"></a> Cost and procurement implications</h2>
+<p>ArcGIS Enterprise requires licensed user types and, optionally, user‑type extensions and functional extensions. Exact pricing for Enterprise is typically by quote, while ArcGIS Online user‑type pricing is published and indicative of the per‑user model. Organizations often weigh the convenience and support of a single‑vendor platform against recurring subscription costs and extension fees. QGIS has zero licensing cost by design, with optional support engagements procured separately. The economic profile therefore depends on whether an organization values packaged, vendor‑supported capabilities or prefers assembling an open stack to reduce recurring fees.<sup id="fnref:14"><a href="#fn:14" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="Esri, “User Types to License ArcGIS,” https://www.esri.com/en-us/arcgis/products/user-types/overview<br>
+">[14]</a></sup></p>
+<h2 id="trade-offs"><a class="markdownIt-Anchor" href="#trade-offs"></a> Trade-offs</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>ArcGIS Enterprise</th>
+<th>QGIS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>Integrated Web GIS with Portal, Server, Data Store, Web Adaptor</td>
+<td>Modular: Desktop + QGIS Server + PostGIS + web frameworks</td>
+</tr>
+<tr>
+<td><strong>Licensing</strong></td>
+<td>Named user licensing, quote-based pricing</td>
+<td>GNU GPL, free to use and distribute</td>
+</tr>
+<tr>
+<td><strong>Data formats</strong></td>
+<td>Optimized for File Geodatabase and Esri formats</td>
+<td>GDAL/OGR support for wide range of open formats, GeoPackage</td>
+</tr>
+<tr>
+<td><strong>Server processing</strong></td>
+<td>Built-in GeoAnalytics and Image Server for distributed analysis</td>
+<td>Database-centric (PostGIS) or custom WPS implementations</td>
+</tr>
+<tr>
+<td><strong>Platform support</strong></td>
+<td>Windows only (ArcGIS Pro)</td>
+<td>Cross-platform: Windows, macOS, Linux</td>
+</tr>
+<tr>
+<td><strong>Extensibility</strong></td>
+<td>Licensed extensions (Spatial Analyst, 3D Analyst, etc.)</td>
+<td>Open plugin ecosystem, community-maintained</td>
+</tr>
+<tr>
+<td><strong>Web services</strong></td>
+<td>REST + OGC services</td>
+<td>OGC-first (WMS, WFS, WCS, WMTS)</td>
+</tr>
+<tr>
+<td><strong>Administrative overhead</strong></td>
+<td>Component upgrades, certificates, web adaptor configuration</td>
+<td>Linux service management, version alignment across tools</td>
+</tr>
+<tr>
+<td><strong>Support model</strong></td>
+<td>Single vendor with lifecycle guarantees</td>
+<td>Community-driven with optional commercial support contracts</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Deployment model:</strong> ArcGIS Enterprise offers an integrated Web GIS with first‑class server‑side analytics and a managed content portal. QGIS delivers standards‑compliant map and feature services and relies on open components for identity, portals, and distributed processing. The former reduces assembly work at the cost of product‑specific administration; the latter increases assembly work in exchange for modularity.</p>
+</li>
+<li>
+<p><strong>Interoperability:</strong> Both stacks speak OGC well, and both can consume each other’s services. ArcGIS adds a proprietary REST and service model that is deep within its ecosystem; QGIS leans on OGC and open formats by default. The practical consideration is whether core data and services must remain vendor‑neutral.</p>
+</li>
+<li>
+<p><strong>Data and extensibility:</strong> ArcGIS’s geodatabase stack and commercial extensions provide broad functionality in a single environment. QGIS offers a large plugin ecosystem and open data pathways via GDAL and PostGIS. The choice is between licensed, tightly integrated extensions and open, community‑maintained capabilities.</p>
+</li>
+<li>
+<p><strong>Operations:</strong> ArcGIS Enterprise centralizes heavy analysis operations and enforces a cohesive security and sharing model. It also demands patching, coordinated upgrades, and attention to web adaptors and certificates. QGIS stacks inherit the operational profile of their chosen web server and database and tend to fail open in terms of interchange formats, but they lack a canonical vendor‑supported portal.</p>
+</li>
+<li>
+<p><strong>Desktop environment:</strong> ArcGIS Pro is Windows‑only and deeply tied to named user licensing. QGIS is cross‑platform and license‑agnostic, which is useful for Linux or mixed fleets.<sup id="fnref:13"><a href="#fn:13" rel="footnote"><span class=“hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label="ArcGIS Pro, “ArcGIS Pro 3.5 system requirements,” https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-system-requirements.htm<br>
+">[13]</a></sup></p>
+</li>
+</ul>
+<h2 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h2>
+<p>Both approaches meet the fundamental GIS mission of managing, analyzing, and visualizing spatial data. ArcGIS Enterprise supplies a comprehensive Web GIS with built‑in server‑side analytics and a managed portal, trading increased administrative complexity and licensing costs for integration and support. A QGIS‑based stack provides open components, strong OGC alignment, and low software cost, trading tighter product integration for modular assembly and community‑driven extensibility. Selection typically follows organizational priorities around governance, total cost of ownership, platform standards, and the need for packaged server‑side analytics versus database‑centric or custom pipelines.</p>
+<h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Wikipedia, "Geographic information system," https://en.wikipedia.org/wiki/Geographic_Information_System<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Enterprise, "What is ArcGIS Enterprise?" https://enterprise.arcgis.com/en/get-started/11.1/windows/what-is-arcgis-enterprise-.htm<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Image Server, "Configure and deploy raster analytics," https://enterprise.arcgis.com/en/image/latest/raster-analytics/configure-and-deploy-arcgis-enterprise-for-raster-analytics.htm<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">QGIS Documentation, "Services," https://docs.qgis.org/latest/en/docs/server_manual/services.html<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">QGIS Documentation, "QGIS Server Guide/Manual," https://docs.qgis.org/latest/en/docs/server_manual/index.html<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Server, "WMS services," https://enterprise.arcgis.com/en/server/latest/publish-services/linux/wms-services.htm<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">BAS Geospatial Guides, "Loading Esri Feature Layers in QGIS," https://guides.geospatial.bas.ac.uk/using-mapping-data-services/bas-mapping-services/loading-esri-feature-layers-in-qgis<a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Esri Support, "ArcMap Life Cycle," https://support.esri.com/en-us/products/arcmap/life-cycle<a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Wikipedia, "QGIS," https://en.wikipedia.org/wiki/QGIS<a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Enterprise, "Upgrade ArcGIS Enterprise," https://enterprise.arcgis.com/en/get-started/11.4/windows/upgrade-arcgis-enterprise.htm<a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Web Adaptor, "Use ArcGIS Web Adaptor with portal," https://enterprise.arcgis.com/en/web-adaptor/latest/install/iis/about-arcgis-web-adaptor-portal-htm.htm<a href="#fnref:11" rev="footnote"> ↩</a></span></li><li id="fn:12"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">12.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">QGIS, "Download," https://qgis.org/download/<a href="#fnref:12" rev="footnote"> ↩</a></span></li><li id="fn:13"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">13.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Pro, "ArcGIS Pro 3.5 system requirements," https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-system-requirements.htm<a href="#fnref:13" rev="footnote"> ↩</a></span></li><li id="fn:14"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">14.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Esri, "User Types to License ArcGIS," https://www.esri.com/en-us/arcgis/products/user-types/overview<a href="#fnref:14" rev="footnote"> ↩</a></span></li><li id="fn:15"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">15.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">QGIS Documentation, "Complying with Licenses," https://docs.qgis.org/latest/en/docs/about/license/index.html<a href="#fnref:15" rev="footnote"> ↩</a></span></li><li id="fn:16"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">16.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Pro, "File geodatabases," https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/manage-file-gdb/file-geodatabases.htm<a href="#fnref:16" rev="footnote"> ↩</a></span></li><li id="fn:17"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">17.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">GDAL, "GDAL documentation," https://gdal.org/<a href="#fnref:17" rev="footnote"> ↩</a></span></li><li id="fn:18"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">18.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">ArcGIS Pro, "Geoprocessing services," https://pro.arcgis.com/en/pro-app/3.3/help/analysis/geoprocessing/share-analysis/what-is-a-geoprocessing-service.htm<a href="#fnref:18" rev="footnote"> ↩</a></span></li><li id="fn:19"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">19.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Esri Community, "Upgrade from 11.3 to 11.4 broke shared instances," https://community.esri.com/t5/arcgis-enterprise-questions/upgrade-from-11-3-to-11-4-broke-shared-instances/td-p/1563438<a href="#fnref:19" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+</article>
+
+    </main>
+        <footer>
+    <p>This blog was made with <a href="https://hexo.io/">Hexo</a> and <a href="https://simplecss.org">Simple.css</a>.<br>
+    Content is available under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 </a> unless noted otherwise.</p>
+    <p>
+
+        <a href="/atom.xml">
+        <svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 -1 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M4.259 23.467c-2.35 0-4.259 1.917-4.259 4.252 0 2.349 1.909 4.244 4.259 4.244 2.358 0 4.265-1.895 4.265-4.244-0-2.336-1.907-4.252-4.265-4.252zM0.005 10.873v6.133c3.993 0 7.749 1.562 10.577 4.391 2.825 2.822 4.384 6.595 4.384 10.603h6.16c-0-11.651-9.478-21.127-21.121-21.127zM0.012 0v6.136c14.243 0 25.836 11.604 25.836 25.864h6.152c0-17.64-14.352-32-31.988-32z" transform="scale(0.46)"/></svg>RSS Feed</a>
+
+    • <a href="https://github.com/madnight/blog"><svg class="icon" aria-hidden="true" width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" fill="currentColor"/>
+</svg>Source</a>
+    </p>
+    </footer>
+
+    </body>
+</html>
