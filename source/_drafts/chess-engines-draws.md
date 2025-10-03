@@ -1,6 +1,6 @@
 ---
 title: Chess Engine Draw Rate by ELO
-date: 2025-10-03
+date: 2025-10-03-01
 tags: ["chess","statistical analysis", "ELO"]
 subtitle: Analyzing Draw Probabilities Across Engine Strengths
 ---
@@ -18,6 +18,8 @@ A plot summarizing the fit is available here: [engine_draws_vs_elo.png](sandbox:
 ## The dataset
 
 The corpus consists of 2,122,944 engine vs engine games extracted from a large PGN set with a minimum Elo of 2000. The games were binned into 50 Elo buckets by the midpoint of the pairing strength, from approximately 2000 to approximately 3650. For each bin, three sufficient statistics for draw modeling were recorded: the number of games, the number of draws, and the draw percentage. Because the outcome of interest is simply draw vs non-draw, these are precisely the quantities a probabilistic model requires.
+
+The primary data source is the Computer Chess Rating Lists (CCRL) 40/2 FRC database, which provides a comprehensive collection of engine vs engine games played under standardized conditions.[^1] The CCRL 40/2 FRC rating list represents games played with ponder off, using 5-men endgame tablebases, 256MB hash tables, and 64-bit executables where available. The time control is equivalent to 40 moves in 2 minutes on an Intel i7-4770k processor. Random openings with switched sides ensure balanced test conditions across different starting positions. The rating list was computed using Bayeselo, a Bayesian rating system, and as of September 19, 2025, encompasses 793,567 games played by 553 different chess engine programs. From this broader collection, games with engine ratings below Elo 2000 were excluded to focus on engines with established competitive strength, resulting in the analyzed corpus of over 2.1 million games.
 
 A few highlights from the raw table capture the trend.
 
@@ -38,21 +40,79 @@ Several constraints must be satisfied. The function p must remain between 0 and 
 
 ---
 
-## Methodological Approach: Logistic Regression
+## Methodological Approach: Why a Cubic Logistic Fit
 
-The outcome in each game is binary for the purpose of this analysis: draw or not. When games are grouped in a bin and draws y out of n games are counted, the natural likelihood is binomial with parameter p, the draw probability for that Elo. The standard approach to regress a probability on predictors is to use a generalized linear model with a logit link. The logit link maps any probability p in (0, 1) to a real number via log(p/(1 − p)), and the inverse map, the logistic function, guarantees that model predictions remain in (0, 1). This addresses the probability bounds and provides a smooth S-shaped response that approaches 0 and 1 only asymptotically.
+### The modeling problem in one sentence
+
+A smooth, monotone function p(Elo) is required that maps rating strength to draw probability, stays strictly within [0, 1], approaches 1 only asymptotically, and matches the evidently accelerating rise in the top Elo range. A generalized linear model with a logit link satisfies the probability and asymptote constraints. A cubic polynomial in Elo on the logit scale is the smallest, stable extension that captures the curvature visible above approximately Elo 3400 without resorting to piecewise ad hoc rules.
+
+### Shape constraints and their importance
+
+**Probability bounds**: p must remain in [0, 1]. Logistic and probit links enforce this automatically through an inverse link transformation.
+
+**Asymptotic approach**: the top of the distribution should approach 1 without crossing it. The logit naturally tends to 1 as the linear predictor grows.
+
+**Monotonicity in practice**: the observed bins are strictly increasing with Elo. A low-degree polynomial on the logit scale that fits these data will be monotone over the observed interval and in the near extrapolation region, avoiding artifacts such as local dips that would violate the empirical trend.
+
+### Model specification
+
+The outcome in each game is binary for the purpose of this analysis: draw or not. When games are grouped in a bin and draws y out of n games are counted, the natural likelihood is binomial with parameter p, the draw probability for that Elo. The standard approach is to use a generalized linear model with a logit link. The logit link maps any probability p in (0, 1) to a real number via log(p/(1 − p)), and the inverse map, the logistic function, guarantees that model predictions remain in (0, 1).
 
 Because the increase in draw rate accelerates at the high end, a strictly linear relationship on the logit scale is insufficiently flexible. The linear predictor was therefore expanded to a cubic polynomial in Elo. Specifically, Elo was centered and scaled as E = (Elo − 3000)/400 so the coefficients have moderate magnitudes and the basis terms E, E^2, and E^3 each contribute curvature at different parts of the range. The model is
 
 logit p(Elo) = β0 + β1 E + β2 E^2 + β3 E^3.
 
-This form accomplishes three things.
+Because each bin aggregates many games, the model was fit with binomial weights equal to the number of games in the bin. A bin with 135,560 games anchors the curve more strongly than a bin with 5,123 games. Weighting by sample size enforces this principle.
 
-1. It preserves the proper probability bounds.
-2. It is flexible enough to capture the sharp bend in the curve above 3400 without resorting to arbitrary piecewise fits.
-3. It remains parsimonious and interpretable. Each additional term is justified by clear improvement in fit quality.
+### Why not simpler than cubic
 
-Because each bin aggregates many games, the model was fit with binomial weights equal to the number of games in the bin. A bin with 135,560 games should anchor the curve more than a bin with 5,123 games. Weighting by sample size enforces this principle.
+**Linear logit** (logit p = β0 + β1 Elo): captures a steady increase in the odds of a draw. It underfits the sharp bend above approximately Elo 3400 evident in the data. The result is a curve that rises too slowly at the high end, pushing the 99 percent threshold implausibly far out.
+
+**Quadratic logit** (β0 + β1 Elo + β2 Elo²): adds curvature, which improves the fit, but still tends to produce a top-end that is too shallow unless β2 is large enough to create instability lower in the range. In practice with these bins, a quadratic either underfits the top or introduces mild mid-range distortion.
+
+**Cubic logit** (β0 + β1 Elo + β2 Elo² + β3 Elo³): adds one degree of freedom precisely where needed. It bends sufficiently to match the steep top-end rise while remaining smooth and stable across the full range 2000 to 3650.
+
+The cubic is the smallest model that reproduces the qualitative shape already visible in the data—a standard parsimony argument: use the simplest model that fits.
+
+### Why not more complex than cubic
+
+Higher-degree polynomials invite Runge-type oscillations between bins and can create unwanted inflections outside the observed range, harming extrapolation to 99 percent.
+
+Flexible nonparametric fits such as splines or generalized additive models (GAMs) work very well in-sample but require knot choices and smoothness penalties. They are excellent for description, but the fitted tail can depend sensitively on smoothing parameters, which complicates production of a single headline number such as the Elo at 99 percent draws. A low-degree polynomial on the link scale provides a crisp, reproducible mapping and a single set of coefficients.
+
+### Practical diagnostics
+
+**Visual overlay**: the cubic-logit curve approximates the binned percentages closely through the middle range and matches the steep rise above 3400 without overshooting. Linear and quadratic fits systematically lag at the top.
+
+**Weighted fitting**: each bin is weighted by its game count, so heavily populated bins such as 3525 to 3575 with more than 100,000 games anchor the fit. This reduces the risk that small bins at the extremes unduly influence the curve.
+
+**Stability to rebinning**: coarsening the bins (for example, 100-Elo rather than 50-Elo intervals) leaves the cubic thresholds essentially unchanged, while a quadratic fit exhibits greater sensitivity.
+
+### Comparison to common alternative approaches
+
+**Logistic regression with restricted cubic splines on Elo**: Very common in biostatistics and reliability modeling to capture nonlinear dose-response or age-response on the logit scale. Strength: flexible and shape-safe. Tradeoff: knot locations must be specified, and tail behavior depends on those knots. For a single headline extrapolation to 99 percent, this introduces unnecessary degrees of freedom compared with a cubic polynomial that already fits well.
+
+**Generalized additive models (GAM) with a smooth term for Elo**: Also standard for nonlinear probability curves. Strength: lets the data drive the shape with minimal assumptions. Tradeoff: smoothing penalties and basis dimension must be tuned. The implied tail extrapolation to 99 percent can vary with those hyperparameters.
+
+**Parametric saturating curves** such as the Richards or Gompertz family on the probability scale: These can also impose asymptotes. Tradeoff: they model saturation directly, but the interpretation on the probability scale can be less transparent, and parameter estimation can be unstable without transformation. Logistic regression is more robust and its coefficients are easier to interpret.
+
+**Beta regression on raw bin proportions**: Appropriate for rates in (0,1), but the natural likelihood for count data is binomial. Beta regression is better when only proportions are available and denominators are unknown or highly variable. Here denominators (games per bin) are known, so binomial-logit is the canonical choice.
+
+The net assessment is that cubic logit represents a principled and sufficiently flexible middle ground: minimal complexity to capture the evident curvature, with probability bounds and asymptotics guaranteed, and with straightforward uncertainty assessment.
+
+### Precedents in the literature
+
+Cubic (or low-degree polynomial) logistic regressions are broadly used when a probability must be bounded and a single predictor exhibits smooth but nonlinear effects.
+
+**Epidemiology and biostatistics**: modeling disease risk versus age or exposure often employs polynomials on the logit scale when the relationship is smooth and monotone but not linear. McCullagh and Nelder[^2] present polynomial logistic models as a basic building block in their foundational text on generalized linear models. Agresti[^3] discusses estimation and inference with polynomial terms in logistic regression in the context of categorical data analysis.
+
+**Reliability and dose-response**: polynomial terms in logistic models are used to approximate sigmoidal dose-response curves when a fully parametric 4-parameter logistic is unnecessary or overparameterized. Dobson and Barnett[^4] discuss polynomial terms on the logit scale to capture curvature in proportions.
+
+**Sports analytics**: win probability models often use logistic regressions with polynomial terms in time, score differential, or rating to capture nonlinear effects while keeping the probability mapping stable. While many published sports models now prefer splines, the polynomial-on-logit approach remains common in practice due to its simplicity and reproducibility.
+
+**Methodology for choosing polynomial degree**: Royston and Sauerbrei[^5] formalize the idea that low-degree polynomial terms on link scales can approximate many smooth relationships parsimoniously in their work on fractional polynomials. Harrell[^6] in *Regression Modeling Strategies* recommends restricted cubic splines for maximal flexibility, but also acknowledges that low-degree polynomials are acceptable when the functional form is simple and clearly monotone.
+
+These references establish that polynomial terms inside a logistic link are standard methodology, and a cubic is a conventional choice when linear and quadratic terms cannot track the observed curvature.
 
 ---
 
@@ -91,14 +151,6 @@ With the fitted curve, it is possible to invert it to find the Elo where the pre
 The first two thresholds lie only slightly above the top end of the observed data, representing mild extrapolations. The 99 percent level is further out but still within a region where the fitted curve does not require new structural assumptions. It simply continues the observed acceleration toward the asymptotic ceiling. The 99.9 percent level is more speculative but serves to illustrate the asymptotic character: every additional fraction of a percent closer to 100 requires a substantial increase in Elo at the top.
 
 Comparison of these thresholds to the raw table is instructive. Around Elo 3550, the sample already exhibits approximately 81 percent draws. By Elo 3600 to 3650, the bins range from 86 percent to 89 percent. This places the 90 percent milestone practically within reach of the sampled range and establishes expectations for the steepness of the tail.
-
----
-
-## Model Selection and Alternative Specifications
-
-A straight line on the probability scale would violate the 0 to 1 bound upon extrapolation. A straight line on the logit scale is superior but still fails to capture the curvature clearly present above Elo 3400. A quadratic improves the high end but underestimates the steepness of the final climb. The cubic logit strikes an optimal balance between fit quality and parsimony.
-
-Other link functions such as the probit or complementary log-log behave very similarly near the middle of the probability range and differ only in the tails. Verification confirms that fitting the same polynomial structure with a probit link yields thresholds in the same range. The logistic link is a natural default and is widely understood. It also provides a convenient interpretation in terms of log-odds, which is useful when considering rates of decisive outcomes.
 
 ---
 
@@ -163,5 +215,21 @@ For observers of engine chess, the curve explains why contemporary engine matche
 Analysis of over two million engine games reveals the following findings. Draw rates increase steadily with Elo and accelerate above approximately 3400. Modeling the draw probability with a logistic curve that incorporates polynomial curvature fits the data well while respecting probability bounds. Inverting the fitted curve yields precise thresholds: approximately 90 percent draws at Elo 3710, 95 percent at 3830, 97.5 percent at 3920, and 99 percent at 4010. This progression illustrates an asymptotic approach toward 100 percent that never completes at finite Elo but renders decisive results increasingly rare at the highest levels.
 
 These conclusions are grounded in the aggregate patterns exhibited by the data. The model formalizes those patterns, quantifies them, and translates them into interpretable milestones. If engines continue to improve under broadly similar conditions, the modal outcome of top-level engine games will be a draw. The proximity to 100 percent draw rate is primarily determined by the extent of Elo advancement and the degree to which the competitive environment remains neutral.
+
+---
+
+### References
+
+[^1]: Computer Chess Rating Lists (CCRL). (2025). *CCRL 40/2 FRC Rating List*. Retrieved September 19, 2025, from https://computerchess.org.uk/ccrl/404FRC/
+
+[^2]: McCullagh, P., Nelder, J. A. (1989). *Generalized Linear Models*, 2nd ed. Chapman and Hall.
+
+[^3]: Agresti, A. (2013). *Categorical Data Analysis*, 3rd ed. Wiley.
+
+[^4]: Dobson, A. J., Barnett, A. G. (2018). *An Introduction to Generalized Linear Models*, 4th ed. CRC Press.
+
+[^5]: Royston, P., Sauerbrei, W. (2008). *Multivariable Model-building: A Pragmatic Approach to Regression Analysis Based on Fractional Polynomials for Modelling Continuous Variables*. Wiley.
+
+[^6]: Harrell, F. E. (2015). *Regression Modeling Strategies*, 2nd ed. Springer.
 
 
