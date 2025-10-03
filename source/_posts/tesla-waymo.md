@@ -3,6 +3,8 @@ title: Tesla vs. Waymo
 date: 2025-10-01
 tags: ["artificial intelligence", "tesla", "waymo", "autonomous driving"]
 subtitle: Two different approaches to full self-driving
+categories:
+  - Computer Science
 ---
 
 # Introduction
