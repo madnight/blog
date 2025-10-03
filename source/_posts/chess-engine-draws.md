@@ -3,6 +3,8 @@ title: Chess Engine Draw Rates
 date: 2025-10-03-01
 tags: ["chess","statistical analysis", "ELO"]
 subtitle: Analyzing the Probability of Draws with Increasing Engine Strength
+categories:
+  - Computer Science
 ---
 
 An analysis of over two million engine games reveals that as chess engines increase in strength, their games end in draws with increasing frequency. At low engine ratings around Elo 2000, approximately one game in five results in a draw. By the time ratings reach the top bins of the sample, clustered around Elo 3600, draws dominate at close to 90 percent. After fitting a statistically rigorous curve to the data, the best estimate indicates that the draw rate would reach **99 percent around Elo 3990**. This represents not a hard limit but an asymptotic approach, providing a quantitative summary of the trajectory. The following sections present the dataset, the choice of stochastic model, validation procedures, main results, and their interpretation.

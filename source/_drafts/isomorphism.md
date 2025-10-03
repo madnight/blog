@@ -4,6 +4,10 @@ date: 2023-10-15
 tags: ["category theory", "haskell"]
 subtitle: A Morphism with Inverse
 mathjax: true
+categories:
+  - Computer Science
+---
+
 ---
 {% raw %}
 <script>

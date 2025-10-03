@@ -3,6 +3,8 @@ title: Kurt Gödel
 date: 2025-05-30
 tags: ["theoretical physics", "cosmology"]
 subtitle: Life, Work, and Legacy
+categories:
+  - Computer Science
 ---
 
 
