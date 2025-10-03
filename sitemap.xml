@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beuke.org/chess-engine-draws/</loc>
+    
+    <lastmod>2025-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/arcgis-qgis/</loc>
     
     <lastmod>2025-10-03</lastmod>
@@ -92,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/elm-json/</loc>
+    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -101,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/docker-alpine-wkhtmltopdf/</loc>
+    <loc>https://beuke.org/elm-json/</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -218,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
+    <loc>https://beuke.org/quantization/</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -227,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/quantization/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -439,20 +448,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/theoretical-physics/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/string-theory/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/arch/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -509,6 +504,20 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/theoretical-physics/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/string-theory/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/bspwm/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -558,6 +567,27 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/chess/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/statistical-analysis/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/ELO/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/storage/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -573,34 +603,6 @@
   
   <url>
     <loc>https://beuke.org/tags/benchmark/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/big-bang/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/elm/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/json/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/functional-programming/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -635,6 +637,48 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/big-bang/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/elm/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/json/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/functional-programming/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/quantum-field-theory/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/quantum-mechanics/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/github/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -650,20 +694,6 @@
   
   <url>
     <loc>https://beuke.org/tags/programming/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/quantum-field-theory/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/quantum-mechanics/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -768,13 +798,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/imperative/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/ranking/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -810,6 +833,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/imperative/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/quantum-mechancis/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -838,6 +868,20 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/timeseal/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/reverse-engineering/</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/tesla/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -853,27 +897,6 @@
   
   <url>
     <loc>https://beuke.org/tags/autonomous-driving/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/timeseal/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/chess/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/reverse-engineering/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
