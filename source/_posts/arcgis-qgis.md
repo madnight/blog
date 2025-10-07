@@ -4,7 +4,7 @@ date: 2025-10-03
 tags: ["GIS", "ArcGIS", "QGIS"]
 categories:
   - Computer Science
-subtitle: GIS infrastructure solutions for enterprise environments
+subtitle: GIS Infrastructure Solutions for Enterprise Environments
 ---
 
 ## Introduction
