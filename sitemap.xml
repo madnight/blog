@@ -227,15 +227,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/pure-imperative-haskell/</loc>
-    
-    <lastmod>2025-09-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/quantization/</loc>
     
     <lastmod>2025-09-30</lastmod>
@@ -245,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/rag/</loc>
+    <loc>https://beuke.org/pure-imperative-haskell/</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -255,6 +246,15 @@
   
   <url>
     <loc>https://beuke.org/semigroup/</loc>
+    
+    <lastmod>2025-09-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/rag/</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -504,14 +504,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/cosmology/</loc>
+    <loc>https://beuke.org/tags/thought-experiment/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/thought-experiment/</loc>
+    <loc>https://beuke.org/tags/cosmology/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -812,13 +812,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/imperative/</loc>
-    <lastmod>2025-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/artificial-intelligence/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -834,6 +827,13 @@
   
   <url>
     <loc>https://beuke.org/tags/LLM/</loc>
+    <lastmod>2025-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/imperative/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
