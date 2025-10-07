@@ -8,7 +8,7 @@ categories:
 ---
 
 <audio controls>
-  <source src="/audio/twistor.mp3" type="audio/mpeg">
+  <source src="/audio/nnue.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
@@ -62,7 +62,7 @@ Garry Kasparov, who famously was the first world champion defeated by a computer
 
 Players like Vishwanathan Anand and Fabiano Caruana have also discussed how the engine landscape changed around 2018-2020. Caruana mentioned that the "rate of improvement [in engines] is amazing" and that by 2021 the level of preparation with engines had become astronomically high[^7]. He noted that mistakes in analysis that might have occurred a few years ago "would never happen, three years later" because the neural-net-enhanced engines "spot it instantly"[^7]. This underscores that modern engines (Stockfish NNUE, Leela, etc.) have improved so much that top humans rely on them to double-check every line. Ding Liren and Ian Nepomniachtchi, who contested the 2023 World Championship, both prepared with a combination of Stockfish (with NNUE) and Leela, often cross-verifying critical positions with both types of engines to gather diverse insights.
 
-In practical terms, neural network engines have influenced top GMs in areas like opening preparation and positional understanding. Neural net chess engines introduced a wealth of unorthodox opening ideas, some lines once considered dubious were found to be playable thanks to deep neural eval, and vice versa. For instance, neural nets often favor dynamic piece activity over material, leading to a re-examination of gambit lines or long-term sacrifices. Grandmasters have incorporated many of these engine-approved ideas into their repertoires. Additionally, studying the games played between Stockfish and Leela (in events like TCEC) has become a way for GMs to enrich their intuition. As one article noted, "every serious chess player - amateur or professional - studies the games of these engines to expand their understanding."[^4] This sentiment is widely shared: the engine "sparring partners" are simply too strong and insightful to ignore.
+In practical terms, neural network engines have influenced top GMs in areas like opening preparation and positional understanding. Neural network chess engines introduced a wealth of unorthodox opening ideas, some lines once considered dubious were found to be playable thanks to deep neural eval, and vice versa. For instance, neural nets often favor dynamic piece activity over material, leading to a re-examination of gambit lines or long-term sacrifices. Grandmasters have incorporated many of these engine-approved ideas into their repertoires. Additionally, studying the games played between Stockfish and Leela (in events like TCEC) has become a way for GMs to enrich their intuition. As one article noted, "every serious chess player - amateur or professional - studies the games of these engines to expand their understanding."[^4] This sentiment is widely shared: the engine "sparring partners" are simply too strong and insightful to ignore.
 
 ## Conclusion
 
@@ -82,14 +82,14 @@ The story of NNUE is ultimately one of collaboration and innovation, showing how
 
 [^2]: ChessProgramming Wiki. "NNUE." https://www.chessprogramming.org/NNUE
 
-[^3]: Stockfish Chess. "Stockfish 12." https://stockfishchess.org/
+[^3]: Stockfish Chess. "Introducing NNUE Evaluation." https://stockfishchess.org/blog/2020/introducing-nnue-evaluation/
 
 [^4]: ChessWorld.net. "Leela Chess Zero and Engine Analysis." https://chessworld.net/
 
-[^5]: Reddit. "Magnus Carlsen on Leela Chess Zero." https://reddit.com/
+[^5]: Reddit. "Magnus Carlsen interview: Chess intuition, alcohol." https://www.reddit.com/r/chess/comments/p7d4he/magnus_carlsen_interview_chess_intuition_alcohol/
 
-[^6]: Glasp. "Carlsen on AlphaZero." https://glasp.co/
+[^6]: Glasp. "Carlsen on AlphaZero." https://glasp.co/youtube/z_wXRCMY1nE
 
-[^7]: Chess.com. "World Championship Preparation and Engine Development." https://chess.com/
+[^7]: Chess.com. "Fabiano Caruana On Playing A World Championship, On Carlsen-Nepomniachtchi, And More." https://www.chess.com/news/view/fabiano-caruana-interview-carlsen-nepomniachtchi
 
-[^8]: The Guardian. "Kasparov on AlphaZero and Machine Creativity." https://theguardian.com/
+[^8]: The Guardian. "'Creative' AlphaZero leads way for chess computers and, maybe, science." https://www.theguardian.com/sport/2018/dec/11/creative-alphazero-leads-way-chess-computers-science
