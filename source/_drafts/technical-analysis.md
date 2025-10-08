@@ -66,7 +66,7 @@ As a special case of chart patterns, candlestick charting (originating from Japa
 
 In practice, technical analysts will often combine multiple tools to improve reliability. For instance, they might notice a bullish chart pattern and confirm that an oscillator like RSI is showing oversold conditions before buying. By using several indicators or pattern signals together, traders try to filter out false signals (noise) and increase confidence in their decisions. There is an art to this, as using too many indicators can lead to conflicting information or "analysis paralysis." Ultimately, technical analysis is a toolkit: some practitioners may favor pure visual chart reading, drawing trend lines and recognizing patterns by eye, whereas others may rely heavily on computed indicators or even automated pattern-recognition software. Despite the variety of methods, all share the common goal of using historical market behavior to anticipate future price movements, under the assumption that identifiable patterns and trends will recur.
 
-## Assumptions vs. Academic Theories: Debates and Criticisms
+## Academic Debate
 
 Technical analysis has long been a subject of debate in the finance community. Supporters argue that it provides valuable insight into market psychology and timing, while critics contend that it lacks a sound theoretical foundation and empirical consistency. Several key points highlight this ongoing debate.
 
