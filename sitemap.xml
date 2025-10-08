@@ -470,6 +470,27 @@
 
   
   <url>
+    <loc>https://beuke.org/tags/GIS/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/ArcGIS/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/QGIS/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/theoretical-physics/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -478,20 +499,6 @@
   
   <url>
     <loc>https://beuke.org/tags/string-theory/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/category-theory/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/haskell/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -519,21 +526,14 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/GIS/</loc>
+    <loc>https://beuke.org/tags/category-theory/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/ArcGIS/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/QGIS/</loc>
+    <loc>https://beuke.org/tags/haskell/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -582,27 +582,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/theorem-proving/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/proof-theory/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/coq/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/chess/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -645,6 +624,27 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/theorem-proving/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/proof-theory/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/coq/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/docker/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -673,13 +673,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/big-bang/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/elm/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -695,6 +688,27 @@
   
   <url>
     <loc>https://beuke.org/tags/functional-programming/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/big-bang/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/quantum-field-theory/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/quantum-mechanics/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -758,20 +772,6 @@
   
   <url>
     <loc>https://beuke.org/tags/cloud-engineering/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/quantum-field-theory/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/quantum-mechanics/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -862,6 +862,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/imperative/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/GPT/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -876,13 +883,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/imperative/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/quantum-mechancis/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -891,6 +891,41 @@
   
   <url>
     <loc>https://beuke.org/tags/philosophy/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/terminal/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/latency/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/tesla/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/waymo/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/autonomous-driving/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -918,20 +953,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/terminal/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/latency/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/timeseal/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -945,38 +966,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://beuke.org/tags/tesla/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/waymo/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/autonomous-driving/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://beuke.org/categories/Theoretical-Physics/</loc>
+    <loc>https://beuke.org/categories/Computer-Science/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beuke.org/categories/Computer-Science/</loc>
+    <loc>https://beuke.org/categories/Theoretical-Physics/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
