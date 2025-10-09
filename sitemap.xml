@@ -479,6 +479,20 @@
 
   
   <url>
+    <loc>https://beuke.org/tags/theoretical-physics/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/string-theory/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/category-theory/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -508,20 +522,6 @@
   
   <url>
     <loc>https://beuke.org/tags/upgrades/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/theoretical-physics/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/string-theory/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -682,6 +682,13 @@
   </url>
   
   <url>
+    <loc>https://beuke.org/tags/big-bang/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://beuke.org/tags/elm/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -697,13 +704,6 @@
   
   <url>
     <loc>https://beuke.org/tags/functional-programming/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/big-bang/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -801,20 +801,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/abstract-algebra/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/monads/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/kafka/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -830,6 +816,20 @@
   
   <url>
     <loc>https://beuke.org/tags/analysis/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/abstract-algebra/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/monads/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -913,20 +913,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/terminal/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/latency/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/finance/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -942,6 +928,20 @@
   
   <url>
     <loc>https://beuke.org/tags/trading/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/terminal/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/latency/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -985,14 +985,14 @@
 
   
   <url>
-    <loc>https://beuke.org/categories/Computer-Science/</loc>
+    <loc>https://beuke.org/categories/Theoretical-Physics/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beuke.org/categories/Theoretical-Physics/</loc>
+    <loc>https://beuke.org/categories/Computer-Science/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
