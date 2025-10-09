@@ -168,7 +168,11 @@ details {
 }
 
 summary {
-    padding-top: 0rem;
+    cursor: pointer;
+    font-weight: 700;
+    padding: .0rem 1rem;
+    margin: -.7rem -1rem;
+    word-break: break-all;
 }
 
 details[open] > summary {
