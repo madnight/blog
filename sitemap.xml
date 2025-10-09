@@ -507,27 +507,6 @@
   </url>
   
   <url>
-    <loc>https://beuke.org/tags/arch/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/linux/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beuke.org/tags/upgrades/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beuke.org/tags/GIS/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -557,6 +536,27 @@
   
   <url>
     <loc>https://beuke.org/tags/cosmology/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/arch/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/linux/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beuke.org/tags/upgrades/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

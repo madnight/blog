@@ -55,14 +55,14 @@ https://beuke.org/tags/theoretical-physics/
 https://beuke.org/tags/string-theory/
 https://beuke.org/tags/category-theory/
 https://beuke.org/tags/haskell/
-https://beuke.org/tags/arch/
-https://beuke.org/tags/linux/
-https://beuke.org/tags/upgrades/
 https://beuke.org/tags/GIS/
 https://beuke.org/tags/ArcGIS/
 https://beuke.org/tags/QGIS/
 https://beuke.org/tags/thought-experiment/
 https://beuke.org/tags/cosmology/
+https://beuke.org/tags/arch/
+https://beuke.org/tags/linux/
+https://beuke.org/tags/upgrades/
 https://beuke.org/tags/bspwm/
 https://beuke.org/tags/wm/
 https://beuke.org/tags/ricing/
