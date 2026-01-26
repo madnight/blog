@@ -9,6 +9,8 @@ categories:
 
 The Ralph Wiggum Loop is an informal label for a practical pattern used in AI agent implementations: run an AI agent in an iterative loop that repeatedly attempts a task, executes or checks the attempt against a concrete criterion, and feeds the resulting feedback back into the next attempt. Named after the infamously high-pitched, hapless yet persistent character from *The Simpsons*, the term evokes a style of persistence that continues despite frequent mistakes.
 
+<img src="/images/ralph-wiggum-loop.png" alt="Ralph Wiggum Loop" style="float: right; max-width: 340px; margin: 0 0 1em 1.5em;">
+
 Popularized in summer 2025, this pattern - and the philosophy behind it - gained significant attention in developer communities.[^1][^2] The term describes a minimal implementation (often a shell script or wrapper) that turns a conversational code assistant into a self-correcting, repeatedly-executing worker. The defining characteristic is not a new model or training method, but an engineering wrapper around an existing model: the wrapper captures failures (for example, test output or error logs), then re-prompts the model with that information until a stop condition is satisfied.
 
 Informally, the loop can be summarized as: the model proposes an action (often code changes), the system executes or validates the result, the system provides the failure signal back to the model in the next prompt, and this repeats until a predefined "done" condition is reached or a safety limit halts the run. In its simplest form, Huntley's canonical example is: `while :; do cat PROMPT.md | claude-code ; done` - a bash loop that feeds an AI's output (errors and all) back into itself until it produces the correct answer.[^4]
