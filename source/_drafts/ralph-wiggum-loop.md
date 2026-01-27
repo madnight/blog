@@ -1,11 +1,16 @@
 ---
 title: Ralph Wiggum Loop
-date: 2026-01-26
+date: 2026-01-27
 tags: ["artificial intelligence", "agentic systems", "LLM"]
 subtitle: Goal-Oriented Autonomous AI Agent Loops
 categories:
   - Computer Science
 ---
+
+<audio controls>
+  <source src="/audio/ralph-wiggum-loop.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 The Ralph Wiggum Loop is an informal label for a practical pattern used in AI agent implementations: run an AI agent in an iterative loop that repeatedly attempts a task, executes or checks the attempt against a concrete criterion, and feeds the resulting feedback back into the next attempt. Named after the infamously high-pitched, hapless yet persistent character from *The Simpsons*, the term evokes a style of persistence that continues despite frequent mistakes.
 
@@ -69,11 +74,11 @@ Its practical value is in converting single-shot assistants into persistent, too
 
 ## References
 
-[^1]: VentureBeat (2026). How Ralph Wiggum went from 'The Simpsons' to the biggest name in AI right now. https://venturebeat.com/ai/how-ralph-wiggum-went-from-the-simpsons-to-the-biggest-name-in-ai-right-now/
+[^1]: VentureBeat (2026). How Ralph Wiggum went from "The Simpsons" to the biggest name in AI right now. https://venturebeat.com/ai/how-ralph-wiggum-went-from-the-simpsons-to-the-biggest-name-in-ai-right-now/
 
-[^2]: Dev Interrupted (2025). Inventing the Ralph Wiggum Loop with Creator Geoffrey Huntley. https://devinterrupted.com/podcast/inventing-the-ralph-wiggum-loop-with-creator-geoffrey-huntley/
+[^2]: Dev Interrupted (2025). Inventing the Ralph Wiggum Loop with Creator Geoffrey Huntley. https://linearb.io/dev-interrupted/podcast/inventing-the-ralph-wiggum-loop
 
-[^3]: Ishir (2025). Ralph Wiggum AI Coding Loops: How Agentic Workflows Automate Software Development. https://ishir.com/blog/ralph-wiggum-ai-coding-loops-how-agentic-workflows-automate-software-development.htm
+[^3]: Ishir (2026). Ralph Wiggum and AI Coding Loops: From Springfield to Real-World Software Automation. https://www.ishir.com/blog/312751/ralph-wiggum-and-ai-coding-loops-from-springfield-to-real-world-software-automation.htm
 
 [^4]: Huntley, G. (2025). Ralph Wiggum as a "software engineer". https://ghuntley.com/ralph/
 
