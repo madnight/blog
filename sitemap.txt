@@ -1,3 +1,4 @@
+https://beuke.org/ralph-wiggum-loop/
 https://beuke.org/hn-ai-coverage/
 https://beuke.org/technical-analysis/
 https://beuke.org/python/README.html
@@ -56,11 +57,11 @@ https://beuke.org/tags/ArcGIS/
 https://beuke.org/tags/QGIS/
 https://beuke.org/tags/theoretical-physics/
 https://beuke.org/tags/string-theory/
+https://beuke.org/tags/category-theory/
+https://beuke.org/tags/haskell/
 https://beuke.org/tags/arch/
 https://beuke.org/tags/linux/
 https://beuke.org/tags/upgrades/
-https://beuke.org/tags/category-theory/
-https://beuke.org/tags/haskell/
 https://beuke.org/tags/thought-experiment/
 https://beuke.org/tags/cosmology/
 https://beuke.org/tags/bspwm/
@@ -84,12 +85,12 @@ https://beuke.org/tags/big-bang/
 https://beuke.org/tags/elm/
 https://beuke.org/tags/json/
 https://beuke.org/tags/functional-programming/
-https://beuke.org/tags/quantum-field-theory/
-https://beuke.org/tags/quantum-mechanics/
 https://beuke.org/tags/github/
 https://beuke.org/tags/bash/
 https://beuke.org/tags/programming/
 https://beuke.org/tags/operators/
+https://beuke.org/tags/quantum-field-theory/
+https://beuke.org/tags/quantum-mechanics/
 https://beuke.org/tags/hacker-news/
 https://beuke.org/tags/artificial-intelligence/
 https://beuke.org/tags/AWS/
@@ -97,12 +98,12 @@ https://beuke.org/tags/hetzner/
 https://beuke.org/tags/kubernetes/
 https://beuke.org/tags/fargate/
 https://beuke.org/tags/cloud-engineering/
+https://beuke.org/tags/python/
+https://beuke.org/tags/monads/
 https://beuke.org/tags/kafka/
 https://beuke.org/tags/novella/
 https://beuke.org/tags/analysis/
 https://beuke.org/tags/abstract-algebra/
-https://beuke.org/tags/monads/
-https://beuke.org/tags/python/
 https://beuke.org/tags/neural-networks/
 https://beuke.org/tags/astronomy/
 https://beuke.org/tags/planetary-science/
@@ -113,6 +114,7 @@ https://beuke.org/tags/GPT/
 https://beuke.org/tags/LLM/
 https://beuke.org/tags/quantum-mechancis/
 https://beuke.org/tags/philosophy/
+https://beuke.org/tags/agentic-systems/
 https://beuke.org/tags/terminal/
 https://beuke.org/tags/latency/
 https://beuke.org/tags/finance/
