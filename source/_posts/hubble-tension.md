@@ -8,7 +8,7 @@ categories:
 ---
 
 <audio controls>
-  <source src="/audio/hubble-constant.mp3" type="audio/mpeg">
+  <source src="/audio/hubble-tension.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
