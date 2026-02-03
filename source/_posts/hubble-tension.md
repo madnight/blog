@@ -1,5 +1,5 @@
 ---
-title: The Hubble Tension
+title: Hubble Tension
 date: 2026-02-03
 tags: ["cosmology", "astrophysics"]
 subtitle: A Tension Between Early-Universe and Late-Time Determinations of the Hubble Constant
